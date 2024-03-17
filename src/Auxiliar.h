@@ -8,9 +8,9 @@
 
 class Auxiliar {
 public:
-    static void readAirports(Graph& g);
-    static void readAirlines(Graph& g);
-    static void readFlights(Graph& g);
+    static void readReservoir(Graph& g);
+    static void readStations(Graph& g);
+    static void readCities(Graph& g);
 };
 
 

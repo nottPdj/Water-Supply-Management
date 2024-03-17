@@ -4,7 +4,7 @@
 
 #include "ServicePoint.h"
 
-ServicePoint<T>::ServicePoint(T in): info(in) {}
+ServicePoint::ServicePoint() {}
 /*
  * Auxiliary function to add an outgoing edge to a ServicePoint (this),
  * with a given destination ServicePoint (d) and edge weight (w).

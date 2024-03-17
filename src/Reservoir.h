@@ -9,13 +9,15 @@
 #include "ServicePoint.h"
 
 class Reservoir: private ServicePoint {
+public:
+    Reservoir(std::string name, std::string municipality, std::string id, std::string code, int maxDelivery);
+
+private:
     std::string name;
     std::string municipality;
     std::string id;
     std::string code;
     int maxDelivery;
-public:
-private:
 };
 
 

@@ -4,6 +4,10 @@
 #include <vector>
 #include "ServicePoint.h"
 #include "Pipe.h"
+#include "Reservoir.h"
+#include "Station.h"
+#include "City.h"
+
 class Graph {
 public:
     ~Graph();
@@ -38,6 +42,13 @@ public:
     bool isDAG() const;
     bool dfsIsDAG(ServicePoint<T> *v) const;
     std::vector<T> topsort() const;
+
+    void addReservoir(Reservoir *pReservoir);
+
+    void addStation(Station *pStation);
+
+    void addCity(City *pCity);
+
 protected:
     std::vector<ServicePoint *> ServicePointSet;    // ServicePoint set
 

@@ -9,10 +9,12 @@
 #include "ServicePoint.h"
 
 class Station: private ServicePoint {
+public:
+    Station(std::string id, std::string code);
+
+private:
     std::string id;
     std::string code;
-public:
-private:
 };
 
 

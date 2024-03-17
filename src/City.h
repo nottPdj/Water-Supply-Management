@@ -9,13 +9,14 @@
 #include "ServicePoint.h"
 
 class City: private ServicePoint {
+public:
+    City(std::string name, std::string id, std::string code, int demand, int population);
+private:
     std::string name;
     std::string id;
     std::string code;
     int demand;
     int population;
-public:
-private:
 
 };
 
