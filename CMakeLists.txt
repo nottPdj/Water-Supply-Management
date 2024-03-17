@@ -16,4 +16,6 @@ add_executable(Project1 main.cpp
         src/ServicePoint.h
         src/ServicePoint.cpp
         src/Auxiliar.cpp
-        src/Menu.cpp)
+        src/Menu.cpp
+        src/Management.h
+        src/Management.cpp)
