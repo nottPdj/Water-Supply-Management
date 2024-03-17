@@ -5,8 +5,8 @@
 
 class Management {
 public:
-    getMaxFlow();
-    getMaxFlowCity();
+    void getMaxFlow(); //guarda no vetor, chamar N vezes getMaxFlowCity para N cidades
+    int getMaxFlowCity(); //retorna e guarda do vetor (check se ja esta populado para essa cidade)
 };
 
 
