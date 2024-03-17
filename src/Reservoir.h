@@ -6,8 +6,16 @@
 #define PROJECT1_RESERVOIR_H
 
 
-class Reservoir {
+#include "ServicePoint.h"
 
+class Reservoir: private ServicePoint {
+    std::string name;
+    std::string municipality;
+    std::string id;
+    std::string code;
+    int maxDelivery;
+public:
+private:
 };
 
 

@@ -6,8 +6,13 @@
 #define PROJECT1_STATION_H
 
 
-class Station {
+#include "ServicePoint.h"
 
+class Station: private ServicePoint {
+    std::string id;
+    std::string code;
+public:
+private:
 };
 
 
