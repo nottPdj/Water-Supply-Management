@@ -4,40 +4,40 @@
 
 #include "Pipe.h"
 
-Pipe<T>::Pipe(ServicePoint<T> *orig, ServicePoint<T> *dest, double w): orig(orig), dest(dest), weight(w) {}
+Pipe::Pipe(ServicePoint *orig, ServicePoint *dest, double w): orig(orig), dest(dest), weight(w) {}
 
-ServicePoint<T> * Pipe<T>::getDest() const {
+ServicePoint * Pipe::getDest() const {
     return this->dest;
 }
 
-double Pipe<T>::getWeight() const {
-    return this->weight;
+double Pipe::getCapacity() const {
+    return this->capacity;
 }
 
-ServicePoint<T> * Pipe<T>::getOrig() const {
+ServicePoint * Pipe::getOrig() const {
     return this->orig;
 }
 
-Pipe<T> *Pipe<T>::getReverse() const {
+Pipe *Pipe::getReverse() const {
     return this->reverse;
 }
 
-bool Pipe<T>::isSelected() const {
+bool Pipe::isSelected() const {
     return this->selected;
 }
 
-double Pipe<T>::getFlow() const {
+double Pipe::getFlow() const {
     return flow;
 }
 
-void Pipe<T>::setSelected(bool selected) {
+void Pipe::setSelected(bool selected) {
     this->selected = selected;
 }
 
-void Pipe<T>::setReverse(Pipe<T> *reverse) {
+void Pipe::setReverse(Pipe *reverse) {
     this->reverse = reverse;
 }
 
-void Pipe<T>::setFlow(double flow) {
+void Pipe::setFlow(double flow) {
     this->flow = flow;
 }

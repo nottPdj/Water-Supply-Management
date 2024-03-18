@@ -10,18 +10,18 @@
 
 class Pipe {
 public:
-    Pipe(ServicePoint<T> *orig, ServicePoint<T> *dest, double w);
+    Pipe(ServicePoint *orig, ServicePoint *dest, double w);
 
-    ServicePoint<T> * getDest() const;
+    ServicePoint * getDest() const;
     double getCapacity() const;
     int getDirection();
     bool isSelected() const;
-    ServicePoint<T> * getOrig() const;
-    Pipe<T> *getReverse() const;
+    ServicePoint * getOrig() const;
+    Pipe *getReverse() const;
     double getFlow() const;
 
     void setSelected(bool selected);
-    void setReverse(Pipe<T> *reverse);
+    void setReverse(Pipe *reverse);
     void setFlow(double flow);
 protected:
     ServicePoint * dest; // destination ServicePoint

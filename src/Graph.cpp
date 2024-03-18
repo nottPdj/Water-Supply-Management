@@ -102,3 +102,7 @@ bool Graph::addBidirectionalPipe(const T &sourc, const T &dest, double w) {
     e2->setReverse(e1);
     return true;
 }
+
+int Graph::findServicePointIdx(const std::string &in) const {
+    return
+}
