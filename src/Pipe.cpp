@@ -1,7 +1,3 @@
-//
-// Created by pedro on 17-03-2024.
-//
-
 #include "Pipe.h"
 
 Pipe::Pipe(std::string spA, std::string spB, int capacity, int direction): orig(codeToSP[spA]), dest(codeToSP[spB]), capacity(capacity)) {}

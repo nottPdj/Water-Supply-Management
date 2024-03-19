@@ -25,13 +25,13 @@ public:
 
 
     void addPipe(Pipe *pPipe);
-    void addBidirectionalPipe(const int &sourc, const int &dest, double w);
-    void removePipe(const int &source, const int &dest);
+    void addBidirectionalPipe(Pipe * pPipe1, Pipe * pPipe2);
+    void removePipe(Pipe * pipe);
 
     int getNumServicePoint() const;
     std::vector<ServicePoint *> getServicePointSet() const;
-    std::vector<ServicePoint *> Graph::getReservoirSet() const;
-    std::vector<ServicePoint *> Graph::getCitiesSet() const;
+    std::vector<ServicePoint *> getReservoirSet() const;
+    std::vector<ServicePoint *> getCitiesSet() const;
 
     ServicePoint * getCityByName(const std::string & name);
     ServicePoint * getReservoirByName(const std::string & name);
@@ -47,3 +47,4 @@ protected:
 };
 
 #endif //PROJECT1_GRAPH_H
+

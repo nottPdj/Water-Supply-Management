@@ -1,127 +1,101 @@
-//
-// Created by pedro on 17-03-2024.
-//
-
 #include "ServicePoint.h"
 
 ServicePoint::ServicePoint() {}
-/*
- * Auxiliary function to add an outgoing edge to a ServicePoint (this),
- * with a given destination ServicePoint (d) and edge weight (w).
- */
-Edge<T> * ServicePoint<T>::addEdge(ServicePoint<T> *d, double w) {
-    auto newEdge = new Edge<T>(this, d, w);
-    adj.push_back(newEdge);
-    d->incoming.push_back(newEdge);
-    return newEdge;
+
+void ServicePoint::addPipe(Pipe * pipe) {
+    adj.push_back(pipe);
 }
 
-/*
- * Auxiliary function to remove an outgoing edge (with a given destination (d))
- * from a ServicePoint (this).
- * Returns true if successful, and false if such edge does not exist.
- */
-bool ServicePoint<T>::removeEdge(T in) {
-    bool removedEdge = false;
+void ServicePoint::removePipe(Pipe * pipe) {
+    // Remove the pipe from the adjacency list
     auto it = adj.begin();
     while (it != adj.end()) {
-        Edge<T> *edge = *it;
-        ServicePoint<T> *dest = edge->getDest();
-        if (dest->getInfo() == in) {
+        if ((*it) == pipe) {
             it = adj.erase(it);
-            deleteEdge(edge);
-            removedEdge = true; // allows for multiple edges to connect the same pair of vertices (multigraph)
-        }
-        else {
+            break;
+        } else {
             it++;
         }
     }
-    return removedEdge;
+    // Remove the pipe from the incoming pipe list
+    pipe->getDest()->removeIncomingPipe(pipe);
+    delete pipe;
 }
 
-/*
- * Auxiliary function to remove an outgoing edge of a ServicePoint.
- */
-void ServicePoint<T>::removeOutgoingEdges() {
-    auto it = adj.begin();
-    while (it != adj.end()) {
-        Edge<T> *edge = *it;
-        it = adj.erase(it);
-        deleteEdge(edge);
+void ServicePoint::removeIncomingPipe(Pipe * pipe) {
+    auto it = incoming.begin();
+    while (it != incoming.end()) {
+        if ((*it) == pipe) {
+            it = incoming.erase(it);
+            break;
+        } else {
+            it++;
+        }
     }
 }
 
-bool ServicePoint<T>::operator<(ServicePoint<T> & ServicePoint) const {
-    return this->dist < ServicePoint.dist;
+void ServicePoint::removeOutgoingPipes() {
+    auto it1 = adj.begin();
+    while (it1 != adj.end()) {
+        Pipe *pipe = *it1;
+        removeIncomingPipe(pipe);
+        it1++;
+    }
+    // Remove all pipes from the adjacency list
+    auto it2 = adj.begin();
+    while (it2 != adj.end()) {
+        Pipe * pipe = *it2;
+        it2 = adj.erase(pipe);
+        delete pipe;
+    }
 }
 
-T ServicePoint<T>::getInfo() const {
-    return this->info;
-}
 
-std::vector<Edge<T>*> ServicePoint<T>::getAdj() const {
+std::vector<Pipe *> ServicePoint::getAdj() const {
     return this->adj;
 }
 
-bool ServicePoint<T>::isVisited() const {
+bool ServicePoint::isVisited() const {
     return this->visited;
 }
 
-bool ServicePoint<T>::isProcessing() const {
+bool ServicePoint::isProcessing() const {
     return this->processing;
 }
 
-unsigned int ServicePoint<T>::getIndegree() const {
+unsigned int ServicePoint::getIndegree() const {
     return this->indegree;
 }
 
-double ServicePoint<T>::getDist() const {
+double ServicePoint::getDist() const {
     return this->dist;
 }
 
-Edge<T> *ServicePoint<T>::getPath() const {
-    return this->path;
+Pipe * ServicePoint::getPred() const {
+    return this->pred;
 }
 
-std::vector<Edge<T> *> ServicePoint<T>::getIncoming() const {
+std::vector<Pipe *> ServicePoint::getIncoming() const {
     return this->incoming;
 }
 
-void ServicePoint<T>::setInfo(T in) {
-    this->info = in;
-}
 
-void ServicePoint<T>::setVisited(bool visited) {
+void ServicePoint::setVisited(bool visited) {
     this->visited = visited;
 }
 
-void ServicePoint<T>::setProcesssing(bool processing) {
+void ServicePoint::setProcesssing(bool processing) {
     this->processing = processing;
 }
 
-void ServicePoint<T>::setIndegree(unsigned int indegree) {
+void ServicePoint::setIndegree(unsigned int indegree) {
     this->indegree = indegree;
 }
 
-void ServicePoint<T>::setDist(double dist) {
+void ServicePoint::setDist(double dist) {
     this->dist = dist;
 }
 
-void ServicePoint<T>::setPath(Edge<T> *path) {
-    this->path = path;
-}
-
-void ServicePoint<T>::deleteEdge(Edge<T> *edge) {
-    ServicePoint<T> *dest = edge->getDest();
-    // Remove the corresponding edge from the incoming list
-    auto it = dest->incoming.begin();
-    while (it != dest->incoming.end()) {
-        if ((*it)->getOrig()->getInfo() == info) {
-            it = dest->incoming.erase(it);
-        }
-        else {
-            it++;
-        }
-    }
-    delete edge;
+void ServicePoint::setPred(Pipe * pred) {
+    this->path = pred;
 }

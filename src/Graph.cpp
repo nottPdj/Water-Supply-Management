@@ -1,5 +1,13 @@
 #include "Graph.h"
 
+Graph::~Graph() {
+    auto it = servicePointSet.begin();
+    while (it != servicePointSet.end()) {
+        ServicePoint *sp = *it;
+        it++;
+        removeServicePoint(sp);
+    }
+}
 
 void Graph::addReservoir(Reservoir *pReservoir) {
     addServicePoint(pReservoir);
@@ -24,12 +32,14 @@ void Graph::addServicePoint(ServicePoint *servicePoint) {
 }
 
 void Graph::removeServicePoint(ServicePoint *servicePoint) {
-    // TODO
+    servicePoint->removeOutgoingPipes();
+    delete servicePoint;
 }
 
 
 void Graph::addPipe(Pipe *pPipe) {
     pPipe->getOrig()->addPipe(pPipe);
+    pPipe->getDest()->addIncomingPipe(pPipe);
 }
 
 void Graph::addBidirectionalPipe(Pipe *pPipe1, Pipe *pPipe2) {
@@ -39,8 +49,8 @@ void Graph::addBidirectionalPipe(Pipe *pPipe1, Pipe *pPipe2) {
     pPipe2->setReverse(pPipe1);
 }
 
-void Graph::removePipe(const int &source, const int &dest) {
-    // TODO
+void Graph::removePipe(Pipe * pipe) {
+    pipe->getOrig()->removePipe(pipe);
 }
 
 
