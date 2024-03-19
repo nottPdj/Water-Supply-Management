@@ -12,47 +12,35 @@
 class Graph {
 public:
     ~Graph();
-    /*
-    * Auxiliary function to find a ServicePoint with a given the content.
-    */
-    ServicePoint *findServicePoint(const T &in) const;
-    /*
-     *  Adds a ServicePoint with a given content or info (in) to a graph (this).
-     *  Returns true if successful, and false if a ServicePoint with that content already exists.
-     */
-    bool addServicePoint(const T &in);
-    bool removeServicePoint(const T &in);
 
-    bool removePipe(const int &source, const int &dest);
-    bool addBidirectionalPipe(Pipe *PipeA, Pipe *PipeB);
-    int getNumServicePoint() const;
-
-    std::vector<ServicePoint *> getServicePointSet() const;
-    std:: vector<> dfs() const;
-
-    std:: vector<> dfs(const int & source) const;
-    void dfsVisit(ServicePoint<T> *v,  std::vector<T> & res) const;
-    std::vector<> bfs(const int & source) const;
-    bool isDAG() const;
-
-    bool dfsIsDAG(ServicePoint<T> *v) const;
-    std::vector<> topsort() const;
     void addReservoir(Reservoir *pReservoir);
-
     void addStation(Station *pStation);
-
     void addCity(City *pCity);
 
+    void addServicePoint(ServicePoint *servicePoint);
+    void removeServicePoint(ServicePoint *servicePoint);
+
+
     void addPipe(Pipe *pPipe);
+    void addBidirectionalPipe(const int &sourc, const int &dest, double w);
+    void removePipe(const int &source, const int &dest);
+
+    int getNumServicePoint() const;
+    std::vector<ServicePoint *> getServicePointSet() const;
+    std::vector<ServicePoint *> Graph::getReservoirSet() const;
+    std::vector<ServicePoint *> Graph::getCitiesSet() const;
+
+    ServicePoint * getCityByName(const std::string & name);
+    ServicePoint * getReservoirByName(const std::string & name);
+    ServicePoint * findServicePoint(const std::string &code) ;
 
 protected:
-    std::vector<ServicePoint *> ServicePointSet;    // ServicePoint set
-    std::vector<int> citiesFlow;
-    std::unordered_map<std::string,ServicePoint*> servicePointName;
-    /*
-     * Finds the index of the ServicePoint with a given content.
-     */
-    int findServicePointIdx(const std::string &in) const;
+    std::vector<ServicePoint *> servicePointSet;    // ServicePoint set
+    std::vector<ServicePoint *> reservoirSet;
+    std::vector<ServicePoint *> citySet;
+    std::unordered_map<std::string,ServicePoint*> servicePointByCode;
+    std::unordered_map<std::string,ServicePoint*> cityByName;
+    std::unordered_map<std::string,ServicePoint*> reservoirByName;
 };
 
 #endif //PROJECT1_GRAPH_H

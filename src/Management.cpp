@@ -4,7 +4,7 @@
 void testAndVisit(std::queue<ServicePoint*> &q, Pipe*e, ServicePoint *w, double residual) {
     // Check if the ServicePoint 'w' is not visited and there is residual capacity
     if(!w->isVisited() && residual>0){
-    // Mark 'w' as visited, set the path through which it was reached, and enqueue it
+        // Mark 'w' as visited, set the path through which it was reached, and enqueue it
         w->setVisited(true);
         w->setPath(e);
         q.push(w);
@@ -79,10 +79,7 @@ void augmentFlowAlongPath(ServicePoint *s, ServicePoint *t, double f) {
 }
 
 // Main function implementing the Edmonds-Karp algorithm
-void edmondsKarp(Graph *g, int source, int target) {
-    // Find source and target vertices in the graph
-    ServicePoint* s = g->findServicePoint(source);
-    ServicePoint* t = g->findServicePoint(target);
+void edmondsKarp(Graph *g, ServicePoint* s, ServicePoint* t) {
 
     // Validate source and target vertices
     if(s==nullptr || t== nullptr || s==t){
@@ -105,8 +102,17 @@ void edmondsKarp(Graph *g, int source, int target) {
 
 
 void Management::getMaxFlow() {
+    ServicePoint* superSource= new ServicePoint();
+    for(ServicePoint* v:g->getReservoirSet){
+        superSource->addPipe(v,INF);
+    }
+    ServicePoint* superSink= new ServicePoint();
+    for(ServicePoint* v:g->getCitySet){
+        v->addPipe(superSink,INF)
+    }
+    return edmondsKarp(g,superSource,superSink);
 }
 
-int Management::getMaxFlowCity(std::string cityName) {
+int Management::getMaxFlowCity(ServicePoint* city) {
     return 0;
 }
