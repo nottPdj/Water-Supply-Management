@@ -9,7 +9,7 @@ class ServicePoint {
 public:
     ServicePoint();
 
-    Pipe * addPipe(Pipe * pipe);
+    void addPipe(Pipe * pipe);
     void removePipe(Pipe * pipe);
     void removeIncomingPipe(Pipe * pipe);
     void removeOutgoingPipes();
