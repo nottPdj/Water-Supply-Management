@@ -1,6 +1,3 @@
-//
-// Created by pedro on 17-03-2024.
-//
 #ifndef PROJECT1_AUXILIAR_H
 #define PROJECT1_AUXILIAR_H
 #include "Graph.h"
