@@ -1,6 +1,10 @@
 #include <stdexcept>
 #include "Management.h"
 
+Management::Management(Graph *graph) {
+    this->g=graph;
+}
+
 void testAndVisit(std::queue<ServicePoint*> &q, Pipe*e, ServicePoint *w, double residual) {
     // Check if the ServicePoint 'w' is not visited and there is residual capacity
     if(!w->isVisited() && residual>0){
@@ -103,12 +107,12 @@ void edmondsKarp(Graph *g, ServicePoint* s, ServicePoint* t) {
 
 void Management::getMaxFlow() {
     ServicePoint* superSource= new ServicePoint();
-    for(ServicePoint* v:g->getReservoirSet){
+    for(ServicePoint* v:g->getReservoirSet()){
         superSource->addPipe(v,INF);
     }
     ServicePoint* superSink= new ServicePoint();
-    for(ServicePoint* v:g->getCitySet){
-        v->addPipe(superSink,INF)
+    for(ServicePoint* v:g->getCitiesSet()){
+        v->addPipe(superSink,INF);
     }
     return edmondsKarp(g,superSource,superSink);
 }
@@ -116,3 +120,5 @@ void Management::getMaxFlow() {
 int Management::getMaxFlowCity(ServicePoint* city) {
     return 0;
 }
+
+

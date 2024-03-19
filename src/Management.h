@@ -2,12 +2,13 @@
 #ifndef PROJECT1_MANAGEMENT_H
 #define PROJECT1_MANAGEMENT_H
 #include "Graph.h"
-#include <limits>
 #include <queue>
 
 
 class Management {
+    Graph* g;
 public:
+    Management(Graph * graph);
     void testAndVisit(std::queue<ServicePoint*> &q, Pipe*e, ServicePoint *w, double residual);
     bool findAugmentingPath(Graph *g, ServicePoint *s, ServicePoint *t);
     double findMinResidualAlongPath(ServicePoint *s, ServicePoint *t);

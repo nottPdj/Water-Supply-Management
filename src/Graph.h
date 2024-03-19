@@ -3,11 +3,14 @@
 
 #include <vector>
 #include <unordered_map>
+#include <limits>
 #include "ServicePoint.h"
 #include "Pipe.h"
 #include "Reservoir.h"
 #include "Station.h"
 #include "City.h"
+
+#define INF std::numeric_limits<double>::max()
 
 class Graph {
 public:
