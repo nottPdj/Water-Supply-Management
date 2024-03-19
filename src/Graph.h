@@ -15,7 +15,7 @@ public:
     /*
     * Auxiliary function to find a ServicePoint with a given the content.
     */
-    ServicePoint *findServicePoint(const T &in) const;
+    ServicePoint *findServicePoint(const std::string &code) ;
     /*
      *  Adds a ServicePoint with a given content or info (in) to a graph (this).
      *  Returns true if successful, and false if a ServicePoint with that content already exists.
@@ -53,7 +53,7 @@ public:
 protected:
     std::vector<ServicePoint *> ServicePointSet;    // ServicePoint set
     std::vector<int> citiesFlow;
-    std::unordered_map<std::string,ServicePoint*> servicePointName;
+    std::unordered_map<std::string,ServicePoint*> servicePointByCode;
     /*
      * Finds the index of the ServicePoint with a given content.
      */
