@@ -86,8 +86,14 @@ void Auxiliar::readPipes(Graph &g) {
         getline(ss, servicePointB, ',');
         getline(ss, capacity, ',');
         getline(ss, direction, '\r');
-        Pipe* pipe = new Pipe(servicePointA, servicePointB, stoi(capacity), stoi(direction));
-        g.addPipe(pipe);
+        Pipe* pipe = new Pipe(servicePointA, servicePointB, stoi(capacity));
+        if (stoi(direction)){
+            Pipe* pipeB = new Pipe(servicePointB, servicePointA, stoi(capacity));
+            g.addBidirectionalPipe(pipe, pipeB);
+        }
+        else {
+            g.addPipe(pipe);
+        }
     }
 
 }

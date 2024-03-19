@@ -27,7 +27,6 @@ public:
 protected:
     ServicePoint * dest; // destination ServicePoint
     double capacity; // Pipe weight, can also be used for capacity
-    int direction;
     // auxiliary fields
     bool selected = false;
 

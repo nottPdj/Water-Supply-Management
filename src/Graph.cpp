@@ -91,7 +91,7 @@ bool Graph::removePipe(const T &sourc, const T &dest) {
     return srcServicePoint->removePipe(dest);
 }
 
-bool Graph::addBidirectionalPipe(const T &sourc, const T &dest, double w) {
+bool Graph::addBidirectionalPipe(Pipe *pipeA, Pipe *pipeB) {
     auto v1 = findServicePoint(sourc);
     auto v2 = findServicePoint(dest);
     if (v1 == nullptr || v2 == nullptr)

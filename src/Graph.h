@@ -24,7 +24,7 @@ public:
     bool removeServicePoint(const T &in);
 
     bool removePipe(const int &source, const int &dest);
-    bool addBidirectionalPipe(const int &sourc, const int &dest, double w);
+    bool addBidirectionalPipe(Pipe *PipeA, Pipe *PipeB);
     int getNumServicePoint() const;
 
     std::vector<ServicePoint *> getServicePointSet() const;
