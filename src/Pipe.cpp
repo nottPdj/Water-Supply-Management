@@ -4,7 +4,7 @@
 
 #include "Pipe.h"
 
-Pipe::Pipe(ServicePoint *orig, ServicePoint *dest, double w): orig(orig), dest(dest), weight(w) {}
+Pipe::Pipe(std::string spA, std::string spB, int capacity, int direction): orig(codeToSP[spA]), dest(codeToSP[spB]), capacity(capacity), direction(direction) {}
 
 ServicePoint * Pipe::getDest() const {
     return this->dest;

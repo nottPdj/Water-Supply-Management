@@ -74,6 +74,9 @@ bool Graph::addPipe(const T &sourc, const T &dest, double w) {
     v1->addPipe(v2, w);
     return true;
 }
+bool Graph::addPipe(const std::string sourc, const std::string &dest, int capacity, int direction) {
+    return false;
+}
 
 /*
  * Removes an Pipe from a graph (this).

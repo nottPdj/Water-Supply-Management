@@ -73,3 +73,21 @@ void Auxiliar::readCities(Graph &g) {
     }
 
 }
+
+void Auxiliar::readPipes(Graph &g) {
+    std::ifstream file("../data/Project1DataSetSmall/Cities_Madeira.csv");
+    std::string line;
+    std::string servicePointA, servicePointB, capacity, direction;
+
+    getline(file, line);
+    while (std::getline(file, line)){
+        std::istringstream ss(line);
+        getline(ss, servicePointA, ',');
+        getline(ss, servicePointB, ',');
+        getline(ss, capacity, ',');
+        getline(ss, direction, '\r');
+        Pipe* pipe = new Pipe(servicePointA, servicePointB, stoi(capacity), stoi(direction));
+        g.addPipe(pipe);
+    }
+
+}

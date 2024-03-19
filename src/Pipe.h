@@ -10,7 +10,8 @@
 
 class Pipe {
 public:
-    Pipe(ServicePoint *orig, ServicePoint *dest, double w);
+
+    Pipe(std::string spA, std::string spB, int capacity, int direction);
 
     ServicePoint * getDest() const;
     double getCapacity() const;
