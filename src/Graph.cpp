@@ -15,11 +15,8 @@ std::vector<ServicePoint *> Graph::getServicePointSet() const {
 /*
  * Auxiliary function to find a ServicePoint with a given content.
  */
-ServicePoint* Graph::findServicePoint(const T &in) const {
-    for (auto v : ServicePointSet)
-        if (v->getInfo() == in)
-            return v;
-    return nullptr;
+ServicePoint* Graph::findServicePoint(const std::string &code) {
+    return servicePointByCode[code];
 }
 
 /*
