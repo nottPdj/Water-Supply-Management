@@ -2,7 +2,7 @@
 
 Pipe::Pipe(std::string spA, std::string spB, int capacity, int direction): orig(codeToSP[spA]), dest(codeToSP[spB]), capacity(capacity)) {}
 
-ServicePoint * Pipe::getDest() const {
+ServicePoint * Pipe::getDest()  {
     return this->dest;
 }
 
@@ -10,7 +10,7 @@ double Pipe::getCapacity() const {
     return this->capacity;
 }
 
-ServicePoint * Pipe::getOrig() const {
+ServicePoint * Pipe::getOrig()  {
     return this->orig;
 }
 

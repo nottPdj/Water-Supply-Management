@@ -4,7 +4,7 @@
 
 #include "ServicePoint.h"
 
-class City: private ServicePoint {
+class City: public ServicePoint {
 public:
     City(std::string name, std::string id, std::string code, int demand, int population);
     std::string getName();

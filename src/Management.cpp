@@ -118,6 +118,20 @@ void Management::getMaxFlow() { //each city do for super sink, for each city do 
 }
 
 void Management::getMaxFlowCity(std::string city) {
+    int maxflow = 0;
+    ServicePoint *citySink = g->getCityByName(city);
+    ServicePoint *superSource = new Reservoir("supersource", "x","0", "SS", INF);
+    for(ServicePoint* v:g->getReservoirSet()){
+        Reservoir *r = (Reservoir*)v;
+        Pipe p = Pipe("supersource", r->getName(), INF, 0);
+        superSource->addPipe(&p);
+    }
+    edmondsKarp(g,superSource,citySink);
+    for (Pipe *p : citySink->getIncoming()){
+        maxflow += p->getFlow();
+    }
+    delete superSource;
+
 
 }
 

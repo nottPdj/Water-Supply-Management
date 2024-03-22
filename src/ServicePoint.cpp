@@ -4,6 +4,7 @@ ServicePoint::ServicePoint() {}
 
 void ServicePoint::addPipe(Pipe * pipe) {
     adj.push_back(pipe);
+    pipe->getDest().getIncoming.push_back(pipe);
 }
 
 void ServicePoint::removePipe(Pipe * pipe) {
