@@ -46,7 +46,7 @@ bool findAugmentingPath(Graph *g, ServicePoint *s, ServicePoint *t) {
 
 // Function to find the minimum residual capacity along the augmenting path
 double findMinResidualAlongPath(ServicePoint *s, ServicePoint *t) {
-    double f = std::INF;
+    double f = INF;
     // Traverse the augmenting path to find the minimum residual capacity
     ServicePoint *v=t;
     while(v!=s){
@@ -118,12 +118,7 @@ void Management::getMaxFlow() { //each city do for super sink, for each city do 
 }
 
 void Management::getMaxFlowCity(std::string city) {
-    ServicePoint* citySink = g->getCityByName(city);
-    ServicePoint* superSource= new ServicePoint();
-    for(ServicePoint* v:g->getReservoirSet()){
-        superSource->addPipe(v,INF);
-    }
-    return edmondsKarp(g,superSource,citySink);
+
 }
 
 
