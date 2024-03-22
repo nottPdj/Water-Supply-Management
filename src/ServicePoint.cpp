@@ -80,6 +80,9 @@ std::vector<Pipe *> ServicePoint::getIncoming() const {
     return this->incoming;
 }
 
+Pipe * ServicePoint::getPath() const {
+    return this->path;
+}
 
 void ServicePoint::setVisited(bool visited) {
     this->visited = visited;
@@ -95,6 +98,10 @@ void ServicePoint::setIndegree(unsigned int indegree) {
 
 void ServicePoint::setDist(double dist) {
     this->dist = dist;
+}
+
+void ServicePoint::setPath(Pipe *path) {
+    this->path=path;
 }
 
 void ServicePoint::setPred(Pipe * pred) {

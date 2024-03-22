@@ -46,7 +46,7 @@ bool findAugmentingPath(Graph *g, ServicePoint *s, ServicePoint *t) {
 
 // Function to find the minimum residual capacity along the augmenting path
 double findMinResidualAlongPath(ServicePoint *s, ServicePoint *t) {
-    double f = std::INF;
+    double f = INF;
     // Traverse the augmenting path to find the minimum residual capacity
     ServicePoint *v=t;
     while(v!=s){
@@ -131,6 +131,7 @@ void Management::getMaxFlowCity(std::string city) {
         maxflow += p->getFlow();
     }
     delete superSource;
+
 
 }
 
