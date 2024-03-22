@@ -37,3 +37,7 @@ void Pipe::setReverse(Pipe *reverse) {
 void Pipe::setFlow(double flow) {
     this->flow = flow;
 }
+
+
+
+

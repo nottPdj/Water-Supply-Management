@@ -13,6 +13,7 @@ public:
     void removePipe(Pipe * pipe);
     void removeIncomingPipe(Pipe * pipe);
     void removeOutgoingPipes();
+    std::vector<Pipe *> getIncoming() const;
 
     std::vector<Pipe *> getAdj() const;
     bool isVisited() const;
@@ -26,6 +27,7 @@ public:
     void setIndegree(unsigned int indegree);
     void setDist(double dist);
     void setPath(Pipe *path);
+    Pipe* getPath() const;
 
 protected:
     std::vector<Pipe *> adj{};  // outgoing Pipes
@@ -39,7 +41,7 @@ protected:
     std::string code;
 
     std::vector<Pipe *> incoming{}; // incoming Pipes
-
+    Pipe* path=nullptr;
     void deletePipe(Pipe *Pipe);
 };
 
