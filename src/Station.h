@@ -7,6 +7,8 @@
 class Station: private ServicePoint {
 public:
     Station(std::string id, std::string code);
+    std::string getId();
+    std::string getCode();
 
 private:
     std::string id;

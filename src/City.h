@@ -7,6 +7,12 @@
 class City: private ServicePoint {
 public:
     City(std::string name, std::string id, std::string code, int demand, int population);
+    std::string getName();
+    std::string getId();
+    std::string getCode();
+    int getDemand();
+    int getPopulation();
+
 private:
     std::string name;
     std::string id;
