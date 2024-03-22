@@ -14,8 +14,8 @@ public:
     double findMinResidualAlongPath(ServicePoint *s, ServicePoint *t);
     void edmondsKarp(Graph *g, ServicePoint* s, ServicePoint* t);
     void augmentFlowAlongPath(ServicePoint *s, ServicePoint *t, double f);
-    void getMaxFlow(); //guarda no vetor, chamar N vezes getMaxFlowCity para N cidades
-    void getMaxFlowCity(std::string city); //retorna e guarda do vetor (check se ja esta populado para essa cidade)
+    std::vector<int> getMaxFlow(); //guarda no vetor, chamar N vezes getMaxFlowCity para N cidades
+    int getMaxFlowCity(std::string city); //retorna e guarda do vetor (check se ja esta populado para essa cidade)
 };
 
 

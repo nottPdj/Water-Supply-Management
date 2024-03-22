@@ -46,7 +46,7 @@ void ServicePoint::removeOutgoingPipes() {
     auto it2 = adj.begin();
     while (it2 != adj.end()) {
         Pipe * pipe = *it2;
-        it2 = adj.erase(pipe);
+        it2 = adj.erase(it2);
         delete pipe;
     }
 }

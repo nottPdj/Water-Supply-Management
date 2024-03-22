@@ -105,22 +105,38 @@ void edmondsKarp(Graph *g, ServicePoint* s, ServicePoint* t) {
 }
 
 
-void Management::getMaxFlow() { //each city do for super sink, for each city do for ServicePoint(city)
-    ServicePoint* superSource= new ServicePoint();
+std::vector<int> Management::getMaxFlow() { //each city do for super sink, for each city do for ServicePoint(city)
+    ServicePoint *superSource = new Reservoir("supersource", "x","0", "SRC", INF);
     for(ServicePoint* v:g->getReservoirSet()){
-        superSource->addPipe(v,INF);
+        Reservoir *r = (Reservoir*)v;
+        Pipe p = Pipe("supersource", r->getName(), INF, 0);
+        superSource->addPipe(&p);
     }
-    ServicePoint* superSink= new ServicePoint();
-    for(ServicePoint* v:g->getCitiesSet()){
-        v->addPipe(superSink,INF);
+    ServicePoint *superSink = new City("supersink","01","SINK",INF,INF);
+    for(ServicePoint* v:g->getReservoirSet()){
+        Reservoir *r = (Reservoir*)v;
+        Pipe p = Pipe(r->getName(),"supersink", INF, 0);
+        v->addPipe(&p);
     }
-    return edmondsKarp(g,superSource,superSink);
+
+    edmondsKarp(g,superSource,superSink);
+
+    std::vector<int> flowPerCity;
+    for(ServicePoint* v: g->getCitiesSet()){
+        int maxflow=0;
+        for(Pipe* e: v->getIncoming()){
+            maxflow+=e->getFlow();
+        }
+        int idxCity = std::stoi(((City*)v)->getId());
+        flowPerCity[idxCity]=maxflow;
+    }
+    return flowPerCity;
 }
 
-void Management::getMaxFlowCity(std::string city) {
+int Management::getMaxFlowCity(std::string city) {
     int maxflow = 0;
     ServicePoint *citySink = g->getCityByName(city);
-    ServicePoint *superSource = new Reservoir("supersource", "x","0", "SS", INF);
+    ServicePoint *superSource = new Reservoir("supersource", "x","0", "SRC", INF);
     for(ServicePoint* v:g->getReservoirSet()){
         Reservoir *r = (Reservoir*)v;
         Pipe p = Pipe("supersource", r->getName(), INF, 0);
@@ -131,7 +147,7 @@ void Management::getMaxFlowCity(std::string city) {
         maxflow += p->getFlow();
     }
     delete superSource;
-
+    return maxflow;
 
 }
 
