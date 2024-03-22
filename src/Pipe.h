@@ -8,8 +8,8 @@ class Pipe {
 public:
     Pipe(std::string spA, std::string spB, int capacity, int direction);
 
-    ServicePoint * getOrig() const;
-    ServicePoint * getDest() const;
+    ServicePoint * getOrig() ;
+    ServicePoint * getDest() ;
     double getCapacity() const;
     Pipe * getReverse() const;
     double getFlow() const;

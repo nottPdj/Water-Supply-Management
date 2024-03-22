@@ -4,7 +4,7 @@
 
 #include "ServicePoint.h"
 
-class Reservoir: private ServicePoint {
+class Reservoir: public ServicePoint {
 public:
     Reservoir(std::string name, std::string municipality, std::string id, std::string code, int maxDelivery);
     std::string getName();
