@@ -1,8 +1,9 @@
 #ifndef PROJECT1_PIPE_H
 #define PROJECT1_PIPE_H
 
-
 #include "ServicePoint.h"
+
+class ServicePoint;
 
 class Pipe {
 public:

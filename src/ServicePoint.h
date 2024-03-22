@@ -5,6 +5,8 @@
 #include <vector>
 #include <string>
 
+class Pipe;
+
 class ServicePoint {
 public:
     ServicePoint();
