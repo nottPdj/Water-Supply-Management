@@ -105,7 +105,7 @@ void edmondsKarp(Graph *g, ServicePoint* s, ServicePoint* t) {
 }
 
 
-std::vector<int> Management::getMaxFlow() { //each city do for super sink, for each city do for ServicePoint(city)
+std::vector<std::pair<std::string,int>> Management::getMaxFlow() { //each city do for super sink, for each city do for ServicePoint(city)
     ServicePoint *superSource = new Reservoir("supersource", "x","0", "SRC", INF);
     for(ServicePoint* v:g->getReservoirSet()){
         Reservoir *r = (Reservoir*)v;
@@ -121,14 +121,14 @@ std::vector<int> Management::getMaxFlow() { //each city do for super sink, for e
 
     edmondsKarp(g,superSource,superSink);
 
-    std::vector<int> flowPerCity;
+    std::vector<std::pair<std::string,int>> flowPerCity;
     for(ServicePoint* v: g->getCitiesSet()){
         int maxflow=0;
         for(Pipe* e: v->getIncoming()){
             maxflow+=e->getFlow();
         }
-        int idxCity = std::stoi(((City*)v)->getId());
-        flowPerCity[idxCity]=maxflow;
+        City *c = (City*)c;
+        flowPerCity.push_back(std::make_pair(c->getName(),maxflow));
     }
     return flowPerCity;
 }
