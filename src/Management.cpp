@@ -131,9 +131,8 @@ std::vector<std::pair<std::string,int>> Management::getMaxFlow() { //each city d
     return flowPerCity;
 }
 
-std::pair<std::string,int> Management::getMaxFlowCity(std::string city) {
+std::pair<std::string,int> Management::getMaxFlowCity(ServicePoint * citySink) {
     int maxflow = 0;
-    ServicePoint *citySink = g->getCityByName(city);
     ServicePoint *superSource = new Reservoir("supersource", "x","0", "SRC", INF);
     for(ServicePoint* v:g->getReservoirSet()){
         Pipe p = Pipe(superSource, v, INF);
@@ -144,7 +143,7 @@ std::pair<std::string,int> Management::getMaxFlowCity(std::string city) {
         maxflow += p->getFlow();
     }
     delete superSource;
-    return std::make_pair(city,maxflow);
+    return std::make_pair(((City*)citySink)->getName(),maxflow);
 }
 
 
