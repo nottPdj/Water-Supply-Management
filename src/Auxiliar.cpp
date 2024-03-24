@@ -4,6 +4,7 @@
 #include "City.h"
 #include <sstream>
 #include <fstream>
+#include <algorithm>
 
 /**
  * @brief Reads the airports
@@ -68,6 +69,7 @@ void Auxiliar::readCities(Graph *g) {
         getline(ss, code, ',');
         getline(ss, demand, ',');
         getline(ss, population, '\r');
+        std::replace(population.begin(),population.end(),'\"',' ');
         City* city = new City(name, id, code, std::stoi(demand), std::stoi(population));
         g->addCity(city);
     }
@@ -75,7 +77,7 @@ void Auxiliar::readCities(Graph *g) {
 }
 
 void Auxiliar::readPipes(Graph *g) {
-    std::ifstream file("../data/Project1DataSetSmall/Cities_Madeira.csv");
+    std::ifstream file("../data/Project1DataSetSmall/Pipes_Madeira.csv");
     std::string line;
     std::string servicePointA, servicePointB, capacity, direction;
 
