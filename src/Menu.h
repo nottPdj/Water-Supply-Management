@@ -14,7 +14,6 @@ struct printingOptions {
     bool clear = true;
     bool printMessage = true;
     bool showEndMenu = true;
-    bool getInput = true;
 };
 
 /**
@@ -26,6 +25,7 @@ private:
     /**
      * @brief Graph containing all the air travelling information that is being managed
      */
+    Graph *g;
     Management m;
 
     // Table column widths
@@ -52,6 +52,8 @@ private:
     void endDisplayMenu();
     void printBackToMenu();
     void printExit();
+
+    ServicePoint * chooseCityInput();
 
     // Auxiliary formatting functions
     std::string fill(char c, int width);

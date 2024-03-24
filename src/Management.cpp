@@ -133,10 +133,12 @@ std::vector<std::pair<std::string,int>> Management::getMaxFlow() { //each city d
 
 std::pair<std::string,int> Management::getMaxFlowCity(ServicePoint * citySink) {
     int maxflow = 0;
-    ServicePoint *superSource = new Reservoir("supersource", "x","0", "SRC", INF);
-    for(ServicePoint* v:g->getReservoirSet()){
-        Pipe p = Pipe(superSource, v, INF);
-        superSource->addPipe(&p);
+    Reservoir *superSource = new Reservoir("supersource", "x","0", "SRC", INF);
+    g->addReservoir(superSource);
+    for(ServicePoint* v : g->getReservoirSet()){
+        if (v->getCode() != "SRC") {
+            g->addPipe("SRC", v->getCode(), INF);
+        }
     }
     edmondsKarp(superSource,citySink);
     for (Pipe *p : citySink->getIncoming()){

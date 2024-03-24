@@ -10,7 +10,7 @@
  * so that it can communicate with it throughout the program.
  * @param g Graph containing all air travel information being managed by the Menu
  */
-Menu::Menu(Graph *g) : m(Management(g)) {}
+Menu::Menu(Graph *g) : m(Management(g)), g(g)  {}
 
 /**
  * @brief This method is called to start the interface.
@@ -36,8 +36,8 @@ void Menu::printMainMenu() {
     std::cout << center("WATER SUPPLY MANAGEMENT", '*', MENU_WIDTH) << "\n\n"
               << "Basic Service Metrics" << "\n"
               << "\tMaximum amount of water that can reach:" << "\n"
-              << "\t\t0 - each city" << "\n"
-              << "\t\t1 - a city" << "\n"
+              << "\t\t0 - a city" << "\n"
+              << "\t\t1 - each city" << "\n"
               << "\t2 - Check if current network configuration meets the water needs of all customers" << "\n"
               << "\t3 - Balance the load across the network" << "\n"
               << "Reliability and Sensitivity to Failures" << "\n"
@@ -64,18 +64,44 @@ void Menu::waitMenu(){
     switch (stoi(choice)) {
         //
         case 0: {
-            std::cout << "Enter the city name:\n\n";
-            std::string city;
-            std::getline(std::cin >> std::ws, city);
+            ServicePoint * city = chooseCityInput();
             std::pair<std::string, int> flow = m.getMaxFlowCity(city);
             std::vector<std::pair<std::string, int>> flowCities = {flow};
             printingOptions options;
+            options.message = "Maximum amount of water that can reach city "; // TODO
             printFlowPerCity(flowCities, options);
             break;
+        }
+        case 1: {
+            printingOptions options;
+            std::vector<std::pair<std::string, int>> flow = m.getMaxFlow();
+            printFlowPerCity(flow, options);
         }
         default: {
             printMainMenu();
         }
+    }
+}
+
+ServicePoint * Menu::chooseCityInput() {
+    system("clear");
+    std::cout << "Choose city by:\n";
+    std::cout << "\t0 - code\n";
+    std::cout << "\t1 - name\n";
+    int option;
+    std::cin >> option;
+    system("clear");
+    if (option == 1) {
+        std::string name;
+        std::cout << "Enter the city name: ";
+        std::cin >> name;
+        return g->getCityByName(name);
+    }
+    else {
+        std::string code;
+        std::cout << "Enter the city code: ";
+        std::cin >> code;
+        return g->findServicePoint(code);
     }
 }
 

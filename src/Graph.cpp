@@ -1,3 +1,4 @@
+#include <iostream>
 #include "Graph.h"
 
 Graph::~Graph() {
@@ -49,7 +50,9 @@ void Graph::addBidirectionalPipe(std::string spA, std::string spB, int capacity)
     Pipe *pPipe1 = new Pipe(servicePointByCode[spA], servicePointByCode[spB], capacity);
     Pipe *pPipe2 = new Pipe(servicePointByCode[spB], servicePointByCode[spA], capacity);
     pPipe1->getOrig()->addPipe(pPipe1);
+    pPipe1->getDest()->addIncomingPipe(pPipe1);
     pPipe2->getOrig()->addPipe(pPipe2);
+    pPipe2->getDest()->addIncomingPipe(pPipe2);
     pPipe1->setReverse(pPipe2);
     pPipe2->setReverse(pPipe1);
 }
