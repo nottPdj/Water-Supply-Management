@@ -16,7 +16,7 @@ void Management::testAndVisit(std::queue<ServicePoint*> &q, Pipe*e, ServicePoint
 }
 
 // Function to find an augmenting path using Breadth-First Search
-bool Management::findAugmentingPath(Graph *g, ServicePoint *s, ServicePoint *t) {
+bool Management::findAugmentingPath( ServicePoint *s, ServicePoint *t) {
     // Mark all vertices as not visited
     for(ServicePoint*v:g->getServicePointSet()){
         v->setVisited(false);
@@ -83,7 +83,7 @@ void Management::augmentFlowAlongPath(ServicePoint *s, ServicePoint *t, double f
 }
 
 // Main function implementing the Edmonds-Karp algorithm
-void Management::edmondsKarp(Graph *g, ServicePoint* s, ServicePoint* t) {
+void Management::edmondsKarp( ServicePoint* s, ServicePoint* t) {
 
     // Validate source and target vertices
     if(s==nullptr || t== nullptr || s==t){
@@ -98,7 +98,7 @@ void Management::edmondsKarp(Graph *g, ServicePoint* s, ServicePoint* t) {
     }
 
     // While there is an augmenting path, augment the flow along the path
-    while(findAugmentingPath(g,s,t)){
+    while(findAugmentingPath(s,t)){
         double f = findMinResidualAlongPath(s,t);
         augmentFlowAlongPath(s,t,f);
     }
@@ -117,7 +117,7 @@ std::vector<std::pair<std::string,int>> Management::getMaxFlow() { //each city d
         v->addPipe(&p);
     }
 
-    edmondsKarp(g,superSource,superSink);
+    edmondsKarp(superSource,superSink);
 
     std::vector<std::pair<std::string,int>> flowPerCity;
     for(ServicePoint* v: g->getCitiesSet()){
@@ -139,7 +139,7 @@ std::pair<std::string,int> Management::getMaxFlowCity(std::string city) {
         Pipe p = Pipe(superSource, v, INF);
         superSource->addPipe(&p);
     }
-    edmondsKarp(g,superSource,citySink);
+    edmondsKarp(superSource,citySink);
     for (Pipe *p : citySink->getIncoming()){
         maxflow += p->getFlow();
     }
