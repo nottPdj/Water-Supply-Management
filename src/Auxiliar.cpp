@@ -39,8 +39,8 @@ void Auxiliar::readStations(Graph *g) {
     std::ifstream file("../data/Project1DataSetSmall/Stations_Madeira.csv");
     std::string line;
     std::string id, code;
-
     getline(file, line);
+
     while (std::getline(file, line)){
         std::istringstream ss(line);
         getline(ss, id, ',');
