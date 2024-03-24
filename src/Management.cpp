@@ -5,7 +5,7 @@ Management::Management(Graph *graph) {
     this->g=graph;
 }
 
-void testAndVisit(std::queue<ServicePoint*> &q, Pipe*e, ServicePoint *w, double residual) {
+void Management::testAndVisit(std::queue<ServicePoint*> &q, Pipe*e, ServicePoint *w, double residual) {
     // Check if the ServicePoint 'w' is not visited and there is residual capacity
     if(!w->isVisited() && residual>0){
         // Mark 'w' as visited, set the path through which it was reached, and enqueue it
@@ -16,7 +16,7 @@ void testAndVisit(std::queue<ServicePoint*> &q, Pipe*e, ServicePoint *w, double 
 }
 
 // Function to find an augmenting path using Breadth-First Search
-bool findAugmentingPath(Graph *g, ServicePoint *s, ServicePoint *t) {
+bool Management::findAugmentingPath(Graph *g, ServicePoint *s, ServicePoint *t) {
     // Mark all vertices as not visited
     for(ServicePoint*v:g->getServicePointSet()){
         v->setVisited(false);
@@ -45,7 +45,7 @@ bool findAugmentingPath(Graph *g, ServicePoint *s, ServicePoint *t) {
 }
 
 // Function to find the minimum residual capacity along the augmenting path
-double findMinResidualAlongPath(ServicePoint *s, ServicePoint *t) {
+double Management::findMinResidualAlongPath(ServicePoint *s, ServicePoint *t) {
     double f = INF;
     // Traverse the augmenting path to find the minimum residual capacity
     ServicePoint *v=t;
@@ -65,7 +65,7 @@ double findMinResidualAlongPath(ServicePoint *s, ServicePoint *t) {
 }
 
 // Function to augment flow along the augmenting path with the given flow value
-void augmentFlowAlongPath(ServicePoint *s, ServicePoint *t, double f) {
+void Management::augmentFlowAlongPath(ServicePoint *s, ServicePoint *t, double f) {
 // Traverse the augmenting path and update the flow values accordingly
     ServicePoint *v=t;
     while(v!=s){
@@ -83,7 +83,7 @@ void augmentFlowAlongPath(ServicePoint *s, ServicePoint *t, double f) {
 }
 
 // Main function implementing the Edmonds-Karp algorithm
-void edmondsKarp(Graph *g, ServicePoint* s, ServicePoint* t) {
+void Management::edmondsKarp(Graph *g, ServicePoint* s, ServicePoint* t) {
 
     // Validate source and target vertices
     if(s==nullptr || t== nullptr || s==t){
@@ -108,14 +108,12 @@ void edmondsKarp(Graph *g, ServicePoint* s, ServicePoint* t) {
 std::vector<std::pair<std::string,int>> Management::getMaxFlow() { //each city do for super sink, for each city do for ServicePoint(city)
     ServicePoint *superSource = new Reservoir("supersource", "x","0", "SRC", INF);
     for(ServicePoint* v:g->getReservoirSet()){
-        Reservoir *r = (Reservoir*)v;
-        Pipe p = Pipe("supersource", r->getName(), INF, 0);
+        Pipe p = Pipe(superSource, v, INF);
         superSource->addPipe(&p);
     }
     ServicePoint *superSink = new City("supersink","01","SINK",INF,INF);
     for(ServicePoint* v:g->getReservoirSet()){
-        Reservoir *r = (Reservoir*)v;
-        Pipe p = Pipe(r->getName(),"supersink", INF, 0);
+        Pipe p = Pipe(v,superSink, INF);
         v->addPipe(&p);
     }
 
@@ -133,13 +131,12 @@ std::vector<std::pair<std::string,int>> Management::getMaxFlow() { //each city d
     return flowPerCity;
 }
 
-int Management::getMaxFlowCity(std::string city) {
+std::pair<std::string,int> Management::getMaxFlowCity(std::string city) {
     int maxflow = 0;
     ServicePoint *citySink = g->getCityByName(city);
     ServicePoint *superSource = new Reservoir("supersource", "x","0", "SRC", INF);
     for(ServicePoint* v:g->getReservoirSet()){
-        Reservoir *r = (Reservoir*)v;
-        Pipe p = Pipe("supersource", r->getName(), INF, 0);
+        Pipe p = Pipe(superSource, v, INF);
         superSource->addPipe(&p);
     }
     edmondsKarp(g,superSource,citySink);
@@ -147,8 +144,7 @@ int Management::getMaxFlowCity(std::string city) {
         maxflow += p->getFlow();
     }
     delete superSource;
-    return maxflow;
-
+    return std::make_pair(city,maxflow);
 }
 
 

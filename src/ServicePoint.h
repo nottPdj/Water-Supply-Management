@@ -11,7 +11,10 @@ class ServicePoint {
 public:
     ServicePoint();
 
+    virtual std::string getCode() const = 0;
+
     void addPipe(Pipe * pipe);
+    void addIncomingPipe(Pipe * pipe);
     void removePipe(Pipe * pipe);
     void removeIncomingPipe(Pipe * pipe);
     void removeOutgoingPipes();
@@ -22,6 +25,7 @@ public:
     bool isProcessing() const;
     unsigned int getIndegree() const;
     double getDist() const;
+    Pipe* getPath() const;
     Pipe * getPred() const;
 
     void setVisited(bool visited);
@@ -29,7 +33,8 @@ public:
     void setIndegree(unsigned int indegree);
     void setDist(double dist);
     void setPath(Pipe *path);
-    Pipe* getPath() const;
+    void setPred(Pipe * pred);
+
 
 protected:
     std::vector<Pipe *> adj{};  // outgoing Pipes

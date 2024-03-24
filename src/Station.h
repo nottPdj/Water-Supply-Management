@@ -4,11 +4,11 @@
 
 #include "ServicePoint.h"
 
-class Station: private ServicePoint {
+class Station: public ServicePoint {
 public:
     Station(std::string id, std::string code);
     std::string getId();
-    std::string getCode();
+    std::string getCode() const;
 
 private:
     std::string id;

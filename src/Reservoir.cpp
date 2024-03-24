@@ -15,7 +15,7 @@ std::string Reservoir::getId() {
     return this->id;
 }
 
-std::string Reservoir::getCode() {
+std::string Reservoir::getCode() const {
     return this->code;
 }
 

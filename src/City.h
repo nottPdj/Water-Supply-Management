@@ -9,7 +9,7 @@ public:
     City(std::string name, std::string id, std::string code, int demand, int population);
     std::string getName();
     std::string getId();
-    std::string getCode();
+    std::string getCode() const;
     int getDemand();
     int getPopulation();
 

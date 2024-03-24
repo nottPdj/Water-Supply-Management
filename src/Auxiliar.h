@@ -5,9 +5,10 @@
 
 class Auxiliar {
 public:
-    static void readReservoir(Graph& g);
-    static void readStations(Graph& g);
-    static void readCities(Graph& g);
+    static void readReservoir(Graph *g);
+    static void readStations(Graph *g);
+    static void readCities(Graph *g);
+    static void readPipes(Graph *g);
 };
 
 

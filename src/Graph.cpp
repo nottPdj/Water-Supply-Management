@@ -37,12 +37,15 @@ void Graph::removeServicePoint(ServicePoint *servicePoint) {
 }
 
 
-void Graph::addPipe(Pipe *pPipe) {
+void Graph::addPipe(std::string spA, std::string spB, int capacity) {
+    Pipe *pPipe = new Pipe(servicePointByCode[spA], servicePointByCode[spB], capacity);
     pPipe->getOrig()->addPipe(pPipe);
     pPipe->getDest()->addIncomingPipe(pPipe);
 }
 
-void Graph::addBidirectionalPipe(Pipe *pPipe1, Pipe *pPipe2) {
+void Graph::addBidirectionalPipe(std::string spA, std::string spB, int capacity) {
+    Pipe *pPipe1 = new Pipe(servicePointByCode[spA], servicePointByCode[spB], capacity);
+    Pipe *pPipe2 = new Pipe(servicePointByCode[spB], servicePointByCode[spA], capacity);
     pPipe1->getOrig()->addPipe(pPipe1);
     pPipe2->getOrig()->addPipe(pPipe2);
     pPipe1->setReverse(pPipe2);
@@ -71,11 +74,11 @@ std::vector<ServicePoint *> Graph::getCitiesSet() const{
 }
 
 
-ServicePoint * getCityByName(const std::string &name){
+ServicePoint * Graph::getCityByName(const std::string &name){
     return cityByName[name];
 }
 
-ServicePoint * getReservoirByName(const std::string &name){
+ServicePoint * Graph::getReservoirByName(const std::string &name){
     return reservoirByName[name];
 }
 

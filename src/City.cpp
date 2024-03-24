@@ -10,7 +10,7 @@ std::string City::getId() {
     return this->id;
 }
 
-std::string City::getCode() {
+std::string City::getCode() const {
     return this->code;
 }
 

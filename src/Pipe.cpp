@@ -1,6 +1,6 @@
 #include "Pipe.h"
 
-Pipe::Pipe(std::string spA, std::string spB, int capacity, int direction): orig(codeToSP[spA]), dest(codeToSP[spB]), capacity(capacity)) {}
+Pipe::Pipe(ServicePoint *orig, ServicePoint *dest, int capacity): orig(orig), dest(dest), capacity(capacity) {}
 
 ServicePoint * Pipe::getDest()  {
     return this->dest;

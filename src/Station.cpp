@@ -6,6 +6,6 @@ std::string Station::getId() {
     return this->id;
 }
 
-std::string Station::getCode() {
+std::string Station::getCode() const {
     return this->code;
 }

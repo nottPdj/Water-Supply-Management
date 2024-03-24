@@ -7,7 +7,7 @@ class ServicePoint;
 
 class Pipe {
 public:
-    Pipe(std::string spA, std::string spB, int capacity, int direction);
+    Pipe(ServicePoint *orig, ServicePoint *dest, int capacity);
 
     ServicePoint * getOrig() ;
     ServicePoint * getDest() ;

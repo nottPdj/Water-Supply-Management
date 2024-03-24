@@ -10,7 +10,7 @@ public:
     std::string getName();
     std::string getMunicipality();
     std::string getId();
-    std::string getCode();
+    std::string getCode() const;
     int getMaxDelivery();
 
 private:

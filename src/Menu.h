@@ -30,7 +30,8 @@ private:
 
     // Table column widths
     const static int MENU_WIDTH = 75;
-    const static int CODE_WIDTH = 5;
+    const static int CODE_WIDTH = 10;
+    const static int FLOW_WIDTH = 10;
     const static int OUTF_WIDTH = 13;
     const static int NAME_WIDTH = 43;
     const static int DEFAULT_WIDTH = 35;
@@ -38,7 +39,7 @@ private:
     const static int AIRLINE_WIDTH = 9;
 
 public:
-    Menu(const Management &m);
+    Menu(Graph *g);
     void run();
 
 private:
@@ -56,17 +57,8 @@ private:
     std::string fill(char c, int width);
     std::string center(const std::string &str, char sep, int width);
 
-    // Auxiliary
-    void getDestinations(std::string code, int stops = 0);
-
     // Printing
-    void printFlightsLists(std::vector<std::vector<Flight>> flightsLists, printingOptions options);
-    void printAirlinesList(std::vector<Airline *> airlines, printingOptions options);
-    void printAirportsList(std::vector<Airport*> airports, printingOptions options);
-    void printFlightsList(std::vector<Flight> flights, printingOptions options);
-    void printCitiesList(std::vector<std::pair<std::string, std::string>> cities, printingOptions options);
-    void printCountriesList(std::vector<std::string> countries, printingOptions options);
-    void printSourceDestList(std::vector<std::pair<Airport *, Airport *>> sourceDestPairs, printingOptions options);
+    void printFlowPerCity(std::vector<std::pair<std::string, int>> flowCities, printingOptions options);
 
 };
 

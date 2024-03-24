@@ -10,7 +10,7 @@
 #include "Station.h"
 #include "City.h"
 
-#define INF std::numeric_limits<double>::max()
+#define INF std::numeric_limits<int>::max()
 
 class Graph {
 public:
@@ -24,8 +24,8 @@ public:
     void removeServicePoint(ServicePoint *servicePoint);
 
 
-    void addPipe(Pipe *pPipe);
-    void addBidirectionalPipe(Pipe * pPipe1, Pipe * pPipe2);
+    void addPipe(std::string spA, std::string spB, int capacity);
+    void addBidirectionalPipe(std::string spA, std::string spB, int capacity);
     void removePipe(Pipe * pipe);
 
     int getNumServicePoint() const;

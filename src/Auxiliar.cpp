@@ -10,7 +10,7 @@
  * @param g The main graph
  * @details Time Complexity O(n) n = number of airports
  */
-void Auxiliar::readReservoir(Graph &g) {
+void Auxiliar::readReservoir(Graph *g) {
     std::ifstream file("../data/Project1DataSetSmall/Reservoirs_Madeira.csv");
     std::string line;
     std::string name, municipality, id, code, maxDelivery;
@@ -23,8 +23,8 @@ void Auxiliar::readReservoir(Graph &g) {
         getline(ss, id, ',');
         getline(ss, code, ',');
         getline(ss, maxDelivery, '\r');
-        Reservoir* reservoir = new Reservoir(name, municipality, id, code, stoi(maxDelivery));
-        g.addReservoir(reservoir);
+        Reservoir* reservoir = new Reservoir(name, municipality, id, code, std::stoi(maxDelivery));
+        g->addReservoir(reservoir);
     }
 
 }
@@ -34,7 +34,7 @@ void Auxiliar::readReservoir(Graph &g) {
  * @param g The main graph
  * @details Time Complexity O(n) n = number of airlines
  */
-void Auxiliar::readStations(Graph &g) {
+void Auxiliar::readStations(Graph *g) {
     std::ifstream file("../data/Project1DataSetSmall/Stations_Madeira.csv");
     std::string line;
     std::string id, code;
@@ -45,7 +45,7 @@ void Auxiliar::readStations(Graph &g) {
         getline(ss, id, ',');
         getline(ss, code, '\r');
         Station* station = new Station(id, code);
-        g.addStation(station);
+        g->addStation(station);
     }
 
 }
@@ -55,7 +55,7 @@ void Auxiliar::readStations(Graph &g) {
  * @param g The main graph
  * @details Time Complexity O(n) n = number of flights
  */
-void Auxiliar::readCities(Graph &g) {
+void Auxiliar::readCities(Graph *g) {
     std::ifstream file("../data/Project1DataSetSmall/Cities_Madeira.csv");
     std::string line;
     std::string name, id, code, demand, population;
@@ -68,13 +68,13 @@ void Auxiliar::readCities(Graph &g) {
         getline(ss, code, ',');
         getline(ss, demand, ',');
         getline(ss, population, '\r');
-        City* city = new City(name, id, code, stoi(demand), stoi(population));
-        g.addCity(city);
+        City* city = new City(name, id, code, std::stoi(demand), std::stoi(population));
+        g->addCity(city);
     }
 
 }
 
-void Auxiliar::readPipes(Graph &g) {
+void Auxiliar::readPipes(Graph *g) {
     std::ifstream file("../data/Project1DataSetSmall/Cities_Madeira.csv");
     std::string line;
     std::string servicePointA, servicePointB, capacity, direction;
@@ -86,13 +86,11 @@ void Auxiliar::readPipes(Graph &g) {
         getline(ss, servicePointB, ',');
         getline(ss, capacity, ',');
         getline(ss, direction, '\r');
-        Pipe* pipe = new Pipe(servicePointA, servicePointB, stoi(capacity));
-        if (stoi(direction)){
-            Pipe* pipeB = new Pipe(servicePointB, servicePointA, stoi(capacity));
-            g.addBidirectionalPipe(pipe, pipeB);
+        if (std::stoi(direction)){
+            g->addBidirectionalPipe(servicePointB, servicePointA, std::stoi(capacity));
         }
         else {
-            g.addPipe(pipe);
+            g->addPipe(servicePointA, servicePointB, std::stoi(capacity));
         }
     }
 

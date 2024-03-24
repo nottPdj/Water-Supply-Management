@@ -3,10 +3,11 @@
 #include "src/Auxiliar.h"
 
 int main() {
-    Graph g=Graph();
-    Auxiliar::readAirports(g);
-    Auxiliar::readAirlines(g);
-    Auxiliar::readFlights(g);
+    Graph *g = new Graph();
+    Auxiliar::readReservoir(g);
+    Auxiliar::readStations(g);
+    Auxiliar::readCities(g);
+    Auxiliar::readPipes(g);
     Menu menu = Menu(g);
     menu.run();
     return 0;
