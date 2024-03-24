@@ -106,27 +106,32 @@ void Management::edmondsKarp( ServicePoint* s, ServicePoint* t) {
 
 
 std::vector<std::pair<std::string,int>> Management::getMaxFlow() { //each city do for super sink, for each city do for ServicePoint(city)
-    ServicePoint *superSource = new Reservoir("supersource", "x","0", "SRC", INF);
+    Reservoir *superSource = new Reservoir("supersource", "x","0", "SRC", INF);
+    g->addReservoir(superSource);
     for(ServicePoint* v:g->getReservoirSet()){
-        Pipe p = Pipe(superSource, v, INF);
-        superSource->addPipe(&p);
+        if (v->getCode() != "SRC") {
+            g->addPipe("SRC", v->getCode(), INF);
+        }
     }
-    ServicePoint *superSink = new City("supersink","01","SINK",INF,INF);
-    for(ServicePoint* v:g->getReservoirSet()){
-        Pipe p = Pipe(v,superSink, INF);
-        v->addPipe(&p);
+    City *superSink = new City("supersink","01","SINK",INF,INF);
+    g->addCity(superSink);
+    for(ServicePoint* v:g->getCitiesSet()){
+        if (v->getCode() != "SINK") {
+            g->addPipe(v->getCode(), "SINK", INF);
+        }
     }
 
     edmondsKarp(superSource,superSink);
 
     std::vector<std::pair<std::string,int>> flowPerCity;
+    g->removeServicePoint(superSource);
+    g->removeServicePoint(superSink);
     for(ServicePoint* v: g->getCitiesSet()){
         int maxflow=0;
         for(Pipe* e: v->getIncoming()){
             maxflow+=e->getFlow();
         }
-        City *c = (City*)c;
-        flowPerCity.push_back(std::make_pair(c->getName(),maxflow));
+        flowPerCity.push_back(std::make_pair(v->getCode(),maxflow));
     }
     return flowPerCity;
 }
@@ -145,7 +150,7 @@ std::pair<std::string,int> Management::getMaxFlowCity(ServicePoint * citySink) {
         maxflow += p->getFlow();
     }
     delete superSource;
-    return std::make_pair(((City*)citySink)->getName(),maxflow);
+    return std::make_pair(citySink->getCode(),maxflow);
 }
 
 

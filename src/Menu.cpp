@@ -68,7 +68,7 @@ void Menu::waitMenu(){
             std::pair<std::string, int> flow = m.getMaxFlowCity(city);
             std::vector<std::pair<std::string, int>> flowCities = {flow};
             printingOptions options;
-            options.message = "Maximum amount of water that can reach city "; // TODO
+            options.message = "Maximum amount of water that can reach city \n"; // TODO
             printFlowPerCity(flowCities, options);
             break;
         }
@@ -117,9 +117,13 @@ void Menu::printFlowPerCity(std::vector<std::pair<std::string, int>> flowCities,
     std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|\n";
 
     // CITIES AND FLOWS
+    int total = 0;
     for (std::pair<std::string, int> city : flowCities) {
+        total += city.second;
         std::cout << "|" << center(city.first, ' ', CODE_WIDTH) << "|" << center(std::to_string(city.second), ' ', FLOW_WIDTH) << "|\n";
     }
+    std::cout << "|" << center("TOTAL", ' ', CODE_WIDTH) << "|" << center(std::to_string(total), ' ', FLOW_WIDTH) << "|\n";
+
 
     // CLOSING TABLE
     std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|\n";

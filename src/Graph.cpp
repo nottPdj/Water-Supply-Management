@@ -1,7 +1,9 @@
 #include <iostream>
+#include <algorithm>
 #include "Graph.h"
 
 Graph::~Graph() {
+    // TODO check if destroys everything
     auto it = servicePointSet.begin();
     while (it != servicePointSet.end()) {
         ServicePoint *sp = *it;
@@ -34,8 +36,21 @@ void Graph::addServicePoint(ServicePoint *servicePoint) {
     servicePointByCode.insert(make_pair(servicePoint->getCode(), servicePoint));
 }
 
+// Usar pra remover service point
 void Graph::removeServicePoint(ServicePoint *servicePoint) {
-    servicePoint->removeOutgoingPipes();
+    servicePoint->removeAssociatedPipes();
+    servicePointByCode.erase(servicePoint->getCode());
+    servicePointSet.erase(std::find(servicePointSet.begin(), servicePointSet.end(), servicePoint));
+    City * c = dynamic_cast<City *> (servicePoint);
+    Reservoir * r = dynamic_cast<Reservoir *> (servicePoint);
+    Station * s = dynamic_cast<Station *> (servicePoint);
+    if (c != nullptr) {
+        citySet.erase(std::find(citySet.begin(), citySet.end(), servicePoint));
+        cityByName.erase(c->getName());
+    } else if (r != nullptr) {
+        reservoirSet.erase(std::find(reservoirSet.begin(), reservoirSet.end(), servicePoint));
+        reservoirByName.erase(r->getName());
+    }
     delete servicePoint;
 }
 
@@ -57,6 +72,7 @@ void Graph::addBidirectionalPipe(std::string spA, std::string spB, int capacity)
     pPipe2->setReverse(pPipe1);
 }
 
+// Usar pra remover pipes
 void Graph::removePipe(Pipe * pipe) {
     pipe->getOrig()->removePipe(pipe);
 }
