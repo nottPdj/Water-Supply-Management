@@ -13,16 +13,21 @@ void Graph::addReservoir(Reservoir *pReservoir) {
     addServicePoint(pReservoir);
     reservoirSet.push_back(pReservoir);
     reservoirByName.insert(make_pair(pReservoir->getName(), pReservoir));
+    addServicePoint(pReservoir);
+
 }
 
 void Graph::addStation(Station *pStation) {
     addServicePoint(pStation);
+    addServicePoint(pStation);
+
 }
 
 void Graph::addCity(City *pCity) {
     addServicePoint(pCity);
     citySet.push_back(pCity);
     cityByName.insert(make_pair(pCity->getName(), pCity));
+    addServicePoint(pCity);
 }
 
 
