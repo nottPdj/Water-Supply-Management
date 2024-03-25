@@ -77,6 +77,11 @@ void Menu::waitMenu(){
             std::vector<std::pair<std::string, int>> flow = m.getMaxFlow();
             printFlowPerCity(flow, options);
         }
+        case 2: {
+            printingOptions options;
+            std::vector<std::pair<std::string, int>> deficitCities = m.getFlowDeficit();
+            printFlowDeficitPerCity(deficitCities, options);
+        }
         default: {
             printMainMenu();
         }
@@ -127,6 +132,40 @@ void Menu::printFlowPerCity(std::vector<std::pair<std::string, int>> flowCities,
 
     // CLOSING TABLE
     std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|\n";
+
+    std::cout << "\n\n";
+    if (options.showEndMenu)
+        endDisplayMenu();
+    getInput();
+}
+
+void Menu::printFlowDeficitPerCity(std::vector<std::pair<std::string, int>> deficitCities, printingOptions options) {
+    if (options.clear)
+        system("clear");
+    if (options.printMessage)
+        if (deficitCities.empty()) {
+            options.message = "There exists a network configuration that meets the water needs of its customers.\n\n";
+        } else {
+            options.message = "These cities are not being delivered as much water as needed:\n\n";
+        }
+    std::cout << options.message;
+
+    // HEADERS
+    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
+    std::cout << "|" << center("Code", ' ', CODE_WIDTH) << "|" << center("Flow Deficit", ' ', DEFICIT_WIDTH) << "|\n";
+    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
+
+    // CITIES AND FLOWS
+    int total = 0;
+    for (std::pair<std::string, int> city : deficitCities) {
+        total += city.second;
+        std::cout << "|" << center(city.first, ' ', CODE_WIDTH) << "|" << center(std::to_string(city.second), ' ', DEFICIT_WIDTH) << "|\n";
+    }
+    std::cout << "|" << center("TOTAL", ' ', CODE_WIDTH) << "|" << center(std::to_string(total), ' ', DEFICIT_WIDTH) << "|\n";
+
+
+    // CLOSING TABLE
+    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
 
     std::cout << "\n\n";
     if (options.showEndMenu)

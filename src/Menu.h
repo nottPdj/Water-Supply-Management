@@ -32,11 +32,7 @@ private:
     const static int MENU_WIDTH = 75;
     const static int CODE_WIDTH = 10;
     const static int FLOW_WIDTH = 10;
-    const static int OUTF_WIDTH = 13;
-    const static int NAME_WIDTH = 43;
-    const static int DEFAULT_WIDTH = 35;
-    const static int NUMBER_WIDTH = 20;
-    const static int AIRLINE_WIDTH = 9;
+    const static int DEFICIT_WIDTH = 20;
 
 public:
     Menu(Graph *g);
@@ -61,6 +57,7 @@ private:
 
     // Printing
     void printFlowPerCity(std::vector<std::pair<std::string, int>> flowCities, printingOptions options);
+    void printFlowDeficitPerCity(std::vector<std::pair<std::string, int>> deficitCities, printingOptions options);
 
 };
 
