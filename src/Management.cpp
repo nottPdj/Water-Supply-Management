@@ -92,6 +92,8 @@ void Management::edmondsKarp( ServicePoint* s, ServicePoint* t) {
 
     // Initialize flow on all Pipes to 0
     for(ServicePoint* v:g->getServicePointSet()){
+        v->setPath(nullptr);
+        v->setPred(nullptr);
         for(Pipe* e : v->getAdj()){
             e->setFlow(0);
         }

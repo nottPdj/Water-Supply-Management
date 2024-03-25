@@ -12,7 +12,8 @@
  * @details Time Complexity O(n) n = number of airports
  */
 void Auxiliar::readReservoir(Graph *g) {
-    std::ifstream file("../data/Project1DataSetSmall/Reservoirs_Madeira.csv");
+    //std::ifstream file("../data/Project1DataSetSmall/Reservoirs_Madeira.csv");
+    std::ifstream file("../data/Project1LargeDataSet/Reservoir.csv");
     std::string line;
     std::string name, municipality, id, code, maxDelivery;
 
@@ -36,7 +37,8 @@ void Auxiliar::readReservoir(Graph *g) {
  * @details Time Complexity O(n) n = number of airlines
  */
 void Auxiliar::readStations(Graph *g) {
-    std::ifstream file("../data/Project1DataSetSmall/Stations_Madeira.csv");
+    //std::ifstream file("../data/Project1DataSetSmall/Stations_Madeira.csv");
+    std::ifstream file("../data/Project1LargeDataSet/Stations.csv");
     std::string line;
     std::string id, code;
     getline(file, line);
@@ -57,7 +59,8 @@ void Auxiliar::readStations(Graph *g) {
  * @details Time Complexity O(n) n = number of flights
  */
 void Auxiliar::readCities(Graph *g) {
-    std::ifstream file("../data/Project1DataSetSmall/Cities_Madeira.csv");
+    //std::ifstream file("../data/Project1DataSetSmall/Cities_Madeira.csv");
+    std::ifstream file("../data/Project1LargeDataSet/Cities.csv");
     std::string line;
     std::string name, id, code, demand, population;
 
@@ -77,7 +80,8 @@ void Auxiliar::readCities(Graph *g) {
 }
 
 void Auxiliar::readPipes(Graph *g) {
-    std::ifstream file("../data/Project1DataSetSmall/Pipes_Madeira.csv");
+    //std::ifstream file("../data/Project1DataSetSmall/Pipes_Madeira.csv");
+    std::ifstream file("../data/Project1LargeDataSet/Pipes.csv");
     std::string line;
     std::string servicePointA, servicePointB, capacity, direction;
 
