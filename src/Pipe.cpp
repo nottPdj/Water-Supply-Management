@@ -38,6 +38,14 @@ void Pipe::setFlow(double flow) {
     this->flow = flow;
 }
 
+void Pipe::setOperational(bool b) {
+    operational=b;
+}
+
+bool Pipe::isOperational() const {
+    return operational;
+}
+
 
 
 

@@ -26,6 +26,7 @@ public:
     std::vector<Pipe *> getAdj() const;
     bool isVisited() const;
     bool isProcessing() const;
+    bool isOperational() const;
     unsigned int getIndegree() const;
     double getDist() const;
     Pipe* getPath() const;
@@ -37,6 +38,7 @@ public:
     void setDist(double dist);
     void setPath(Pipe *path);
     void setPred(Pipe * pred);
+    void setOperational(bool b);
 
 
 protected:
@@ -49,6 +51,8 @@ protected:
     double dist = 0;
     Pipe *pred = nullptr;
     std::string code;
+    bool operational=true;
+
 
     std::vector<Pipe *> incoming{}; // incoming Pipes
     Pipe* path=nullptr;

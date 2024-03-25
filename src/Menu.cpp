@@ -76,11 +76,13 @@ void Menu::waitMenu(){
             printingOptions options;
             std::vector<std::pair<std::string, int>> flow = m.getMaxFlow();
             printFlowPerCity(flow, options);
+            break;
         }
         case 2: {
             printingOptions options;
             std::vector<std::pair<std::string, int>> deficitCities = m.getFlowDeficit();
             printFlowDeficitPerCity(deficitCities, options);
+            break;
         }
         default: {
             printMainMenu();

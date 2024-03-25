@@ -7,7 +7,7 @@ Management::Management(Graph *graph) {
 
 void Management::testAndVisit(std::queue<ServicePoint*> &q, Pipe*e, ServicePoint *w, double residual) {
     // Check if the ServicePoint 'w' is not visited and there is residual capacity
-    if(!w->isVisited() && residual>0){
+    if(!w->isVisited() && residual>0 && w->isOperational() && e->isOperational()){
         // Mark 'w' as visited, set the path through which it was reached, and enqueue it
         w->setVisited(true);
         w->setPath(e);
@@ -31,6 +31,8 @@ bool Management::findAugmentingPath( ServicePoint *s, ServicePoint *t) {
     while(!q.empty() && !t->isVisited()){
         auto v=q.front();
         q.pop();
+        if(!v->isOperational())
+            continue;
         // Process outgoing Pipes
         for(Pipe* e : v->getAdj()){
             testAndVisit(q,e,e->getDest(),e->getCapacity()- e->getFlow());
