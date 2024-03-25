@@ -3,7 +3,7 @@
 City::City(std::string name, std::string id, std::string code, int demand, int population): name(name), id(id), code(code), demand(demand), population(population) {}
 
 std::string City::getName() {
-    return this->id;
+    return this->name;
 }
 
 std::string City::getId() {

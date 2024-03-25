@@ -94,7 +94,7 @@ ServicePoint * Menu::chooseCityInput() {
     if (option == 1) {
         std::string name;
         std::cout << "Enter the city name: ";
-        std::cin >> name;
+        std::getline(std::cin >> std::ws, name);
         return g->getCityByName(name);
     }
     else {
