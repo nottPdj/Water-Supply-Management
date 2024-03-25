@@ -16,10 +16,14 @@ public:
     double getFlow() const;
 
     bool isSelected() const;
+    bool isOperational() const;
+
 
     void setSelected(bool selected);
     void setReverse(Pipe *reverse);
     void setFlow(double flow);
+    void setOperational(bool b);
+
 protected:
     ServicePoint *orig;
     ServicePoint * dest; // destination ServicePoint
@@ -28,6 +32,7 @@ protected:
     double flow;
 
     bool selected = false;
+    bool operational=true;
 
     Pipe *reverse = nullptr;
 };

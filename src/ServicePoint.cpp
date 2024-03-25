@@ -142,3 +142,11 @@ void ServicePoint::setPath(Pipe *path) {
 void ServicePoint::setPred(Pipe * pred) {
     this->path = pred;
 }
+
+void ServicePoint::setOperational(bool b) {
+    operational=b;
+}
+
+bool ServicePoint::isOperational() const {
+    return operational;
+}
