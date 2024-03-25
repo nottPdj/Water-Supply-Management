@@ -59,6 +59,8 @@ void Graph::addPipe(std::string spA, std::string spB, int capacity) {
     Pipe *pPipe = new Pipe(servicePointByCode[spA], servicePointByCode[spB], capacity);
     pPipe->getOrig()->addPipe(pPipe);
     pPipe->getDest()->addIncomingPipe(pPipe);
+    pipeSet.push_back(pPipe);
+    pipeByEnds[std::make_pair(spA,spB)] = {pPipe};
 }
 
 void Graph::addBidirectionalPipe(std::string spA, std::string spB, int capacity) {
@@ -70,11 +72,25 @@ void Graph::addBidirectionalPipe(std::string spA, std::string spB, int capacity)
     pPipe2->getDest()->addIncomingPipe(pPipe2);
     pPipe1->setReverse(pPipe2);
     pPipe2->setReverse(pPipe1);
+    pipeSet.push_back(pPipe1);
+    pipeSet.push_back(pPipe2);
+    pipeByEnds[std::make_pair(spA,spB)] = {pPipe1};
+    pipeByEnds[std::make_pair(spB,spA)] = {pPipe2};
 }
 
 // Usar pra remover pipes
 void Graph::removePipe(Pipe * pipe) {
     pipe->getOrig()->removePipe(pipe);
+    // TODO modificado verificar se funciona
+    if (pipe->getReverse() != nullptr) {
+        pipe->getReverse()->getOrig()->removePipe(pipe->getReverse());
+        pipeSet.erase(std::find(pipeSet.begin(), pipeSet.end(), pipe->getReverse()));
+        pipeByEnds.erase(std::make_pair(pipe->getDest()->getCode(),pipe->getOrig()->getCode()));
+        delete pipe->getReverse();
+    }
+    pipeSet.erase(std::find(pipeSet.begin(), pipeSet.end(), pipe));
+    pipeByEnds.erase(std::make_pair(pipe->getOrig()->getCode(),pipe->getDest()->getCode()));
+    delete pipe;
 }
 
 
@@ -94,6 +110,9 @@ std::vector<ServicePoint *> Graph::getCitiesSet() const{
     return citySet;
 }
 
+std::vector<Pipe *> Graph::getPipeSet() const{
+    return pipeSet;
+}
 
 ServicePoint * Graph::getCityByName(const std::string &name){
     return cityByName[name];
@@ -105,4 +124,8 @@ ServicePoint * Graph::getReservoirByName(const std::string &name){
 
 ServicePoint * Graph::findServicePoint(const std::string &code) {
     return servicePointByCode[code];
+}
+
+Pipe * Graph::getPipeByEnds(std::string orig, std::string dest){
+    return pipeByEnds[std::make_pair(orig,dest)];
 }

@@ -23,7 +23,6 @@ void ServicePoint::removePipe(Pipe * pipe) {
     }
     // Remove the pipe from the incoming pipe list
     pipe->getDest()->removeIncomingPipe(pipe);
-    delete pipe;
 }
 
 void ServicePoint::removeIncomingPipe(Pipe * pipe) {

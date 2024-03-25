@@ -42,9 +42,10 @@ void Menu::printMainMenu() {
               << "\t3 - Balance the load across the network" << "\n"
               << "Reliability and Sensitivity to Failures" << "\n"
               << "\t4 - Water Reservoir unavailable" << "\n"
-              << "\t5 - Pumping Station unavailable" << "\n"
-              << "\t6 - Crucial pipelines" << "\n\n"
-              << "\t7 - Choose dataset" << "\n\n";
+              << "\t5 - Cities affected by a pumping station failure" << "\n"
+              << "\t6 - Crucial pipelines to a city" << "\n"
+              << "\t7 - Cities affected by pipeline rupture" << "\n\n"
+              << "\t8 - Choose dataset" << "\n\n";
 
     printExit();
     std::cout << "Press the number corresponding the action you want." << "\n";
@@ -66,27 +67,79 @@ void Menu::waitMenu(){
         case 0: {
             ServicePoint * city = chooseCityInput();
             std::pair<std::string, int> flow = m.getMaxFlowCity(city);
-            std::vector<std::pair<std::string, int>> flowCities = {flow};
-            printingOptions options;
+            std::unordered_map<std::string,int> flowCities;
+            flowCities.insert(flow);
             options.message = "Maximum amount of water that can reach city \n"; // TODO
             printFlowPerCity(flowCities, options);
             break;
         }
         case 1: {
-            printingOptions options;
-            std::vector<std::pair<std::string, int>> flow = m.getMaxFlow();
+            std::unordered_map<std::string,int> flow = m.getMaxFlow();
             printFlowPerCity(flow, options);
             break;
         }
         case 2: {
-            printingOptions options;
-            std::vector<std::pair<std::string, int>> deficitCities = m.getFlowDeficit();
+            std::unordered_map<std::string,int> deficitCities = m.getFlowDeficit();
             printFlowDeficitPerCity(deficitCities, options);
+            break;
+        }
+        case 3: {
+
+            break;
+        }
+        case 4: {
+            ServicePoint * reservoir = chooseReservoirInput();
+            std::vector<std::pair<std::string, flowDiff>> citiesAffectedByReservoirFail = m.getCitiesAffectedByReservoirFail(reservoir);
+            options.message = "Cities affected by reservoir \n "; // TODO
+            printCitiesAffected(citiesAffectedByReservoirFail, options);
+            break;
+        }
+        case 5: {
+            ServicePoint * station = chooseStationInput();
+            std::vector<std::pair<std::string, flowDiff>> citiesAffectedByStationFail = m.getCitiesAffectedByStationFail(station);
+            options.message = "Cities affected by station fail\n" ;//TODO
+            printCitiesAffected(citiesAffectedByStationFail, options);
+            break;
+        }
+        case 6: {
+            ServicePoint * city = chooseCityInput();
+            std::vector<std::pair<Pipe *, flowDiff>> crucialPipesToCity = m.getCrucialPipesToCity(city);
+            options.message = "Crucial pipelines to city \n"; // TODO
+            printCrucialPipes(crucialPipesToCity, options);
+            break;
+        }
+        case 7: {
+            Pipe * pipe = choosePipeInput();
+            std::vector<std::pair<std::string, flowDiff>> citiesAffectedByPipeRupture = m.getCitiesAffectedByPipeRupture(pipe);
+            options.message = "Cities affected by pipeline rupture \n"; //TODO
+            printCitiesAffected(citiesAffectedByPipeRupture, options);
             break;
         }
         default: {
             printMainMenu();
         }
+    }
+}
+
+ServicePoint * Menu::chooseReservoirInput() {
+    system("clear");
+    std::cout << "Choose reservoir by:\n";
+    std::cout << "\t0 - code\n";
+    std::cout << "\t1 - name\n";
+    int option;
+    std::cin >> option;
+    system("clear");
+    if (option == 1) {
+        std::string name;
+        std::cout << "Enter the reservoir name: ";
+        std::getline(std::cin >> std::ws, name);
+        return g->getReservoirByName(name);
+    }
+    else {
+        std::string code;
+        std::cout << "Enter the reservoir code: ";
+        std::cin >> code;
+        return g->findServicePoint(code);
     }
 }
 
@@ -112,7 +165,26 @@ ServicePoint * Menu::chooseCityInput() {
     }
 }
 
-void Menu::printFlowPerCity(std::vector<std::pair<std::string, int>> flowCities, printingOptions options) {
+ServicePoint * Menu::chooseStationInput() {
+    system("clear");
+    std::string code;
+    std::cout << "Enter the station code: ";
+    std::cin >> code;
+    return g->findServicePoint(code);
+}
+
+
+Pipe * Menu::choosePipeInput() {
+    system("clear");
+    std::string orig, dest;
+    std::cout << "Enter the code of the source service point: ";
+    std::cin >> orig;
+    std::cout << "Enter the code of the target service point: ";
+    std::cin >> dest;
+    return g->getPipeByEnds(orig, dest);
+}
+
+void Menu::printFlowPerCity(std::unordered_map<std::string,int> flowCities, printingOptions options) {
     if (options.clear)
         system("clear");
     if (options.printMessage)
@@ -125,9 +197,9 @@ void Menu::printFlowPerCity(std::vector<std::pair<std::string, int>> flowCities,
 
     // CITIES AND FLOWS
     int total = 0;
-    for (std::pair<std::string, int> city : flowCities) {
-        total += city.second;
-        std::cout << "|" << center(city.first, ' ', CODE_WIDTH) << "|" << center(std::to_string(city.second), ' ', FLOW_WIDTH) << "|\n";
+    for (auto it = flowCities.begin(); it != flowCities.end(); it++) {
+        total += it->second;
+        std::cout << "|" << center(it->first, ' ', CODE_WIDTH) << "|" << center(std::to_string(it->second), ' ', FLOW_WIDTH) << "|\n";
     }
     std::cout << "|" << center("TOTAL", ' ', CODE_WIDTH) << "|" << center(std::to_string(total), ' ', FLOW_WIDTH) << "|\n";
 
@@ -141,7 +213,7 @@ void Menu::printFlowPerCity(std::vector<std::pair<std::string, int>> flowCities,
     getInput();
 }
 
-void Menu::printFlowDeficitPerCity(std::vector<std::pair<std::string, int>> deficitCities, printingOptions options) {
+void Menu::printFlowDeficitPerCity(std::unordered_map<std::string,int> deficitCities, printingOptions options) {
     if (options.clear)
         system("clear");
     if (options.printMessage)
@@ -159,15 +231,76 @@ void Menu::printFlowDeficitPerCity(std::vector<std::pair<std::string, int>> defi
 
     // CITIES AND FLOWS
     int total = 0;
-    for (std::pair<std::string, int> city : deficitCities) {
-        total += city.second;
-        std::cout << "|" << center(city.first, ' ', CODE_WIDTH) << "|" << center(std::to_string(city.second), ' ', DEFICIT_WIDTH) << "|\n";
+    for (auto it = deficitCities.begin(); it != deficitCities.end(); it++) {
+        total += it->second;
+        std::cout << "|" << center(it->first, ' ', CODE_WIDTH) << "|" << center(std::to_string(it->second), ' ', DEFICIT_WIDTH) << "|\n";
     }
     std::cout << "|" << center("TOTAL", ' ', CODE_WIDTH) << "|" << center(std::to_string(total), ' ', DEFICIT_WIDTH) << "|\n";
 
 
     // CLOSING TABLE
     std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
+
+    std::cout << "\n\n";
+    if (options.showEndMenu)
+        endDisplayMenu();
+    getInput();
+}
+
+
+void Menu::printCrucialPipes(std::vector<std::pair<Pipe *, flowDiff>> crucialPipes, printingOptions options) {
+    if (options.clear)
+        system("clear");
+    if (options.printMessage)
+        std::cout << options.message;
+
+    // HEADERS
+    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
+    std::cout << "|" << center("Source", ' ', CODE_WIDTH) << "|" << center("Target", ' ', CODE_WIDTH) << "|" << center("Old Flow", ' ', FLOW_WIDTH) << "|" << center("New Flow", ' ', FLOW_WIDTH) << "|" << center("Flow Difference", ' ', DEFICIT_WIDTH) << "|\n";
+    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
+
+    // CITIES AND FLOWS
+    for (std::pair<Pipe *, flowDiff> pipeDiff : crucialPipes) {
+        Pipe * pipe = pipeDiff.first;
+        int oldFlow = pipeDiff.second.oldFlow;
+        int newFlow = pipeDiff.second.newFlow;
+        std::cout << "|" << center(pipe->getOrig()->getCode(), ' ', CODE_WIDTH) << "|" << center(pipe->getDest()->getCode(), ' ', CODE_WIDTH) << "|" << center(std::to_string(oldFlow), ' ', FLOW_WIDTH) << "|" << center(std::to_string(newFlow), ' ', FLOW_WIDTH) << "|" << center(std::to_string(newFlow - oldFlow), ' ', DEFICIT_WIDTH) << "|\n";
+    }
+
+    // CLOSING TABLE
+    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
+
+    std::cout << "\n\n";
+    if (options.showEndMenu)
+        endDisplayMenu();
+    getInput();
+}
+
+void Menu::printCitiesAffected(std::vector<std::pair<std::string, flowDiff>> citiesAffected, printingOptions options) {
+    if (options.clear)
+        system("clear");
+    if (options.printMessage)
+        std::cout << options.message;
+
+    // HEADERS
+    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
+    std::cout << "|" << center("Code", ' ', CODE_WIDTH) << "|" << center("Old Flow", ' ', FLOW_WIDTH) << "|" << center("New Flow", ' ', FLOW_WIDTH) << "|" << center("Flow Difference", ' ', DEFICIT_WIDTH) << "|\n";
+    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
+
+    // CITIES AND FLOWS
+    int totalOld = 0;
+    int totalNew = 0;
+    for (std::pair<std::string, flowDiff> cityDiff : citiesAffected) {
+        int oldFlow = cityDiff.second.oldFlow;
+        int newFlow = cityDiff.second.newFlow;
+        totalOld += oldFlow;
+        totalNew += newFlow;
+        std::cout << "|" << center(cityDiff.first, ' ', CODE_WIDTH) << "|" << center(std::to_string(oldFlow), ' ', FLOW_WIDTH) << "|" << center(std::to_string(newFlow), ' ', FLOW_WIDTH) << "|" << center(std::to_string(newFlow - oldFlow), ' ', DEFICIT_WIDTH) << "|\n";
+    }
+    std::cout << "|" << center("TOTAL", ' ', CODE_WIDTH) << "|" << center(std::to_string(totalOld), ' ', FLOW_WIDTH) << "|" << center(std::to_string(totalNew), ' ', FLOW_WIDTH) << "|" << center(std::to_string(totalNew - totalOld), ' ', DEFICIT_WIDTH) << "|\n";
+
+    // CLOSING TABLE
+    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
 
     std::cout << "\n\n";
     if (options.showEndMenu)

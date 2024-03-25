@@ -49,16 +49,21 @@ private:
     void printBackToMenu();
     void printExit();
 
+    ServicePoint * chooseReservoirInput();
     ServicePoint * chooseCityInput();
+    ServicePoint * chooseStationInput();
+    Pipe * choosePipeInput();
 
     // Auxiliary formatting functions
     std::string fill(char c, int width);
     std::string center(const std::string &str, char sep, int width);
 
     // Printing
-    void printFlowPerCity(std::vector<std::pair<std::string, int>> flowCities, printingOptions options);
-    void printFlowDeficitPerCity(std::vector<std::pair<std::string, int>> deficitCities, printingOptions options);
+    void printFlowPerCity(std::unordered_map<std::string,int> flowCities, printingOptions options);
+    void printFlowDeficitPerCity(std::unordered_map<std::string,int> deficitCities, printingOptions options);
 
+    void printCrucialPipes(std::vector<std::pair<Pipe *, flowDiff>> crucialPipes, printingOptions options);
+    void printCitiesAffected(std::vector<std::pair<std::string, flowDiff>> citiesAffected, printingOptions options);
 };
 
 
