@@ -112,14 +112,14 @@ std::vector<std::pair<std::string,int>> Management::getMaxFlow() { //each city d
     g->addReservoir(superSource);
     for(ServicePoint* v:g->getReservoirSet()){
         if (v->getCode() != "SRC") {
-            g->addPipe("SRC", v->getCode(), INF);
+            g->addPipe("SRC", v->getCode(), ((Reservoir*)v)->getMaxDelivery());
         }
     }
     City *superSink = new City("supersink","01","SINK",INF,INF);
     g->addCity(superSink);
     for(ServicePoint* v:g->getCitiesSet()){
         if (v->getCode() != "SINK") {
-            g->addPipe(v->getCode(), "SINK", INF);
+            g->addPipe(v->getCode(), "SINK", ((City*)v)->getDemand());
         }
     }
 
@@ -145,13 +145,14 @@ std::pair<std::string,int> Management::getMaxFlowCity(ServicePoint * citySink) {
     g->addReservoir(superSource);
     for(ServicePoint* v : g->getReservoirSet()){
         if (v->getCode() != "SRC") {
-            g->addPipe("SRC", v->getCode(), INF);
+            g->addPipe("SRC", v->getCode(), ((Reservoir*)v)->getMaxDelivery());
         }
     }
     edmondsKarp(superSource,citySink);
     for (Pipe *p : citySink->getIncoming()){
         maxflow += p->getFlow();
     }
+    maxflow=std::min(maxflow,((City*)citySink)->getDemand());
     g->removeServicePoint(superSource);
     return std::make_pair(citySink->getCode(),maxflow);
 }
