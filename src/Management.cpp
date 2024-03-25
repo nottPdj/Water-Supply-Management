@@ -135,6 +135,7 @@ std::vector<std::pair<std::string,int>> Management::getMaxFlow() { //each city d
         }
         flowPerCity.push_back(std::make_pair(v->getCode(),maxflow));
     }
+    maxFlowCity=flowPerCity;
     return flowPerCity;
 }
 
@@ -153,6 +154,19 @@ std::pair<std::string,int> Management::getMaxFlowCity(ServicePoint * citySink) {
     }
     g->removeServicePoint(superSource);
     return std::make_pair(citySink->getCode(),maxflow);
+}
+
+std::vector<std::pair<std::string,int>> Management::getFlowDeficit() {
+    std::vector<std::pair<std::string,int>> deficitVector;
+    if(maxFlowCity.empty()){
+        maxFlowCity=getMaxFlow();
+    }
+    for(auto v: maxFlowCity){
+        City* c =(City*)g->findServicePoint(v.first);
+        if(c->getDemand()>v.second)
+            deficitVector.push_back(v);
+    }
+    return deficitVector;
 }
 
 

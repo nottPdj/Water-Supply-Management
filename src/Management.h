@@ -7,6 +7,7 @@
 class Management {
 private:
     Graph* g;
+    std::vector<std::pair<std::string,int>> maxFlowCity;
 public:
     Management(Graph * graph);
     void testAndVisit(std::queue<ServicePoint*> &q, Pipe*e, ServicePoint *w, double residual);
@@ -16,6 +17,7 @@ public:
     void augmentFlowAlongPath(ServicePoint *s, ServicePoint *t, double f);
     std::vector<std::pair<std::string,int>> getMaxFlow(); //guarda no vetor, chamar N vezes getMaxFlowCity para N cidades
     std::pair<std::string,int> getMaxFlowCity(ServicePoint * citySink); //retorna e guarda do vetor (check se ja esta populado para essa cidade)
+    std::vector<std::pair<std::string,int>> getFlowDeficit ();
 };
 
 
