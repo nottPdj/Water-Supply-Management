@@ -164,7 +164,7 @@ std::vector<std::pair<std::string,int>> Management::getFlowDeficit() {
     for(auto v: maxFlowCity){
         City* c =(City*)g->findServicePoint(v.first);
         if(c->getDemand()>v.second)
-            deficitVector.push_back(v);
+            deficitVector.push_back(std::make_pair(v.first,c->getDemand()-v.second));
     }
     return deficitVector;
 }
