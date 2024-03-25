@@ -149,7 +149,7 @@ std::pair<std::string,int> Management::getMaxFlowCity(ServicePoint * citySink) {
     for (Pipe *p : citySink->getIncoming()){
         maxflow += p->getFlow();
     }
-    delete superSource;
+    g->removeServicePoint(superSource);
     return std::make_pair(citySink->getCode(),maxflow);
 }
 

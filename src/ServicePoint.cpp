@@ -70,7 +70,7 @@ void ServicePoint::removeIncomingPipes() {
     auto it1 = incoming.begin();
     while (it1 != incoming.end()) {
         Pipe *pipe = *it1;
-        pipe->getDest()->removeOutgoingPipe(pipe);
+        pipe->getOrig()->removeOutgoingPipe(pipe);
         it1++;
     }
     // Remove all pipes from the adjacency list
