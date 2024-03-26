@@ -15,12 +15,9 @@ public:
 
     void addPipe(Pipe * pipe);
     void addIncomingPipe(Pipe * pipe);
-    void removePipe(Pipe * pipe);
     void removeIncomingPipe(Pipe * pipe);
     void removeOutgoingPipe(Pipe * pipe);
-    void removeOutgoingPipes();
-    void removeIncomingPipes();
-    void removeAssociatedPipes();
+    
     std::vector<Pipe *> getIncoming() const;
 
     std::vector<Pipe *> getAdj() const;

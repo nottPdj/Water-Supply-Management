@@ -41,6 +41,7 @@ public:
 
     void addPipe(std::string spA, std::string spB, int capacity);
     void addBidirectionalPipe(std::string spA, std::string spB, int capacity);
+    void removeAssociatedPipes(ServicePoint * servicePoint);
     void removePipe(Pipe * pipe);
 
     int getNumServicePoint() const;

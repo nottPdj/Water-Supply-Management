@@ -38,7 +38,7 @@ void Graph::addServicePoint(ServicePoint *servicePoint) {
 
 // Usar pra remover service point
 void Graph::removeServicePoint(ServicePoint *servicePoint) {
-    servicePoint->removeAssociatedPipes();
+    removeAssociatedPipes(servicePoint);
     servicePointByCode.erase(servicePoint->getCode());
     servicePointSet.erase(std::find(servicePointSet.begin(), servicePointSet.end(), servicePoint));
     City * c = dynamic_cast<City *> (servicePoint);
@@ -54,6 +54,14 @@ void Graph::removeServicePoint(ServicePoint *servicePoint) {
     delete servicePoint;
 }
 
+void Graph::removeAssociatedPipes(ServicePoint * servicePoint) {
+    for (Pipe * pipe : servicePoint->getAdj()) {
+        removePipe(pipe);
+    }
+    for (Pipe * pipe : servicePoint->getIncoming()) {
+        removePipe(pipe);
+    }
+}
 
 void Graph::addPipe(std::string spA, std::string spB, int capacity) {
     Pipe *pPipe = new Pipe(servicePointByCode[spA], servicePointByCode[spB], capacity);
@@ -80,10 +88,12 @@ void Graph::addBidirectionalPipe(std::string spA, std::string spB, int capacity)
 
 // Usar pra remover pipes
 void Graph::removePipe(Pipe * pipe) {
-    pipe->getOrig()->removePipe(pipe);
+    pipe->getOrig()->removeOutgoingPipe(pipe);
+    pipe->getDest()->removeIncomingPipe(pipe);
     // TODO modificado verificar se funciona
     if (pipe->getReverse() != nullptr) {
-        pipe->getReverse()->getOrig()->removePipe(pipe->getReverse());
+        pipe->getReverse()->getOrig()->removeOutgoingPipe(pipe->getReverse());
+        pipe->getReverse()->getDest()->removeIncomingPipe(pipe->getReverse());
         pipeSet.erase(std::find(pipeSet.begin(), pipeSet.end(), pipe->getReverse()));
         pipeByEnds.erase(std::make_pair(pipe->getDest()->getCode(),pipe->getOrig()->getCode()));
         delete pipe->getReverse();

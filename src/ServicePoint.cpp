@@ -10,21 +10,6 @@ void ServicePoint::addIncomingPipe(Pipe * pipe) {
     incoming.push_back(pipe);
 }
 
-void ServicePoint::removePipe(Pipe * pipe) {
-    // Remove the pipe from the adjacency list
-    auto it = adj.begin();
-    while (it != adj.end()) {
-        if ((*it) == pipe) {
-            adj.erase(it);
-            break;
-        } else {
-            it++;
-        }
-    }
-    // Remove the pipe from the incoming pipe list
-    pipe->getDest()->removeIncomingPipe(pipe);
-}
-
 void ServicePoint::removeIncomingPipe(Pipe * pipe) {
     auto it = incoming.begin();
     while (it != incoming.end()) {
@@ -47,43 +32,6 @@ void ServicePoint::removeOutgoingPipe(Pipe * pipe) {
             it++;
         }
     }
-}
-
-void ServicePoint::removeOutgoingPipes() {
-    auto it1 = adj.begin();
-    while (it1 != adj.end()) {
-        Pipe *pipe = *it1;
-        pipe->getDest()->removeIncomingPipe(pipe);
-        it1++;
-    }
-    // Remove all pipes from the adjacency list
-    auto it2 = adj.begin();
-    while (it2 != adj.end()) {
-        Pipe * pipe = *it2;
-        it2 = adj.erase(it2);
-        delete pipe;
-    }
-}
-
-void ServicePoint::removeIncomingPipes() {
-    auto it1 = incoming.begin();
-    while (it1 != incoming.end()) {
-        Pipe *pipe = *it1;
-        pipe->getOrig()->removeOutgoingPipe(pipe);
-        it1++;
-    }
-    // Remove all pipes from the adjacency list
-    auto it2 = incoming.begin();
-    while (it2 != incoming.end()) {
-        Pipe * pipe = *it2;
-        it2 = incoming.erase(it2);
-        delete pipe;
-    }
-}
-
-void ServicePoint::removeAssociatedPipes() {
-    removeOutgoingPipes();
-    removeIncomingPipes();
 }
 
 std::vector<Pipe *> ServicePoint::getAdj() const {

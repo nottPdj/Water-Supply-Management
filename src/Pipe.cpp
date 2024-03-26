@@ -22,6 +22,10 @@ bool Pipe::isSelected() const {
     return this->selected;
 }
 
+bool Pipe::isVisited() const {
+    return this->visited;
+}
+
 double Pipe::getFlow() const {
     return flow;
 }
@@ -40,6 +44,10 @@ void Pipe::setFlow(double flow) {
 
 void Pipe::setOperational(bool b) {
     operational=b;
+}
+
+void Pipe::setVisited(bool visited) {
+    this->visited = visited;
 }
 
 bool Pipe::isOperational() const {

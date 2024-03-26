@@ -17,12 +17,13 @@ public:
 
     bool isSelected() const;
     bool isOperational() const;
-
+    bool isVisited() const;
 
     void setSelected(bool selected);
     void setReverse(Pipe *reverse);
     void setFlow(double flow);
     void setOperational(bool b);
+    void setVisited(bool visited);
 
 protected:
     ServicePoint *orig;
@@ -33,6 +34,7 @@ protected:
 
     bool selected = false;
     bool operational=true;
+    bool visited = false;
 
     Pipe *reverse = nullptr;
 };

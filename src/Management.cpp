@@ -224,7 +224,12 @@ std::vector<std::pair<Pipe *,flowDiff>> Management::getCrucialPipesToCity(Servic
     if(maxFlowCity.empty())
         getMaxFlow();
     std::vector<std::pair<Pipe *,flowDiff>> crucialPipes;
+    for (auto e: g->getPipeSet()) {
+        e->setVisited(false);
+    }
     for (auto e:g->getPipeSet()){
+        if (e->isVisited())
+            continue;
         e->setOperational(false);
         if(e->getReverse()!=nullptr)
             e->getReverse()->setOperational(false);
@@ -234,8 +239,10 @@ std::vector<std::pair<Pipe *,flowDiff>> Management::getCrucialPipesToCity(Servic
             crucialPipes.push_back(std::make_pair(e,diff));
         }
         e->setOperational(true);
-        if(e->getReverse()!=nullptr)
+        if(e->getReverse()!=nullptr) {
             e->getReverse()->setOperational(true);
+            e->getReverse()->setVisited(true);
+        }
     }
     return crucialPipes;
 }
