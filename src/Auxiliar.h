@@ -5,10 +5,11 @@
 
 class Auxiliar {
 public:
-    static void readReservoir(Graph *g);
-    static void readStations(Graph *g);
-    static void readCities(Graph *g);
-    static void readPipes(Graph *g);
+    static void readDataset(Graph *g, int dataset = 0);
+    static void readReservoir(Graph *g, int dataset);
+    static void readStations(Graph *g, int dataset);
+    static void readCities(Graph *g, int dataset);
+    static void readPipes(Graph *g, int dataset);
 };
 
 

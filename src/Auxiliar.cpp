@@ -6,14 +6,24 @@
 #include <fstream>
 #include <algorithm>
 
+void Auxiliar::readDataset(Graph *g, int dataset) {
+    readReservoir(g, dataset);
+    readStations(g, dataset);
+    readCities(g, dataset);
+    readPipes(g, dataset);
+}
+
+
 /**
  * @brief Reads the airports
  * @param g The main graph
  * @details Time Complexity O(n) n = number of airports
  */
-void Auxiliar::readReservoir(Graph *g) {
-    //std::ifstream file("../data/Project1DataSetSmall/Reservoirs_Madeira.csv");
-    std::ifstream file("../data/Project1LargeDataSet/Reservoir.csv");
+void Auxiliar::readReservoir(Graph *g, int dataset) {
+    std::string files[2];
+    files[0] = "../data/Project1DataSetSmall/Reservoirs_Madeira.csv";
+    files[1] = "../data/Project1LargeDataSet/Reservoir.csv";
+    std::ifstream file(files[dataset]);
     std::string line;
     std::string name, municipality, id, code, maxDelivery;
 
@@ -36,9 +46,11 @@ void Auxiliar::readReservoir(Graph *g) {
  * @param g The main graph
  * @details Time Complexity O(n) n = number of airlines
  */
-void Auxiliar::readStations(Graph *g) {
-    //std::ifstream file("../data/Project1DataSetSmall/Stations_Madeira.csv");
-    std::ifstream file("../data/Project1LargeDataSet/Stations.csv");
+void Auxiliar::readStations(Graph *g, int dataset) {
+    std::string files[2];
+    files[0] = "../data/Project1DataSetSmall/Stations_Madeira.csv";
+    files[1] = "../data/Project1LargeDataSet/Stations.csv";
+    std::ifstream file(files[dataset]);
     std::string line;
     std::string id, code;
     getline(file, line);
@@ -58,9 +70,11 @@ void Auxiliar::readStations(Graph *g) {
  * @param g The main graph
  * @details Time Complexity O(n) n = number of flights
  */
-void Auxiliar::readCities(Graph *g) {
-    //std::ifstream file("../data/Project1DataSetSmall/Cities_Madeira.csv");
-    std::ifstream file("../data/Project1LargeDataSet/Cities.csv");
+void Auxiliar::readCities(Graph *g, int dataset) {
+    std::string files[2];
+    files[0] = "../data/Project1DataSetSmall/Cities_Madeira.csv";
+    files[1] = "../data/Project1LargeDataSet/Cities.csv";
+    std::ifstream file(files[dataset]);
     std::string line;
     std::string name, id, code, demand, population;
 
@@ -79,9 +93,11 @@ void Auxiliar::readCities(Graph *g) {
 
 }
 
-void Auxiliar::readPipes(Graph *g) {
-    //std::ifstream file("../data/Project1DataSetSmall/Pipes_Madeira.csv");
-    std::ifstream file("../data/Project1LargeDataSet/Pipes.csv");
+void Auxiliar::readPipes(Graph *g, int dataset) {
+    std::string files[2];
+    files[0] = "../data/Project1DataSetSmall/Pipes_Madeira.csv";
+    files[1] = "../data/Project1LargeDataSet/Pipes.csv";
+    std::ifstream file(files[dataset]);
     std::string line;
     std::string servicePointA, servicePointB, capacity, direction;
 

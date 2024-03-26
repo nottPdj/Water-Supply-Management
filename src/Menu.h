@@ -28,6 +28,9 @@ private:
     Graph *g;
     Management m;
 
+    std::string datasets[2] = {"Small", "Large"};
+    int curDataset = 0;
+
     // Table column widths
     const static int MENU_WIDTH = 75;
     const static int CODE_WIDTH = 10;

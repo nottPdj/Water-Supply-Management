@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <cmath>
 #include "Menu.h"
+#include "Auxiliar.h"
 
 
 /**
@@ -45,7 +46,7 @@ void Menu::printMainMenu() {
               << "\t5 - Cities affected by a pumping station failure" << "\n"
               << "\t6 - Crucial pipelines to a city" << "\n"
               << "\t7 - Cities affected by pipeline rupture" << "\n\n"
-              << "\t8 - Choose dataset" << "\n\n";
+              << "\t8 - Choose dataset (current: " << datasets[curDataset] << ")" << "\n\n";
 
     printExit();
     std::cout << "Press the number corresponding the action you want." << "\n";
@@ -114,6 +115,15 @@ void Menu::waitMenu(){
             options.message = "Cities affected by pipeline rupture \n"; //TODO
             printCitiesAffected(citiesAffectedByPipeRupture, options);
             break;
+        }
+        case 8: {
+            std::cout << "Choose what dataset to use:\n";
+            std::cout << "\t0 - Small Dataset\n";
+            std::cout << "\t1 - Large Dataset\n";
+            std::cin >> curDataset;
+            g = new Graph();
+            Auxiliar::readDataset(g, curDataset);
+            m = Management(g);
         }
         default: {
             printMainMenu();
