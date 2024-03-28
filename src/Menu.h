@@ -7,27 +7,35 @@
 
 
 /**
- * @brief Terminal auxiliary struct storing the printing options for a printing function.
+ * @brief Menu auxiliary struct storing the printing options for a printing function.
  */
 struct printingOptions {
     std::string message;
     bool clear = true;
     bool printMessage = true;
+    bool printTotal = true;
     bool showEndMenu = true;
 };
 
 /**
- * @brief Terminal is used to create an interface between the user and the program.
+ * @brief Menu is used to create an interface between the user and the program.
  * Uses the console to receive and output inputs. There are some functionalities available only for Ubuntu.
  * */
 class Menu {
 private:
     /**
-     * @brief Graph containing all the air travelling information that is being managed
+     * @brief Graph containing all the watter supply network information that is being managed.
      */
     Graph *g;
+    /**
+     * @brief Management extracts information from the graph containing the network and uses it to compute algorithms
+     * that are needed to satisfy the user requests.
+     */
     Management m;
 
+    /**
+     * @brief Contains the names of the datasets available.
+     */
     std::string datasets[2] = {"Small", "Large"};
     int curDataset = 0;
 
@@ -52,6 +60,7 @@ private:
     void printBackToMenu();
     void printExit();
 
+    // Choosing and selecting input
     ServicePoint * chooseReservoirInput();
     ServicePoint * chooseCityInput();
     ServicePoint * chooseStationInput();
