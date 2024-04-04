@@ -7,9 +7,9 @@
 
 
 /**
- * @brief Constructor of the Menu class. Stores the graph containing all air travel information in the private field
- * so that it can communicate with it throughout the program.
- * @param g Graph containing all air travel information being managed by the Menu
+ * @brief Constructor of the Menu class. Stores the graph containing all the watter supply network information
+ * in the private field and creates and stores a management class that is responsible for managing this graph.
+ * @param g Graph containing all the watter supply network information
  */
 Menu::Menu(Graph *g) : m(Management(g)), g(g)  {}
 
@@ -18,16 +18,9 @@ Menu::Menu(Graph *g) : m(Management(g)), g(g)  {}
  */
 void Menu::run(){
     system("clear");
-    //printChooseDataset();
     printMainMenu();
     system("clear");
 }
-
-// void Menu::printChooseDataset() {
-//     std::cout << "Choose a dataset to load:" << std::endl;
-//     //
-// }
-
 
 /**
  * @brief Prints the main menu.
@@ -40,13 +33,13 @@ void Menu::printMainMenu() {
               << "\t\t0 - a city" << "\n"
               << "\t\t1 - each city" << "\n"
               << "\t2 - Check if current network configuration meets the water needs of all customers" << "\n"
-              << "\t3 - Balance the load across the network" << "\n"
+              << "\t3 - Balance the load across the network" << "\n\n"
               << "Reliability and Sensitivity to Failures" << "\n"
               << "\t4 - Water Reservoir unavailable" << "\n"
               << "\t5 - Cities affected by a pumping station failure" << "\n"
               << "\t6 - Crucial pipelines to a city" << "\n"
               << "\t7 - Cities affected by pipeline rupture" << "\n\n"
-              << "\t8 - Choose dataset (current: " << datasets[curDataset] << ")" << "\n\n";
+              << "8 - Choose dataset (current: " << datasets[curDataset] << ")" << "\n\n";
 
     printExit();
     std::cout << "Press the number corresponding the action you want." << "\n";
@@ -64,58 +57,69 @@ void Menu::waitMenu(){
     system("clear");
     printingOptions options;
     switch (stoi(choice)) {
-        //
+        // Maximum amount of water that can reach a city
         case 0: {
             ServicePoint * city = chooseCityInput();
             std::pair<std::string, int> flow = m.getMaxFlowCity(city);
             std::unordered_map<std::string,int> flowCities;
             flowCities.insert(flow);
-            options.message = "Maximum amount of water that can reach city \n"; // TODO
+            options.message = "Maximum amount of water that can reach city " + city->getCode() + "\n\n";
+            options.printTotal = false;
             printFlowPerCity(flowCities, options);
             break;
         }
+        // Maximum amount of water that can reach each city
         case 1: {
             std::unordered_map<std::string,int> flow = m.getMaxFlow();
+            options.message = "Maximum amount of water that can reach city each city\n";
             printFlowPerCity(flow, options);
             break;
         }
+        // Check if current network configuration meets the water needs of all customers
         case 2: {
             std::unordered_map<std::string,int> deficitCities = m.getFlowDeficit();
             printFlowDeficitPerCity(deficitCities, options);
             break;
         }
+        // Balance the load across the network
         case 3: {
 
             break;
         }
+        // Water Reservoir unavailable
         case 4: {
             ServicePoint * reservoir = chooseReservoirInput();
             std::vector<std::pair<std::string, flowDiff>> citiesAffectedByReservoirFail = m.getCitiesAffectedByReservoirFail(reservoir);
-            options.message = "Cities affected by reservoir \n "; // TODO
+            options.message = "Cities affected by reservoir " + reservoir->getCode() + "\n\n";
             printCitiesAffected(citiesAffectedByReservoirFail, options);
             break;
         }
+        // Cities affected by a pumping station failure
         case 5: {
             ServicePoint * station = chooseStationInput();
             std::vector<std::pair<std::string, flowDiff>> citiesAffectedByStationFail = m.getCitiesAffectedByStationFail(station);
-            options.message = "Cities affected by station fail\n" ;//TODO
+            options.message = "Cities affected if station " + station->getCode() + " fails\n\n";
             printCitiesAffected(citiesAffectedByStationFail, options);
             break;
         }
+        // Crucial pipelines to a city
         case 6: {
             ServicePoint * city = chooseCityInput();
             std::vector<std::pair<Pipe *, flowDiff>> crucialPipesToCity = m.getCrucialPipesToCity(city);
-            options.message = "Crucial pipelines to city \n"; // TODO
+            options.message = "Crucial pipelines to city " + city->getCode() + "\n\n";
+            options.printTotal = false;
             printCrucialPipes(crucialPipesToCity, options);
             break;
         }
+        // Cities affected by pipeline rupture
         case 7: {
             Pipe * pipe = choosePipeInput();
             std::vector<std::pair<std::string, flowDiff>> citiesAffectedByPipeRupture = m.getCitiesAffectedByPipeRupture(pipe);
-            options.message = "Cities affected by pipeline rupture \n"; //TODO
+            options.message = "Cities affected by pipeline rupture (" + pipe->getOrig()->getCode() + ", " + pipe->getDest()->getCode() + ")\n\n";
             printCitiesAffected(citiesAffectedByPipeRupture, options);
             break;
         }
+        // Choose dataset
         case 8: {
             std::cout << "Choose what dataset to use:\n";
             std::cout << "\t0 - Small Dataset\n";
@@ -131,6 +135,11 @@ void Menu::waitMenu(){
     }
 }
 
+
+/**
+ * @brief Choose how the reservoir is input and returns the reservoir.
+ * @return Service Point pointer that was chosen.
+ */
 ServicePoint * Menu::chooseReservoirInput() {
     system("clear");
     std::cout << "Choose reservoir by:\n";
@@ -153,6 +162,10 @@ ServicePoint * Menu::chooseReservoirInput() {
     }
 }
 
+/**
+ * @brief Choose how the city is input and returns the city.
+ * @return Service Point pointer that was chosen.
+ */
 ServicePoint * Menu::chooseCityInput() {
     system("clear");
     std::cout << "Choose city by:\n";
@@ -175,6 +188,10 @@ ServicePoint * Menu::chooseCityInput() {
     }
 }
 
+/**
+ * @brief Receives the station input and returns the station.
+ * @return Service Point pointer that was chosen.
+ */
 ServicePoint * Menu::chooseStationInput() {
     system("clear");
     std::string code;
@@ -183,7 +200,10 @@ ServicePoint * Menu::chooseStationInput() {
     return g->findServicePoint(code);
 }
 
-
+/**
+ * @brief Receives the pipe's source and target service points inputs by code and returns the station.
+ * @return Service Point pointer that was chosen.
+ */
 Pipe * Menu::choosePipeInput() {
     system("clear");
     std::string orig, dest;
@@ -194,6 +214,12 @@ Pipe * Menu::choosePipeInput() {
     return g->getPipeByEnds(orig, dest);
 }
 
+
+/**
+ * @brief Prints in a tabular form the code of the city and the respective flow, as well as the total in the end
+ * @param flowCities Hashmap that contains the flow per city
+ * @param options Printing options
+ */
 void Menu::printFlowPerCity(std::unordered_map<std::string,int> flowCities, printingOptions options) {
     if (options.clear)
         system("clear");
@@ -211,7 +237,8 @@ void Menu::printFlowPerCity(std::unordered_map<std::string,int> flowCities, prin
         total += it->second;
         std::cout << "|" << center(it->first, ' ', CODE_WIDTH) << "|" << center(std::to_string(it->second), ' ', FLOW_WIDTH) << "|\n";
     }
-    std::cout << "|" << center("TOTAL", ' ', CODE_WIDTH) << "|" << center(std::to_string(total), ' ', FLOW_WIDTH) << "|\n";
+    if (options.printTotal)
+        std::cout << "|" << center("TOTAL", ' ', CODE_WIDTH) << "|" << center(std::to_string(total), ' ', FLOW_WIDTH) << "|\n";
 
 
     // CLOSING TABLE
@@ -223,6 +250,11 @@ void Menu::printFlowPerCity(std::unordered_map<std::string,int> flowCities, prin
     getInput();
 }
 
+/**
+ * @brief Prints in a tabular form the code of the city and the respective flow deficit, as well as the total in the end
+ * @param deficitCities Hashmap that contains the flow deficit per city
+ * @param options Printing options
+ */
 void Menu::printFlowDeficitPerCity(std::unordered_map<std::string,int> deficitCities, printingOptions options) {
     if (options.clear)
         system("clear");
@@ -245,7 +277,8 @@ void Menu::printFlowDeficitPerCity(std::unordered_map<std::string,int> deficitCi
         total += it->second;
         std::cout << "|" << center(it->first, ' ', CODE_WIDTH) << "|" << center(std::to_string(it->second), ' ', DEFICIT_WIDTH) << "|\n";
     }
-    std::cout << "|" << center("TOTAL", ' ', CODE_WIDTH) << "|" << center(std::to_string(total), ' ', DEFICIT_WIDTH) << "|\n";
+    if (options.printTotal)
+        std::cout << "|" << center("TOTAL", ' ', CODE_WIDTH) << "|" << center(std::to_string(total), ' ', DEFICIT_WIDTH) << "|\n";
 
 
     // CLOSING TABLE
@@ -257,7 +290,12 @@ void Menu::printFlowDeficitPerCity(std::unordered_map<std::string,int> deficitCi
     getInput();
 }
 
-
+/**
+ * @brief Prints in a tabular form the codes of the pipe's source and target service points, and the respective previous
+ * and new flow, as well as the flow difference
+ * @param crucialPipes Pipe and respective previous and new flow
+ * @param options Printing options
+ */
 void Menu::printCrucialPipes(std::vector<std::pair<Pipe *, flowDiff>> crucialPipes, printingOptions options) {
     if (options.clear)
         system("clear");
@@ -286,6 +324,12 @@ void Menu::printCrucialPipes(std::vector<std::pair<Pipe *, flowDiff>> crucialPip
     getInput();
 }
 
+/**
+ * @brief Prints in a tabular form the code of the city, and the respective previous
+ * and new flow, as well as the flow difference and the total in the end
+ * @param citiesAffected Code of the city and respective previous and new flow
+ * @param options Printing options
+ */
 void Menu::printCitiesAffected(std::vector<std::pair<std::string, flowDiff>> citiesAffected, printingOptions options) {
     if (options.clear)
         system("clear");
@@ -307,7 +351,8 @@ void Menu::printCitiesAffected(std::vector<std::pair<std::string, flowDiff>> cit
         totalNew += newFlow;
         std::cout << "|" << center(cityDiff.first, ' ', CODE_WIDTH) << "|" << center(std::to_string(oldFlow), ' ', FLOW_WIDTH) << "|" << center(std::to_string(newFlow), ' ', FLOW_WIDTH) << "|" << center(std::to_string(newFlow - oldFlow), ' ', DEFICIT_WIDTH) << "|\n";
     }
-    std::cout << "|" << center("TOTAL", ' ', CODE_WIDTH) << "|" << center(std::to_string(totalOld), ' ', FLOW_WIDTH) << "|" << center(std::to_string(totalNew), ' ', FLOW_WIDTH) << "|" << center(std::to_string(totalNew - totalOld), ' ', DEFICIT_WIDTH) << "|\n";
+    if (options.printTotal)
+        std::cout << "|" << center("TOTAL", ' ', CODE_WIDTH) << "|" << center(std::to_string(totalOld), ' ', FLOW_WIDTH) << "|" << center(std::to_string(totalNew), ' ', FLOW_WIDTH) << "|" << center(std::to_string(totalNew - totalOld), ' ', DEFICIT_WIDTH) << "|\n";
 
     // CLOSING TABLE
     std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
@@ -317,7 +362,6 @@ void Menu::printCitiesAffected(std::vector<std::pair<std::string, flowDiff>> cit
         endDisplayMenu();
     getInput();
 }
-
 
 
 /**
@@ -349,7 +393,6 @@ std::string Menu::center(const std::string &str, char sep, int width) {
     std::cout << std::setw(space) << std::setfill(sep) << "" << str2 << std::setw(width - str2.length() - space) << std::setfill(sep) << "";
     return oss.str();
 }
-
 
 
 void Menu::printBackToMenu() {
