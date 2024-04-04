@@ -109,10 +109,10 @@ void Auxiliar::readPipes(Graph *g, int dataset) {
         getline(ss, capacity, ',');
         getline(ss, direction, '\r');
         if (std::stoi(direction)){
-            g->addBidirectionalPipe(servicePointB, servicePointA, std::stoi(capacity));
+            g->addPipe(servicePointA, servicePointB, std::stoi(capacity));
         }
         else {
-            g->addPipe(servicePointA, servicePointB, std::stoi(capacity));
+            g->addBidirectionalPipe(servicePointA, servicePointB, std::stoi(capacity));
         }
     }
 
