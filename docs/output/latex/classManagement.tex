@@ -1,0 +1,50 @@
+\hypertarget{classManagement}{}\doxysection{Management Class Reference}
+\label{classManagement}\index{Management@{Management}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classManagement_ac8e10030e252c9c03d41eec113ba95d0}\label{classManagement_ac8e10030e252c9c03d41eec113ba95d0}} 
+{\bfseries Management} (\mbox{\hyperlink{classGraph}{Graph}} $\ast$graph)
+\item 
+\mbox{\Hypertarget{classManagement_ac60e75088c411c9c283d3a18fe14e3db}\label{classManagement_ac60e75088c411c9c283d3a18fe14e3db}} 
+void {\bfseries test\+And\+Visit} (std\+::queue$<$ \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ \&q, \mbox{\hyperlink{classPipe}{Pipe}} $\ast$e, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$w, double residual)
+\item 
+\mbox{\Hypertarget{classManagement_a80e0dafd70b371a267eb6013ac94bc4d}\label{classManagement_a80e0dafd70b371a267eb6013ac94bc4d}} 
+bool {\bfseries find\+Augmenting\+Path} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t)
+\item 
+\mbox{\Hypertarget{classManagement_aecb1017e3eba3fd5437e0dfe47d06b38}\label{classManagement_aecb1017e3eba3fd5437e0dfe47d06b38}} 
+double {\bfseries find\+Min\+Residual\+Along\+Path} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t)
+\item 
+\mbox{\Hypertarget{classManagement_a23d8c2535903ec66b651ba345e866a2c}\label{classManagement_a23d8c2535903ec66b651ba345e866a2c}} 
+void {\bfseries edmonds\+Karp} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t)
+\item 
+\mbox{\Hypertarget{classManagement_ad7313075e1b66bfaaa64d13adf229807}\label{classManagement_ad7313075e1b66bfaaa64d13adf229807}} 
+void {\bfseries augment\+Flow\+Along\+Path} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t, double f)
+\item 
+\mbox{\Hypertarget{classManagement_a57cd2b083fd372bbb89097be973b9824}\label{classManagement_a57cd2b083fd372bbb89097be973b9824}} 
+std\+::unordered\+\_\+map$<$ std\+::string, int $>$ {\bfseries get\+Max\+Flow} ()
+\item 
+\mbox{\Hypertarget{classManagement_a6233a8f77fd7285ba097d4e09d3118d1}\label{classManagement_a6233a8f77fd7285ba097d4e09d3118d1}} 
+std\+::pair$<$ std\+::string, int $>$ {\bfseries get\+Max\+Flow\+City} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$city\+Sink)
+\item 
+\mbox{\Hypertarget{classManagement_a988aa630b2d0e9b5331aab92c7e30499}\label{classManagement_a988aa630b2d0e9b5331aab92c7e30499}} 
+std\+::unordered\+\_\+map$<$ std\+::string, int $>$ {\bfseries get\+Flow\+Deficit} ()
+\item 
+\mbox{\Hypertarget{classManagement_a10c071613c8ff2ce198ef166c7127b69}\label{classManagement_a10c071613c8ff2ce198ef166c7127b69}} 
+std\+::vector$<$ std\+::pair$<$ std\+::string, \mbox{\hyperlink{structflowDiff}{flow\+Diff}} $>$ $>$ {\bfseries get\+Cities\+Affected\+By\+Reservoir\+Fail} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$reservoir)
+\item 
+\mbox{\Hypertarget{classManagement_a9acd49809907862bfca25b7b97747037}\label{classManagement_a9acd49809907862bfca25b7b97747037}} 
+std\+::vector$<$ std\+::pair$<$ std\+::string, \mbox{\hyperlink{structflowDiff}{flow\+Diff}} $>$ $>$ {\bfseries get\+Cities\+Affected\+By\+Station\+Fail} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$down\+Station)
+\item 
+\mbox{\Hypertarget{classManagement_a39fdbdd20651dfda6677461b2f3343fa}\label{classManagement_a39fdbdd20651dfda6677461b2f3343fa}} 
+std\+::vector$<$ std\+::pair$<$ std\+::string, \mbox{\hyperlink{structflowDiff}{flow\+Diff}} $>$ $>$ {\bfseries get\+Cities\+Affected\+By\+Pipe\+Rupture} (\mbox{\hyperlink{classPipe}{Pipe}} $\ast$e)
+\item 
+\mbox{\Hypertarget{classManagement_aba0689aa49a6a44d64ff322d2e6779fa}\label{classManagement_aba0689aa49a6a44d64ff322d2e6779fa}} 
+std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{classPipe}{Pipe}} $\ast$, \mbox{\hyperlink{structflowDiff}{flow\+Diff}} $>$ $>$ {\bfseries get\+Crucial\+Pipes\+To\+City} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$sp)
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/tiagoftorres/\+Desktop/projeto\+\_\+da/\+Water-\/\+Supply-\/\+Management/src/Management.\+h\item 
+/home/tiagoftorres/\+Desktop/projeto\+\_\+da/\+Water-\/\+Supply-\/\+Management/src/Management.\+cpp\end{DoxyCompactItemize}

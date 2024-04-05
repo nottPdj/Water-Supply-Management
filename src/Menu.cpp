@@ -33,7 +33,7 @@ void Menu::printMainMenu() {
               << "\t\t0 - a city" << "\n"
               << "\t\t1 - each city" << "\n"
               << "\t2 - Check if current network configuration meets the water needs of all customers" << "\n"
-              << "\t3 - Balance the load across the network" << "\n\n"
+              << "\t3 - Balance the load across the network (not implemented)" << "\n\n"
               << "Reliability and Sensitivity to Failures" << "\n"
               << "\t4 - Water Reservoir unavailable" << "\n"
               << "\t5 - Cities affected by a pumping station failure" << "\n"
@@ -83,7 +83,7 @@ void Menu::waitMenu(){
         }
         // Balance the load across the network
         case 3: {
-
+            printMainMenu();
             break;
         }
         // Water Reservoir unavailable
@@ -237,7 +237,7 @@ void Menu::printFlowPerCity(std::unordered_map<std::string,int> flowCities, prin
         total += it->second;
         std::cout << "|" << center(it->first, ' ', CODE_WIDTH) << "|" << center(std::to_string(it->second), ' ', FLOW_WIDTH) << "|\n";
     }
-    if (options.printTotal)
+    if (options.printTotal && !flowCities.empty())
         std::cout << "|" << center("TOTAL", ' ', CODE_WIDTH) << "|" << center(std::to_string(total), ' ', FLOW_WIDTH) << "|\n";
 
 
@@ -277,7 +277,7 @@ void Menu::printFlowDeficitPerCity(std::unordered_map<std::string,int> deficitCi
         total += it->second;
         std::cout << "|" << center(it->first, ' ', CODE_WIDTH) << "|" << center(std::to_string(it->second), ' ', DEFICIT_WIDTH) << "|\n";
     }
-    if (options.printTotal)
+    if (options.printTotal && !deficitCities.empty())
         std::cout << "|" << center("TOTAL", ' ', CODE_WIDTH) << "|" << center(std::to_string(total), ' ', DEFICIT_WIDTH) << "|\n";
 
 
@@ -351,7 +351,7 @@ void Menu::printCitiesAffected(std::vector<std::pair<std::string, flowDiff>> cit
         totalNew += newFlow;
         std::cout << "|" << center(cityDiff.first, ' ', CODE_WIDTH) << "|" << center(std::to_string(oldFlow), ' ', FLOW_WIDTH) << "|" << center(std::to_string(newFlow), ' ', FLOW_WIDTH) << "|" << center(std::to_string(newFlow - oldFlow), ' ', DEFICIT_WIDTH) << "|\n";
     }
-    if (options.printTotal)
+    if (options.printTotal && !citiesAffected.empty())
         std::cout << "|" << center("TOTAL", ' ', CODE_WIDTH) << "|" << center(std::to_string(totalOld), ' ', FLOW_WIDTH) << "|" << center(std::to_string(totalNew), ' ', FLOW_WIDTH) << "|" << center(std::to_string(totalNew - totalOld), ' ', DEFICIT_WIDTH) << "|\n";
 
     // CLOSING TABLE

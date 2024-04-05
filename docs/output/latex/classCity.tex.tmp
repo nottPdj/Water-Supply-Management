@@ -1,0 +1,38 @@
+\hypertarget{classCity}{}\doxysection{City Class Reference}
+\label{classCity}\index{City@{City}}
+
+
+Inheritance diagram for City\+:
+% FIG 0
+
+
+Collaboration diagram for City\+:
+% FIG 1
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classCity_a9b42bcc6063052846041a81317ac0c15}\label{classCity_a9b42bcc6063052846041a81317ac0c15}} 
+{\bfseries City} (std\+::string name, std\+::string id, std\+::string code, int demand, int population)
+\item 
+\mbox{\Hypertarget{classCity_adc7fe5313b3572973918cf6385e87fd5}\label{classCity_adc7fe5313b3572973918cf6385e87fd5}} 
+std\+::string {\bfseries get\+Name} ()
+\item 
+\mbox{\Hypertarget{classCity_aadddbdeac6ac07e34acc9044fe5d7dad}\label{classCity_aadddbdeac6ac07e34acc9044fe5d7dad}} 
+std\+::string {\bfseries get\+Id} ()
+\item 
+\mbox{\Hypertarget{classCity_a4e4a50d6df3fc1b0009d289a81db116d}\label{classCity_a4e4a50d6df3fc1b0009d289a81db116d}} 
+std\+::string {\bfseries get\+Code} () const
+\item 
+\mbox{\Hypertarget{classCity_a0acc81384f3e3625f95f0f656ad2066d}\label{classCity_a0acc81384f3e3625f95f0f656ad2066d}} 
+int {\bfseries get\+Demand} ()
+\item 
+\mbox{\Hypertarget{classCity_a98eaea565d670a1fa6b98aa07b6af860}\label{classCity_a98eaea565d670a1fa6b98aa07b6af860}} 
+int {\bfseries get\+Population} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/tiagoftorres/\+Desktop/projeto\+\_\+da/\+Water-\/\+Supply-\/\+Management/src/City.\+h\item 
+/home/tiagoftorres/\+Desktop/projeto\+\_\+da/\+Water-\/\+Supply-\/\+Management/src/City.\+cpp\end{DoxyCompactItemize}

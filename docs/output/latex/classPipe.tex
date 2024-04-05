@@ -1,0 +1,84 @@
+\hypertarget{classPipe}{}\doxysection{Pipe Class Reference}
+\label{classPipe}\index{Pipe@{Pipe}}
+
+
+Collaboration diagram for Pipe\+:
+% FIG 0
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPipe_aabe3291bf5f430ad5ef0be86cc155393}\label{classPipe_aabe3291bf5f430ad5ef0be86cc155393}} 
+{\bfseries Pipe} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$orig, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$dest, int capacity)
+\item 
+\mbox{\Hypertarget{classPipe_a47449c3d184d38beda7fe6573a6884be}\label{classPipe_a47449c3d184d38beda7fe6573a6884be}} 
+\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ {\bfseries get\+Orig} ()
+\item 
+\mbox{\Hypertarget{classPipe_ab29dd9433db0c6f172ef686b382c6b84}\label{classPipe_ab29dd9433db0c6f172ef686b382c6b84}} 
+\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ {\bfseries get\+Dest} ()
+\item 
+\mbox{\Hypertarget{classPipe_a65a6084868ecdf7ac60a945b343eff25}\label{classPipe_a65a6084868ecdf7ac60a945b343eff25}} 
+double {\bfseries get\+Capacity} () const
+\item 
+\mbox{\Hypertarget{classPipe_a750ef0b503bc32cc5eaa84c96b6196f6}\label{classPipe_a750ef0b503bc32cc5eaa84c96b6196f6}} 
+\mbox{\hyperlink{classPipe}{Pipe}} $\ast$ {\bfseries get\+Reverse} () const
+\item 
+\mbox{\Hypertarget{classPipe_afda9933102df2e11477f5e25d3bd176d}\label{classPipe_afda9933102df2e11477f5e25d3bd176d}} 
+double {\bfseries get\+Flow} () const
+\item 
+\mbox{\Hypertarget{classPipe_a3e08945e1e06c489f7ae166f78dbe11c}\label{classPipe_a3e08945e1e06c489f7ae166f78dbe11c}} 
+bool {\bfseries is\+Selected} () const
+\item 
+\mbox{\Hypertarget{classPipe_a5dfa7d7d850d0c8d22212d8569f71b95}\label{classPipe_a5dfa7d7d850d0c8d22212d8569f71b95}} 
+bool {\bfseries is\+Operational} () const
+\item 
+\mbox{\Hypertarget{classPipe_aa58da3cb6ad14d42badd6a3001b78d15}\label{classPipe_aa58da3cb6ad14d42badd6a3001b78d15}} 
+bool {\bfseries is\+Visited} () const
+\item 
+\mbox{\Hypertarget{classPipe_a71468b1208df5497121beb2489c82552}\label{classPipe_a71468b1208df5497121beb2489c82552}} 
+void {\bfseries set\+Selected} (bool selected)
+\item 
+\mbox{\Hypertarget{classPipe_a76593ca627b8d8820cc4e9d02528a261}\label{classPipe_a76593ca627b8d8820cc4e9d02528a261}} 
+void {\bfseries set\+Reverse} (\mbox{\hyperlink{classPipe}{Pipe}} $\ast$reverse)
+\item 
+\mbox{\Hypertarget{classPipe_a4ea0840dbc29976f4e2124d96fd0e626}\label{classPipe_a4ea0840dbc29976f4e2124d96fd0e626}} 
+void {\bfseries set\+Flow} (double flow)
+\item 
+\mbox{\Hypertarget{classPipe_a56f6adfeb149f86e82e63e2f8e9df98f}\label{classPipe_a56f6adfeb149f86e82e63e2f8e9df98f}} 
+void {\bfseries set\+Operational} (bool b)
+\item 
+\mbox{\Hypertarget{classPipe_ad8cac09a850ae81a51ba16eaca9a6041}\label{classPipe_ad8cac09a850ae81a51ba16eaca9a6041}} 
+void {\bfseries set\+Visited} (bool visited)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classPipe_a9f50b5a83002d7a2ce6ef2069569d6cf}\label{classPipe_a9f50b5a83002d7a2ce6ef2069569d6cf}} 
+\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ {\bfseries orig}
+\item 
+\mbox{\Hypertarget{classPipe_a8c3c48aa19a5baa00a4cbfbdf329243e}\label{classPipe_a8c3c48aa19a5baa00a4cbfbdf329243e}} 
+\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ {\bfseries dest}
+\item 
+\mbox{\Hypertarget{classPipe_a67fa0b6c2695587efd0def523e5ef6b5}\label{classPipe_a67fa0b6c2695587efd0def523e5ef6b5}} 
+double {\bfseries capacity}
+\item 
+\mbox{\Hypertarget{classPipe_a981fd5273c13a0e2f89655033d224705}\label{classPipe_a981fd5273c13a0e2f89655033d224705}} 
+double {\bfseries flow}
+\item 
+\mbox{\Hypertarget{classPipe_a8f8315f0339deba49a4a82c21aa7fdda}\label{classPipe_a8f8315f0339deba49a4a82c21aa7fdda}} 
+bool {\bfseries selected} = false
+\item 
+\mbox{\Hypertarget{classPipe_a68ee94873c550311353ed9fde46a4096}\label{classPipe_a68ee94873c550311353ed9fde46a4096}} 
+bool {\bfseries operational} =true
+\item 
+\mbox{\Hypertarget{classPipe_afc498eb31024ebe5ad5fde38377d31e2}\label{classPipe_afc498eb31024ebe5ad5fde38377d31e2}} 
+bool {\bfseries visited} = false
+\item 
+\mbox{\Hypertarget{classPipe_ac2750bfd55b7bfdef5332ed09f22d2a0}\label{classPipe_ac2750bfd55b7bfdef5332ed09f22d2a0}} 
+\mbox{\hyperlink{classPipe}{Pipe}} $\ast$ {\bfseries reverse} = nullptr
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/tiagoftorres/\+Desktop/projeto\+\_\+da/\+Water-\/\+Supply-\/\+Management/src/Pipe.\+h\item 
+/home/tiagoftorres/\+Desktop/projeto\+\_\+da/\+Water-\/\+Supply-\/\+Management/src/Pipe.\+cpp\end{DoxyCompactItemize}

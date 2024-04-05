@@ -1,0 +1,92 @@
+\hypertarget{classGraph}{}\doxysection{Graph Class Reference}
+\label{classGraph}\index{Graph@{Graph}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGraph_a9945baa067f81da755166d4580fadfda}\label{classGraph_a9945baa067f81da755166d4580fadfda}} 
+void {\bfseries add\+Reservoir} (\mbox{\hyperlink{classReservoir}{Reservoir}} $\ast$p\+Reservoir)
+\item 
+\mbox{\Hypertarget{classGraph_abd3f91e307004d71be15ef018d2afe23}\label{classGraph_abd3f91e307004d71be15ef018d2afe23}} 
+void {\bfseries add\+Station} (\mbox{\hyperlink{classStation}{Station}} $\ast$p\+Station)
+\item 
+\mbox{\Hypertarget{classGraph_a6aa5ed8e68430dc1befdc1dd9f61bc87}\label{classGraph_a6aa5ed8e68430dc1befdc1dd9f61bc87}} 
+void {\bfseries add\+City} (\mbox{\hyperlink{classCity}{City}} $\ast$p\+City)
+\item 
+\mbox{\Hypertarget{classGraph_a469072d3f64ea47b862401c9f46dfaad}\label{classGraph_a469072d3f64ea47b862401c9f46dfaad}} 
+void {\bfseries add\+Service\+Point} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$service\+Point)
+\item 
+\mbox{\Hypertarget{classGraph_a65fb63aecd385289d6c1618f4c967d16}\label{classGraph_a65fb63aecd385289d6c1618f4c967d16}} 
+void {\bfseries remove\+Service\+Point} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$service\+Point)
+\item 
+\mbox{\Hypertarget{classGraph_a7d46cd58e76bb9a7140052da75199025}\label{classGraph_a7d46cd58e76bb9a7140052da75199025}} 
+void {\bfseries add\+Pipe} (std\+::string spA, std\+::string spB, int capacity)
+\item 
+\mbox{\Hypertarget{classGraph_afe4608ae37d75fbe1c422584e6e93d23}\label{classGraph_afe4608ae37d75fbe1c422584e6e93d23}} 
+void {\bfseries add\+Bidirectional\+Pipe} (std\+::string spA, std\+::string spB, int capacity)
+\item 
+\mbox{\Hypertarget{classGraph_a0bda705a503499befe381c9c85d43010}\label{classGraph_a0bda705a503499befe381c9c85d43010}} 
+void {\bfseries remove\+Associated\+Pipes} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$service\+Point)
+\item 
+\mbox{\Hypertarget{classGraph_afad111991307875fd1eae3f0dbf31edb}\label{classGraph_afad111991307875fd1eae3f0dbf31edb}} 
+void {\bfseries remove\+Pipe} (\mbox{\hyperlink{classPipe}{Pipe}} $\ast$pipe)
+\item 
+\mbox{\Hypertarget{classGraph_aa6417a14a13339d4796eb020e51ab8a8}\label{classGraph_aa6417a14a13339d4796eb020e51ab8a8}} 
+int {\bfseries get\+Num\+Service\+Point} () const
+\item 
+\mbox{\Hypertarget{classGraph_a2f8dc75dc39c102604a1cd2e8303b22f}\label{classGraph_a2f8dc75dc39c102604a1cd2e8303b22f}} 
+std\+::vector$<$ \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ {\bfseries get\+Service\+Point\+Set} () const
+\item 
+\mbox{\Hypertarget{classGraph_a4665cc17da07c8a3e20b563c80cb4f69}\label{classGraph_a4665cc17da07c8a3e20b563c80cb4f69}} 
+std\+::vector$<$ \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ {\bfseries get\+Reservoir\+Set} () const
+\item 
+\mbox{\Hypertarget{classGraph_a6b2787e297625136c21ac104429d9cb6}\label{classGraph_a6b2787e297625136c21ac104429d9cb6}} 
+std\+::vector$<$ \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ {\bfseries get\+Cities\+Set} () const
+\item 
+\mbox{\Hypertarget{classGraph_a764c35bb3253229d404ea93acbac947d}\label{classGraph_a764c35bb3253229d404ea93acbac947d}} 
+std\+::vector$<$ \mbox{\hyperlink{classPipe}{Pipe}} $\ast$ $>$ {\bfseries get\+Pipe\+Set} () const
+\item 
+\mbox{\Hypertarget{classGraph_a66b20e207270035f40df6aa927baf197}\label{classGraph_a66b20e207270035f40df6aa927baf197}} 
+\mbox{\hyperlink{classPipe}{Pipe}} $\ast$ {\bfseries get\+Pipe\+By\+Ends} (std\+::string orig, std\+::string dest)
+\item 
+\mbox{\Hypertarget{classGraph_ad6b7ce4b7683f18e066f4cbd4c11698d}\label{classGraph_ad6b7ce4b7683f18e066f4cbd4c11698d}} 
+\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ {\bfseries get\+City\+By\+Name} (const std\+::string \&name)
+\item 
+\mbox{\Hypertarget{classGraph_a71caf6893b6e772fc2c420281f433f15}\label{classGraph_a71caf6893b6e772fc2c420281f433f15}} 
+\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ {\bfseries get\+Reservoir\+By\+Name} (const std\+::string \&name)
+\item 
+\mbox{\Hypertarget{classGraph_a613d45841baa4c39a68ed752d90aae9c}\label{classGraph_a613d45841baa4c39a68ed752d90aae9c}} 
+\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ {\bfseries find\+Service\+Point} (const std\+::string \&code)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{classGraph_a6ae4885465c4d6e29c4f47d09362cd9c}\label{classGraph_a6ae4885465c4d6e29c4f47d09362cd9c}} 
+std\+::vector$<$ \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ {\bfseries service\+Point\+Set}
+\item 
+\mbox{\Hypertarget{classGraph_a067d8e19c6452627bf40a2a045faf687}\label{classGraph_a067d8e19c6452627bf40a2a045faf687}} 
+std\+::vector$<$ \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ {\bfseries reservoir\+Set}
+\item 
+\mbox{\Hypertarget{classGraph_a11a125f43f111d94cbd72991b08906c5}\label{classGraph_a11a125f43f111d94cbd72991b08906c5}} 
+std\+::vector$<$ \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ {\bfseries city\+Set}
+\item 
+\mbox{\Hypertarget{classGraph_a649cb16e464bc31c17e5d3e60b5f6d3b}\label{classGraph_a649cb16e464bc31c17e5d3e60b5f6d3b}} 
+std\+::vector$<$ \mbox{\hyperlink{classPipe}{Pipe}} $\ast$ $>$ {\bfseries pipe\+Set}
+\item 
+\mbox{\Hypertarget{classGraph_a6c2317fa7605f655a8246c6eccd1885f}\label{classGraph_a6c2317fa7605f655a8246c6eccd1885f}} 
+std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ {\bfseries service\+Point\+By\+Code}
+\item 
+\mbox{\Hypertarget{classGraph_a42f37d88743ef77c9208f6b1e912c953}\label{classGraph_a42f37d88743ef77c9208f6b1e912c953}} 
+std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ {\bfseries city\+By\+Name}
+\item 
+\mbox{\Hypertarget{classGraph_a4a61be4bf26ce202064d6c7c2fd8e87a}\label{classGraph_a4a61be4bf26ce202064d6c7c2fd8e87a}} 
+std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ {\bfseries reservoir\+By\+Name}
+\item 
+\mbox{\Hypertarget{classGraph_a6afdca61fe72af797619e7361db84367}\label{classGraph_a6afdca61fe72af797619e7361db84367}} 
+std\+::unordered\+\_\+map$<$ std\+::pair$<$ std\+::string, std\+::string $>$, \mbox{\hyperlink{classPipe}{Pipe}} $\ast$, Pipe\+Hash, Pipe\+Equal $>$ {\bfseries pipe\+By\+Ends}
+\end{DoxyCompactItemize}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+/home/tiagoftorres/\+Desktop/projeto\+\_\+da/\+Water-\/\+Supply-\/\+Management/src/Graph.\+h\item 
+/home/tiagoftorres/\+Desktop/projeto\+\_\+da/\+Water-\/\+Supply-\/\+Management/src/Graph.\+cpp\end{DoxyCompactItemize}
