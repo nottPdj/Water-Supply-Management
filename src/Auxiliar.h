@@ -2,7 +2,9 @@
 #define PROJECT1_AUXILIAR_H
 #include "Graph.h"
 
-
+/**
+ * @brief Auxiliar class to read and write files
+ */
 class Auxiliar {
 public:
     static void readDataset(Graph *g, int dataset = 0);

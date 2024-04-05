@@ -22,7 +22,7 @@ void Auxiliar::readDataset(Graph *g, int dataset) {
 /**
  * @brief Reads the Reservoirs
  * @param g The main graph
- * @details Time Complexity O(n) n = number of airports
+ * @details Time Complexity O(n) n = number of reservoirs
  */
 void Auxiliar::readReservoir(Graph *g, int dataset) {
     std::string files[2];
@@ -49,7 +49,7 @@ void Auxiliar::readReservoir(Graph *g, int dataset) {
 /**
  * @brief Reads the Stations
  * @param g The main graph
- * @details Time Complexity O(n) n = number of airlines
+ * @details Time Complexity O(n) n = number of stations
  */
 void Auxiliar::readStations(Graph *g, int dataset) {
     std::string files[2];
@@ -73,7 +73,7 @@ void Auxiliar::readStations(Graph *g, int dataset) {
 /**
  * @brief Reads the Cities
  * @param g The main graph
- * @details Time Complexity O(n) n = number of flights
+ * @details Time Complexity O(n) n = number of cities
  */
 void Auxiliar::readCities(Graph *g, int dataset) {
     std::string files[2];
@@ -100,8 +100,8 @@ void Auxiliar::readCities(Graph *g, int dataset) {
 
 /**
  * @brief Reads the Pipes
- * @param g
- * @param dataset
+ * @param g The main graph
+ * @param dataset Time Complexity O(n) n = number of pipes
  */
 void Auxiliar::readPipes(Graph *g, int dataset) {
     std::string files[2];
