@@ -141,6 +141,7 @@ void Management::edmondsKarp( ServicePoint* s, ServicePoint* t) {
 /**
  * @brief Gets the max flow overall.
  * @return flowPerCity
+ * @details Time Complexity O(E) E = 
  */
 std::unordered_map<std::string,int> Management::getMaxFlow() { //each city do for super sink, for each city do for ServicePoint(city)
     Reservoir *superSource = new Reservoir("supersource", "x","0", "SRC", INF);
