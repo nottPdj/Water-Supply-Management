@@ -1,5 +1,14 @@
 #include "Reservoir.h"
 
+
+/**
+ * @brief Reservoir Constructor
+ * @param name
+ * @param municipality
+ * @param id
+ * @param code
+ * @param maxDelivery
+ */
 Reservoir::Reservoir(std::string name,std::string  municipality, std::string id, std::string code, int maxDelivery):
         name(name), municipality(municipality), id(id), code(code), maxDelivery(maxDelivery) {}
 

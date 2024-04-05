@@ -1,5 +1,13 @@
 #include "City.h"
 
+/**
+ * @brief City Constructor
+ * @param name
+ * @param id
+ * @param code
+ * @param demand
+ * @param population
+ */
 City::City(std::string name, std::string id, std::string code, int demand, int population): name(name), id(id), code(code), demand(demand), population(population) {}
 
 std::string City::getName() {

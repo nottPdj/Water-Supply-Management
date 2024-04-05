@@ -1,21 +1,34 @@
 #include <stdexcept>
 #include "Management.h"
-
+/**
+ * @brief Management Constructor
+ * @param graph
+ */
 Management::Management(Graph *graph) {
     this->g=graph;
 }
 
+/**
+ * @brief Checks if the Service Point is not visited and there is residual capacity, then marks as visited, sets path, and enqueue it
+ * @param q - queue of ServicePoints
+ * @param e - Pipe
+ * @param w - ServicePoint
+ * @param residual
+ */
 void Management::testAndVisit(std::queue<ServicePoint*> &q, Pipe*e, ServicePoint *w, double residual) {
-    // Check if the ServicePoint 'w' is not visited and there is residual capacity
     if(!w->isVisited() && residual>0 && w->isOperational() && e->isOperational()){
-        // Mark 'w' as visited, set the path through which it was reached, and enqueue it
         w->setVisited(true);
         w->setPath(e);
         q.push(w);
     }
 }
 
-// Function to find an augmenting path using Breadth-First Search
+/**
+ * @brief Finds an augmenting path using Breadth-First Search
+ * @param s - source ServicePoint
+ * @param t - target ServicePoint
+ * @return True if path is found
+ */
 bool Management::findAugmentingPath( ServicePoint *s, ServicePoint *t) {
     // Mark all vertices as not visited
     for(ServicePoint*v:g->getServicePointSet()){
@@ -66,9 +79,13 @@ double Management::findMinResidualAlongPath(ServicePoint *s, ServicePoint *t) {
     return f;
 }
 
-// Function to augment flow along the augmenting path with the given flow value
+/**
+ * @brief Augments the flow along the augmenting path with the given flow value
+ * @param s - source ServicePoint
+ * @param t - target ServicePoint
+ * @param f - flow value
+ */
 void Management::augmentFlowAlongPath(ServicePoint *s, ServicePoint *t, double f) {
-// Traverse the augmenting path and update the flow values accordingly
     ServicePoint *v=t;
     while(v!=s){
         auto e=v->getPath();
@@ -84,7 +101,11 @@ void Management::augmentFlowAlongPath(ServicePoint *s, ServicePoint *t, double f
     }
 }
 
-// Main function implementing the Edmonds-Karp algorithm
+/**
+ * @brief Performs the EdmondsKarp
+ * @param s - source ServicePoint
+ * @param t - target ServicePoint
+ */
 void Management::edmondsKarp( ServicePoint* s, ServicePoint* t) {
 
     // Validate source and target vertices
@@ -108,7 +129,10 @@ void Management::edmondsKarp( ServicePoint* s, ServicePoint* t) {
     }
 }
 
-
+/**
+ * @brief Gets the max flow overall.
+ * @return flowPerCity
+ */
 std::unordered_map<std::string,int> Management::getMaxFlow() { //each city do for super sink, for each city do for ServicePoint(city)
     Reservoir *superSource = new Reservoir("supersource", "x","0", "SRC", INF);
     g->addReservoir(superSource);
@@ -142,6 +166,11 @@ std::unordered_map<std::string,int> Management::getMaxFlow() { //each city do fo
     return flowPerCity;
 }
 
+/**
+ * @brief Gets the max flow of a specific City
+ * @param citySink
+ * @return deficitVector
+ */
 std::pair<std::string,int> Management::getMaxFlowCity(ServicePoint * citySink) {
     int maxflow = 0;
     Reservoir *superSource = new Reservoir("supersource", "x","0", "SRC", INF);
@@ -174,7 +203,11 @@ std::unordered_map<std::string,int> Management::getFlowDeficit() {
 }
 
 
-
+/**
+ * @brief Gets the cities affected by a reservoir fail.
+ * @param reservoir
+ * @return affectedCities
+ */
 std::vector<std::pair<std::string, flowDiff>> Management::getCitiesAffectedByReservoirFail(ServicePoint * reservoir) {
     std::vector<std::pair<std::string, flowDiff>> affectedCities;
 
@@ -199,7 +232,11 @@ std::vector<std::pair<std::string, flowDiff>> Management::getCitiesAffectedByRes
 }
 
 
-
+/**
+ * @brief Gets the cities affected by a Pipe rupture.
+ * @param e
+ * @return citiesAffected
+ */
 std::vector<std::pair<std::string, flowDiff>> Management::getCitiesAffectedByPipeRupture(Pipe* e){
     if(maxFlowCity.empty())
         getMaxFlow();
@@ -220,6 +257,11 @@ std::vector<std::pair<std::string, flowDiff>> Management::getCitiesAffectedByPip
     return citiesAffected;
 }
 
+/**
+ * @brief Gets the Crucial Pipes to a City. Checks if the flow of a City decreases from a Pipe removal.
+ * @param sp
+ * @return crucialPipes
+ */
 std::vector<std::pair<Pipe *,flowDiff>> Management::getCrucialPipesToCity(ServicePoint* sp){
     if(maxFlowCity.empty())
         getMaxFlow();
@@ -247,6 +289,11 @@ std::vector<std::pair<Pipe *,flowDiff>> Management::getCrucialPipesToCity(Servic
     return crucialPipes;
 }
 
+/**
+ * @brief Gets the cities affected by a Station failing
+ * @param downStation
+ * @return affectedCities
+ */
 std::vector<std::pair<std::string, flowDiff>> Management::getCitiesAffectedByStationFail(ServicePoint* downStation) {
     std::vector<std::pair<std::string, flowDiff>> affectedCities;
     if (maxFlowCity.empty()){

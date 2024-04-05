@@ -1,5 +1,10 @@
 #include "Station.h"
 
+/**
+ * @brief Station Constructor
+ * @param id
+ * @param code
+ */
 Station::Station(std::string id, std::string code): id(id), code(code) {}
 
 std::string Station::getId() {

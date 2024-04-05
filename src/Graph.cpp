@@ -2,6 +2,9 @@
 #include <algorithm>
 #include "Graph.h"
 
+/**
+ * @brief Graph Destructor
+ */
 Graph::~Graph() {
     // TODO check if destroys everything
     auto it = servicePointSet.begin();
@@ -12,6 +15,10 @@ Graph::~Graph() {
     }
 }
 
+/**
+ * @brief Adds a Reservoir to the Graph
+ * @param pReservoir
+ */
 void Graph::addReservoir(Reservoir *pReservoir) {
     addServicePoint(pReservoir);
     reservoirSet.push_back(pReservoir);
@@ -19,24 +26,38 @@ void Graph::addReservoir(Reservoir *pReservoir) {
 
 }
 
+/**
+ * @brief Adds a Station to the Graph
+ * @param pStation
+ */
 void Graph::addStation(Station *pStation) {
     addServicePoint(pStation);
 
 }
 
+/**
+ * @brief Adds a City to the Graph
+ * @param pCity
+ */
 void Graph::addCity(City *pCity) {
     addServicePoint(pCity);
     citySet.push_back(pCity);
     cityByName.insert(make_pair(pCity->getName(), pCity));
 }
 
-
+/**
+ * @brief Adds a ServicePoint to the Graph
+ * @param servicePoint
+ */
 void Graph::addServicePoint(ServicePoint *servicePoint) {
     servicePointSet.push_back(servicePoint);
     servicePointByCode.insert(make_pair(servicePoint->getCode(), servicePoint));
 }
 
-// Usar pra remover service point
+/**
+ * @brief Removes a Service Point from the Graph
+ * @param servicePoint
+ */
 void Graph::removeServicePoint(ServicePoint *servicePoint) {
     removeAssociatedPipes(servicePoint);
     servicePointByCode.erase(servicePoint->getCode());
@@ -54,6 +75,10 @@ void Graph::removeServicePoint(ServicePoint *servicePoint) {
     delete servicePoint;
 }
 
+/**
+ * @brief Removes associated Pipes to a given Service Point
+ * @param servicePoint
+ */
 void Graph::removeAssociatedPipes(ServicePoint * servicePoint) {
     for (Pipe * pipe : servicePoint->getAdj()) {
         removePipe(pipe);
@@ -63,6 +88,12 @@ void Graph::removeAssociatedPipes(ServicePoint * servicePoint) {
     }
 }
 
+/**
+ * @brief Adds a Pipe to the Graph
+ * @param spA
+ * @param spB
+ * @param capacity
+ */
 void Graph::addPipe(std::string spA, std::string spB, int capacity) {
     Pipe *pPipe = new Pipe(servicePointByCode[spA], servicePointByCode[spB], capacity);
     pPipe->getOrig()->addPipe(pPipe);
@@ -86,7 +117,10 @@ void Graph::addBidirectionalPipe(std::string spA, std::string spB, int capacity)
     pipeByEnds[std::make_pair(spB,spA)] = {pPipe2};
 }
 
-// Usar pra remover pipes
+/**
+ * @brief Removes a Pipe from the Graph
+ * @param pipe
+ */
 void Graph::removePipe(Pipe * pipe) {
     pipe->getOrig()->removeOutgoingPipe(pipe);
     pipe->getDest()->removeIncomingPipe(pipe);

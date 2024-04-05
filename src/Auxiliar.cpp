@@ -6,6 +6,11 @@
 #include <fstream>
 #include <algorithm>
 
+/**
+ * @brief Reads the DataSet
+ * @param g
+ * @param dataset
+ */
 void Auxiliar::readDataset(Graph *g, int dataset) {
     readReservoir(g, dataset);
     readStations(g, dataset);
@@ -15,7 +20,7 @@ void Auxiliar::readDataset(Graph *g, int dataset) {
 
 
 /**
- * @brief Reads the airports
+ * @brief Reads the Reservoirs
  * @param g The main graph
  * @details Time Complexity O(n) n = number of airports
  */
@@ -42,7 +47,7 @@ void Auxiliar::readReservoir(Graph *g, int dataset) {
 }
 
 /**
- * @brief Reads the airlines
+ * @brief Reads the Stations
  * @param g The main graph
  * @details Time Complexity O(n) n = number of airlines
  */
@@ -66,7 +71,7 @@ void Auxiliar::readStations(Graph *g, int dataset) {
 }
 
 /**
- * @brief Reads the flights
+ * @brief Reads the Cities
  * @param g The main graph
  * @details Time Complexity O(n) n = number of flights
  */
@@ -93,6 +98,11 @@ void Auxiliar::readCities(Graph *g, int dataset) {
 
 }
 
+/**
+ * @brief Reads the Pipes
+ * @param g
+ * @param dataset
+ */
 void Auxiliar::readPipes(Graph *g, int dataset) {
     std::string files[2];
     files[0] = "../data/Project1DataSetSmall/Pipes_Madeira.csv";

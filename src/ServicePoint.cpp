@@ -1,15 +1,30 @@
 #include "ServicePoint.h"
 
+/**
+ * @brief Service Point Constructor
+ */
 ServicePoint::ServicePoint() {}
 
+/**
+ *@brief Adds a pipe to a Service Point
+ * @param pipe
+ */
 void ServicePoint::addPipe(Pipe * pipe) {
     adj.push_back(pipe);
 }
 
+/**
+ * @brief Add a incoming pipe to a Service Point
+ * @param pipe
+ */
 void ServicePoint::addIncomingPipe(Pipe * pipe) {
     incoming.push_back(pipe);
 }
 
+/**
+ * @brief Removes a incoming pipe from a Service Point
+ * @param pipe
+ */
 void ServicePoint::removeIncomingPipe(Pipe * pipe) {
     auto it = incoming.begin();
     while (it != incoming.end()) {

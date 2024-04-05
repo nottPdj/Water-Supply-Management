@@ -1,5 +1,11 @@
 #include "Pipe.h"
 
+/**
+ * @brief Pipe Constructor
+ * @param orig
+ * @param dest
+ * @param capacity
+ */
 Pipe::Pipe(ServicePoint *orig, ServicePoint *dest, int capacity): orig(orig), dest(dest), capacity(capacity) {}
 
 ServicePoint * Pipe::getDest()  {
