@@ -2,6 +2,7 @@
 #include <iomanip>
 #include <algorithm>
 #include <cmath>
+#include <fstream>
 #include "Menu.h"
 #include "Auxiliar.h"
 
@@ -18,8 +19,18 @@ Menu::Menu(Graph *g) : m(Management(g)), g(g)  {}
  */
 void Menu::run(){
     system("clear");
+    clearOutputFile();
     printMainMenu();
     system("clear");
+}
+
+/**
+ * @brief Clears output file
+ */
+void Menu::clearOutputFile() {
+    std::ofstream ofs;
+    ofs.open(outputFile);
+    ofs.close();
 }
 
 /**
@@ -71,7 +82,7 @@ void Menu::waitMenu(){
         // Maximum amount of water that can reach each city
         case 1: {
             std::unordered_map<std::string,int> flow = m.getMaxFlow();
-            options.message = "Maximum amount of water that can reach city each city\n";
+            options.message = "Maximum amount of water that can reach city each city\n\n";
             printFlowPerCity(flow, options);
             break;
         }
@@ -221,30 +232,39 @@ Pipe * Menu::choosePipeInput() {
  * @param options Printing options
  */
 void Menu::printFlowPerCity(std::unordered_map<std::string,int> flowCities, printingOptions options) {
+    std::ostringstream oss;
+
     if (options.clear)
         system("clear");
     if (options.printMessage)
-        std::cout << options.message;
+        oss << options.message;
 
     // HEADERS
-    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|\n";
-    std::cout << "|" << center("Code", ' ', CODE_WIDTH) << "|" << center("Flow", ' ', FLOW_WIDTH) << "|\n";
-    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|\n";
+    oss << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|\n";
+    oss << "|" << center("Code", ' ', CODE_WIDTH) << "|" << center("Flow", ' ', FLOW_WIDTH) << "|\n";
+    oss << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|\n";
 
     // CITIES AND FLOWS
     int total = 0;
     for (auto it = flowCities.begin(); it != flowCities.end(); it++) {
         total += it->second;
-        std::cout << "|" << center(it->first, ' ', CODE_WIDTH) << "|" << center(std::to_string(it->second), ' ', FLOW_WIDTH) << "|\n";
+        oss << "|" << center(it->first, ' ', CODE_WIDTH) << "|" << center(std::to_string(it->second), ' ', FLOW_WIDTH) << "|\n";
     }
-    if (options.printTotal && !flowCities.empty())
-        std::cout << "|" << center("TOTAL", ' ', CODE_WIDTH) << "|" << center(std::to_string(total), ' ', FLOW_WIDTH) << "|\n";
-
+    if (options.printTotal && !flowCities.empty()) {
+        oss << "|" << center("TOTAL", ' ', CODE_WIDTH) << "|" << center(std::to_string(total), ' ', FLOW_WIDTH) << "|\n";
+    }
 
     // CLOSING TABLE
-    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|\n";
+    oss << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|\n\n\n";
 
-    std::cout << "\n\n";
+    std::cout << oss.str();
+
+    // Output to file
+    std::ofstream ofs;
+    ofs.open(outputFile, std::ios_base::app);
+    ofs << oss.str();
+    ofs.close();
+
     if (options.showEndMenu)
         endDisplayMenu();
     getInput();
@@ -256,6 +276,8 @@ void Menu::printFlowPerCity(std::unordered_map<std::string,int> flowCities, prin
  * @param options Printing options
  */
 void Menu::printFlowDeficitPerCity(std::unordered_map<std::string,int> deficitCities, printingOptions options) {
+    std::ostringstream oss;
+
     if (options.clear)
         system("clear");
     if (options.printMessage)
@@ -264,27 +286,36 @@ void Menu::printFlowDeficitPerCity(std::unordered_map<std::string,int> deficitCi
         } else {
             options.message = "These cities are not being delivered as much water as needed:\n\n";
         }
-    std::cout << options.message;
+    oss << options.message;
 
     // HEADERS
-    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
-    std::cout << "|" << center("Code", ' ', CODE_WIDTH) << "|" << center("Flow Deficit", ' ', DEFICIT_WIDTH) << "|\n";
-    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
+    oss << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
+    oss << "|" << center("Code", ' ', CODE_WIDTH) << "|" << center("Flow Deficit", ' ', DEFICIT_WIDTH) << "|\n";
+    oss << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
 
     // CITIES AND FLOWS
     int total = 0;
     for (auto it = deficitCities.begin(); it != deficitCities.end(); it++) {
         total += it->second;
-        std::cout << "|" << center(it->first, ' ', CODE_WIDTH) << "|" << center(std::to_string(it->second), ' ', DEFICIT_WIDTH) << "|\n";
+        oss << "|" << center(it->first, ' ', CODE_WIDTH) << "|" << center(std::to_string(it->second), ' ', DEFICIT_WIDTH) << "|\n";
     }
     if (options.printTotal && !deficitCities.empty())
-        std::cout << "|" << center("TOTAL", ' ', CODE_WIDTH) << "|" << center(std::to_string(total), ' ', DEFICIT_WIDTH) << "|\n";
+        oss << "|" << center("TOTAL", ' ', CODE_WIDTH) << "|" << center(std::to_string(total), ' ', DEFICIT_WIDTH) << "|\n";
 
 
     // CLOSING TABLE
-    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
+    oss << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
 
-    std::cout << "\n\n";
+    oss << "\n\n";
+
+    std::cout << oss.str();
+
+    // Output to file
+    std::ofstream ofs;
+    ofs.open(outputFile, std::ios_base::app);
+    ofs << oss.str();
+    ofs.close();
+
     if (options.showEndMenu)
         endDisplayMenu();
     getInput();
@@ -297,28 +328,39 @@ void Menu::printFlowDeficitPerCity(std::unordered_map<std::string,int> deficitCi
  * @param options Printing options
  */
 void Menu::printCrucialPipes(std::vector<std::pair<Pipe *, flowDiff>> crucialPipes, printingOptions options) {
+    std::ostringstream oss;
+
     if (options.clear)
         system("clear");
     if (options.printMessage)
-        std::cout << options.message;
+        oss << options.message;
 
     // HEADERS
-    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
-    std::cout << "|" << center("Source", ' ', CODE_WIDTH) << "|" << center("Target", ' ', CODE_WIDTH) << "|" << center("Old Flow", ' ', FLOW_WIDTH) << "|" << center("New Flow", ' ', FLOW_WIDTH) << "|" << center("Flow Difference", ' ', DEFICIT_WIDTH) << "|\n";
-    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
+    oss << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
+    oss << "|" << center("Source", ' ', CODE_WIDTH) << "|" << center("Target", ' ', CODE_WIDTH) << "|" << center("Old Flow", ' ', FLOW_WIDTH) << "|" << center("New Flow", ' ', FLOW_WIDTH) << "|" << center("Flow Difference", ' ', DEFICIT_WIDTH) << "|\n";
+    oss << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
 
     // CITIES AND FLOWS
     for (std::pair<Pipe *, flowDiff> pipeDiff : crucialPipes) {
         Pipe * pipe = pipeDiff.first;
         int oldFlow = pipeDiff.second.oldFlow;
         int newFlow = pipeDiff.second.newFlow;
-        std::cout << "|" << center(pipe->getOrig()->getCode(), ' ', CODE_WIDTH) << "|" << center(pipe->getDest()->getCode(), ' ', CODE_WIDTH) << "|" << center(std::to_string(oldFlow), ' ', FLOW_WIDTH) << "|" << center(std::to_string(newFlow), ' ', FLOW_WIDTH) << "|" << center(std::to_string(newFlow - oldFlow), ' ', DEFICIT_WIDTH) << "|\n";
+        oss << "|" << center(pipe->getOrig()->getCode(), ' ', CODE_WIDTH) << "|" << center(pipe->getDest()->getCode(), ' ', CODE_WIDTH) << "|" << center(std::to_string(oldFlow), ' ', FLOW_WIDTH) << "|" << center(std::to_string(newFlow), ' ', FLOW_WIDTH) << "|" << center(std::to_string(newFlow - oldFlow), ' ', DEFICIT_WIDTH) << "|\n";
     }
 
     // CLOSING TABLE
-    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
+    oss << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
 
-    std::cout << "\n\n";
+    oss << "\n\n";
+
+    std::cout << oss.str();
+
+    // Output to file
+    std::ofstream ofs;
+    ofs.open(outputFile, std::ios_base::app);
+    ofs << oss.str();
+    ofs.close();
+
     if (options.showEndMenu)
         endDisplayMenu();
     getInput();
@@ -331,15 +373,17 @@ void Menu::printCrucialPipes(std::vector<std::pair<Pipe *, flowDiff>> crucialPip
  * @param options Printing options
  */
 void Menu::printCitiesAffected(std::vector<std::pair<std::string, flowDiff>> citiesAffected, printingOptions options) {
+    std::ostringstream oss;
+
     if (options.clear)
         system("clear");
     if (options.printMessage)
-        std::cout << options.message;
+        oss << options.message;
 
     // HEADERS
-    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
-    std::cout << "|" << center("Code", ' ', CODE_WIDTH) << "|" << center("Old Flow", ' ', FLOW_WIDTH) << "|" << center("New Flow", ' ', FLOW_WIDTH) << "|" << center("Flow Difference", ' ', DEFICIT_WIDTH) << "|\n";
-    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
+    oss << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
+    oss << "|" << center("Code", ' ', CODE_WIDTH) << "|" << center("Old Flow", ' ', FLOW_WIDTH) << "|" << center("New Flow", ' ', FLOW_WIDTH) << "|" << center("Flow Difference", ' ', DEFICIT_WIDTH) << "|\n";
+    oss << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
 
     // CITIES AND FLOWS
     int totalOld = 0;
@@ -349,15 +393,24 @@ void Menu::printCitiesAffected(std::vector<std::pair<std::string, flowDiff>> cit
         int newFlow = cityDiff.second.newFlow;
         totalOld += oldFlow;
         totalNew += newFlow;
-        std::cout << "|" << center(cityDiff.first, ' ', CODE_WIDTH) << "|" << center(std::to_string(oldFlow), ' ', FLOW_WIDTH) << "|" << center(std::to_string(newFlow), ' ', FLOW_WIDTH) << "|" << center(std::to_string(newFlow - oldFlow), ' ', DEFICIT_WIDTH) << "|\n";
+        oss << "|" << center(cityDiff.first, ' ', CODE_WIDTH) << "|" << center(std::to_string(oldFlow), ' ', FLOW_WIDTH) << "|" << center(std::to_string(newFlow), ' ', FLOW_WIDTH) << "|" << center(std::to_string(newFlow - oldFlow), ' ', DEFICIT_WIDTH) << "|\n";
     }
     if (options.printTotal && !citiesAffected.empty())
-        std::cout << "|" << center("TOTAL", ' ', CODE_WIDTH) << "|" << center(std::to_string(totalOld), ' ', FLOW_WIDTH) << "|" << center(std::to_string(totalNew), ' ', FLOW_WIDTH) << "|" << center(std::to_string(totalNew - totalOld), ' ', DEFICIT_WIDTH) << "|\n";
+        oss << "|" << center("TOTAL", ' ', CODE_WIDTH) << "|" << center(std::to_string(totalOld), ' ', FLOW_WIDTH) << "|" << center(std::to_string(totalNew), ' ', FLOW_WIDTH) << "|" << center(std::to_string(totalNew - totalOld), ' ', DEFICIT_WIDTH) << "|\n";
 
     // CLOSING TABLE
-    std::cout << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
+    oss << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|" << fill('-', DEFICIT_WIDTH) << "|\n";
 
-    std::cout << "\n\n";
+    oss << "\n\n";
+
+    std::cout << oss.str();
+
+    // Output to file
+    std::ofstream ofs;
+    ofs.open(outputFile, std::ios_base::app);
+    ofs << oss.str();
+    ofs.close();
+
     if (options.showEndMenu)
         endDisplayMenu();
     getInput();
@@ -390,7 +443,7 @@ std::string Menu::center(const std::string &str, char sep, int width) {
         str2 = str.substr(0, width);
     }
     int space = (width - str2.length()) / 2;
-    std::cout << std::setw(space) << std::setfill(sep) << "" << str2 << std::setw(width - str2.length() - space) << std::setfill(sep) << "";
+    oss << std::setw(space) << std::setfill(sep) << "" << str2 << std::setw(width - str2.length() - space) << std::setfill(sep) << "";
     return oss.str();
 }
 

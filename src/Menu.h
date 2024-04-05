@@ -39,6 +39,11 @@ private:
     std::string datasets[2] = {"Small", "Large"};
     int curDataset = 0;
 
+    /**
+     * @brief Path of the output file
+     */
+    std::string outputFile = "../data/output.txt";
+
     // Table column widths
     const static int MENU_WIDTH = 75;
     const static int CODE_WIDTH = 10;
@@ -59,6 +64,9 @@ private:
     void endDisplayMenu();
     void printBackToMenu();
     void printExit();
+
+    // Output file
+    void clearOutputFile();
 
     // Choosing and selecting input
     ServicePoint * chooseReservoirInput();
