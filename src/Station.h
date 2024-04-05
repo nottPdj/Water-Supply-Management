@@ -4,6 +4,10 @@
 
 #include "ServicePoint.h"
 
+/**
+ * @brief Station Class definition
+ * @details Child Class of ServicePoint
+ */
 class Station: public ServicePoint {
 public:
     Station(std::string id, std::string code);

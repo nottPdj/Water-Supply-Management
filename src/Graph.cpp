@@ -4,6 +4,7 @@
 
 /**
  * @brief Graph Destructor
+ * @details Time Complexity O(V) V= number of ServicePoints
  */
 Graph::~Graph() {
     // TODO check if destroys everything
@@ -57,6 +58,7 @@ void Graph::addServicePoint(ServicePoint *servicePoint) {
 /**
  * @brief Removes a Service Point from the Graph
  * @param servicePoint
+ * @details Time Complexity O(E²) E = number of Pipes
  */
 void Graph::removeServicePoint(ServicePoint *servicePoint) {
     removeAssociatedPipes(servicePoint);
@@ -78,6 +80,7 @@ void Graph::removeServicePoint(ServicePoint *servicePoint) {
 /**
  * @brief Removes associated Pipes to a given Service Point
  * @param servicePoint
+ * @details Time Complexity O(E²) E = bigger number of adjacent or incoming Pipes
  */
 void Graph::removeAssociatedPipes(ServicePoint * servicePoint) {
     for (Pipe * pipe : servicePoint->getAdj()) {
@@ -102,6 +105,12 @@ void Graph::addPipe(std::string spA, std::string spB, int capacity) {
     pipeByEnds[std::make_pair(spA,spB)] = {pPipe};
 }
 
+/**
+ * @brief Adds a Bidirectional Pipe to the Graph
+ * @param spA
+ * @param spB
+ * @param capacity
+ */
 void Graph::addBidirectionalPipe(std::string spA, std::string spB, int capacity) {
     Pipe *pPipe1 = new Pipe(servicePointByCode[spA], servicePointByCode[spB], capacity);
     Pipe *pPipe2 = new Pipe(servicePointByCode[spB], servicePointByCode[spA], capacity);
@@ -120,6 +129,7 @@ void Graph::addBidirectionalPipe(std::string spA, std::string spB, int capacity)
 /**
  * @brief Removes a Pipe from the Graph
  * @param pipe
+ * @details Time Complexity O(E) E = number of Pipes
  */
 void Graph::removePipe(Pipe * pipe) {
     pipe->getOrig()->removeOutgoingPipe(pipe);
@@ -137,39 +147,75 @@ void Graph::removePipe(Pipe * pipe) {
     delete pipe;
 }
 
-
+/**
+ * @brief Gets the number of ServicePoints
+ * @return size of servicePointSet
+ */
 int Graph::getNumServicePoint() const {
     return servicePointSet.size();
 }
 
+/**
+ * @brief Gets the ServicePoint set
+ * @return servicePointSet
+ */
 std::vector<ServicePoint *> Graph::getServicePointSet() const {
     return servicePointSet;
 }
 
+/**
+ * @brief Gets the Reservoir set
+ * @return reservoirSet
+ */
 std::vector<ServicePoint *> Graph::getReservoirSet() const{
     return reservoirSet;
 }
 
+/**
+ * @brief Gets the Cities set
+ * @return citySet
+ */
 std::vector<ServicePoint *> Graph::getCitiesSet() const{
     return citySet;
 }
 
+/**
+ * @brief Gets the Pipe set
+ * @return pipeSet
+ */
 std::vector<Pipe *> Graph::getPipeSet() const{
     return pipeSet;
 }
 
+/**
+ * @brief Gets the City by name
+ * @param name
+ */
 ServicePoint * Graph::getCityByName(const std::string &name){
     return cityByName[name];
 }
 
+/**
+ * @brief Gets the Reservoir by name
+ * @param name
+ */
 ServicePoint * Graph::getReservoirByName(const std::string &name){
     return reservoirByName[name];
 }
 
+/**
+ * @brief Gets the ServicePoint by code
+ * @param code
+ */
 ServicePoint * Graph::findServicePoint(const std::string &code) {
     return servicePointByCode[code];
 }
 
+/**
+ * @brief Gets the Pipe by its ends
+ * @param orig
+ * @param dest
+ */
 Pipe * Graph::getPipeByEnds(std::string orig, std::string dest){
     return pipeByEnds[std::make_pair(orig,dest)];
 }

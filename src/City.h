@@ -4,6 +4,10 @@
 
 #include "ServicePoint.h"
 
+/**
+ * @brief Service Point class definition
+ *  @details Child Class of ServicePoint
+ */
 class City: public ServicePoint {
 public:
     City(std::string name, std::string id, std::string code, int demand, int population);

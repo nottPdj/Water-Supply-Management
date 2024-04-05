@@ -14,6 +14,7 @@ Management::Management(Graph *graph) {
  * @param e - Pipe
  * @param w - ServicePoint
  * @param residual
+ * @details Time Complexity O(1)
  */
 void Management::testAndVisit(std::queue<ServicePoint*> &q, Pipe*e, ServicePoint *w, double residual) {
     if(!w->isVisited() && residual>0 && w->isOperational() && e->isOperational()){
@@ -28,6 +29,7 @@ void Management::testAndVisit(std::queue<ServicePoint*> &q, Pipe*e, ServicePoint
  * @param s - source ServicePoint
  * @param t - target ServicePoint
  * @return True if path is found
+ * @details Time Complexity O(V+E) V = number of ServicePoints, E = number of Pipes
  */
 bool Management::findAugmentingPath( ServicePoint *s, ServicePoint *t) {
     // Mark all vertices as not visited
@@ -59,7 +61,13 @@ bool Management::findAugmentingPath( ServicePoint *s, ServicePoint *t) {
     return t->isVisited();
 }
 
-// Function to find the minimum residual capacity along the augmenting path
+/**
+ * @brief Find the minimum residual capacity along the augmenting path
+ * @param s - source ServicePoint
+ * @param t - target ServicePoint
+ * @return f
+ * @details Time Complexity O(E) E = number of Pipes between s and t
+ */
 double Management::findMinResidualAlongPath(ServicePoint *s, ServicePoint *t) {
     double f = INF;
     // Traverse the augmenting path to find the minimum residual capacity
@@ -84,6 +92,7 @@ double Management::findMinResidualAlongPath(ServicePoint *s, ServicePoint *t) {
  * @param s - source ServicePoint
  * @param t - target ServicePoint
  * @param f - flow value
+ * @details Time Complexity O(E) E = number of Pipes between s and t
  */
 void Management::augmentFlowAlongPath(ServicePoint *s, ServicePoint *t, double f) {
     ServicePoint *v=t;
@@ -105,6 +114,7 @@ void Management::augmentFlowAlongPath(ServicePoint *s, ServicePoint *t, double f
  * @brief Performs the EdmondsKarp
  * @param s - source ServicePoint
  * @param t - target ServicePoint
+ * @details Time Complexity O(V*E²)
  */
 void Management::edmondsKarp( ServicePoint* s, ServicePoint* t) {
 
@@ -116,7 +126,6 @@ void Management::edmondsKarp( ServicePoint* s, ServicePoint* t) {
     // Initialize flow on all Pipes to 0
     for(ServicePoint* v:g->getServicePointSet()){
         v->setPath(nullptr);
-        v->setPred(nullptr);
         for(Pipe* e : v->getAdj()){
             e->setFlow(0);
         }

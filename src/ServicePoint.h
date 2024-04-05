@@ -7,6 +7,10 @@
 
 class Pipe;
 
+/**
+ * @brief Service Point class definition
+ */
+
 class ServicePoint {
 public:
     ServicePoint();
@@ -22,17 +26,11 @@ public:
 
     std::vector<Pipe *> getAdj() const;
     bool isVisited() const;
-    bool isProcessing() const;
     bool isOperational() const;
-    unsigned int getIndegree() const;
-    double getDist() const;
     Pipe* getPath() const;
     Pipe * getPred() const;
 
     void setVisited(bool visited);
-    void setProcesssing(bool processing);
-    void setIndegree(unsigned int indegree);
-    void setDist(double dist);
     void setPath(Pipe *path);
     void setPred(Pipe * pred);
     void setOperational(bool b);
@@ -43,10 +41,6 @@ protected:
 
     // auxiliary fields
     bool visited = false; // used by DFS, BFS, Prim ...
-    bool processing = false; // used by isDAG (in addition to the visited attribute)
-    unsigned int indegree = 0; // used by topsort
-    double dist = 0;
-    Pipe *pred = nullptr;
     std::string code;
     bool operational=true;
 

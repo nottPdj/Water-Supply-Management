@@ -5,6 +5,9 @@
 
 class ServicePoint;
 
+/**
+ * @brief Pipe Class definition
+ */
 class Pipe {
 public:
     Pipe(ServicePoint *orig, ServicePoint *dest, int capacity);
@@ -15,7 +18,6 @@ public:
     Pipe * getReverse() const;
     double getFlow() const;
 
-    bool isSelected() const;
     bool isOperational() const;
     bool isVisited() const;
 

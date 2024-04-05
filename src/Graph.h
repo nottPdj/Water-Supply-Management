@@ -12,6 +12,9 @@
 
 #define INF std::numeric_limits<int>::max()
 
+/**
+ * @brief Graph Class definition
+ */
 class Graph {
 
     struct PipeHash {

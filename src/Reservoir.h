@@ -4,6 +4,10 @@
 
 #include "ServicePoint.h"
 
+/**
+ * @brief Reservoir Class definition
+ * @details Child Class of ServicePoint
+ */
 class Reservoir: public ServicePoint {
 public:
     Reservoir(std::string name, std::string municipality, std::string id, std::string code, int maxDelivery);
