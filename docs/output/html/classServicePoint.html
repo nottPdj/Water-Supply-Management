@@ -65,13 +65,17 @@ $(function() {
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="#pro-methods">Protected Member Functions</a> &#124;
 <a href="#pro-attribs">Protected Attributes</a> &#124;
 <a href="classServicePoint-members.html">List of all members</a>  </div>
   <div class="headertitle">
 <div class="title">ServicePoint Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p>Service Point class definition.  
+ <a href="classServicePoint.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="ServicePoint_8h_source.html">ServicePoint.h</a>&gt;</code></p>
 <div class="dynheader">
 Inheritance diagram for ServicePoint:</div>
 <div class="dyncontent">
@@ -85,109 +89,358 @@ Collaboration diagram for ServicePoint:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
+<tr class="memitem:a4d13a3154fd80d608cb575b45bbd1089"><td class="memItemLeft" align="right" valign="top"><a id="a4d13a3154fd80d608cb575b45bbd1089"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServicePoint.html#a4d13a3154fd80d608cb575b45bbd1089">ServicePoint</a> ()</td></tr>
+<tr class="memdesc:a4d13a3154fd80d608cb575b45bbd1089"><td class="mdescLeft">&#160;</td><td class="mdescRight">Service Point Constructor. <br /></td></tr>
+<tr class="separator:a4d13a3154fd80d608cb575b45bbd1089"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23f82a513d4a363ca6256e5e1c342818"><td class="memItemLeft" align="right" valign="top"><a id="a23f82a513d4a363ca6256e5e1c342818"></a>
 virtual std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getCode</b> () const =0</td></tr>
 <tr class="separator:a23f82a513d4a363ca6256e5e1c342818"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a12620443daf728e340b3909f73e2e511"><td class="memItemLeft" align="right" valign="top"><a id="a12620443daf728e340b3909f73e2e511"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addPipe</b> (<a class="el" href="classPipe.html">Pipe</a> *pipe)</td></tr>
+<tr class="memitem:a12620443daf728e340b3909f73e2e511"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServicePoint.html#a12620443daf728e340b3909f73e2e511">addPipe</a> (<a class="el" href="classPipe.html">Pipe</a> *pipe)</td></tr>
+<tr class="memdesc:a12620443daf728e340b3909f73e2e511"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a pipe to a Service Point.  <a href="classServicePoint.html#a12620443daf728e340b3909f73e2e511">More...</a><br /></td></tr>
 <tr class="separator:a12620443daf728e340b3909f73e2e511"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2731a3c62de3c1f94ea602cae6b12918"><td class="memItemLeft" align="right" valign="top"><a id="a2731a3c62de3c1f94ea602cae6b12918"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>addIncomingPipe</b> (<a class="el" href="classPipe.html">Pipe</a> *pipe)</td></tr>
+<tr class="memitem:a2731a3c62de3c1f94ea602cae6b12918"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServicePoint.html#a2731a3c62de3c1f94ea602cae6b12918">addIncomingPipe</a> (<a class="el" href="classPipe.html">Pipe</a> *pipe)</td></tr>
+<tr class="memdesc:a2731a3c62de3c1f94ea602cae6b12918"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a incoming pipe to a Service Point.  <a href="classServicePoint.html#a2731a3c62de3c1f94ea602cae6b12918">More...</a><br /></td></tr>
 <tr class="separator:a2731a3c62de3c1f94ea602cae6b12918"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a88f8f82e8d48a54283f767025b39d43d"><td class="memItemLeft" align="right" valign="top"><a id="a88f8f82e8d48a54283f767025b39d43d"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>removeIncomingPipe</b> (<a class="el" href="classPipe.html">Pipe</a> *pipe)</td></tr>
+<tr class="memitem:a88f8f82e8d48a54283f767025b39d43d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServicePoint.html#a88f8f82e8d48a54283f767025b39d43d">removeIncomingPipe</a> (<a class="el" href="classPipe.html">Pipe</a> *pipe)</td></tr>
+<tr class="memdesc:a88f8f82e8d48a54283f767025b39d43d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a incoming pipe from a Service Point.  <a href="classServicePoint.html#a88f8f82e8d48a54283f767025b39d43d">More...</a><br /></td></tr>
 <tr class="separator:a88f8f82e8d48a54283f767025b39d43d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adbe91313837ba12dfdf39e95ce435f0f"><td class="memItemLeft" align="right" valign="top"><a id="adbe91313837ba12dfdf39e95ce435f0f"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>removeOutgoingPipe</b> (<a class="el" href="classPipe.html">Pipe</a> *pipe)</td></tr>
+<tr class="memitem:adbe91313837ba12dfdf39e95ce435f0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServicePoint.html#adbe91313837ba12dfdf39e95ce435f0f">removeOutgoingPipe</a> (<a class="el" href="classPipe.html">Pipe</a> *pipe)</td></tr>
+<tr class="memdesc:adbe91313837ba12dfdf39e95ce435f0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes an outgoing <a class="el" href="classPipe.html" title="Pipe Class definition.">Pipe</a>.  <a href="classServicePoint.html#adbe91313837ba12dfdf39e95ce435f0f">More...</a><br /></td></tr>
 <tr class="separator:adbe91313837ba12dfdf39e95ce435f0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad4083f0e5e73df00cce5f719a969840d"><td class="memItemLeft" align="right" valign="top"><a id="ad4083f0e5e73df00cce5f719a969840d"></a>
-std::vector&lt; <a class="el" href="classPipe.html">Pipe</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getIncoming</b> () const</td></tr>
+<tr class="memitem:ad4083f0e5e73df00cce5f719a969840d"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classPipe.html">Pipe</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServicePoint.html#ad4083f0e5e73df00cce5f719a969840d">getIncoming</a> () const</td></tr>
+<tr class="memdesc:ad4083f0e5e73df00cce5f719a969840d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the incoming Pipes.  <a href="classServicePoint.html#ad4083f0e5e73df00cce5f719a969840d">More...</a><br /></td></tr>
 <tr class="separator:ad4083f0e5e73df00cce5f719a969840d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1219ed8d21f24723ecd347377aa4aa9"><td class="memItemLeft" align="right" valign="top"><a id="ae1219ed8d21f24723ecd347377aa4aa9"></a>
-std::vector&lt; <a class="el" href="classPipe.html">Pipe</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getAdj</b> () const</td></tr>
+<tr class="memitem:ae1219ed8d21f24723ecd347377aa4aa9"><td class="memItemLeft" align="right" valign="top">std::vector&lt; <a class="el" href="classPipe.html">Pipe</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServicePoint.html#ae1219ed8d21f24723ecd347377aa4aa9">getAdj</a> () const</td></tr>
+<tr class="memdesc:ae1219ed8d21f24723ecd347377aa4aa9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the adjacent Pipes.  <a href="classServicePoint.html#ae1219ed8d21f24723ecd347377aa4aa9">More...</a><br /></td></tr>
 <tr class="separator:ae1219ed8d21f24723ecd347377aa4aa9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1f8e2c51913bb68bb968fecf3be7bbf7"><td class="memItemLeft" align="right" valign="top"><a id="a1f8e2c51913bb68bb968fecf3be7bbf7"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isVisited</b> () const</td></tr>
+<tr class="memitem:a1f8e2c51913bb68bb968fecf3be7bbf7"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServicePoint.html#a1f8e2c51913bb68bb968fecf3be7bbf7">isVisited</a> () const</td></tr>
+<tr class="memdesc:a1f8e2c51913bb68bb968fecf3be7bbf7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the Service Point is visited.  <a href="classServicePoint.html#a1f8e2c51913bb68bb968fecf3be7bbf7">More...</a><br /></td></tr>
 <tr class="separator:a1f8e2c51913bb68bb968fecf3be7bbf7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2816c56cf5ae459353f6d7b4b79e2259"><td class="memItemLeft" align="right" valign="top"><a id="a2816c56cf5ae459353f6d7b4b79e2259"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isProcessing</b> () const</td></tr>
-<tr class="separator:a2816c56cf5ae459353f6d7b4b79e2259"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a95ffec63b759b1691eb91c66b913954e"><td class="memItemLeft" align="right" valign="top"><a id="a95ffec63b759b1691eb91c66b913954e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>isOperational</b> () const</td></tr>
+<tr class="memitem:a95ffec63b759b1691eb91c66b913954e"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServicePoint.html#a95ffec63b759b1691eb91c66b913954e">isOperational</a> () const</td></tr>
+<tr class="memdesc:a95ffec63b759b1691eb91c66b913954e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> is operational.  <a href="classServicePoint.html#a95ffec63b759b1691eb91c66b913954e">More...</a><br /></td></tr>
 <tr class="separator:a95ffec63b759b1691eb91c66b913954e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a93f41c90bf60825528cff3171719013e"><td class="memItemLeft" align="right" valign="top"><a id="a93f41c90bf60825528cff3171719013e"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>getIndegree</b> () const</td></tr>
-<tr class="separator:a93f41c90bf60825528cff3171719013e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acf4ebbe4c872013fa0d55a125b9d4403"><td class="memItemLeft" align="right" valign="top"><a id="acf4ebbe4c872013fa0d55a125b9d4403"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getDist</b> () const</td></tr>
-<tr class="separator:acf4ebbe4c872013fa0d55a125b9d4403"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8aa78bb5ede338c6a0964bbf8619bb2b"><td class="memItemLeft" align="right" valign="top"><a id="a8aa78bb5ede338c6a0964bbf8619bb2b"></a>
-<a class="el" href="classPipe.html">Pipe</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getPath</b> () const</td></tr>
+<tr class="memitem:a8aa78bb5ede338c6a0964bbf8619bb2b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPipe.html">Pipe</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServicePoint.html#a8aa78bb5ede338c6a0964bbf8619bb2b">getPath</a> () const</td></tr>
+<tr class="memdesc:a8aa78bb5ede338c6a0964bbf8619bb2b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the path to the <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a>.  <a href="classServicePoint.html#a8aa78bb5ede338c6a0964bbf8619bb2b">More...</a><br /></td></tr>
 <tr class="separator:a8aa78bb5ede338c6a0964bbf8619bb2b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2b6d61c455a9e0a400be25b4b87c9d0f"><td class="memItemLeft" align="right" valign="top"><a id="a2b6d61c455a9e0a400be25b4b87c9d0f"></a>
-<a class="el" href="classPipe.html">Pipe</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>getPred</b> () const</td></tr>
-<tr class="separator:a2b6d61c455a9e0a400be25b4b87c9d0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a11073edc35adcbb8543769fa5c977406"><td class="memItemLeft" align="right" valign="top"><a id="a11073edc35adcbb8543769fa5c977406"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setVisited</b> (bool visited)</td></tr>
+<tr class="memitem:a11073edc35adcbb8543769fa5c977406"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServicePoint.html#a11073edc35adcbb8543769fa5c977406">setVisited</a> (bool visited)</td></tr>
+<tr class="memdesc:a11073edc35adcbb8543769fa5c977406"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> as visited or not.  <a href="classServicePoint.html#a11073edc35adcbb8543769fa5c977406">More...</a><br /></td></tr>
 <tr class="separator:a11073edc35adcbb8543769fa5c977406"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91a32688638dd39117b5f4e3b9a34ef2"><td class="memItemLeft" align="right" valign="top"><a id="a91a32688638dd39117b5f4e3b9a34ef2"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setProcesssing</b> (bool processing)</td></tr>
-<tr class="separator:a91a32688638dd39117b5f4e3b9a34ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3ce88c5fcece875b065deeebae837fe8"><td class="memItemLeft" align="right" valign="top"><a id="a3ce88c5fcece875b065deeebae837fe8"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setIndegree</b> (unsigned int indegree)</td></tr>
-<tr class="separator:a3ce88c5fcece875b065deeebae837fe8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7070b12e92ad6851fb60979cd667dd53"><td class="memItemLeft" align="right" valign="top"><a id="a7070b12e92ad6851fb60979cd667dd53"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setDist</b> (double dist)</td></tr>
-<tr class="separator:a7070b12e92ad6851fb60979cd667dd53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3076dc76d7884c4adedff7b71604e599"><td class="memItemLeft" align="right" valign="top"><a id="a3076dc76d7884c4adedff7b71604e599"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPath</b> (<a class="el" href="classPipe.html">Pipe</a> *path)</td></tr>
+<tr class="memitem:a3076dc76d7884c4adedff7b71604e599"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServicePoint.html#a3076dc76d7884c4adedff7b71604e599">setPath</a> (<a class="el" href="classPipe.html">Pipe</a> *path)</td></tr>
+<tr class="memdesc:a3076dc76d7884c4adedff7b71604e599"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the path to the <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a>.  <a href="classServicePoint.html#a3076dc76d7884c4adedff7b71604e599">More...</a><br /></td></tr>
 <tr class="separator:a3076dc76d7884c4adedff7b71604e599"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa40ab680132d0c278c00cceede18b60a"><td class="memItemLeft" align="right" valign="top"><a id="aa40ab680132d0c278c00cceede18b60a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setPred</b> (<a class="el" href="classPipe.html">Pipe</a> *pred)</td></tr>
-<tr class="separator:aa40ab680132d0c278c00cceede18b60a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af7a687fb71d2292728b686bfff11412a"><td class="memItemLeft" align="right" valign="top"><a id="af7a687fb71d2292728b686bfff11412a"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setOperational</b> (bool b)</td></tr>
+<tr class="memitem:af7a687fb71d2292728b686bfff11412a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classServicePoint.html#af7a687fb71d2292728b686bfff11412a">setOperational</a> (bool b)</td></tr>
+<tr class="memdesc:af7a687fb71d2292728b686bfff11412a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sets the <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> to operational or not.  <a href="classServicePoint.html#af7a687fb71d2292728b686bfff11412a">More...</a><br /></td></tr>
 <tr class="separator:af7a687fb71d2292728b686bfff11412a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-</table><table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
-Protected Member Functions</h2></td></tr>
-<tr class="memitem:ad626a262ca7a9bd39068698378a742cc"><td class="memItemLeft" align="right" valign="top"><a id="ad626a262ca7a9bd39068698378a742cc"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>deletePipe</b> (<a class="el" href="classPipe.html">Pipe</a> *<a class="el" href="classPipe.html">Pipe</a>)</td></tr>
-<tr class="separator:ad626a262ca7a9bd39068698378a742cc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-attribs"></a>
 Protected Attributes</h2></td></tr>
-<tr class="memitem:a4184a5d34fa742398783ffdd31102dbc"><td class="memItemLeft" align="right" valign="top"><a id="a4184a5d34fa742398783ffdd31102dbc"></a>
-std::vector&lt; <a class="el" href="classPipe.html">Pipe</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>adj</b> {}</td></tr>
-<tr class="separator:a4184a5d34fa742398783ffdd31102dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac3f1a99c68eea1acd2c95c395678fe36"><td class="memItemLeft" align="right" valign="top"><a id="ac3f1a99c68eea1acd2c95c395678fe36"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>visited</b> = false</td></tr>
-<tr class="separator:ac3f1a99c68eea1acd2c95c395678fe36"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7f6eac82eed18357a10f5d9ec463e1f4"><td class="memItemLeft" align="right" valign="top"><a id="a7f6eac82eed18357a10f5d9ec463e1f4"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>processing</b> = false</td></tr>
-<tr class="separator:a7f6eac82eed18357a10f5d9ec463e1f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aea1263552eaedcb4caf913b0b770e5e7"><td class="memItemLeft" align="right" valign="top"><a id="aea1263552eaedcb4caf913b0b770e5e7"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>indegree</b> = 0</td></tr>
-<tr class="separator:aea1263552eaedcb4caf913b0b770e5e7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08e76de72b2a52149736b786e0c1e77f"><td class="memItemLeft" align="right" valign="top"><a id="a08e76de72b2a52149736b786e0c1e77f"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>dist</b> = 0</td></tr>
-<tr class="separator:a08e76de72b2a52149736b786e0c1e77f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8b50049c3a7533584593562571360fe5"><td class="memItemLeft" align="right" valign="top"><a id="a8b50049c3a7533584593562571360fe5"></a>
-<a class="el" href="classPipe.html">Pipe</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>pred</b> = nullptr</td></tr>
-<tr class="separator:a8b50049c3a7533584593562571360fe5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2e52c5bbbe8563f389fa7c6d05015bfb"><td class="memItemLeft" align="right" valign="top"><a id="a2e52c5bbbe8563f389fa7c6d05015bfb"></a>
 std::string&#160;</td><td class="memItemRight" valign="bottom"><b>code</b></td></tr>
 <tr class="separator:a2e52c5bbbe8563f389fa7c6d05015bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e652ea2ebea13b1139b0ed8f4fd760e"><td class="memItemLeft" align="right" valign="top"><a id="a2e652ea2ebea13b1139b0ed8f4fd760e"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>operational</b> =true</td></tr>
-<tr class="separator:a2e652ea2ebea13b1139b0ed8f4fd760e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4184a5d34fa742398783ffdd31102dbc"><td class="memItemLeft" align="right" valign="top"><a id="a4184a5d34fa742398783ffdd31102dbc"></a>
+std::vector&lt; <a class="el" href="classPipe.html">Pipe</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>adj</b> {}</td></tr>
+<tr class="separator:a4184a5d34fa742398783ffdd31102dbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5c22182a210d31808f7adb6b2c82bd7b"><td class="memItemLeft" align="right" valign="top"><a id="a5c22182a210d31808f7adb6b2c82bd7b"></a>
 std::vector&lt; <a class="el" href="classPipe.html">Pipe</a> * &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>incoming</b> {}</td></tr>
 <tr class="separator:a5c22182a210d31808f7adb6b2c82bd7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac3f1a99c68eea1acd2c95c395678fe36"><td class="memItemLeft" align="right" valign="top"><a id="ac3f1a99c68eea1acd2c95c395678fe36"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>visited</b> = false</td></tr>
+<tr class="separator:ac3f1a99c68eea1acd2c95c395678fe36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2e652ea2ebea13b1139b0ed8f4fd760e"><td class="memItemLeft" align="right" valign="top"><a id="a2e652ea2ebea13b1139b0ed8f4fd760e"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><b>operational</b> =true</td></tr>
+<tr class="separator:a2e652ea2ebea13b1139b0ed8f4fd760e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a23259be3cac659c5eacb92c8c8e50392"><td class="memItemLeft" align="right" valign="top"><a id="a23259be3cac659c5eacb92c8c8e50392"></a>
 <a class="el" href="classPipe.html">Pipe</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>path</b> =nullptr</td></tr>
 <tr class="separator:a23259be3cac659c5eacb92c8c8e50392"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Service Point class definition. </p>
+</div><h2 class="groupheader">Member Function Documentation</h2>
+<a id="a2731a3c62de3c1f94ea602cae6b12918"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2731a3c62de3c1f94ea602cae6b12918">&#9670;&nbsp;</a></span>addIncomingPipe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ServicePoint::addIncomingPipe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPipe.html">Pipe</a> *&#160;</td>
+          <td class="paramname"><em>pipe</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Add a incoming pipe to a Service Point. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pipe</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a12620443daf728e340b3909f73e2e511"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a12620443daf728e340b3909f73e2e511">&#9670;&nbsp;</a></span>addPipe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ServicePoint::addPipe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPipe.html">Pipe</a> *&#160;</td>
+          <td class="paramname"><em>pipe</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Adds a pipe to a Service Point. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pipe</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ae1219ed8d21f24723ecd347377aa4aa9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae1219ed8d21f24723ecd347377aa4aa9">&#9670;&nbsp;</a></span>getAdj()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classPipe.html">Pipe</a> * &gt; ServicePoint::getAdj </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the adjacent Pipes. </p>
+<dl class="section return"><dt>Returns</dt><dd>adj </dd></dl>
+
+</div>
+</div>
+<a id="ad4083f0e5e73df00cce5f719a969840d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad4083f0e5e73df00cce5f719a969840d">&#9670;&nbsp;</a></span>getIncoming()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; <a class="el" href="classPipe.html">Pipe</a> * &gt; ServicePoint::getIncoming </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the incoming Pipes. </p>
+<dl class="section return"><dt>Returns</dt><dd>incoming </dd></dl>
+
+</div>
+</div>
+<a id="a8aa78bb5ede338c6a0964bbf8619bb2b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8aa78bb5ede338c6a0964bbf8619bb2b">&#9670;&nbsp;</a></span>getPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classPipe.html">Pipe</a> * ServicePoint::getPath </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the path to the <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a>. </p>
+<dl class="section return"><dt>Returns</dt><dd>path </dd></dl>
+
+</div>
+</div>
+<a id="a95ffec63b759b1691eb91c66b913954e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a95ffec63b759b1691eb91c66b913954e">&#9670;&nbsp;</a></span>isOperational()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ServicePoint::isOperational </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> is operational. </p>
+<dl class="section return"><dt>Returns</dt><dd>operational </dd></dl>
+
+</div>
+</div>
+<a id="a1f8e2c51913bb68bb968fecf3be7bbf7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1f8e2c51913bb68bb968fecf3be7bbf7">&#9670;&nbsp;</a></span>isVisited()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool ServicePoint::isVisited </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the Service Point is visited. </p>
+<dl class="section return"><dt>Returns</dt><dd>visited </dd></dl>
+
+</div>
+</div>
+<a id="a88f8f82e8d48a54283f767025b39d43d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a88f8f82e8d48a54283f767025b39d43d">&#9670;&nbsp;</a></span>removeIncomingPipe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ServicePoint::removeIncomingPipe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPipe.html">Pipe</a> *&#160;</td>
+          <td class="paramname"><em>pipe</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes a incoming pipe from a Service Point. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pipe</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Time Complexity O(n) n = number of incoming pipes </p>
+
+</div>
+</div>
+<a id="adbe91313837ba12dfdf39e95ce435f0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbe91313837ba12dfdf39e95ce435f0f">&#9670;&nbsp;</a></span>removeOutgoingPipe()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ServicePoint::removeOutgoingPipe </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPipe.html">Pipe</a> *&#160;</td>
+          <td class="paramname"><em>pipe</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Removes an outgoing <a class="el" href="classPipe.html" title="Pipe Class definition.">Pipe</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pipe</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Time Complexity O(n) n = number of outgoing pipes </p>
+
+</div>
+</div>
+<a id="af7a687fb71d2292728b686bfff11412a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af7a687fb71d2292728b686bfff11412a">&#9670;&nbsp;</a></span>setOperational()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ServicePoint::setOperational </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>b</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> to operational or not. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">b</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a3076dc76d7884c4adedff7b71604e599"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3076dc76d7884c4adedff7b71604e599">&#9670;&nbsp;</a></span>setPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ServicePoint::setPath </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPipe.html">Pipe</a> *&#160;</td>
+          <td class="paramname"><em>path</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets the path to the <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">path</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a11073edc35adcbb8543769fa5c977406"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a11073edc35adcbb8543769fa5c977406">&#9670;&nbsp;</a></span>setVisited()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void ServicePoint::setVisited </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>visited</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sets <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> as visited or not. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">visited</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/tiagoftorres/Desktop/projeto_da/Water-Supply-Management/src/<a class="el" href="ServicePoint_8h_source.html">ServicePoint.h</a></li>
 <li>/home/tiagoftorres/Desktop/projeto_da/Water-Supply-Management/src/ServicePoint.cpp</li>

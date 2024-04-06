@@ -2,53 +2,49 @@
 \label{classPipe}\index{Pipe@{Pipe}}
 
 
+\mbox{\hyperlink{classPipe}{Pipe}} Class definition.  
+
+
+
+
+{\ttfamily \#include $<$Pipe.\+h$>$}
+
+
+
 Collaboration diagram for Pipe\+:
 % FIG 0
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classPipe_aabe3291bf5f430ad5ef0be86cc155393}\label{classPipe_aabe3291bf5f430ad5ef0be86cc155393}} 
-{\bfseries Pipe} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$orig, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$dest, int capacity)
+\mbox{\hyperlink{classPipe_aabe3291bf5f430ad5ef0be86cc155393}{Pipe}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$orig, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$dest, int capacity)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classPipe}{Pipe}} Constructor. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ \mbox{\hyperlink{classPipe_a47449c3d184d38beda7fe6573a6884be}{get\+Orig}} ()
+\begin{DoxyCompactList}\small\item\em Gets origin \mbox{\hyperlink{classPipe}{Pipe}}. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ \mbox{\hyperlink{classPipe_ab29dd9433db0c6f172ef686b382c6b84}{get\+Dest}} ()
 \item 
-\mbox{\Hypertarget{classPipe_a47449c3d184d38beda7fe6573a6884be}\label{classPipe_a47449c3d184d38beda7fe6573a6884be}} 
-\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ {\bfseries get\+Orig} ()
-\item 
-\mbox{\Hypertarget{classPipe_ab29dd9433db0c6f172ef686b382c6b84}\label{classPipe_ab29dd9433db0c6f172ef686b382c6b84}} 
-\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ {\bfseries get\+Dest} ()
-\item 
-\mbox{\Hypertarget{classPipe_a65a6084868ecdf7ac60a945b343eff25}\label{classPipe_a65a6084868ecdf7ac60a945b343eff25}} 
-double {\bfseries get\+Capacity} () const
-\item 
-\mbox{\Hypertarget{classPipe_a750ef0b503bc32cc5eaa84c96b6196f6}\label{classPipe_a750ef0b503bc32cc5eaa84c96b6196f6}} 
-\mbox{\hyperlink{classPipe}{Pipe}} $\ast$ {\bfseries get\+Reverse} () const
-\item 
-\mbox{\Hypertarget{classPipe_afda9933102df2e11477f5e25d3bd176d}\label{classPipe_afda9933102df2e11477f5e25d3bd176d}} 
-double {\bfseries get\+Flow} () const
-\item 
-\mbox{\Hypertarget{classPipe_a3e08945e1e06c489f7ae166f78dbe11c}\label{classPipe_a3e08945e1e06c489f7ae166f78dbe11c}} 
-bool {\bfseries is\+Selected} () const
-\item 
-\mbox{\Hypertarget{classPipe_a5dfa7d7d850d0c8d22212d8569f71b95}\label{classPipe_a5dfa7d7d850d0c8d22212d8569f71b95}} 
-bool {\bfseries is\+Operational} () const
-\item 
-\mbox{\Hypertarget{classPipe_aa58da3cb6ad14d42badd6a3001b78d15}\label{classPipe_aa58da3cb6ad14d42badd6a3001b78d15}} 
-bool {\bfseries is\+Visited} () const
-\item 
+double \mbox{\hyperlink{classPipe_a65a6084868ecdf7ac60a945b343eff25}{get\+Capacity}} () const
+\begin{DoxyCompactList}\small\item\em Gets \mbox{\hyperlink{classPipe}{Pipe}} capacity. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPipe}{Pipe}} $\ast$ \mbox{\hyperlink{classPipe_a750ef0b503bc32cc5eaa84c96b6196f6}{get\+Reverse}} () const
+\begin{DoxyCompactList}\small\item\em Gets the reversed \mbox{\hyperlink{classPipe}{Pipe}}. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classPipe_afda9933102df2e11477f5e25d3bd176d}{get\+Flow}} () const
+\begin{DoxyCompactList}\small\item\em Gets the flow of a \mbox{\hyperlink{classPipe}{Pipe}}. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classPipe_af69a434cb6d91c4b42e04a83e2490956}{get\+Pressure}} () const
+\begin{DoxyCompactList}\small\item\em Returns the pressure of pipe (flow/capacity) \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPipe_a5dfa7d7d850d0c8d22212d8569f71b95}{is\+Operational}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{classPipe}{Pipe}} is visited or not. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classPipe_aa58da3cb6ad14d42badd6a3001b78d15}{is\+Visited}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the pipe is visited. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classPipe_a71468b1208df5497121beb2489c82552}\label{classPipe_a71468b1208df5497121beb2489c82552}} 
 void {\bfseries set\+Selected} (bool selected)
 \item 
-\mbox{\Hypertarget{classPipe_a76593ca627b8d8820cc4e9d02528a261}\label{classPipe_a76593ca627b8d8820cc4e9d02528a261}} 
-void {\bfseries set\+Reverse} (\mbox{\hyperlink{classPipe}{Pipe}} $\ast$reverse)
-\item 
-\mbox{\Hypertarget{classPipe_a4ea0840dbc29976f4e2124d96fd0e626}\label{classPipe_a4ea0840dbc29976f4e2124d96fd0e626}} 
-void {\bfseries set\+Flow} (double flow)
-\item 
-\mbox{\Hypertarget{classPipe_a56f6adfeb149f86e82e63e2f8e9df98f}\label{classPipe_a56f6adfeb149f86e82e63e2f8e9df98f}} 
-void {\bfseries set\+Operational} (bool b)
-\item 
-\mbox{\Hypertarget{classPipe_ad8cac09a850ae81a51ba16eaca9a6041}\label{classPipe_ad8cac09a850ae81a51ba16eaca9a6041}} 
-void {\bfseries set\+Visited} (bool visited)
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classPipe_a76593ca627b8d8820cc4e9d02528a261}{set\+Reverse}} (\mbox{\hyperlink{classPipe}{Pipe}} $\ast$reverse)
+\begin{DoxyCompactList}\small\item\em Sets the reverse \mbox{\hyperlink{classPipe}{Pipe}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPipe_a4ea0840dbc29976f4e2124d96fd0e626}{set\+Flow}} (double flow)
+\begin{DoxyCompactList}\small\item\em Sets the flow of \mbox{\hyperlink{classPipe}{Pipe}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPipe_a56f6adfeb149f86e82e63e2f8e9df98f}{set\+Operational}} (bool b)
+\begin{DoxyCompactList}\small\item\em Sets the \mbox{\hyperlink{classPipe}{Pipe}} to operational or not. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classPipe_ad8cac09a850ae81a51ba16eaca9a6041}{set\+Visited}} (bool visited)
+\begin{DoxyCompactList}\small\item\em Sets the \mbox{\hyperlink{classPipe}{Pipe}} to visited or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -64,9 +60,6 @@ double {\bfseries capacity}
 \mbox{\Hypertarget{classPipe_a981fd5273c13a0e2f89655033d224705}\label{classPipe_a981fd5273c13a0e2f89655033d224705}} 
 double {\bfseries flow}
 \item 
-\mbox{\Hypertarget{classPipe_a8f8315f0339deba49a4a82c21aa7fdda}\label{classPipe_a8f8315f0339deba49a4a82c21aa7fdda}} 
-bool {\bfseries selected} = false
-\item 
 \mbox{\Hypertarget{classPipe_a68ee94873c550311353ed9fde46a4096}\label{classPipe_a68ee94873c550311353ed9fde46a4096}} 
 bool {\bfseries operational} =true
 \item 
@@ -76,6 +69,194 @@ bool {\bfseries visited} = false
 \mbox{\Hypertarget{classPipe_ac2750bfd55b7bfdef5332ed09f22d2a0}\label{classPipe_ac2750bfd55b7bfdef5332ed09f22d2a0}} 
 \mbox{\hyperlink{classPipe}{Pipe}} $\ast$ {\bfseries reverse} = nullptr
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classPipe}{Pipe}} Class definition. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPipe_aabe3291bf5f430ad5ef0be86cc155393}\label{classPipe_aabe3291bf5f430ad5ef0be86cc155393}} 
+\index{Pipe@{Pipe}!Pipe@{Pipe}}
+\index{Pipe@{Pipe}!Pipe@{Pipe}}
+\doxysubsubsection{\texorpdfstring{Pipe()}{Pipe()}}
+{\footnotesize\ttfamily Pipe\+::\+Pipe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{orig,  }\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{dest,  }\item[{int}]{capacity }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classPipe}{Pipe}} Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em orig} & \\
+\hline
+{\em dest} & \\
+\hline
+{\em capacity} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPipe_a65a6084868ecdf7ac60a945b343eff25}\label{classPipe_a65a6084868ecdf7ac60a945b343eff25}} 
+\index{Pipe@{Pipe}!getCapacity@{getCapacity}}
+\index{getCapacity@{getCapacity}!Pipe@{Pipe}}
+\doxysubsubsection{\texorpdfstring{getCapacity()}{getCapacity()}}
+{\footnotesize\ttfamily double Pipe\+::get\+Capacity (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets \mbox{\hyperlink{classPipe}{Pipe}} capacity. 
+
+\begin{DoxyReturn}{Returns}
+capacity 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPipe_ab29dd9433db0c6f172ef686b382c6b84}\label{classPipe_ab29dd9433db0c6f172ef686b382c6b84}} 
+\index{Pipe@{Pipe}!getDest@{getDest}}
+\index{getDest@{getDest}!Pipe@{Pipe}}
+\doxysubsubsection{\texorpdfstring{getDest()}{getDest()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ Pipe\+::get\+Dest (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Gets \mbox{\hyperlink{classServicePoint}{Service\+Point}} destination \begin{DoxyReturn}{Returns}
+dest 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPipe_afda9933102df2e11477f5e25d3bd176d}\label{classPipe_afda9933102df2e11477f5e25d3bd176d}} 
+\index{Pipe@{Pipe}!getFlow@{getFlow}}
+\index{getFlow@{getFlow}!Pipe@{Pipe}}
+\doxysubsubsection{\texorpdfstring{getFlow()}{getFlow()}}
+{\footnotesize\ttfamily double Pipe\+::get\+Flow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the flow of a \mbox{\hyperlink{classPipe}{Pipe}}. 
+
+\begin{DoxyReturn}{Returns}
+flow 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPipe_a47449c3d184d38beda7fe6573a6884be}\label{classPipe_a47449c3d184d38beda7fe6573a6884be}} 
+\index{Pipe@{Pipe}!getOrig@{getOrig}}
+\index{getOrig@{getOrig}!Pipe@{Pipe}}
+\doxysubsubsection{\texorpdfstring{getOrig()}{getOrig()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ Pipe\+::get\+Orig (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets origin \mbox{\hyperlink{classPipe}{Pipe}}. 
+
+\begin{DoxyReturn}{Returns}
+orig 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPipe_af69a434cb6d91c4b42e04a83e2490956}\label{classPipe_af69a434cb6d91c4b42e04a83e2490956}} 
+\index{Pipe@{Pipe}!getPressure@{getPressure}}
+\index{getPressure@{getPressure}!Pipe@{Pipe}}
+\doxysubsubsection{\texorpdfstring{getPressure()}{getPressure()}}
+{\footnotesize\ttfamily float Pipe\+::get\+Pressure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Returns the pressure of pipe (flow/capacity) 
+
+\begin{DoxyReturn}{Returns}
+pressure 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPipe_a750ef0b503bc32cc5eaa84c96b6196f6}\label{classPipe_a750ef0b503bc32cc5eaa84c96b6196f6}} 
+\index{Pipe@{Pipe}!getReverse@{getReverse}}
+\index{getReverse@{getReverse}!Pipe@{Pipe}}
+\doxysubsubsection{\texorpdfstring{getReverse()}{getReverse()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPipe}{Pipe}} $\ast$ Pipe\+::get\+Reverse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the reversed \mbox{\hyperlink{classPipe}{Pipe}}. 
+
+\begin{DoxyReturn}{Returns}
+reverse 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPipe_a5dfa7d7d850d0c8d22212d8569f71b95}\label{classPipe_a5dfa7d7d850d0c8d22212d8569f71b95}} 
+\index{Pipe@{Pipe}!isOperational@{isOperational}}
+\index{isOperational@{isOperational}!Pipe@{Pipe}}
+\doxysubsubsection{\texorpdfstring{isOperational()}{isOperational()}}
+{\footnotesize\ttfamily bool Pipe\+::is\+Operational (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the \mbox{\hyperlink{classPipe}{Pipe}} is visited or not. 
+
+\begin{DoxyReturn}{Returns}
+operational 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPipe_aa58da3cb6ad14d42badd6a3001b78d15}\label{classPipe_aa58da3cb6ad14d42badd6a3001b78d15}} 
+\index{Pipe@{Pipe}!isVisited@{isVisited}}
+\index{isVisited@{isVisited}!Pipe@{Pipe}}
+\doxysubsubsection{\texorpdfstring{isVisited()}{isVisited()}}
+{\footnotesize\ttfamily bool Pipe\+::is\+Visited (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the pipe is visited. 
+
+\begin{DoxyReturn}{Returns}
+visited 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classPipe_a4ea0840dbc29976f4e2124d96fd0e626}\label{classPipe_a4ea0840dbc29976f4e2124d96fd0e626}} 
+\index{Pipe@{Pipe}!setFlow@{setFlow}}
+\index{setFlow@{setFlow}!Pipe@{Pipe}}
+\doxysubsubsection{\texorpdfstring{setFlow()}{setFlow()}}
+{\footnotesize\ttfamily void Pipe\+::set\+Flow (\begin{DoxyParamCaption}\item[{double}]{flow }\end{DoxyParamCaption})}
+
+
+
+Sets the flow of \mbox{\hyperlink{classPipe}{Pipe}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flow} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPipe_a56f6adfeb149f86e82e63e2f8e9df98f}\label{classPipe_a56f6adfeb149f86e82e63e2f8e9df98f}} 
+\index{Pipe@{Pipe}!setOperational@{setOperational}}
+\index{setOperational@{setOperational}!Pipe@{Pipe}}
+\doxysubsubsection{\texorpdfstring{setOperational()}{setOperational()}}
+{\footnotesize\ttfamily void Pipe\+::set\+Operational (\begin{DoxyParamCaption}\item[{bool}]{b }\end{DoxyParamCaption})}
+
+
+
+Sets the \mbox{\hyperlink{classPipe}{Pipe}} to operational or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPipe_a76593ca627b8d8820cc4e9d02528a261}\label{classPipe_a76593ca627b8d8820cc4e9d02528a261}} 
+\index{Pipe@{Pipe}!setReverse@{setReverse}}
+\index{setReverse@{setReverse}!Pipe@{Pipe}}
+\doxysubsubsection{\texorpdfstring{setReverse()}{setReverse()}}
+{\footnotesize\ttfamily void Pipe\+::set\+Reverse (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPipe}{Pipe}} $\ast$}]{reverse }\end{DoxyParamCaption})}
+
+
+
+Sets the reverse \mbox{\hyperlink{classPipe}{Pipe}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reverse} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classPipe_ad8cac09a850ae81a51ba16eaca9a6041}\label{classPipe_ad8cac09a850ae81a51ba16eaca9a6041}} 
+\index{Pipe@{Pipe}!setVisited@{setVisited}}
+\index{setVisited@{setVisited}!Pipe@{Pipe}}
+\doxysubsubsection{\texorpdfstring{setVisited()}{setVisited()}}
+{\footnotesize\ttfamily void Pipe\+::set\+Visited (\begin{DoxyParamCaption}\item[{bool}]{visited }\end{DoxyParamCaption})}
+
+
+
+Sets the \mbox{\hyperlink{classPipe}{Pipe}} to visited or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em visited} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

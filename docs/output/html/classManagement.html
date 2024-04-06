@@ -73,46 +73,522 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ac8e10030e252c9c03d41eec113ba95d0"><td class="memItemLeft" align="right" valign="top"><a id="ac8e10030e252c9c03d41eec113ba95d0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>Management</b> (<a class="el" href="classGraph.html">Graph</a> *graph)</td></tr>
+<tr class="memitem:ac8e10030e252c9c03d41eec113ba95d0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#ac8e10030e252c9c03d41eec113ba95d0">Management</a> (<a class="el" href="classGraph.html">Graph</a> *graph)</td></tr>
+<tr class="memdesc:ac8e10030e252c9c03d41eec113ba95d0"><td class="mdescLeft">&#160;</td><td class="mdescRight"><a class="el" href="classManagement.html">Management</a> Constructor.  <a href="classManagement.html#ac8e10030e252c9c03d41eec113ba95d0">More...</a><br /></td></tr>
 <tr class="separator:ac8e10030e252c9c03d41eec113ba95d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac60e75088c411c9c283d3a18fe14e3db"><td class="memItemLeft" align="right" valign="top"><a id="ac60e75088c411c9c283d3a18fe14e3db"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>testAndVisit</b> (std::queue&lt; <a class="el" href="classServicePoint.html">ServicePoint</a> * &gt; &amp;q, <a class="el" href="classPipe.html">Pipe</a> *e, <a class="el" href="classServicePoint.html">ServicePoint</a> *w, double residual)</td></tr>
+<tr class="memitem:ac60e75088c411c9c283d3a18fe14e3db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#ac60e75088c411c9c283d3a18fe14e3db">testAndVisit</a> (std::queue&lt; <a class="el" href="classServicePoint.html">ServicePoint</a> * &gt; &amp;q, <a class="el" href="classPipe.html">Pipe</a> *e, <a class="el" href="classServicePoint.html">ServicePoint</a> *w, double residual)</td></tr>
+<tr class="memdesc:ac60e75088c411c9c283d3a18fe14e3db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the Service Point is not visited and there is residual capacity, then marks as visited, sets path, and enqueue it.  <a href="classManagement.html#ac60e75088c411c9c283d3a18fe14e3db">More...</a><br /></td></tr>
 <tr class="separator:ac60e75088c411c9c283d3a18fe14e3db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80e0dafd70b371a267eb6013ac94bc4d"><td class="memItemLeft" align="right" valign="top"><a id="a80e0dafd70b371a267eb6013ac94bc4d"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>findAugmentingPath</b> (<a class="el" href="classServicePoint.html">ServicePoint</a> *s, <a class="el" href="classServicePoint.html">ServicePoint</a> *t)</td></tr>
-<tr class="separator:a80e0dafd70b371a267eb6013ac94bc4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aecb1017e3eba3fd5437e0dfe47d06b38"><td class="memItemLeft" align="right" valign="top"><a id="aecb1017e3eba3fd5437e0dfe47d06b38"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>findMinResidualAlongPath</b> (<a class="el" href="classServicePoint.html">ServicePoint</a> *s, <a class="el" href="classServicePoint.html">ServicePoint</a> *t)</td></tr>
+<tr class="memitem:a58bc81ecb1fef8b8c6f8ed21be3c38c6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a58bc81ecb1fef8b8c6f8ed21be3c38c6">findAugmentingPath</a> (<a class="el" href="classServicePoint.html">ServicePoint</a> *s, <a class="el" href="classServicePoint.html">ServicePoint</a> *t, bool balanced=false)</td></tr>
+<tr class="memdesc:a58bc81ecb1fef8b8c6f8ed21be3c38c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds an augmenting path using Breadth-First Search.  <a href="classManagement.html#a58bc81ecb1fef8b8c6f8ed21be3c38c6">More...</a><br /></td></tr>
+<tr class="separator:a58bc81ecb1fef8b8c6f8ed21be3c38c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aecb1017e3eba3fd5437e0dfe47d06b38"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#aecb1017e3eba3fd5437e0dfe47d06b38">findMinResidualAlongPath</a> (<a class="el" href="classServicePoint.html">ServicePoint</a> *s, <a class="el" href="classServicePoint.html">ServicePoint</a> *t)</td></tr>
+<tr class="memdesc:aecb1017e3eba3fd5437e0dfe47d06b38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the minimum residual capacity along the augmenting path.  <a href="classManagement.html#aecb1017e3eba3fd5437e0dfe47d06b38">More...</a><br /></td></tr>
 <tr class="separator:aecb1017e3eba3fd5437e0dfe47d06b38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a23d8c2535903ec66b651ba345e866a2c"><td class="memItemLeft" align="right" valign="top"><a id="a23d8c2535903ec66b651ba345e866a2c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>edmondsKarp</b> (<a class="el" href="classServicePoint.html">ServicePoint</a> *s, <a class="el" href="classServicePoint.html">ServicePoint</a> *t)</td></tr>
-<tr class="separator:a23d8c2535903ec66b651ba345e866a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad7313075e1b66bfaaa64d13adf229807"><td class="memItemLeft" align="right" valign="top"><a id="ad7313075e1b66bfaaa64d13adf229807"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>augmentFlowAlongPath</b> (<a class="el" href="classServicePoint.html">ServicePoint</a> *s, <a class="el" href="classServicePoint.html">ServicePoint</a> *t, double f)</td></tr>
+<tr class="memitem:a2a0c3daee2a73d9a3534e27ec94fc7e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a2a0c3daee2a73d9a3534e27ec94fc7e4">edmondsKarp</a> (<a class="el" href="classServicePoint.html">ServicePoint</a> *s, <a class="el" href="classServicePoint.html">ServicePoint</a> *t, bool balanced=false)</td></tr>
+<tr class="memdesc:a2a0c3daee2a73d9a3534e27ec94fc7e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the EdmondsKarp.  <a href="classManagement.html#a2a0c3daee2a73d9a3534e27ec94fc7e4">More...</a><br /></td></tr>
+<tr class="separator:a2a0c3daee2a73d9a3534e27ec94fc7e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad7313075e1b66bfaaa64d13adf229807"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#ad7313075e1b66bfaaa64d13adf229807">augmentFlowAlongPath</a> (<a class="el" href="classServicePoint.html">ServicePoint</a> *s, <a class="el" href="classServicePoint.html">ServicePoint</a> *t, double f)</td></tr>
+<tr class="memdesc:ad7313075e1b66bfaaa64d13adf229807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Augments the flow along the augmenting path with the given flow value.  <a href="classManagement.html#ad7313075e1b66bfaaa64d13adf229807">More...</a><br /></td></tr>
 <tr class="separator:ad7313075e1b66bfaaa64d13adf229807"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a57cd2b083fd372bbb89097be973b9824"><td class="memItemLeft" align="right" valign="top"><a id="a57cd2b083fd372bbb89097be973b9824"></a>
-std::unordered_map&lt; std::string, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getMaxFlow</b> ()</td></tr>
-<tr class="separator:a57cd2b083fd372bbb89097be973b9824"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6233a8f77fd7285ba097d4e09d3118d1"><td class="memItemLeft" align="right" valign="top"><a id="a6233a8f77fd7285ba097d4e09d3118d1"></a>
-std::pair&lt; std::string, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getMaxFlowCity</b> (<a class="el" href="classServicePoint.html">ServicePoint</a> *citySink)</td></tr>
+<tr class="memitem:a84dd5c57a67ec7bbf712147c8dcde66f"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a84dd5c57a67ec7bbf712147c8dcde66f">getMaxFlow</a> (bool balanced=false)</td></tr>
+<tr class="memdesc:a84dd5c57a67ec7bbf712147c8dcde66f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the max flow overall.  <a href="classManagement.html#a84dd5c57a67ec7bbf712147c8dcde66f">More...</a><br /></td></tr>
+<tr class="separator:a84dd5c57a67ec7bbf712147c8dcde66f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6233a8f77fd7285ba097d4e09d3118d1"><td class="memItemLeft" align="right" valign="top">std::pair&lt; std::string, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a6233a8f77fd7285ba097d4e09d3118d1">getMaxFlowCity</a> (<a class="el" href="classServicePoint.html">ServicePoint</a> *citySink)</td></tr>
+<tr class="memdesc:a6233a8f77fd7285ba097d4e09d3118d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the max flow of a specific <a class="el" href="classCity.html" title="Service Point class definition.">City</a>.  <a href="classManagement.html#a6233a8f77fd7285ba097d4e09d3118d1">More...</a><br /></td></tr>
 <tr class="separator:a6233a8f77fd7285ba097d4e09d3118d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a988aa630b2d0e9b5331aab92c7e30499"><td class="memItemLeft" align="right" valign="top"><a id="a988aa630b2d0e9b5331aab92c7e30499"></a>
-std::unordered_map&lt; std::string, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getFlowDeficit</b> ()</td></tr>
+<tr class="memitem:a988aa630b2d0e9b5331aab92c7e30499"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a988aa630b2d0e9b5331aab92c7e30499">getFlowDeficit</a> ()</td></tr>
+<tr class="memdesc:a988aa630b2d0e9b5331aab92c7e30499"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get flow deficit of all cities that don't get enough water.  <a href="classManagement.html#a988aa630b2d0e9b5331aab92c7e30499">More...</a><br /></td></tr>
 <tr class="separator:a988aa630b2d0e9b5331aab92c7e30499"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10c071613c8ff2ce198ef166c7127b69"><td class="memItemLeft" align="right" valign="top"><a id="a10c071613c8ff2ce198ef166c7127b69"></a>
-std::vector&lt; std::pair&lt; std::string, <a class="el" href="structflowDiff.html">flowDiff</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getCitiesAffectedByReservoirFail</b> (<a class="el" href="classServicePoint.html">ServicePoint</a> *reservoir)</td></tr>
+<tr class="memitem:a10c071613c8ff2ce198ef166c7127b69"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; std::string, <a class="el" href="structflowDiff.html">flowDiff</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a10c071613c8ff2ce198ef166c7127b69">getCitiesAffectedByReservoirFail</a> (<a class="el" href="classServicePoint.html">ServicePoint</a> *reservoir)</td></tr>
+<tr class="memdesc:a10c071613c8ff2ce198ef166c7127b69"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the cities affected by a reservoir fail.  <a href="classManagement.html#a10c071613c8ff2ce198ef166c7127b69">More...</a><br /></td></tr>
 <tr class="separator:a10c071613c8ff2ce198ef166c7127b69"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9acd49809907862bfca25b7b97747037"><td class="memItemLeft" align="right" valign="top"><a id="a9acd49809907862bfca25b7b97747037"></a>
-std::vector&lt; std::pair&lt; std::string, <a class="el" href="structflowDiff.html">flowDiff</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getCitiesAffectedByStationFail</b> (<a class="el" href="classServicePoint.html">ServicePoint</a> *downStation)</td></tr>
+<tr class="memitem:a9acd49809907862bfca25b7b97747037"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; std::string, <a class="el" href="structflowDiff.html">flowDiff</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a9acd49809907862bfca25b7b97747037">getCitiesAffectedByStationFail</a> (<a class="el" href="classServicePoint.html">ServicePoint</a> *downStation)</td></tr>
+<tr class="memdesc:a9acd49809907862bfca25b7b97747037"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the cities affected by a <a class="el" href="classStation.html" title="Station Class definition.">Station</a> failing.  <a href="classManagement.html#a9acd49809907862bfca25b7b97747037">More...</a><br /></td></tr>
 <tr class="separator:a9acd49809907862bfca25b7b97747037"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a39fdbdd20651dfda6677461b2f3343fa"><td class="memItemLeft" align="right" valign="top"><a id="a39fdbdd20651dfda6677461b2f3343fa"></a>
-std::vector&lt; std::pair&lt; std::string, <a class="el" href="structflowDiff.html">flowDiff</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getCitiesAffectedByPipeRupture</b> (<a class="el" href="classPipe.html">Pipe</a> *e)</td></tr>
+<tr class="memitem:a39fdbdd20651dfda6677461b2f3343fa"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; std::string, <a class="el" href="structflowDiff.html">flowDiff</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a39fdbdd20651dfda6677461b2f3343fa">getCitiesAffectedByPipeRupture</a> (<a class="el" href="classPipe.html">Pipe</a> *e)</td></tr>
+<tr class="memdesc:a39fdbdd20651dfda6677461b2f3343fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the cities affected by a <a class="el" href="classPipe.html" title="Pipe Class definition.">Pipe</a> rupture.  <a href="classManagement.html#a39fdbdd20651dfda6677461b2f3343fa">More...</a><br /></td></tr>
 <tr class="separator:a39fdbdd20651dfda6677461b2f3343fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aba0689aa49a6a44d64ff322d2e6779fa"><td class="memItemLeft" align="right" valign="top"><a id="aba0689aa49a6a44d64ff322d2e6779fa"></a>
-std::vector&lt; std::pair&lt; <a class="el" href="classPipe.html">Pipe</a> *, <a class="el" href="structflowDiff.html">flowDiff</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getCrucialPipesToCity</b> (<a class="el" href="classServicePoint.html">ServicePoint</a> *sp)</td></tr>
+<tr class="memitem:aba0689aa49a6a44d64ff322d2e6779fa"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::pair&lt; <a class="el" href="classPipe.html">Pipe</a> *, <a class="el" href="structflowDiff.html">flowDiff</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#aba0689aa49a6a44d64ff322d2e6779fa">getCrucialPipesToCity</a> (<a class="el" href="classServicePoint.html">ServicePoint</a> *sp)</td></tr>
+<tr class="memdesc:aba0689aa49a6a44d64ff322d2e6779fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the Crucial Pipes to a <a class="el" href="classCity.html" title="Service Point class definition.">City</a>. Checks if the flow of a <a class="el" href="classCity.html" title="Service Point class definition.">City</a> decreases from a <a class="el" href="classPipe.html" title="Pipe Class definition.">Pipe</a> removal.  <a href="classManagement.html#aba0689aa49a6a44d64ff322d2e6779fa">More...</a><br /></td></tr>
 <tr class="separator:aba0689aa49a6a44d64ff322d2e6779fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a56fc2e6b81ac36ffb25d57c9eb8a808f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a56fc2e6b81ac36ffb25d57c9eb8a808f">getAveragePipePressure</a> ()</td></tr>
+<tr class="separator:a56fc2e6b81ac36ffb25d57c9eb8a808f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a18af0d2d51f6387838f20b695e7bcace"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a18af0d2d51f6387838f20b695e7bcace">getVariancePipePressure</a> ()</td></tr>
+<tr class="separator:a18af0d2d51f6387838f20b695e7bcace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
+<h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="ac8e10030e252c9c03d41eec113ba95d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac8e10030e252c9c03d41eec113ba95d0">&#9670;&nbsp;</a></span>Management()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Management::Management </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classGraph.html">Graph</a> *&#160;</td>
+          <td class="paramname"><em>graph</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p><a class="el" href="classManagement.html">Management</a> Constructor. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">graph</td><td>graph to be managed </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad7313075e1b66bfaaa64d13adf229807"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad7313075e1b66bfaaa64d13adf229807">&#9670;&nbsp;</a></span>augmentFlowAlongPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Management::augmentFlowAlongPath </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>f</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Augments the flow along the augmenting path with the given flow value. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>- source <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> </td></tr>
+    <tr><td class="paramname">t</td><td>- target <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> </td></tr>
+    <tr><td class="paramname">f</td><td>- flow value</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Time Complexity O(P) P = number of Pipes between s and t </p>
+
+</div>
+</div>
+<a id="a2a0c3daee2a73d9a3534e27ec94fc7e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a0c3daee2a73d9a3534e27ec94fc7e4">&#9670;&nbsp;</a></span>edmondsKarp()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Management::edmondsKarp </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>balanced</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Performs the EdmondsKarp. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>- source <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> </td></tr>
+    <tr><td class="paramname">t</td><td>- target <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes </p>
+
+</div>
+</div>
+<a id="a58bc81ecb1fef8b8c6f8ed21be3c38c6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a58bc81ecb1fef8b8c6f8ed21be3c38c6">&#9670;&nbsp;</a></span>findAugmentingPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Management::findAugmentingPath </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>balanced</em> = <code>false</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds an augmenting path using Breadth-First Search. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>- source <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> </td></tr>
+    <tr><td class="paramname">t</td><td>- target <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if path is found</dd></dl>
+<p>Time Complexity O(S+P) and O(P*log(P)) if balanced, S = number of ServicePoints, P = number of Pipes </p>
+
+</div>
+</div>
+<a id="aecb1017e3eba3fd5437e0dfe47d06b38"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aecb1017e3eba3fd5437e0dfe47d06b38">&#9670;&nbsp;</a></span>findMinResidualAlongPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Management::findMinResidualAlongPath </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Find the minimum residual capacity along the augmenting path. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>- source <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> </td></tr>
+    <tr><td class="paramname">t</td><td>- target <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>f</dd></dl>
+<p>Time Complexity O(P) P = number of Pipes between s and t </p>
+
+</div>
+</div>
+<a id="a56fc2e6b81ac36ffb25d57c9eb8a808f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a56fc2e6b81ac36ffb25d57c9eb8a808f">&#9670;&nbsp;</a></span>getAveragePipePressure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Management::getAveragePipePressure </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get average pipe pressure (%) of current graph </p><dl class="section return"><dt>Returns</dt><dd>average pipe pressure (%) </dd></dl>
+
+</div>
+</div>
+<a id="a39fdbdd20651dfda6677461b2f3343fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a39fdbdd20651dfda6677461b2f3343fa">&#9670;&nbsp;</a></span>getCitiesAffectedByPipeRupture()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::pair&lt; std::string, <a class="el" href="structflowDiff.html">flowDiff</a> &gt; &gt; Management::getCitiesAffectedByPipeRupture </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classPipe.html">Pipe</a> *&#160;</td>
+          <td class="paramname"><em>e</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the cities affected by a <a class="el" href="classPipe.html" title="Pipe Class definition.">Pipe</a> rupture. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">e</td><td>pipe ruptured </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>codes of affected cities and respective old and new flow</dd></dl>
+<p>Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes </p>
+
+</div>
+</div>
+<a id="a10c071613c8ff2ce198ef166c7127b69"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a10c071613c8ff2ce198ef166c7127b69">&#9670;&nbsp;</a></span>getCitiesAffectedByReservoirFail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::pair&lt; std::string, <a class="el" href="structflowDiff.html">flowDiff</a> &gt; &gt; Management::getCitiesAffectedByReservoirFail </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>reservoir</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the cities affected by a reservoir fail. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">reservoir</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>codes of affected cities and respective old and new flow</dd></dl>
+<p>Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes </p>
+
+</div>
+</div>
+<a id="a9acd49809907862bfca25b7b97747037"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9acd49809907862bfca25b7b97747037">&#9670;&nbsp;</a></span>getCitiesAffectedByStationFail()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::pair&lt; std::string, <a class="el" href="structflowDiff.html">flowDiff</a> &gt; &gt; Management::getCitiesAffectedByStationFail </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>downStation</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the cities affected by a <a class="el" href="classStation.html" title="Station Class definition.">Station</a> failing. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">downStation</td><td>pumping station failing </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>codes of affected cities and respective old and new flow</dd></dl>
+<p>Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes </p>
+
+</div>
+</div>
+<a id="aba0689aa49a6a44d64ff322d2e6779fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba0689aa49a6a44d64ff322d2e6779fa">&#9670;&nbsp;</a></span>getCrucialPipesToCity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt; std::pair&lt; <a class="el" href="classPipe.html">Pipe</a> *, <a class="el" href="structflowDiff.html">flowDiff</a> &gt; &gt; Management::getCrucialPipesToCity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>sp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the Crucial Pipes to a <a class="el" href="classCity.html" title="Service Point class definition.">City</a>. Checks if the flow of a <a class="el" href="classCity.html" title="Service Point class definition.">City</a> decreases from a <a class="el" href="classPipe.html" title="Pipe Class definition.">Pipe</a> removal. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sp</td><td>city </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>crucial pipes to city sp and respective old and new flow</dd></dl>
+<p>Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes </p>
+
+</div>
+</div>
+<a id="a988aa630b2d0e9b5331aab92c7e30499"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a988aa630b2d0e9b5331aab92c7e30499">&#9670;&nbsp;</a></span>getFlowDeficit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt; std::string, int &gt; Management::getFlowDeficit </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Get flow deficit of all cities that don't get enough water. </p>
+<dl class="section return"><dt>Returns</dt><dd>vector with city code and respective deficit</dd></dl>
+<p>Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes </p>
+
+</div>
+</div>
+<a id="a84dd5c57a67ec7bbf712147c8dcde66f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a84dd5c57a67ec7bbf712147c8dcde66f">&#9670;&nbsp;</a></span>getMaxFlow()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt; std::string, int &gt; Management::getMaxFlow </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>balanced</em> = <code>false</code></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the max flow overall. </p>
+<dl class="section return"><dt>Returns</dt><dd>flowPerCity</dd></dl>
+<p>Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes </p>
+
+</div>
+</div>
+<a id="a6233a8f77fd7285ba097d4e09d3118d1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6233a8f77fd7285ba097d4e09d3118d1">&#9670;&nbsp;</a></span>getMaxFlowCity()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::pair&lt; std::string, int &gt; Management::getMaxFlowCity </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>citySink</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the max flow of a specific <a class="el" href="classCity.html" title="Service Point class definition.">City</a>. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">citySink</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>city code and respective flow</dd></dl>
+<p>Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes </p>
+
+</div>
+</div>
+<a id="a18af0d2d51f6387838f20b695e7bcace"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a18af0d2d51f6387838f20b695e7bcace">&#9670;&nbsp;</a></span>getVariancePipePressure()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float Management::getVariancePipePressure </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Get pipe pressure variance (%) of current graph </p><dl class="section return"><dt>Returns</dt><dd>pipe pressure variance (%) </dd></dl>
+
+</div>
+</div>
+<a id="ac60e75088c411c9c283d3a18fe14e3db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac60e75088c411c9c283d3a18fe14e3db">&#9670;&nbsp;</a></span>testAndVisit()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Management::testAndVisit </td>
+          <td>(</td>
+          <td class="paramtype">std::queue&lt; <a class="el" href="classServicePoint.html">ServicePoint</a> * &gt; &amp;&#160;</td>
+          <td class="paramname"><em>q</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classPipe.html">Pipe</a> *&#160;</td>
+          <td class="paramname"><em>e</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>w</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>residual</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Checks if the Service Point is not visited and there is residual capacity, then marks as visited, sets path, and enqueue it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">q</td><td>- queue of ServicePoints </td></tr>
+    <tr><td class="paramname">e</td><td>- <a class="el" href="classPipe.html" title="Pipe Class definition.">Pipe</a> </td></tr>
+    <tr><td class="paramname">w</td><td>- <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> </td></tr>
+    <tr><td class="paramname">residual</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Time Complexity O(1) </p>
+
+</div>
+</div>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li>/home/tiagoftorres/Desktop/projeto_da/Water-Supply-Management/src/<a class="el" href="Management_8h_source.html">Management.h</a></li>
 <li>/home/tiagoftorres/Desktop/projeto_da/Water-Supply-Management/src/Management.cpp</li>

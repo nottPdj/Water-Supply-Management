@@ -1,62 +1,53 @@
 \hypertarget{classGraph}{}\doxysection{Graph Class Reference}
 \label{classGraph}\index{Graph@{Graph}}
+
+
+\mbox{\hyperlink{classGraph}{Graph}} Class definition.  
+
+
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classGraph_a9945baa067f81da755166d4580fadfda}\label{classGraph_a9945baa067f81da755166d4580fadfda}} 
-void {\bfseries add\+Reservoir} (\mbox{\hyperlink{classReservoir}{Reservoir}} $\ast$p\+Reservoir)
-\item 
-\mbox{\Hypertarget{classGraph_abd3f91e307004d71be15ef018d2afe23}\label{classGraph_abd3f91e307004d71be15ef018d2afe23}} 
-void {\bfseries add\+Station} (\mbox{\hyperlink{classStation}{Station}} $\ast$p\+Station)
-\item 
-\mbox{\Hypertarget{classGraph_a6aa5ed8e68430dc1befdc1dd9f61bc87}\label{classGraph_a6aa5ed8e68430dc1befdc1dd9f61bc87}} 
-void {\bfseries add\+City} (\mbox{\hyperlink{classCity}{City}} $\ast$p\+City)
-\item 
-\mbox{\Hypertarget{classGraph_a469072d3f64ea47b862401c9f46dfaad}\label{classGraph_a469072d3f64ea47b862401c9f46dfaad}} 
-void {\bfseries add\+Service\+Point} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$service\+Point)
-\item 
-\mbox{\Hypertarget{classGraph_a65fb63aecd385289d6c1618f4c967d16}\label{classGraph_a65fb63aecd385289d6c1618f4c967d16}} 
-void {\bfseries remove\+Service\+Point} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$service\+Point)
-\item 
-\mbox{\Hypertarget{classGraph_a7d46cd58e76bb9a7140052da75199025}\label{classGraph_a7d46cd58e76bb9a7140052da75199025}} 
-void {\bfseries add\+Pipe} (std\+::string spA, std\+::string spB, int capacity)
-\item 
-\mbox{\Hypertarget{classGraph_afe4608ae37d75fbe1c422584e6e93d23}\label{classGraph_afe4608ae37d75fbe1c422584e6e93d23}} 
-void {\bfseries add\+Bidirectional\+Pipe} (std\+::string spA, std\+::string spB, int capacity)
-\item 
-\mbox{\Hypertarget{classGraph_a0bda705a503499befe381c9c85d43010}\label{classGraph_a0bda705a503499befe381c9c85d43010}} 
-void {\bfseries remove\+Associated\+Pipes} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$service\+Point)
-\item 
-\mbox{\Hypertarget{classGraph_afad111991307875fd1eae3f0dbf31edb}\label{classGraph_afad111991307875fd1eae3f0dbf31edb}} 
-void {\bfseries remove\+Pipe} (\mbox{\hyperlink{classPipe}{Pipe}} $\ast$pipe)
-\item 
-\mbox{\Hypertarget{classGraph_aa6417a14a13339d4796eb020e51ab8a8}\label{classGraph_aa6417a14a13339d4796eb020e51ab8a8}} 
-int {\bfseries get\+Num\+Service\+Point} () const
-\item 
-\mbox{\Hypertarget{classGraph_a2f8dc75dc39c102604a1cd2e8303b22f}\label{classGraph_a2f8dc75dc39c102604a1cd2e8303b22f}} 
-std\+::vector$<$ \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ {\bfseries get\+Service\+Point\+Set} () const
-\item 
-\mbox{\Hypertarget{classGraph_a4665cc17da07c8a3e20b563c80cb4f69}\label{classGraph_a4665cc17da07c8a3e20b563c80cb4f69}} 
-std\+::vector$<$ \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ {\bfseries get\+Reservoir\+Set} () const
-\item 
-\mbox{\Hypertarget{classGraph_a6b2787e297625136c21ac104429d9cb6}\label{classGraph_a6b2787e297625136c21ac104429d9cb6}} 
-std\+::vector$<$ \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ {\bfseries get\+Cities\+Set} () const
-\item 
-\mbox{\Hypertarget{classGraph_a764c35bb3253229d404ea93acbac947d}\label{classGraph_a764c35bb3253229d404ea93acbac947d}} 
-std\+::vector$<$ \mbox{\hyperlink{classPipe}{Pipe}} $\ast$ $>$ {\bfseries get\+Pipe\+Set} () const
-\item 
-\mbox{\Hypertarget{classGraph_a66b20e207270035f40df6aa927baf197}\label{classGraph_a66b20e207270035f40df6aa927baf197}} 
-\mbox{\hyperlink{classPipe}{Pipe}} $\ast$ {\bfseries get\+Pipe\+By\+Ends} (std\+::string orig, std\+::string dest)
-\item 
-\mbox{\Hypertarget{classGraph_ad6b7ce4b7683f18e066f4cbd4c11698d}\label{classGraph_ad6b7ce4b7683f18e066f4cbd4c11698d}} 
-\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ {\bfseries get\+City\+By\+Name} (const std\+::string \&name)
-\item 
-\mbox{\Hypertarget{classGraph_a71caf6893b6e772fc2c420281f433f15}\label{classGraph_a71caf6893b6e772fc2c420281f433f15}} 
-\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ {\bfseries get\+Reservoir\+By\+Name} (const std\+::string \&name)
-\item 
-\mbox{\Hypertarget{classGraph_a613d45841baa4c39a68ed752d90aae9c}\label{classGraph_a613d45841baa4c39a68ed752d90aae9c}} 
-\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ {\bfseries find\+Service\+Point} (const std\+::string \&code)
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classGraph_a902c5b3eacb66d60752525ab23297a95}{$\sim$\+Graph}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classGraph}{Graph}} Destructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraph_a9945baa067f81da755166d4580fadfda}{add\+Reservoir}} (\mbox{\hyperlink{classReservoir}{Reservoir}} $\ast$p\+Reservoir)
+\begin{DoxyCompactList}\small\item\em Adds a \mbox{\hyperlink{classReservoir}{Reservoir}} to the \mbox{\hyperlink{classGraph}{Graph}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraph_abd3f91e307004d71be15ef018d2afe23}{add\+Station}} (\mbox{\hyperlink{classStation}{Station}} $\ast$p\+Station)
+\begin{DoxyCompactList}\small\item\em Adds a \mbox{\hyperlink{classStation}{Station}} to the \mbox{\hyperlink{classGraph}{Graph}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraph_a6aa5ed8e68430dc1befdc1dd9f61bc87}{add\+City}} (\mbox{\hyperlink{classCity}{City}} $\ast$p\+City)
+\begin{DoxyCompactList}\small\item\em Adds a \mbox{\hyperlink{classCity}{City}} to the \mbox{\hyperlink{classGraph}{Graph}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraph_a469072d3f64ea47b862401c9f46dfaad}{add\+Service\+Point}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$service\+Point)
+\begin{DoxyCompactList}\small\item\em Adds a \mbox{\hyperlink{classServicePoint}{Service\+Point}} to the \mbox{\hyperlink{classGraph}{Graph}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraph_a65fb63aecd385289d6c1618f4c967d16}{remove\+Service\+Point}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$service\+Point)
+\begin{DoxyCompactList}\small\item\em Removes a Service Point from the \mbox{\hyperlink{classGraph}{Graph}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraph_a7d46cd58e76bb9a7140052da75199025}{add\+Pipe}} (std\+::string spA, std\+::string spB, int capacity)
+\begin{DoxyCompactList}\small\item\em Adds a \mbox{\hyperlink{classPipe}{Pipe}} to the \mbox{\hyperlink{classGraph}{Graph}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraph_afe4608ae37d75fbe1c422584e6e93d23}{add\+Bidirectional\+Pipe}} (std\+::string spA, std\+::string spB, int capacity)
+\begin{DoxyCompactList}\small\item\em Adds a Bidirectional \mbox{\hyperlink{classPipe}{Pipe}} to the \mbox{\hyperlink{classGraph}{Graph}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraph_a0bda705a503499befe381c9c85d43010}{remove\+Associated\+Pipes}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$service\+Point)
+\begin{DoxyCompactList}\small\item\em Removes associated Pipes to a given Service Point. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classGraph_afad111991307875fd1eae3f0dbf31edb}{remove\+Pipe}} (\mbox{\hyperlink{classPipe}{Pipe}} $\ast$pipe)
+\begin{DoxyCompactList}\small\item\em Removes a \mbox{\hyperlink{classPipe}{Pipe}} from the \mbox{\hyperlink{classGraph}{Graph}}. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ \mbox{\hyperlink{classGraph_a2f8dc75dc39c102604a1cd2e8303b22f}{get\+Service\+Point\+Set}} () const
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classServicePoint}{Service\+Point}} set. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ \mbox{\hyperlink{classGraph_a4665cc17da07c8a3e20b563c80cb4f69}{get\+Reservoir\+Set}} () const
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classReservoir}{Reservoir}} set. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ \mbox{\hyperlink{classGraph_a6b2787e297625136c21ac104429d9cb6}{get\+Cities\+Set}} () const
+\begin{DoxyCompactList}\small\item\em Gets the Cities set. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classPipe}{Pipe}} $\ast$ $>$ \mbox{\hyperlink{classGraph_a764c35bb3253229d404ea93acbac947d}{get\+Pipe\+Set}} () const
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classPipe}{Pipe}} set. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPipe}{Pipe}} $\ast$ \mbox{\hyperlink{classGraph_a66b20e207270035f40df6aa927baf197}{get\+Pipe\+By\+Ends}} (std\+::string orig, std\+::string dest)
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classPipe}{Pipe}} by its ends. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ \mbox{\hyperlink{classGraph_ad6b7ce4b7683f18e066f4cbd4c11698d}{get\+City\+By\+Name}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classCity}{City}} by name. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ \mbox{\hyperlink{classGraph_a71caf6893b6e772fc2c420281f433f15}{get\+Reservoir\+By\+Name}} (const std\+::string \&name)
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classReservoir}{Reservoir}} by name. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ \mbox{\hyperlink{classGraph_a613d45841baa4c39a68ed752d90aae9c}{find\+Service\+Point}} (const std\+::string \&code)
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classServicePoint}{Service\+Point}} by code. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
 \item 
@@ -85,6 +76,282 @@ std\+::unordered\+\_\+map$<$ std\+::string, \mbox{\hyperlink{classServicePoint}{
 std\+::unordered\+\_\+map$<$ std\+::pair$<$ std\+::string, std\+::string $>$, \mbox{\hyperlink{classPipe}{Pipe}} $\ast$, Pipe\+Hash, Pipe\+Equal $>$ {\bfseries pipe\+By\+Ends}
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classGraph}{Graph}} Class definition. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classGraph_a902c5b3eacb66d60752525ab23297a95}\label{classGraph_a902c5b3eacb66d60752525ab23297a95}} 
+\index{Graph@{Graph}!````~Graph@{$\sim$Graph}}
+\index{````~Graph@{$\sim$Graph}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{$\sim$Graph()}{~Graph()}}
+{\footnotesize\ttfamily Graph\+::$\sim$\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classGraph}{Graph}} Destructor. 
+
+Time Complexity O(\+S) S = number of Service\+Points 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classGraph_afe4608ae37d75fbe1c422584e6e93d23}\label{classGraph_afe4608ae37d75fbe1c422584e6e93d23}} 
+\index{Graph@{Graph}!addBidirectionalPipe@{addBidirectionalPipe}}
+\index{addBidirectionalPipe@{addBidirectionalPipe}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addBidirectionalPipe()}{addBidirectionalPipe()}}
+{\footnotesize\ttfamily void Graph\+::add\+Bidirectional\+Pipe (\begin{DoxyParamCaption}\item[{std\+::string}]{spA,  }\item[{std\+::string}]{spB,  }\item[{int}]{capacity }\end{DoxyParamCaption})}
+
+
+
+Adds a Bidirectional \mbox{\hyperlink{classPipe}{Pipe}} to the \mbox{\hyperlink{classGraph}{Graph}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spA} & \\
+\hline
+{\em spB} & \\
+\hline
+{\em capacity} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_a6aa5ed8e68430dc1befdc1dd9f61bc87}\label{classGraph_a6aa5ed8e68430dc1befdc1dd9f61bc87}} 
+\index{Graph@{Graph}!addCity@{addCity}}
+\index{addCity@{addCity}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addCity()}{addCity()}}
+{\footnotesize\ttfamily void Graph\+::add\+City (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCity}{City}} $\ast$}]{p\+City }\end{DoxyParamCaption})}
+
+
+
+Adds a \mbox{\hyperlink{classCity}{City}} to the \mbox{\hyperlink{classGraph}{Graph}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+City} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_a7d46cd58e76bb9a7140052da75199025}\label{classGraph_a7d46cd58e76bb9a7140052da75199025}} 
+\index{Graph@{Graph}!addPipe@{addPipe}}
+\index{addPipe@{addPipe}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addPipe()}{addPipe()}}
+{\footnotesize\ttfamily void Graph\+::add\+Pipe (\begin{DoxyParamCaption}\item[{std\+::string}]{spA,  }\item[{std\+::string}]{spB,  }\item[{int}]{capacity }\end{DoxyParamCaption})}
+
+
+
+Adds a \mbox{\hyperlink{classPipe}{Pipe}} to the \mbox{\hyperlink{classGraph}{Graph}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em spA} & \\
+\hline
+{\em spB} & \\
+\hline
+{\em capacity} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_a9945baa067f81da755166d4580fadfda}\label{classGraph_a9945baa067f81da755166d4580fadfda}} 
+\index{Graph@{Graph}!addReservoir@{addReservoir}}
+\index{addReservoir@{addReservoir}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addReservoir()}{addReservoir()}}
+{\footnotesize\ttfamily void Graph\+::add\+Reservoir (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classReservoir}{Reservoir}} $\ast$}]{p\+Reservoir }\end{DoxyParamCaption})}
+
+
+
+Adds a \mbox{\hyperlink{classReservoir}{Reservoir}} to the \mbox{\hyperlink{classGraph}{Graph}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Reservoir} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_a469072d3f64ea47b862401c9f46dfaad}\label{classGraph_a469072d3f64ea47b862401c9f46dfaad}} 
+\index{Graph@{Graph}!addServicePoint@{addServicePoint}}
+\index{addServicePoint@{addServicePoint}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addServicePoint()}{addServicePoint()}}
+{\footnotesize\ttfamily void Graph\+::add\+Service\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{service\+Point }\end{DoxyParamCaption})}
+
+
+
+Adds a \mbox{\hyperlink{classServicePoint}{Service\+Point}} to the \mbox{\hyperlink{classGraph}{Graph}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em service\+Point} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_abd3f91e307004d71be15ef018d2afe23}\label{classGraph_abd3f91e307004d71be15ef018d2afe23}} 
+\index{Graph@{Graph}!addStation@{addStation}}
+\index{addStation@{addStation}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{addStation()}{addStation()}}
+{\footnotesize\ttfamily void Graph\+::add\+Station (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classStation}{Station}} $\ast$}]{p\+Station }\end{DoxyParamCaption})}
+
+
+
+Adds a \mbox{\hyperlink{classStation}{Station}} to the \mbox{\hyperlink{classGraph}{Graph}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em p\+Station} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_a613d45841baa4c39a68ed752d90aae9c}\label{classGraph_a613d45841baa4c39a68ed752d90aae9c}} 
+\index{Graph@{Graph}!findServicePoint@{findServicePoint}}
+\index{findServicePoint@{findServicePoint}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{findServicePoint()}{findServicePoint()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ Graph\+::find\+Service\+Point (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{code }\end{DoxyParamCaption})}
+
+
+
+Gets the \mbox{\hyperlink{classServicePoint}{Service\+Point}} by code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em code} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_a6b2787e297625136c21ac104429d9cb6}\label{classGraph_a6b2787e297625136c21ac104429d9cb6}} 
+\index{Graph@{Graph}!getCitiesSet@{getCitiesSet}}
+\index{getCitiesSet@{getCitiesSet}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getCitiesSet()}{getCitiesSet()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ Graph\+::get\+Cities\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the Cities set. 
+
+\begin{DoxyReturn}{Returns}
+city\+Set 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGraph_ad6b7ce4b7683f18e066f4cbd4c11698d}\label{classGraph_ad6b7ce4b7683f18e066f4cbd4c11698d}} 
+\index{Graph@{Graph}!getCityByName@{getCityByName}}
+\index{getCityByName@{getCityByName}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getCityByName()}{getCityByName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ Graph\+::get\+City\+By\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Gets the \mbox{\hyperlink{classCity}{City}} by name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_a66b20e207270035f40df6aa927baf197}\label{classGraph_a66b20e207270035f40df6aa927baf197}} 
+\index{Graph@{Graph}!getPipeByEnds@{getPipeByEnds}}
+\index{getPipeByEnds@{getPipeByEnds}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getPipeByEnds()}{getPipeByEnds()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPipe}{Pipe}} $\ast$ Graph\+::get\+Pipe\+By\+Ends (\begin{DoxyParamCaption}\item[{std\+::string}]{orig,  }\item[{std\+::string}]{dest }\end{DoxyParamCaption})}
+
+
+
+Gets the \mbox{\hyperlink{classPipe}{Pipe}} by its ends. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em orig} & \\
+\hline
+{\em dest} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_a764c35bb3253229d404ea93acbac947d}\label{classGraph_a764c35bb3253229d404ea93acbac947d}} 
+\index{Graph@{Graph}!getPipeSet@{getPipeSet}}
+\index{getPipeSet@{getPipeSet}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getPipeSet()}{getPipeSet()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classPipe}{Pipe}} $\ast$ $>$ Graph\+::get\+Pipe\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the \mbox{\hyperlink{classPipe}{Pipe}} set. 
+
+\begin{DoxyReturn}{Returns}
+pipe\+Set 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGraph_a71caf6893b6e772fc2c420281f433f15}\label{classGraph_a71caf6893b6e772fc2c420281f433f15}} 
+\index{Graph@{Graph}!getReservoirByName@{getReservoirByName}}
+\index{getReservoirByName@{getReservoirByName}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getReservoirByName()}{getReservoirByName()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ Graph\+::get\+Reservoir\+By\+Name (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{name }\end{DoxyParamCaption})}
+
+
+
+Gets the \mbox{\hyperlink{classReservoir}{Reservoir}} by name. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classGraph_a4665cc17da07c8a3e20b563c80cb4f69}\label{classGraph_a4665cc17da07c8a3e20b563c80cb4f69}} 
+\index{Graph@{Graph}!getReservoirSet@{getReservoirSet}}
+\index{getReservoirSet@{getReservoirSet}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getReservoirSet()}{getReservoirSet()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ Graph\+::get\+Reservoir\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the \mbox{\hyperlink{classReservoir}{Reservoir}} set. 
+
+\begin{DoxyReturn}{Returns}
+reservoir\+Set 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGraph_a2f8dc75dc39c102604a1cd2e8303b22f}\label{classGraph_a2f8dc75dc39c102604a1cd2e8303b22f}} 
+\index{Graph@{Graph}!getServicePointSet@{getServicePointSet}}
+\index{getServicePointSet@{getServicePointSet}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{getServicePointSet()}{getServicePointSet()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ Graph\+::get\+Service\+Point\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the \mbox{\hyperlink{classServicePoint}{Service\+Point}} set. 
+
+\begin{DoxyReturn}{Returns}
+service\+Point\+Set 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classGraph_a0bda705a503499befe381c9c85d43010}\label{classGraph_a0bda705a503499befe381c9c85d43010}} 
+\index{Graph@{Graph}!removeAssociatedPipes@{removeAssociatedPipes}}
+\index{removeAssociatedPipes@{removeAssociatedPipes}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{removeAssociatedPipes()}{removeAssociatedPipes()}}
+{\footnotesize\ttfamily void Graph\+::remove\+Associated\+Pipes (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{service\+Point }\end{DoxyParamCaption})}
+
+
+
+Removes associated Pipes to a given Service Point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em service\+Point} & \\
+\hline
+\end{DoxyParams}
+Time Complexity O(P²) P = bigger number of adjacent or incoming Pipes \mbox{\Hypertarget{classGraph_afad111991307875fd1eae3f0dbf31edb}\label{classGraph_afad111991307875fd1eae3f0dbf31edb}} 
+\index{Graph@{Graph}!removePipe@{removePipe}}
+\index{removePipe@{removePipe}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{removePipe()}{removePipe()}}
+{\footnotesize\ttfamily void Graph\+::remove\+Pipe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPipe}{Pipe}} $\ast$}]{pipe }\end{DoxyParamCaption})}
+
+
+
+Removes a \mbox{\hyperlink{classPipe}{Pipe}} from the \mbox{\hyperlink{classGraph}{Graph}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pipe} & \\
+\hline
+\end{DoxyParams}
+Time Complexity O(\+P) P = number of Pipes \mbox{\Hypertarget{classGraph_a65fb63aecd385289d6c1618f4c967d16}\label{classGraph_a65fb63aecd385289d6c1618f4c967d16}} 
+\index{Graph@{Graph}!removeServicePoint@{removeServicePoint}}
+\index{removeServicePoint@{removeServicePoint}!Graph@{Graph}}
+\doxysubsubsection{\texorpdfstring{removeServicePoint()}{removeServicePoint()}}
+{\footnotesize\ttfamily void Graph\+::remove\+Service\+Point (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{service\+Point }\end{DoxyParamCaption})}
+
+
+
+Removes a Service Point from the \mbox{\hyperlink{classGraph}{Graph}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em service\+Point} & \\
+\hline
+\end{DoxyParams}
+Time Complexity O(P²) P = number of Pipes 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

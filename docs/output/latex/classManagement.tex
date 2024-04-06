@@ -3,46 +3,289 @@
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classManagement_ac8e10030e252c9c03d41eec113ba95d0}\label{classManagement_ac8e10030e252c9c03d41eec113ba95d0}} 
-{\bfseries Management} (\mbox{\hyperlink{classGraph}{Graph}} $\ast$graph)
+\mbox{\hyperlink{classManagement_ac8e10030e252c9c03d41eec113ba95d0}{Management}} (\mbox{\hyperlink{classGraph}{Graph}} $\ast$graph)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classManagement}{Management}} Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classManagement_ac60e75088c411c9c283d3a18fe14e3db}{test\+And\+Visit}} (std\+::queue$<$ \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ \&q, \mbox{\hyperlink{classPipe}{Pipe}} $\ast$e, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$w, double residual)
+\begin{DoxyCompactList}\small\item\em Checks if the Service Point is not visited and there is residual capacity, then marks as visited, sets path, and enqueue it. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classManagement_a58bc81ecb1fef8b8c6f8ed21be3c38c6}{find\+Augmenting\+Path}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t, bool balanced=false)
+\begin{DoxyCompactList}\small\item\em Finds an augmenting path using Breadth-\/\+First Search. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classManagement_aecb1017e3eba3fd5437e0dfe47d06b38}{find\+Min\+Residual\+Along\+Path}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Find the minimum residual capacity along the augmenting path. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classManagement_a2a0c3daee2a73d9a3534e27ec94fc7e4}{edmonds\+Karp}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t, bool balanced=false)
+\begin{DoxyCompactList}\small\item\em Performs the Edmonds\+Karp. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classManagement_ad7313075e1b66bfaaa64d13adf229807}{augment\+Flow\+Along\+Path}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t, double f)
+\begin{DoxyCompactList}\small\item\em Augments the flow along the augmenting path with the given flow value. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ std\+::string, int $>$ \mbox{\hyperlink{classManagement_a84dd5c57a67ec7bbf712147c8dcde66f}{get\+Max\+Flow}} (bool balanced=false)
+\begin{DoxyCompactList}\small\item\em Gets the max flow overall. \end{DoxyCompactList}\item 
+std\+::pair$<$ std\+::string, int $>$ \mbox{\hyperlink{classManagement_a6233a8f77fd7285ba097d4e09d3118d1}{get\+Max\+Flow\+City}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$city\+Sink)
+\begin{DoxyCompactList}\small\item\em Gets the max flow of a specific \mbox{\hyperlink{classCity}{City}}. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ std\+::string, int $>$ \mbox{\hyperlink{classManagement_a988aa630b2d0e9b5331aab92c7e30499}{get\+Flow\+Deficit}} ()
+\begin{DoxyCompactList}\small\item\em Get flow deficit of all cities that don\textquotesingle{}t get enough water. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ std\+::string, \mbox{\hyperlink{structflowDiff}{flow\+Diff}} $>$ $>$ \mbox{\hyperlink{classManagement_a10c071613c8ff2ce198ef166c7127b69}{get\+Cities\+Affected\+By\+Reservoir\+Fail}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$reservoir)
+\begin{DoxyCompactList}\small\item\em Gets the cities affected by a reservoir fail. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ std\+::string, \mbox{\hyperlink{structflowDiff}{flow\+Diff}} $>$ $>$ \mbox{\hyperlink{classManagement_a9acd49809907862bfca25b7b97747037}{get\+Cities\+Affected\+By\+Station\+Fail}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$down\+Station)
+\begin{DoxyCompactList}\small\item\em Gets the cities affected by a \mbox{\hyperlink{classStation}{Station}} failing. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ std\+::string, \mbox{\hyperlink{structflowDiff}{flow\+Diff}} $>$ $>$ \mbox{\hyperlink{classManagement_a39fdbdd20651dfda6677461b2f3343fa}{get\+Cities\+Affected\+By\+Pipe\+Rupture}} (\mbox{\hyperlink{classPipe}{Pipe}} $\ast$e)
+\begin{DoxyCompactList}\small\item\em Gets the cities affected by a \mbox{\hyperlink{classPipe}{Pipe}} rupture. \end{DoxyCompactList}\item 
+std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{classPipe}{Pipe}} $\ast$, \mbox{\hyperlink{structflowDiff}{flow\+Diff}} $>$ $>$ \mbox{\hyperlink{classManagement_aba0689aa49a6a44d64ff322d2e6779fa}{get\+Crucial\+Pipes\+To\+City}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$sp)
+\begin{DoxyCompactList}\small\item\em Gets the Crucial Pipes to a \mbox{\hyperlink{classCity}{City}}. Checks if the flow of a \mbox{\hyperlink{classCity}{City}} decreases from a \mbox{\hyperlink{classPipe}{Pipe}} removal. \end{DoxyCompactList}\item 
+float \mbox{\hyperlink{classManagement_a56fc2e6b81ac36ffb25d57c9eb8a808f}{get\+Average\+Pipe\+Pressure}} ()
 \item 
-\mbox{\Hypertarget{classManagement_ac60e75088c411c9c283d3a18fe14e3db}\label{classManagement_ac60e75088c411c9c283d3a18fe14e3db}} 
-void {\bfseries test\+And\+Visit} (std\+::queue$<$ \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ \&q, \mbox{\hyperlink{classPipe}{Pipe}} $\ast$e, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$w, double residual)
-\item 
-\mbox{\Hypertarget{classManagement_a80e0dafd70b371a267eb6013ac94bc4d}\label{classManagement_a80e0dafd70b371a267eb6013ac94bc4d}} 
-bool {\bfseries find\+Augmenting\+Path} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t)
-\item 
-\mbox{\Hypertarget{classManagement_aecb1017e3eba3fd5437e0dfe47d06b38}\label{classManagement_aecb1017e3eba3fd5437e0dfe47d06b38}} 
-double {\bfseries find\+Min\+Residual\+Along\+Path} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t)
-\item 
-\mbox{\Hypertarget{classManagement_a23d8c2535903ec66b651ba345e866a2c}\label{classManagement_a23d8c2535903ec66b651ba345e866a2c}} 
-void {\bfseries edmonds\+Karp} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t)
-\item 
-\mbox{\Hypertarget{classManagement_ad7313075e1b66bfaaa64d13adf229807}\label{classManagement_ad7313075e1b66bfaaa64d13adf229807}} 
-void {\bfseries augment\+Flow\+Along\+Path} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t, double f)
-\item 
-\mbox{\Hypertarget{classManagement_a57cd2b083fd372bbb89097be973b9824}\label{classManagement_a57cd2b083fd372bbb89097be973b9824}} 
-std\+::unordered\+\_\+map$<$ std\+::string, int $>$ {\bfseries get\+Max\+Flow} ()
-\item 
-\mbox{\Hypertarget{classManagement_a6233a8f77fd7285ba097d4e09d3118d1}\label{classManagement_a6233a8f77fd7285ba097d4e09d3118d1}} 
-std\+::pair$<$ std\+::string, int $>$ {\bfseries get\+Max\+Flow\+City} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$city\+Sink)
-\item 
-\mbox{\Hypertarget{classManagement_a988aa630b2d0e9b5331aab92c7e30499}\label{classManagement_a988aa630b2d0e9b5331aab92c7e30499}} 
-std\+::unordered\+\_\+map$<$ std\+::string, int $>$ {\bfseries get\+Flow\+Deficit} ()
-\item 
-\mbox{\Hypertarget{classManagement_a10c071613c8ff2ce198ef166c7127b69}\label{classManagement_a10c071613c8ff2ce198ef166c7127b69}} 
-std\+::vector$<$ std\+::pair$<$ std\+::string, \mbox{\hyperlink{structflowDiff}{flow\+Diff}} $>$ $>$ {\bfseries get\+Cities\+Affected\+By\+Reservoir\+Fail} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$reservoir)
-\item 
-\mbox{\Hypertarget{classManagement_a9acd49809907862bfca25b7b97747037}\label{classManagement_a9acd49809907862bfca25b7b97747037}} 
-std\+::vector$<$ std\+::pair$<$ std\+::string, \mbox{\hyperlink{structflowDiff}{flow\+Diff}} $>$ $>$ {\bfseries get\+Cities\+Affected\+By\+Station\+Fail} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$down\+Station)
-\item 
-\mbox{\Hypertarget{classManagement_a39fdbdd20651dfda6677461b2f3343fa}\label{classManagement_a39fdbdd20651dfda6677461b2f3343fa}} 
-std\+::vector$<$ std\+::pair$<$ std\+::string, \mbox{\hyperlink{structflowDiff}{flow\+Diff}} $>$ $>$ {\bfseries get\+Cities\+Affected\+By\+Pipe\+Rupture} (\mbox{\hyperlink{classPipe}{Pipe}} $\ast$e)
-\item 
-\mbox{\Hypertarget{classManagement_aba0689aa49a6a44d64ff322d2e6779fa}\label{classManagement_aba0689aa49a6a44d64ff322d2e6779fa}} 
-std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{classPipe}{Pipe}} $\ast$, \mbox{\hyperlink{structflowDiff}{flow\+Diff}} $>$ $>$ {\bfseries get\+Crucial\+Pipes\+To\+City} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$sp)
+float \mbox{\hyperlink{classManagement_a18af0d2d51f6387838f20b695e7bcace}{get\+Variance\+Pipe\+Pressure}} ()
 \end{DoxyCompactItemize}
 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classManagement_ac8e10030e252c9c03d41eec113ba95d0}\label{classManagement_ac8e10030e252c9c03d41eec113ba95d0}} 
+\index{Management@{Management}!Management@{Management}}
+\index{Management@{Management}!Management@{Management}}
+\doxysubsubsection{\texorpdfstring{Management()}{Management()}}
+{\footnotesize\ttfamily Management\+::\+Management (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classGraph}{Graph}} $\ast$}]{graph }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classManagement}{Management}} Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em graph} & graph to be managed \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classManagement_ad7313075e1b66bfaaa64d13adf229807}\label{classManagement_ad7313075e1b66bfaaa64d13adf229807}} 
+\index{Management@{Management}!augmentFlowAlongPath@{augmentFlowAlongPath}}
+\index{augmentFlowAlongPath@{augmentFlowAlongPath}!Management@{Management}}
+\doxysubsubsection{\texorpdfstring{augmentFlowAlongPath()}{augmentFlowAlongPath()}}
+{\footnotesize\ttfamily void Management\+::augment\+Flow\+Along\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{t,  }\item[{double}]{f }\end{DoxyParamCaption})}
+
+
+
+Augments the flow along the augmenting path with the given flow value. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/ source \mbox{\hyperlink{classServicePoint}{Service\+Point}} \\
+\hline
+{\em t} & -\/ target \mbox{\hyperlink{classServicePoint}{Service\+Point}} \\
+\hline
+{\em f} & -\/ flow value\\
+\hline
+\end{DoxyParams}
+Time Complexity O(\+P) P = number of Pipes between s and t \mbox{\Hypertarget{classManagement_a2a0c3daee2a73d9a3534e27ec94fc7e4}\label{classManagement_a2a0c3daee2a73d9a3534e27ec94fc7e4}} 
+\index{Management@{Management}!edmondsKarp@{edmondsKarp}}
+\index{edmondsKarp@{edmondsKarp}!Management@{Management}}
+\doxysubsubsection{\texorpdfstring{edmondsKarp()}{edmondsKarp()}}
+{\footnotesize\ttfamily void Management\+::edmonds\+Karp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{t,  }\item[{bool}]{balanced = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Performs the Edmonds\+Karp. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/ source \mbox{\hyperlink{classServicePoint}{Service\+Point}} \\
+\hline
+{\em t} & -\/ target \mbox{\hyperlink{classServicePoint}{Service\+Point}}\\
+\hline
+\end{DoxyParams}
+Time Complexity O(S$\ast$\+P²), S = number of Service\+Points, P = number of Pipes \mbox{\Hypertarget{classManagement_a58bc81ecb1fef8b8c6f8ed21be3c38c6}\label{classManagement_a58bc81ecb1fef8b8c6f8ed21be3c38c6}} 
+\index{Management@{Management}!findAugmentingPath@{findAugmentingPath}}
+\index{findAugmentingPath@{findAugmentingPath}!Management@{Management}}
+\doxysubsubsection{\texorpdfstring{findAugmentingPath()}{findAugmentingPath()}}
+{\footnotesize\ttfamily bool Management\+::find\+Augmenting\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{t,  }\item[{bool}]{balanced = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Finds an augmenting path using Breadth-\/\+First Search. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/ source \mbox{\hyperlink{classServicePoint}{Service\+Point}} \\
+\hline
+{\em t} & -\/ target \mbox{\hyperlink{classServicePoint}{Service\+Point}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if path is found
+\end{DoxyReturn}
+Time Complexity O(S+P) and O(\+P$\ast$log(\+P)) if balanced, S = number of Service\+Points, P = number of Pipes \mbox{\Hypertarget{classManagement_aecb1017e3eba3fd5437e0dfe47d06b38}\label{classManagement_aecb1017e3eba3fd5437e0dfe47d06b38}} 
+\index{Management@{Management}!findMinResidualAlongPath@{findMinResidualAlongPath}}
+\index{findMinResidualAlongPath@{findMinResidualAlongPath}!Management@{Management}}
+\doxysubsubsection{\texorpdfstring{findMinResidualAlongPath()}{findMinResidualAlongPath()}}
+{\footnotesize\ttfamily double Management\+::find\+Min\+Residual\+Along\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{t }\end{DoxyParamCaption})}
+
+
+
+Find the minimum residual capacity along the augmenting path. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/ source \mbox{\hyperlink{classServicePoint}{Service\+Point}} \\
+\hline
+{\em t} & -\/ target \mbox{\hyperlink{classServicePoint}{Service\+Point}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+f
+\end{DoxyReturn}
+Time Complexity O(\+P) P = number of Pipes between s and t \mbox{\Hypertarget{classManagement_a56fc2e6b81ac36ffb25d57c9eb8a808f}\label{classManagement_a56fc2e6b81ac36ffb25d57c9eb8a808f}} 
+\index{Management@{Management}!getAveragePipePressure@{getAveragePipePressure}}
+\index{getAveragePipePressure@{getAveragePipePressure}!Management@{Management}}
+\doxysubsubsection{\texorpdfstring{getAveragePipePressure()}{getAveragePipePressure()}}
+{\footnotesize\ttfamily float Management\+::get\+Average\+Pipe\+Pressure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get average pipe pressure (\%) of current graph \begin{DoxyReturn}{Returns}
+average pipe pressure (\%) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classManagement_a39fdbdd20651dfda6677461b2f3343fa}\label{classManagement_a39fdbdd20651dfda6677461b2f3343fa}} 
+\index{Management@{Management}!getCitiesAffectedByPipeRupture@{getCitiesAffectedByPipeRupture}}
+\index{getCitiesAffectedByPipeRupture@{getCitiesAffectedByPipeRupture}!Management@{Management}}
+\doxysubsubsection{\texorpdfstring{getCitiesAffectedByPipeRupture()}{getCitiesAffectedByPipeRupture()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ std\+::string, \mbox{\hyperlink{structflowDiff}{flow\+Diff}} $>$ $>$ Management\+::get\+Cities\+Affected\+By\+Pipe\+Rupture (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPipe}{Pipe}} $\ast$}]{e }\end{DoxyParamCaption})}
+
+
+
+Gets the cities affected by a \mbox{\hyperlink{classPipe}{Pipe}} rupture. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em e} & pipe ruptured \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+codes of affected cities and respective old and new flow
+\end{DoxyReturn}
+Time Complexity O(S$\ast$\+P²), S = number of Service\+Points, P = number of Pipes \mbox{\Hypertarget{classManagement_a10c071613c8ff2ce198ef166c7127b69}\label{classManagement_a10c071613c8ff2ce198ef166c7127b69}} 
+\index{Management@{Management}!getCitiesAffectedByReservoirFail@{getCitiesAffectedByReservoirFail}}
+\index{getCitiesAffectedByReservoirFail@{getCitiesAffectedByReservoirFail}!Management@{Management}}
+\doxysubsubsection{\texorpdfstring{getCitiesAffectedByReservoirFail()}{getCitiesAffectedByReservoirFail()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ std\+::string, \mbox{\hyperlink{structflowDiff}{flow\+Diff}} $>$ $>$ Management\+::get\+Cities\+Affected\+By\+Reservoir\+Fail (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{reservoir }\end{DoxyParamCaption})}
+
+
+
+Gets the cities affected by a reservoir fail. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em reservoir} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+codes of affected cities and respective old and new flow
+\end{DoxyReturn}
+Time Complexity O(S$\ast$\+P²), S = number of Service\+Points, P = number of Pipes \mbox{\Hypertarget{classManagement_a9acd49809907862bfca25b7b97747037}\label{classManagement_a9acd49809907862bfca25b7b97747037}} 
+\index{Management@{Management}!getCitiesAffectedByStationFail@{getCitiesAffectedByStationFail}}
+\index{getCitiesAffectedByStationFail@{getCitiesAffectedByStationFail}!Management@{Management}}
+\doxysubsubsection{\texorpdfstring{getCitiesAffectedByStationFail()}{getCitiesAffectedByStationFail()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ std\+::string, \mbox{\hyperlink{structflowDiff}{flow\+Diff}} $>$ $>$ Management\+::get\+Cities\+Affected\+By\+Station\+Fail (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{down\+Station }\end{DoxyParamCaption})}
+
+
+
+Gets the cities affected by a \mbox{\hyperlink{classStation}{Station}} failing. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em down\+Station} & pumping station failing \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+codes of affected cities and respective old and new flow
+\end{DoxyReturn}
+Time Complexity O(S$\ast$\+P²), S = number of Service\+Points, P = number of Pipes \mbox{\Hypertarget{classManagement_aba0689aa49a6a44d64ff322d2e6779fa}\label{classManagement_aba0689aa49a6a44d64ff322d2e6779fa}} 
+\index{Management@{Management}!getCrucialPipesToCity@{getCrucialPipesToCity}}
+\index{getCrucialPipesToCity@{getCrucialPipesToCity}!Management@{Management}}
+\doxysubsubsection{\texorpdfstring{getCrucialPipesToCity()}{getCrucialPipesToCity()}}
+{\footnotesize\ttfamily std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{classPipe}{Pipe}} $\ast$, \mbox{\hyperlink{structflowDiff}{flow\+Diff}} $>$ $>$ Management\+::get\+Crucial\+Pipes\+To\+City (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{sp }\end{DoxyParamCaption})}
+
+
+
+Gets the Crucial Pipes to a \mbox{\hyperlink{classCity}{City}}. Checks if the flow of a \mbox{\hyperlink{classCity}{City}} decreases from a \mbox{\hyperlink{classPipe}{Pipe}} removal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sp} & city \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+crucial pipes to city sp and respective old and new flow
+\end{DoxyReturn}
+Time Complexity O(S$\ast$\+P²), S = number of Service\+Points, P = number of Pipes \mbox{\Hypertarget{classManagement_a988aa630b2d0e9b5331aab92c7e30499}\label{classManagement_a988aa630b2d0e9b5331aab92c7e30499}} 
+\index{Management@{Management}!getFlowDeficit@{getFlowDeficit}}
+\index{getFlowDeficit@{getFlowDeficit}!Management@{Management}}
+\doxysubsubsection{\texorpdfstring{getFlowDeficit()}{getFlowDeficit()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ std\+::string, int $>$ Management\+::get\+Flow\+Deficit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get flow deficit of all cities that don\textquotesingle{}t get enough water. 
+
+\begin{DoxyReturn}{Returns}
+vector with city code and respective deficit
+\end{DoxyReturn}
+Time Complexity O(S$\ast$\+P²), S = number of Service\+Points, P = number of Pipes \mbox{\Hypertarget{classManagement_a84dd5c57a67ec7bbf712147c8dcde66f}\label{classManagement_a84dd5c57a67ec7bbf712147c8dcde66f}} 
+\index{Management@{Management}!getMaxFlow@{getMaxFlow}}
+\index{getMaxFlow@{getMaxFlow}!Management@{Management}}
+\doxysubsubsection{\texorpdfstring{getMaxFlow()}{getMaxFlow()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ std\+::string, int $>$ Management\+::get\+Max\+Flow (\begin{DoxyParamCaption}\item[{bool}]{balanced = {\ttfamily false} }\end{DoxyParamCaption})}
+
+
+
+Gets the max flow overall. 
+
+\begin{DoxyReturn}{Returns}
+flow\+Per\+City
+\end{DoxyReturn}
+Time Complexity O(S$\ast$\+P²), S = number of Service\+Points, P = number of Pipes \mbox{\Hypertarget{classManagement_a6233a8f77fd7285ba097d4e09d3118d1}\label{classManagement_a6233a8f77fd7285ba097d4e09d3118d1}} 
+\index{Management@{Management}!getMaxFlowCity@{getMaxFlowCity}}
+\index{getMaxFlowCity@{getMaxFlowCity}!Management@{Management}}
+\doxysubsubsection{\texorpdfstring{getMaxFlowCity()}{getMaxFlowCity()}}
+{\footnotesize\ttfamily std\+::pair$<$ std\+::string, int $>$ Management\+::get\+Max\+Flow\+City (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{city\+Sink }\end{DoxyParamCaption})}
+
+
+
+Gets the max flow of a specific \mbox{\hyperlink{classCity}{City}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em city\+Sink} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+city code and respective flow
+\end{DoxyReturn}
+Time Complexity O(S$\ast$\+P²), S = number of Service\+Points, P = number of Pipes \mbox{\Hypertarget{classManagement_a18af0d2d51f6387838f20b695e7bcace}\label{classManagement_a18af0d2d51f6387838f20b695e7bcace}} 
+\index{Management@{Management}!getVariancePipePressure@{getVariancePipePressure}}
+\index{getVariancePipePressure@{getVariancePipePressure}!Management@{Management}}
+\doxysubsubsection{\texorpdfstring{getVariancePipePressure()}{getVariancePipePressure()}}
+{\footnotesize\ttfamily float Management\+::get\+Variance\+Pipe\+Pressure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Get pipe pressure variance (\%) of current graph \begin{DoxyReturn}{Returns}
+pipe pressure variance (\%) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classManagement_ac60e75088c411c9c283d3a18fe14e3db}\label{classManagement_ac60e75088c411c9c283d3a18fe14e3db}} 
+\index{Management@{Management}!testAndVisit@{testAndVisit}}
+\index{testAndVisit@{testAndVisit}!Management@{Management}}
+\doxysubsubsection{\texorpdfstring{testAndVisit()}{testAndVisit()}}
+{\footnotesize\ttfamily void Management\+::test\+And\+Visit (\begin{DoxyParamCaption}\item[{std\+::queue$<$ \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ \&}]{q,  }\item[{\mbox{\hyperlink{classPipe}{Pipe}} $\ast$}]{e,  }\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{w,  }\item[{double}]{residual }\end{DoxyParamCaption})}
+
+
+
+Checks if the Service Point is not visited and there is residual capacity, then marks as visited, sets path, and enqueue it. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em q} & -\/ queue of Service\+Points \\
+\hline
+{\em e} & -\/ \mbox{\hyperlink{classPipe}{Pipe}} \\
+\hline
+{\em w} & -\/ \mbox{\hyperlink{classServicePoint}{Service\+Point}} \\
+\hline
+{\em residual} & \\
+\hline
+\end{DoxyParams}
+Time Complexity O(1) 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
 \item 

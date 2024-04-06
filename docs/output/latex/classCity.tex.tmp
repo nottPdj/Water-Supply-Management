@@ -2,6 +2,15 @@
 \label{classCity}\index{City@{City}}
 
 
+Service Point class definition.  
+
+
+
+
+{\ttfamily \#include $<$City.\+h$>$}
+
+
+
 Inheritance diagram for City\+:
 % FIG 0
 
@@ -11,25 +20,122 @@ Collaboration diagram for City\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
-\mbox{\Hypertarget{classCity_a9b42bcc6063052846041a81317ac0c15}\label{classCity_a9b42bcc6063052846041a81317ac0c15}} 
-{\bfseries City} (std\+::string name, std\+::string id, std\+::string code, int demand, int population)
-\item 
-\mbox{\Hypertarget{classCity_adc7fe5313b3572973918cf6385e87fd5}\label{classCity_adc7fe5313b3572973918cf6385e87fd5}} 
-std\+::string {\bfseries get\+Name} ()
-\item 
-\mbox{\Hypertarget{classCity_aadddbdeac6ac07e34acc9044fe5d7dad}\label{classCity_aadddbdeac6ac07e34acc9044fe5d7dad}} 
-std\+::string {\bfseries get\+Id} ()
-\item 
-\mbox{\Hypertarget{classCity_a4e4a50d6df3fc1b0009d289a81db116d}\label{classCity_a4e4a50d6df3fc1b0009d289a81db116d}} 
-std\+::string {\bfseries get\+Code} () const
-\item 
-\mbox{\Hypertarget{classCity_a0acc81384f3e3625f95f0f656ad2066d}\label{classCity_a0acc81384f3e3625f95f0f656ad2066d}} 
-int {\bfseries get\+Demand} ()
-\item 
-\mbox{\Hypertarget{classCity_a98eaea565d670a1fa6b98aa07b6af860}\label{classCity_a98eaea565d670a1fa6b98aa07b6af860}} 
-int {\bfseries get\+Population} ()
-\end{DoxyCompactItemize}
+\mbox{\hyperlink{classCity_a9b42bcc6063052846041a81317ac0c15}{City}} (std\+::string name, std\+::string id, std\+::string code, int demand, int population)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classCity}{City}} Constructor. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCity_adc7fe5313b3572973918cf6385e87fd5}{get\+Name}} ()
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classCity}{City}} name. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCity_aadddbdeac6ac07e34acc9044fe5d7dad}{get\+Id}} ()
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classCity}{City}} id. \end{DoxyCompactList}\item 
+std\+::string \mbox{\hyperlink{classCity_a4e4a50d6df3fc1b0009d289a81db116d}{get\+Code}} () const
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classCity}{City}} Code. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCity_a0acc81384f3e3625f95f0f656ad2066d}{get\+Demand}} ()
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classCity}{City}} demand. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classCity_a98eaea565d670a1fa6b98aa07b6af860}{get\+Population}} ()
+\begin{DoxyCompactList}\small\item\em Gets the \mbox{\hyperlink{classCity}{City}} population. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Service Point class definition. 
+
+Child Class of \mbox{\hyperlink{classServicePoint}{Service\+Point}} 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classCity_a9b42bcc6063052846041a81317ac0c15}\label{classCity_a9b42bcc6063052846041a81317ac0c15}} 
+\index{City@{City}!City@{City}}
+\index{City@{City}!City@{City}}
+\doxysubsubsection{\texorpdfstring{City()}{City()}}
+{\footnotesize\ttfamily City\+::\+City (\begin{DoxyParamCaption}\item[{std\+::string}]{name,  }\item[{std\+::string}]{id,  }\item[{std\+::string}]{code,  }\item[{int}]{demand,  }\item[{int}]{population }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classCity}{City}} Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & \\
+\hline
+{\em id} & \\
+\hline
+{\em code} & \\
+\hline
+{\em demand} & \\
+\hline
+{\em population} & \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classCity_a4e4a50d6df3fc1b0009d289a81db116d}\label{classCity_a4e4a50d6df3fc1b0009d289a81db116d}} 
+\index{City@{City}!getCode@{getCode}}
+\index{getCode@{getCode}!City@{City}}
+\doxysubsubsection{\texorpdfstring{getCode()}{getCode()}}
+{\footnotesize\ttfamily std\+::string City\+::get\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Gets the \mbox{\hyperlink{classCity}{City}} Code. 
+
+\begin{DoxyReturn}{Returns}
+code 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classServicePoint}{Service\+Point}}.
+
+\mbox{\Hypertarget{classCity_a0acc81384f3e3625f95f0f656ad2066d}\label{classCity_a0acc81384f3e3625f95f0f656ad2066d}} 
+\index{City@{City}!getDemand@{getDemand}}
+\index{getDemand@{getDemand}!City@{City}}
+\doxysubsubsection{\texorpdfstring{getDemand()}{getDemand()}}
+{\footnotesize\ttfamily int City\+::get\+Demand (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the \mbox{\hyperlink{classCity}{City}} demand. 
+
+\begin{DoxyReturn}{Returns}
+demand 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCity_aadddbdeac6ac07e34acc9044fe5d7dad}\label{classCity_aadddbdeac6ac07e34acc9044fe5d7dad}} 
+\index{City@{City}!getId@{getId}}
+\index{getId@{getId}!City@{City}}
+\doxysubsubsection{\texorpdfstring{getId()}{getId()}}
+{\footnotesize\ttfamily std\+::string City\+::get\+Id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the \mbox{\hyperlink{classCity}{City}} id. 
+
+\begin{DoxyReturn}{Returns}
+id 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCity_adc7fe5313b3572973918cf6385e87fd5}\label{classCity_adc7fe5313b3572973918cf6385e87fd5}} 
+\index{City@{City}!getName@{getName}}
+\index{getName@{getName}!City@{City}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily std\+::string City\+::get\+Name (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the \mbox{\hyperlink{classCity}{City}} name. 
+
+\begin{DoxyReturn}{Returns}
+name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classCity_a98eaea565d670a1fa6b98aa07b6af860}\label{classCity_a98eaea565d670a1fa6b98aa07b6af860}} 
+\index{City@{City}!getPopulation@{getPopulation}}
+\index{getPopulation@{getPopulation}!City@{City}}
+\doxysubsubsection{\texorpdfstring{getPopulation()}{getPopulation()}}
+{\footnotesize\ttfamily int City\+::get\+Population (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the \mbox{\hyperlink{classCity}{City}} population. 
+
+\begin{DoxyReturn}{Returns}
+population 
+\end{DoxyReturn}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

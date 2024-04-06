@@ -1,8 +1,5 @@
 var searchData=
 [
-  ['readcities_8',['readCities',['../classAuxiliar.html#a9e847844609ca1f304255fe7309318d9',1,'Auxiliar']]],
-  ['readreservoir_9',['readReservoir',['../classAuxiliar.html#a5817a33f2db8dc40cea70f3ff6d9aafe',1,'Auxiliar']]],
-  ['readstations_10',['readStations',['../classAuxiliar.html#a5763e9646ca87643d90fa0264bedca99',1,'Auxiliar']]],
-  ['reservoir_11',['Reservoir',['../classReservoir.html',1,'']]],
-  ['run_12',['run',['../classMenu.html#a35656cd130e24d69383a5c9d0a73a38c',1,'Menu']]]
+  ['management_50',['Management',['../classManagement.html',1,'Management'],['../classManagement.html#ac8e10030e252c9c03d41eec113ba95d0',1,'Management::Management()']]],
+  ['menu_51',['Menu',['../classMenu.html',1,'Menu'],['../classMenu.html#ad96b11828e95016753e3b69859b91802',1,'Menu::Menu()']]]
 ];

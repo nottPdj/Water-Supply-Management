@@ -2,6 +2,15 @@
 \label{classServicePoint}\index{ServicePoint@{ServicePoint}}
 
 
+Service Point class definition.  
+
+
+
+
+{\ttfamily \#include $<$Service\+Point.\+h$>$}
+
+
+
 Inheritance diagram for Service\+Point\+:
 % FIG 0
 
@@ -11,108 +20,233 @@ Collaboration diagram for Service\+Point\+:
 \doxysubsection*{Public Member Functions}
 \begin{DoxyCompactItemize}
 \item 
+\mbox{\Hypertarget{classServicePoint_a4d13a3154fd80d608cb575b45bbd1089}\label{classServicePoint_a4d13a3154fd80d608cb575b45bbd1089}} 
+\mbox{\hyperlink{classServicePoint_a4d13a3154fd80d608cb575b45bbd1089}{Service\+Point}} ()
+\begin{DoxyCompactList}\small\item\em Service Point Constructor. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classServicePoint_a23f82a513d4a363ca6256e5e1c342818}\label{classServicePoint_a23f82a513d4a363ca6256e5e1c342818}} 
 virtual std\+::string {\bfseries get\+Code} () const =0
 \item 
-\mbox{\Hypertarget{classServicePoint_a12620443daf728e340b3909f73e2e511}\label{classServicePoint_a12620443daf728e340b3909f73e2e511}} 
-void {\bfseries add\+Pipe} (\mbox{\hyperlink{classPipe}{Pipe}} $\ast$pipe)
-\item 
-\mbox{\Hypertarget{classServicePoint_a2731a3c62de3c1f94ea602cae6b12918}\label{classServicePoint_a2731a3c62de3c1f94ea602cae6b12918}} 
-void {\bfseries add\+Incoming\+Pipe} (\mbox{\hyperlink{classPipe}{Pipe}} $\ast$pipe)
-\item 
-\mbox{\Hypertarget{classServicePoint_a88f8f82e8d48a54283f767025b39d43d}\label{classServicePoint_a88f8f82e8d48a54283f767025b39d43d}} 
-void {\bfseries remove\+Incoming\+Pipe} (\mbox{\hyperlink{classPipe}{Pipe}} $\ast$pipe)
-\item 
-\mbox{\Hypertarget{classServicePoint_adbe91313837ba12dfdf39e95ce435f0f}\label{classServicePoint_adbe91313837ba12dfdf39e95ce435f0f}} 
-void {\bfseries remove\+Outgoing\+Pipe} (\mbox{\hyperlink{classPipe}{Pipe}} $\ast$pipe)
-\item 
-\mbox{\Hypertarget{classServicePoint_ad4083f0e5e73df00cce5f719a969840d}\label{classServicePoint_ad4083f0e5e73df00cce5f719a969840d}} 
-std\+::vector$<$ \mbox{\hyperlink{classPipe}{Pipe}} $\ast$ $>$ {\bfseries get\+Incoming} () const
-\item 
-\mbox{\Hypertarget{classServicePoint_ae1219ed8d21f24723ecd347377aa4aa9}\label{classServicePoint_ae1219ed8d21f24723ecd347377aa4aa9}} 
-std\+::vector$<$ \mbox{\hyperlink{classPipe}{Pipe}} $\ast$ $>$ {\bfseries get\+Adj} () const
-\item 
-\mbox{\Hypertarget{classServicePoint_a1f8e2c51913bb68bb968fecf3be7bbf7}\label{classServicePoint_a1f8e2c51913bb68bb968fecf3be7bbf7}} 
-bool {\bfseries is\+Visited} () const
-\item 
-\mbox{\Hypertarget{classServicePoint_a2816c56cf5ae459353f6d7b4b79e2259}\label{classServicePoint_a2816c56cf5ae459353f6d7b4b79e2259}} 
-bool {\bfseries is\+Processing} () const
-\item 
-\mbox{\Hypertarget{classServicePoint_a95ffec63b759b1691eb91c66b913954e}\label{classServicePoint_a95ffec63b759b1691eb91c66b913954e}} 
-bool {\bfseries is\+Operational} () const
-\item 
-\mbox{\Hypertarget{classServicePoint_a93f41c90bf60825528cff3171719013e}\label{classServicePoint_a93f41c90bf60825528cff3171719013e}} 
-unsigned int {\bfseries get\+Indegree} () const
-\item 
-\mbox{\Hypertarget{classServicePoint_acf4ebbe4c872013fa0d55a125b9d4403}\label{classServicePoint_acf4ebbe4c872013fa0d55a125b9d4403}} 
-double {\bfseries get\+Dist} () const
-\item 
-\mbox{\Hypertarget{classServicePoint_a8aa78bb5ede338c6a0964bbf8619bb2b}\label{classServicePoint_a8aa78bb5ede338c6a0964bbf8619bb2b}} 
-\mbox{\hyperlink{classPipe}{Pipe}} $\ast$ {\bfseries get\+Path} () const
-\item 
-\mbox{\Hypertarget{classServicePoint_a2b6d61c455a9e0a400be25b4b87c9d0f}\label{classServicePoint_a2b6d61c455a9e0a400be25b4b87c9d0f}} 
-\mbox{\hyperlink{classPipe}{Pipe}} $\ast$ {\bfseries get\+Pred} () const
-\item 
-\mbox{\Hypertarget{classServicePoint_a11073edc35adcbb8543769fa5c977406}\label{classServicePoint_a11073edc35adcbb8543769fa5c977406}} 
-void {\bfseries set\+Visited} (bool visited)
-\item 
-\mbox{\Hypertarget{classServicePoint_a91a32688638dd39117b5f4e3b9a34ef2}\label{classServicePoint_a91a32688638dd39117b5f4e3b9a34ef2}} 
-void {\bfseries set\+Processsing} (bool processing)
-\item 
-\mbox{\Hypertarget{classServicePoint_a3ce88c5fcece875b065deeebae837fe8}\label{classServicePoint_a3ce88c5fcece875b065deeebae837fe8}} 
-void {\bfseries set\+Indegree} (unsigned int indegree)
-\item 
-\mbox{\Hypertarget{classServicePoint_a7070b12e92ad6851fb60979cd667dd53}\label{classServicePoint_a7070b12e92ad6851fb60979cd667dd53}} 
-void {\bfseries set\+Dist} (double dist)
-\item 
-\mbox{\Hypertarget{classServicePoint_a3076dc76d7884c4adedff7b71604e599}\label{classServicePoint_a3076dc76d7884c4adedff7b71604e599}} 
-void {\bfseries set\+Path} (\mbox{\hyperlink{classPipe}{Pipe}} $\ast$path)
-\item 
-\mbox{\Hypertarget{classServicePoint_aa40ab680132d0c278c00cceede18b60a}\label{classServicePoint_aa40ab680132d0c278c00cceede18b60a}} 
-void {\bfseries set\+Pred} (\mbox{\hyperlink{classPipe}{Pipe}} $\ast$pred)
-\item 
-\mbox{\Hypertarget{classServicePoint_af7a687fb71d2292728b686bfff11412a}\label{classServicePoint_af7a687fb71d2292728b686bfff11412a}} 
-void {\bfseries set\+Operational} (bool b)
-\end{DoxyCompactItemize}
-\doxysubsection*{Protected Member Functions}
-\begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classServicePoint_ad626a262ca7a9bd39068698378a742cc}\label{classServicePoint_ad626a262ca7a9bd39068698378a742cc}} 
-void {\bfseries delete\+Pipe} (\mbox{\hyperlink{classPipe}{Pipe}} $\ast$\mbox{\hyperlink{classPipe}{Pipe}})
-\end{DoxyCompactItemize}
+void \mbox{\hyperlink{classServicePoint_a12620443daf728e340b3909f73e2e511}{add\+Pipe}} (\mbox{\hyperlink{classPipe}{Pipe}} $\ast$pipe)
+\begin{DoxyCompactList}\small\item\em Adds a pipe to a Service Point. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classServicePoint_a2731a3c62de3c1f94ea602cae6b12918}{add\+Incoming\+Pipe}} (\mbox{\hyperlink{classPipe}{Pipe}} $\ast$pipe)
+\begin{DoxyCompactList}\small\item\em Add a incoming pipe to a Service Point. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classServicePoint_a88f8f82e8d48a54283f767025b39d43d}{remove\+Incoming\+Pipe}} (\mbox{\hyperlink{classPipe}{Pipe}} $\ast$pipe)
+\begin{DoxyCompactList}\small\item\em Removes a incoming pipe from a Service Point. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classServicePoint_adbe91313837ba12dfdf39e95ce435f0f}{remove\+Outgoing\+Pipe}} (\mbox{\hyperlink{classPipe}{Pipe}} $\ast$pipe)
+\begin{DoxyCompactList}\small\item\em Removes an outgoing \mbox{\hyperlink{classPipe}{Pipe}}. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classPipe}{Pipe}} $\ast$ $>$ \mbox{\hyperlink{classServicePoint_ad4083f0e5e73df00cce5f719a969840d}{get\+Incoming}} () const
+\begin{DoxyCompactList}\small\item\em Gets the incoming Pipes. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{classPipe}{Pipe}} $\ast$ $>$ \mbox{\hyperlink{classServicePoint_ae1219ed8d21f24723ecd347377aa4aa9}{get\+Adj}} () const
+\begin{DoxyCompactList}\small\item\em Gets the adjacent Pipes. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classServicePoint_a1f8e2c51913bb68bb968fecf3be7bbf7}{is\+Visited}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the Service Point is visited. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classServicePoint_a95ffec63b759b1691eb91c66b913954e}{is\+Operational}} () const
+\begin{DoxyCompactList}\small\item\em Checks if the \mbox{\hyperlink{classServicePoint}{Service\+Point}} is operational. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classPipe}{Pipe}} $\ast$ \mbox{\hyperlink{classServicePoint_a8aa78bb5ede338c6a0964bbf8619bb2b}{get\+Path}} () const
+\begin{DoxyCompactList}\small\item\em Gets the path to the \mbox{\hyperlink{classServicePoint}{Service\+Point}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classServicePoint_a11073edc35adcbb8543769fa5c977406}{set\+Visited}} (bool visited)
+\begin{DoxyCompactList}\small\item\em Sets \mbox{\hyperlink{classServicePoint}{Service\+Point}} as visited or not. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classServicePoint_a3076dc76d7884c4adedff7b71604e599}{set\+Path}} (\mbox{\hyperlink{classPipe}{Pipe}} $\ast$path)
+\begin{DoxyCompactList}\small\item\em Sets the path to the \mbox{\hyperlink{classServicePoint}{Service\+Point}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classServicePoint_af7a687fb71d2292728b686bfff11412a}{set\+Operational}} (bool b)
+\begin{DoxyCompactList}\small\item\em Sets the \mbox{\hyperlink{classServicePoint}{Service\+Point}} to operational or not. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \doxysubsection*{Protected Attributes}
 \begin{DoxyCompactItemize}
-\item 
-\mbox{\Hypertarget{classServicePoint_a4184a5d34fa742398783ffdd31102dbc}\label{classServicePoint_a4184a5d34fa742398783ffdd31102dbc}} 
-std\+::vector$<$ \mbox{\hyperlink{classPipe}{Pipe}} $\ast$ $>$ {\bfseries adj} \{\}
-\item 
-\mbox{\Hypertarget{classServicePoint_ac3f1a99c68eea1acd2c95c395678fe36}\label{classServicePoint_ac3f1a99c68eea1acd2c95c395678fe36}} 
-bool {\bfseries visited} = false
-\item 
-\mbox{\Hypertarget{classServicePoint_a7f6eac82eed18357a10f5d9ec463e1f4}\label{classServicePoint_a7f6eac82eed18357a10f5d9ec463e1f4}} 
-bool {\bfseries processing} = false
-\item 
-\mbox{\Hypertarget{classServicePoint_aea1263552eaedcb4caf913b0b770e5e7}\label{classServicePoint_aea1263552eaedcb4caf913b0b770e5e7}} 
-unsigned int {\bfseries indegree} = 0
-\item 
-\mbox{\Hypertarget{classServicePoint_a08e76de72b2a52149736b786e0c1e77f}\label{classServicePoint_a08e76de72b2a52149736b786e0c1e77f}} 
-double {\bfseries dist} = 0
-\item 
-\mbox{\Hypertarget{classServicePoint_a8b50049c3a7533584593562571360fe5}\label{classServicePoint_a8b50049c3a7533584593562571360fe5}} 
-\mbox{\hyperlink{classPipe}{Pipe}} $\ast$ {\bfseries pred} = nullptr
 \item 
 \mbox{\Hypertarget{classServicePoint_a2e52c5bbbe8563f389fa7c6d05015bfb}\label{classServicePoint_a2e52c5bbbe8563f389fa7c6d05015bfb}} 
 std\+::string {\bfseries code}
 \item 
-\mbox{\Hypertarget{classServicePoint_a2e652ea2ebea13b1139b0ed8f4fd760e}\label{classServicePoint_a2e652ea2ebea13b1139b0ed8f4fd760e}} 
-bool {\bfseries operational} =true
+\mbox{\Hypertarget{classServicePoint_a4184a5d34fa742398783ffdd31102dbc}\label{classServicePoint_a4184a5d34fa742398783ffdd31102dbc}} 
+std\+::vector$<$ \mbox{\hyperlink{classPipe}{Pipe}} $\ast$ $>$ {\bfseries adj} \{\}
 \item 
 \mbox{\Hypertarget{classServicePoint_a5c22182a210d31808f7adb6b2c82bd7b}\label{classServicePoint_a5c22182a210d31808f7adb6b2c82bd7b}} 
 std\+::vector$<$ \mbox{\hyperlink{classPipe}{Pipe}} $\ast$ $>$ {\bfseries incoming} \{\}
 \item 
+\mbox{\Hypertarget{classServicePoint_ac3f1a99c68eea1acd2c95c395678fe36}\label{classServicePoint_ac3f1a99c68eea1acd2c95c395678fe36}} 
+bool {\bfseries visited} = false
+\item 
+\mbox{\Hypertarget{classServicePoint_a2e652ea2ebea13b1139b0ed8f4fd760e}\label{classServicePoint_a2e652ea2ebea13b1139b0ed8f4fd760e}} 
+bool {\bfseries operational} =true
+\item 
 \mbox{\Hypertarget{classServicePoint_a23259be3cac659c5eacb92c8c8e50392}\label{classServicePoint_a23259be3cac659c5eacb92c8c8e50392}} 
 \mbox{\hyperlink{classPipe}{Pipe}} $\ast$ {\bfseries path} =nullptr
 \end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Service Point class definition. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classServicePoint_a2731a3c62de3c1f94ea602cae6b12918}\label{classServicePoint_a2731a3c62de3c1f94ea602cae6b12918}} 
+\index{ServicePoint@{ServicePoint}!addIncomingPipe@{addIncomingPipe}}
+\index{addIncomingPipe@{addIncomingPipe}!ServicePoint@{ServicePoint}}
+\doxysubsubsection{\texorpdfstring{addIncomingPipe()}{addIncomingPipe()}}
+{\footnotesize\ttfamily void Service\+Point\+::add\+Incoming\+Pipe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPipe}{Pipe}} $\ast$}]{pipe }\end{DoxyParamCaption})}
+
+
+
+Add a incoming pipe to a Service Point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pipe} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classServicePoint_a12620443daf728e340b3909f73e2e511}\label{classServicePoint_a12620443daf728e340b3909f73e2e511}} 
+\index{ServicePoint@{ServicePoint}!addPipe@{addPipe}}
+\index{addPipe@{addPipe}!ServicePoint@{ServicePoint}}
+\doxysubsubsection{\texorpdfstring{addPipe()}{addPipe()}}
+{\footnotesize\ttfamily void Service\+Point\+::add\+Pipe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPipe}{Pipe}} $\ast$}]{pipe }\end{DoxyParamCaption})}
+
+
+
+Adds a pipe to a Service Point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pipe} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classServicePoint_ae1219ed8d21f24723ecd347377aa4aa9}\label{classServicePoint_ae1219ed8d21f24723ecd347377aa4aa9}} 
+\index{ServicePoint@{ServicePoint}!getAdj@{getAdj}}
+\index{getAdj@{getAdj}!ServicePoint@{ServicePoint}}
+\doxysubsubsection{\texorpdfstring{getAdj()}{getAdj()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classPipe}{Pipe}} $\ast$ $>$ Service\+Point\+::get\+Adj (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the adjacent Pipes. 
+
+\begin{DoxyReturn}{Returns}
+adj 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classServicePoint_ad4083f0e5e73df00cce5f719a969840d}\label{classServicePoint_ad4083f0e5e73df00cce5f719a969840d}} 
+\index{ServicePoint@{ServicePoint}!getIncoming@{getIncoming}}
+\index{getIncoming@{getIncoming}!ServicePoint@{ServicePoint}}
+\doxysubsubsection{\texorpdfstring{getIncoming()}{getIncoming()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{classPipe}{Pipe}} $\ast$ $>$ Service\+Point\+::get\+Incoming (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the incoming Pipes. 
+
+\begin{DoxyReturn}{Returns}
+incoming 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classServicePoint_a8aa78bb5ede338c6a0964bbf8619bb2b}\label{classServicePoint_a8aa78bb5ede338c6a0964bbf8619bb2b}} 
+\index{ServicePoint@{ServicePoint}!getPath@{getPath}}
+\index{getPath@{getPath}!ServicePoint@{ServicePoint}}
+\doxysubsubsection{\texorpdfstring{getPath()}{getPath()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPipe}{Pipe}} $\ast$ Service\+Point\+::get\+Path (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Gets the path to the \mbox{\hyperlink{classServicePoint}{Service\+Point}}. 
+
+\begin{DoxyReturn}{Returns}
+path 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classServicePoint_a95ffec63b759b1691eb91c66b913954e}\label{classServicePoint_a95ffec63b759b1691eb91c66b913954e}} 
+\index{ServicePoint@{ServicePoint}!isOperational@{isOperational}}
+\index{isOperational@{isOperational}!ServicePoint@{ServicePoint}}
+\doxysubsubsection{\texorpdfstring{isOperational()}{isOperational()}}
+{\footnotesize\ttfamily bool Service\+Point\+::is\+Operational (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the \mbox{\hyperlink{classServicePoint}{Service\+Point}} is operational. 
+
+\begin{DoxyReturn}{Returns}
+operational 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classServicePoint_a1f8e2c51913bb68bb968fecf3be7bbf7}\label{classServicePoint_a1f8e2c51913bb68bb968fecf3be7bbf7}} 
+\index{ServicePoint@{ServicePoint}!isVisited@{isVisited}}
+\index{isVisited@{isVisited}!ServicePoint@{ServicePoint}}
+\doxysubsubsection{\texorpdfstring{isVisited()}{isVisited()}}
+{\footnotesize\ttfamily bool Service\+Point\+::is\+Visited (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Checks if the Service Point is visited. 
+
+\begin{DoxyReturn}{Returns}
+visited 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classServicePoint_a88f8f82e8d48a54283f767025b39d43d}\label{classServicePoint_a88f8f82e8d48a54283f767025b39d43d}} 
+\index{ServicePoint@{ServicePoint}!removeIncomingPipe@{removeIncomingPipe}}
+\index{removeIncomingPipe@{removeIncomingPipe}!ServicePoint@{ServicePoint}}
+\doxysubsubsection{\texorpdfstring{removeIncomingPipe()}{removeIncomingPipe()}}
+{\footnotesize\ttfamily void Service\+Point\+::remove\+Incoming\+Pipe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPipe}{Pipe}} $\ast$}]{pipe }\end{DoxyParamCaption})}
+
+
+
+Removes a incoming pipe from a Service Point. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pipe} & \\
+\hline
+\end{DoxyParams}
+Time Complexity O(n) n = number of incoming pipes \mbox{\Hypertarget{classServicePoint_adbe91313837ba12dfdf39e95ce435f0f}\label{classServicePoint_adbe91313837ba12dfdf39e95ce435f0f}} 
+\index{ServicePoint@{ServicePoint}!removeOutgoingPipe@{removeOutgoingPipe}}
+\index{removeOutgoingPipe@{removeOutgoingPipe}!ServicePoint@{ServicePoint}}
+\doxysubsubsection{\texorpdfstring{removeOutgoingPipe()}{removeOutgoingPipe()}}
+{\footnotesize\ttfamily void Service\+Point\+::remove\+Outgoing\+Pipe (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPipe}{Pipe}} $\ast$}]{pipe }\end{DoxyParamCaption})}
+
+
+
+Removes an outgoing \mbox{\hyperlink{classPipe}{Pipe}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em pipe} & \\
+\hline
+\end{DoxyParams}
+Time Complexity O(n) n = number of outgoing pipes \mbox{\Hypertarget{classServicePoint_af7a687fb71d2292728b686bfff11412a}\label{classServicePoint_af7a687fb71d2292728b686bfff11412a}} 
+\index{ServicePoint@{ServicePoint}!setOperational@{setOperational}}
+\index{setOperational@{setOperational}!ServicePoint@{ServicePoint}}
+\doxysubsubsection{\texorpdfstring{setOperational()}{setOperational()}}
+{\footnotesize\ttfamily void Service\+Point\+::set\+Operational (\begin{DoxyParamCaption}\item[{bool}]{b }\end{DoxyParamCaption})}
+
+
+
+Sets the \mbox{\hyperlink{classServicePoint}{Service\+Point}} to operational or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em b} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classServicePoint_a3076dc76d7884c4adedff7b71604e599}\label{classServicePoint_a3076dc76d7884c4adedff7b71604e599}} 
+\index{ServicePoint@{ServicePoint}!setPath@{setPath}}
+\index{setPath@{setPath}!ServicePoint@{ServicePoint}}
+\doxysubsubsection{\texorpdfstring{setPath()}{setPath()}}
+{\footnotesize\ttfamily void Service\+Point\+::set\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classPipe}{Pipe}} $\ast$}]{path }\end{DoxyParamCaption})}
+
+
+
+Sets the path to the \mbox{\hyperlink{classServicePoint}{Service\+Point}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classServicePoint_a11073edc35adcbb8543769fa5c977406}\label{classServicePoint_a11073edc35adcbb8543769fa5c977406}} 
+\index{ServicePoint@{ServicePoint}!setVisited@{setVisited}}
+\index{setVisited@{setVisited}!ServicePoint@{ServicePoint}}
+\doxysubsubsection{\texorpdfstring{setVisited()}{setVisited()}}
+{\footnotesize\ttfamily void Service\+Point\+::set\+Visited (\begin{DoxyParamCaption}\item[{bool}]{visited }\end{DoxyParamCaption})}
+
+
+
+Sets \mbox{\hyperlink{classServicePoint}{Service\+Point}} as visited or not. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em visited} & \\
+\hline
+\end{DoxyParams}
 
 
 The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}

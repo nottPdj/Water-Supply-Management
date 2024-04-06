@@ -80,60 +80,56 @@ $(function() {
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160; </div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">class </span><a class="code" href="classPipe.html">Pipe</a>;</div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160; </div>
-<div class="line"><a name="l00010"></a><span class="lineno"><a class="line" href="classServicePoint.html">   10</a></span>&#160;<span class="keyword">class </span><a class="code" href="classServicePoint.html">ServicePoint</a> {</div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <a class="code" href="classServicePoint.html">ServicePoint</a>();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keyword">virtual</span> std::string getCode() <span class="keyword">const</span> = 0;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    <span class="keywordtype">void</span> addPipe(<a class="code" href="classPipe.html">Pipe</a> * pipe);</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">void</span> addIncomingPipe(<a class="code" href="classPipe.html">Pipe</a> * pipe);</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    <span class="keywordtype">void</span> removeIncomingPipe(<a class="code" href="classPipe.html">Pipe</a> * pipe);</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> removeOutgoingPipe(<a class="code" href="classPipe.html">Pipe</a> * pipe);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    std::vector&lt;Pipe *&gt; getIncoming() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160; </div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    std::vector&lt;Pipe *&gt; getAdj() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    <span class="keywordtype">bool</span> isVisited() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keywordtype">bool</span> isProcessing() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    <span class="keywordtype">bool</span> isOperational() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> getIndegree() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">double</span> getDist() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classPipe.html">Pipe</a>* getPath() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;    <a class="code" href="classPipe.html">Pipe</a> * getPred() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> setVisited(<span class="keywordtype">bool</span> visited);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> setProcesssing(<span class="keywordtype">bool</span> processing);</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> setIndegree(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> indegree);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> setDist(<span class="keywordtype">double</span> dist);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> setPath(<a class="code" href="classPipe.html">Pipe</a> *path);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> setPred(<a class="code" href="classPipe.html">Pipe</a> * pred);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> setOperational(<span class="keywordtype">bool</span> b);</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="classServicePoint.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="classServicePoint.html">ServicePoint</a> {</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="classServicePoint.html#a4d13a3154fd80d608cb575b45bbd1089">ServicePoint</a>();</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">virtual</span> std::string getCode() <span class="keyword">const</span> = 0;</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160; </div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classServicePoint.html#a12620443daf728e340b3909f73e2e511">addPipe</a>(<a class="code" href="classPipe.html">Pipe</a> * pipe);</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classServicePoint.html#a2731a3c62de3c1f94ea602cae6b12918">addIncomingPipe</a>(<a class="code" href="classPipe.html">Pipe</a> * pipe);</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classServicePoint.html#a88f8f82e8d48a54283f767025b39d43d">removeIncomingPipe</a>(<a class="code" href="classPipe.html">Pipe</a> * pipe);</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classServicePoint.html#adbe91313837ba12dfdf39e95ce435f0f">removeOutgoingPipe</a>(<a class="code" href="classPipe.html">Pipe</a> * pipe);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160; </div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    std::vector&lt;Pipe *&gt; <a class="code" href="classServicePoint.html#ad4083f0e5e73df00cce5f719a969840d">getIncoming</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160; </div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    std::vector&lt;Pipe *&gt; <a class="code" href="classServicePoint.html#ae1219ed8d21f24723ecd347377aa4aa9">getAdj</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classServicePoint.html#a1f8e2c51913bb68bb968fecf3be7bbf7">isVisited</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classServicePoint.html#a95ffec63b759b1691eb91c66b913954e">isOperational</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <a class="code" href="classPipe.html">Pipe</a>* <a class="code" href="classServicePoint.html#a8aa78bb5ede338c6a0964bbf8619bb2b">getPath</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classServicePoint.html#a11073edc35adcbb8543769fa5c977406">setVisited</a>(<span class="keywordtype">bool</span> visited);</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classServicePoint.html#a3076dc76d7884c4adedff7b71604e599">setPath</a>(<a class="code" href="classPipe.html">Pipe</a> *path);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classServicePoint.html#af7a687fb71d2292728b686bfff11412a">setOperational</a>(<span class="keywordtype">bool</span> b);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    std::string code;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    std::vector&lt;Pipe *&gt; adj{}; <span class="comment">// outgoing Pipes</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    std::vector&lt;Pipe *&gt; incoming{}; <span class="comment">// incoming Pipes</span></div>
 <div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    std::vector&lt;Pipe *&gt; adj{};  <span class="comment">// outgoing Pipes</span></div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="comment">// auxiliary fields</span></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">bool</span> visited = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">bool</span> operational=<span class="keyword">true</span>;</div>
 <div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="comment">// auxiliary fields</span></div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">bool</span> visited = <span class="keyword">false</span>; <span class="comment">// used by DFS, BFS, Prim ...</span></div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">bool</span> processing = <span class="keyword">false</span>; <span class="comment">// used by isDAG (in addition to the visited attribute)</span></div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> indegree = 0; <span class="comment">// used by topsort</span></div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    <span class="keywordtype">double</span> dist = 0;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <a class="code" href="classPipe.html">Pipe</a> *pred = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    std::string code;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    <span class="keywordtype">bool</span> operational=<span class="keyword">true</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    std::vector&lt;Pipe *&gt; incoming{}; <span class="comment">// incoming Pipes</span></div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classPipe.html">Pipe</a>* path=<span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> deletePipe(<a class="code" href="classPipe.html">Pipe</a> *<a class="code" href="classPipe.html">Pipe</a>);</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;};</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160; </div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//PROJECT1_SERVICEPOINT_H</span></div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160; </div>
-<div class="ttc" id="aclassPipe_html"><div class="ttname"><a href="classPipe.html">Pipe</a></div><div class="ttdef"><b>Definition:</b> Pipe.h:8</div></div>
-<div class="ttc" id="aclassServicePoint_html"><div class="ttname"><a href="classServicePoint.html">ServicePoint</a></div><div class="ttdef"><b>Definition:</b> ServicePoint.h:10</div></div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <a class="code" href="classPipe.html">Pipe</a>* path=<span class="keyword">nullptr</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;};</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//PROJECT1_SERVICEPOINT_H</span></div>
+<div class="ttc" id="aclassPipe_html"><div class="ttname"><a href="classPipe.html">Pipe</a></div><div class="ttdoc">Pipe Class definition.</div><div class="ttdef"><b>Definition:</b> Pipe.h:11</div></div>
+<div class="ttc" id="aclassServicePoint_html"><div class="ttname"><a href="classServicePoint.html">ServicePoint</a></div><div class="ttdoc">Service Point class definition.</div><div class="ttdef"><b>Definition:</b> ServicePoint.h:13</div></div>
+<div class="ttc" id="aclassServicePoint_html_a11073edc35adcbb8543769fa5c977406"><div class="ttname"><a href="classServicePoint.html#a11073edc35adcbb8543769fa5c977406">ServicePoint::setVisited</a></div><div class="ttdeci">void setVisited(bool visited)</div><div class="ttdoc">Sets ServicePoint as visited or not.</div><div class="ttdef"><b>Definition:</b> ServicePoint.cpp:94</div></div>
+<div class="ttc" id="aclassServicePoint_html_a12620443daf728e340b3909f73e2e511"><div class="ttname"><a href="classServicePoint.html#a12620443daf728e340b3909f73e2e511">ServicePoint::addPipe</a></div><div class="ttdeci">void addPipe(Pipe *pipe)</div><div class="ttdoc">Adds a pipe to a Service Point.</div><div class="ttdef"><b>Definition:</b> ServicePoint.cpp:12</div></div>
+<div class="ttc" id="aclassServicePoint_html_a1f8e2c51913bb68bb968fecf3be7bbf7"><div class="ttname"><a href="classServicePoint.html#a1f8e2c51913bb68bb968fecf3be7bbf7">ServicePoint::isVisited</a></div><div class="ttdeci">bool isVisited() const</div><div class="ttdoc">Checks if the Service Point is visited.</div><div class="ttdef"><b>Definition:</b> ServicePoint.cpp:70</div></div>
+<div class="ttc" id="aclassServicePoint_html_a2731a3c62de3c1f94ea602cae6b12918"><div class="ttname"><a href="classServicePoint.html#a2731a3c62de3c1f94ea602cae6b12918">ServicePoint::addIncomingPipe</a></div><div class="ttdeci">void addIncomingPipe(Pipe *pipe)</div><div class="ttdoc">Add a incoming pipe to a Service Point.</div><div class="ttdef"><b>Definition:</b> ServicePoint.cpp:20</div></div>
+<div class="ttc" id="aclassServicePoint_html_a3076dc76d7884c4adedff7b71604e599"><div class="ttname"><a href="classServicePoint.html#a3076dc76d7884c4adedff7b71604e599">ServicePoint::setPath</a></div><div class="ttdeci">void setPath(Pipe *path)</div><div class="ttdoc">Sets the path to the ServicePoint.</div><div class="ttdef"><b>Definition:</b> ServicePoint.cpp:102</div></div>
+<div class="ttc" id="aclassServicePoint_html_a4d13a3154fd80d608cb575b45bbd1089"><div class="ttname"><a href="classServicePoint.html#a4d13a3154fd80d608cb575b45bbd1089">ServicePoint::ServicePoint</a></div><div class="ttdeci">ServicePoint()</div><div class="ttdoc">Service Point Constructor.</div><div class="ttdef"><b>Definition:</b> ServicePoint.cpp:6</div></div>
+<div class="ttc" id="aclassServicePoint_html_a88f8f82e8d48a54283f767025b39d43d"><div class="ttname"><a href="classServicePoint.html#a88f8f82e8d48a54283f767025b39d43d">ServicePoint::removeIncomingPipe</a></div><div class="ttdeci">void removeIncomingPipe(Pipe *pipe)</div><div class="ttdoc">Removes a incoming pipe from a Service Point.</div><div class="ttdef"><b>Definition:</b> ServicePoint.cpp:29</div></div>
+<div class="ttc" id="aclassServicePoint_html_a8aa78bb5ede338c6a0964bbf8619bb2b"><div class="ttname"><a href="classServicePoint.html#a8aa78bb5ede338c6a0964bbf8619bb2b">ServicePoint::getPath</a></div><div class="ttdeci">Pipe * getPath() const</div><div class="ttdoc">Gets the path to the ServicePoint.</div><div class="ttdef"><b>Definition:</b> ServicePoint.cpp:86</div></div>
+<div class="ttc" id="aclassServicePoint_html_a95ffec63b759b1691eb91c66b913954e"><div class="ttname"><a href="classServicePoint.html#a95ffec63b759b1691eb91c66b913954e">ServicePoint::isOperational</a></div><div class="ttdeci">bool isOperational() const</div><div class="ttdoc">Checks if the ServicePoint is operational.</div><div class="ttdef"><b>Definition:</b> ServicePoint.cpp:117</div></div>
+<div class="ttc" id="aclassServicePoint_html_ad4083f0e5e73df00cce5f719a969840d"><div class="ttname"><a href="classServicePoint.html#ad4083f0e5e73df00cce5f719a969840d">ServicePoint::getIncoming</a></div><div class="ttdeci">std::vector&lt; Pipe * &gt; getIncoming() const</div><div class="ttdoc">Gets the incoming Pipes.</div><div class="ttdef"><b>Definition:</b> ServicePoint.cpp:78</div></div>
+<div class="ttc" id="aclassServicePoint_html_adbe91313837ba12dfdf39e95ce435f0f"><div class="ttname"><a href="classServicePoint.html#adbe91313837ba12dfdf39e95ce435f0f">ServicePoint::removeOutgoingPipe</a></div><div class="ttdeci">void removeOutgoingPipe(Pipe *pipe)</div><div class="ttdoc">Removes an outgoing Pipe.</div><div class="ttdef"><b>Definition:</b> ServicePoint.cpp:46</div></div>
+<div class="ttc" id="aclassServicePoint_html_ae1219ed8d21f24723ecd347377aa4aa9"><div class="ttname"><a href="classServicePoint.html#ae1219ed8d21f24723ecd347377aa4aa9">ServicePoint::getAdj</a></div><div class="ttdeci">std::vector&lt; Pipe * &gt; getAdj() const</div><div class="ttdoc">Gets the adjacent Pipes.</div><div class="ttdef"><b>Definition:</b> ServicePoint.cpp:62</div></div>
+<div class="ttc" id="aclassServicePoint_html_af7a687fb71d2292728b686bfff11412a"><div class="ttname"><a href="classServicePoint.html#af7a687fb71d2292728b686bfff11412a">ServicePoint::setOperational</a></div><div class="ttdeci">void setOperational(bool b)</div><div class="ttdoc">Sets the ServicePoint to operational or not.</div><div class="ttdef"><b>Definition:</b> ServicePoint.cpp:109</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

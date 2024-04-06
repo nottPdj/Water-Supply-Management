@@ -85,68 +85,83 @@ $(function() {
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#define INF std::numeric_limits&lt;int&gt;::max()</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160; </div>
-<div class="line"><a name="l00015"></a><span class="lineno"><a class="line" href="classGraph.html">   15</a></span>&#160;<span class="keyword">class </span><a class="code" href="classGraph.html">Graph</a> {</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keyword">struct </span>PipeHash {</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;        std::size_t operator()(<span class="keyword">const</span> std::pair&lt;std::string, std::string&gt;&amp; p)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;            std::size_t spAHash = std::hash&lt;std::string&gt;{}(p.first);</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;            std::size_t spBHash = std::hash&lt;std::string&gt;{}(p.second);</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;            <span class="keywordflow">return</span> spAHash ^ (spBHash &lt;&lt; 1);</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;        }</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    };</div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">struct </span>PipeEqual {</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> std::pair&lt;std::string, std::string&gt;&amp; lhs, <span class="keyword">const</span> std::pair&lt;std::string, std::string&gt;&amp; rhs)<span class="keyword"> const </span>{</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;            <span class="keywordflow">return</span> lhs.first == rhs.first &amp;&amp; lhs.second == rhs.second;</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        }</div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    };</div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">public</span>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    ~<a class="code" href="classGraph.html">Graph</a>();</div>
+<div class="line"><a name="l00018"></a><span class="lineno"><a class="line" href="classGraph.html">   18</a></span>&#160;<span class="keyword">class </span><a class="code" href="classGraph.html">Graph</a> {</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keyword">struct </span>PipeHash {</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;        std::size_t operator()(<span class="keyword">const</span> std::pair&lt;std::string, std::string&gt;&amp; p)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;            std::size_t spAHash = std::hash&lt;std::string&gt;{}(p.first);</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;            std::size_t spBHash = std::hash&lt;std::string&gt;{}(p.second);</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;            <span class="keywordflow">return</span> spAHash ^ (spBHash &lt;&lt; 1);</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;        }</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;    };</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160; </div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keyword">struct </span>PipeEqual {</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;        <span class="keywordtype">bool</span> operator()(<span class="keyword">const</span> std::pair&lt;std::string, std::string&gt;&amp; lhs, <span class="keyword">const</span> std::pair&lt;std::string, std::string&gt;&amp; rhs)<span class="keyword"> const </span>{</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;            <span class="keywordflow">return</span> lhs.first == rhs.first &amp;&amp; lhs.second == rhs.second;</div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;        }</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    };</div>
 <div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <span class="keywordtype">void</span> addReservoir(<a class="code" href="classReservoir.html">Reservoir</a> *pReservoir);</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">void</span> addStation(<a class="code" href="classStation.html">Station</a> *pStation);</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> addCity(<a class="code" href="classCity.html">City</a> *pCity);</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> addServicePoint(<a class="code" href="classServicePoint.html">ServicePoint</a> *servicePoint);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> removeServicePoint(<a class="code" href="classServicePoint.html">ServicePoint</a> *servicePoint);</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classGraph.html#a902c5b3eacb66d60752525ab23297a95">~Graph</a>();</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGraph.html#a9945baa067f81da755166d4580fadfda">addReservoir</a>(<a class="code" href="classReservoir.html">Reservoir</a> *pReservoir);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGraph.html#abd3f91e307004d71be15ef018d2afe23">addStation</a>(<a class="code" href="classStation.html">Station</a> *pStation);</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGraph.html#a6aa5ed8e68430dc1befdc1dd9f61bc87">addCity</a>(<a class="code" href="classCity.html">City</a> *pCity);</div>
 <div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> addPipe(std::string spA, std::string spB, <span class="keywordtype">int</span> capacity);</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <span class="keywordtype">void</span> addBidirectionalPipe(std::string spA, std::string spB, <span class="keywordtype">int</span> capacity);</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> removeAssociatedPipes(<a class="code" href="classServicePoint.html">ServicePoint</a> * servicePoint);</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> removePipe(<a class="code" href="classPipe.html">Pipe</a> * pipe);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">int</span> getNumServicePoint() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    std::vector&lt;ServicePoint *&gt; getServicePointSet() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    std::vector&lt;ServicePoint *&gt; getReservoirSet() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    std::vector&lt;ServicePoint *&gt; getCitiesSet() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    std::vector&lt;Pipe *&gt; getPipeSet() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160; </div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    <a class="code" href="classPipe.html">Pipe</a> * getPipeByEnds(std::string orig, std::string dest);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="classServicePoint.html">ServicePoint</a> * getCityByName(<span class="keyword">const</span> std::string &amp; name);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classServicePoint.html">ServicePoint</a> * getReservoirByName(<span class="keyword">const</span> std::string &amp; name);</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="classServicePoint.html">ServicePoint</a> * findServicePoint(<span class="keyword">const</span> std::string &amp;code) ;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;    std::vector&lt;ServicePoint *&gt; servicePointSet;    <span class="comment">// ServicePoint set</span></div>
-<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    std::vector&lt;ServicePoint *&gt; reservoirSet;</div>
-<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    std::vector&lt;ServicePoint *&gt; citySet;</div>
-<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    std::vector&lt;Pipe *&gt; pipeSet;</div>
-<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    std::unordered_map&lt;std::string,ServicePoint*&gt; servicePointByCode;</div>
-<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    std::unordered_map&lt;std::string,ServicePoint*&gt; cityByName;</div>
-<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    std::unordered_map&lt;std::string,ServicePoint*&gt; reservoirByName;</div>
-<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    std::unordered_map&lt;std::pair&lt;std::string,std::string&gt;,<a class="code" href="classPipe.html">Pipe</a>*, PipeHash, PipeEqual&gt; pipeByEnds;</div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;};</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160; </div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//PROJECT1_GRAPH_H</span></div>
-<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160; </div>
-<div class="ttc" id="aclassCity_html"><div class="ttname"><a href="classCity.html">City</a></div><div class="ttdef"><b>Definition:</b> City.h:7</div></div>
-<div class="ttc" id="aclassGraph_html"><div class="ttname"><a href="classGraph.html">Graph</a></div><div class="ttdef"><b>Definition:</b> Graph.h:15</div></div>
-<div class="ttc" id="aclassPipe_html"><div class="ttname"><a href="classPipe.html">Pipe</a></div><div class="ttdef"><b>Definition:</b> Pipe.h:8</div></div>
-<div class="ttc" id="aclassReservoir_html"><div class="ttname"><a href="classReservoir.html">Reservoir</a></div><div class="ttdef"><b>Definition:</b> Reservoir.h:7</div></div>
-<div class="ttc" id="aclassServicePoint_html"><div class="ttname"><a href="classServicePoint.html">ServicePoint</a></div><div class="ttdef"><b>Definition:</b> ServicePoint.h:10</div></div>
-<div class="ttc" id="aclassStation_html"><div class="ttname"><a href="classStation.html">Station</a></div><div class="ttdef"><b>Definition:</b> Station.h:7</div></div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGraph.html#a469072d3f64ea47b862401c9f46dfaad">addServicePoint</a>(<a class="code" href="classServicePoint.html">ServicePoint</a> *servicePoint);</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGraph.html#a65fb63aecd385289d6c1618f4c967d16">removeServicePoint</a>(<a class="code" href="classServicePoint.html">ServicePoint</a> *servicePoint);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGraph.html#a7d46cd58e76bb9a7140052da75199025">addPipe</a>(std::string spA, std::string spB, <span class="keywordtype">int</span> capacity);</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGraph.html#afe4608ae37d75fbe1c422584e6e93d23">addBidirectionalPipe</a>(std::string spA, std::string spB, <span class="keywordtype">int</span> capacity);</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGraph.html#a0bda705a503499befe381c9c85d43010">removeAssociatedPipes</a>(<a class="code" href="classServicePoint.html">ServicePoint</a> * servicePoint);</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classGraph.html#afad111991307875fd1eae3f0dbf31edb">removePipe</a>(<a class="code" href="classPipe.html">Pipe</a> * pipe);</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    std::vector&lt;ServicePoint *&gt; <a class="code" href="classGraph.html#a2f8dc75dc39c102604a1cd2e8303b22f">getServicePointSet</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;    std::vector&lt;ServicePoint *&gt; <a class="code" href="classGraph.html#a4665cc17da07c8a3e20b563c80cb4f69">getReservoirSet</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;    std::vector&lt;ServicePoint *&gt; <a class="code" href="classGraph.html#a6b2787e297625136c21ac104429d9cb6">getCitiesSet</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    std::vector&lt;Pipe *&gt; <a class="code" href="classGraph.html#a764c35bb3253229d404ea93acbac947d">getPipeSet</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;    <a class="code" href="classPipe.html">Pipe</a> * <a class="code" href="classGraph.html#a66b20e207270035f40df6aa927baf197">getPipeByEnds</a>(std::string orig, std::string dest);</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <a class="code" href="classServicePoint.html">ServicePoint</a> * <a class="code" href="classGraph.html#ad6b7ce4b7683f18e066f4cbd4c11698d">getCityByName</a>(<span class="keyword">const</span> std::string &amp; name);</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <a class="code" href="classServicePoint.html">ServicePoint</a> * <a class="code" href="classGraph.html#a71caf6893b6e772fc2c420281f433f15">getReservoirByName</a>(<span class="keyword">const</span> std::string &amp; name);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    <a class="code" href="classServicePoint.html">ServicePoint</a> * <a class="code" href="classGraph.html#a613d45841baa4c39a68ed752d90aae9c">findServicePoint</a>(<span class="keyword">const</span> std::string &amp;code) ;</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;    std::vector&lt;ServicePoint *&gt; servicePointSet;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    std::vector&lt;ServicePoint *&gt; reservoirSet;</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;    std::vector&lt;ServicePoint *&gt; citySet;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;    std::vector&lt;Pipe *&gt; pipeSet;</div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    std::unordered_map&lt;std::string,ServicePoint*&gt; servicePointByCode;</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    std::unordered_map&lt;std::string,ServicePoint*&gt; cityByName;</div>
+<div class="line"><a name="l00066"></a><span class="lineno">   66</span>&#160;    std::unordered_map&lt;std::string,ServicePoint*&gt; reservoirByName;</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    std::unordered_map&lt;std::pair&lt;std::string,std::string&gt;,<a class="code" href="classPipe.html">Pipe</a>*, PipeHash, PipeEqual&gt; pipeByEnds;</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;};</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//PROJECT1_GRAPH_H</span></div>
+<div class="ttc" id="aclassCity_html"><div class="ttname"><a href="classCity.html">City</a></div><div class="ttdoc">Service Point class definition.</div><div class="ttdef"><b>Definition:</b> City.h:11</div></div>
+<div class="ttc" id="aclassGraph_html"><div class="ttname"><a href="classGraph.html">Graph</a></div><div class="ttdoc">Graph Class definition.</div><div class="ttdef"><b>Definition:</b> Graph.h:18</div></div>
+<div class="ttc" id="aclassGraph_html_a0bda705a503499befe381c9c85d43010"><div class="ttname"><a href="classGraph.html#a0bda705a503499befe381c9c85d43010">Graph::removeAssociatedPipes</a></div><div class="ttdeci">void removeAssociatedPipes(ServicePoint *servicePoint)</div><div class="ttdoc">Removes associated Pipes to a given Service Point.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:85</div></div>
+<div class="ttc" id="aclassGraph_html_a2f8dc75dc39c102604a1cd2e8303b22f"><div class="ttname"><a href="classGraph.html#a2f8dc75dc39c102604a1cd2e8303b22f">Graph::getServicePointSet</a></div><div class="ttdeci">std::vector&lt; ServicePoint * &gt; getServicePointSet() const</div><div class="ttdoc">Gets the ServicePoint set.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:153</div></div>
+<div class="ttc" id="aclassGraph_html_a4665cc17da07c8a3e20b563c80cb4f69"><div class="ttname"><a href="classGraph.html#a4665cc17da07c8a3e20b563c80cb4f69">Graph::getReservoirSet</a></div><div class="ttdeci">std::vector&lt; ServicePoint * &gt; getReservoirSet() const</div><div class="ttdoc">Gets the Reservoir set.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:161</div></div>
+<div class="ttc" id="aclassGraph_html_a469072d3f64ea47b862401c9f46dfaad"><div class="ttname"><a href="classGraph.html#a469072d3f64ea47b862401c9f46dfaad">Graph::addServicePoint</a></div><div class="ttdeci">void addServicePoint(ServicePoint *servicePoint)</div><div class="ttdoc">Adds a ServicePoint to the Graph.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:53</div></div>
+<div class="ttc" id="aclassGraph_html_a613d45841baa4c39a68ed752d90aae9c"><div class="ttname"><a href="classGraph.html#a613d45841baa4c39a68ed752d90aae9c">Graph::findServicePoint</a></div><div class="ttdeci">ServicePoint * findServicePoint(const std::string &amp;code)</div><div class="ttdoc">Gets the ServicePoint by code.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:201</div></div>
+<div class="ttc" id="aclassGraph_html_a65fb63aecd385289d6c1618f4c967d16"><div class="ttname"><a href="classGraph.html#a65fb63aecd385289d6c1618f4c967d16">Graph::removeServicePoint</a></div><div class="ttdeci">void removeServicePoint(ServicePoint *servicePoint)</div><div class="ttdoc">Removes a Service Point from the Graph.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:63</div></div>
+<div class="ttc" id="aclassGraph_html_a66b20e207270035f40df6aa927baf197"><div class="ttname"><a href="classGraph.html#a66b20e207270035f40df6aa927baf197">Graph::getPipeByEnds</a></div><div class="ttdeci">Pipe * getPipeByEnds(std::string orig, std::string dest)</div><div class="ttdoc">Gets the Pipe by its ends.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:210</div></div>
+<div class="ttc" id="aclassGraph_html_a6aa5ed8e68430dc1befdc1dd9f61bc87"><div class="ttname"><a href="classGraph.html#a6aa5ed8e68430dc1befdc1dd9f61bc87">Graph::addCity</a></div><div class="ttdeci">void addCity(City *pCity)</div><div class="ttdoc">Adds a City to the Graph.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:43</div></div>
+<div class="ttc" id="aclassGraph_html_a6b2787e297625136c21ac104429d9cb6"><div class="ttname"><a href="classGraph.html#a6b2787e297625136c21ac104429d9cb6">Graph::getCitiesSet</a></div><div class="ttdeci">std::vector&lt; ServicePoint * &gt; getCitiesSet() const</div><div class="ttdoc">Gets the Cities set.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:169</div></div>
+<div class="ttc" id="aclassGraph_html_a71caf6893b6e772fc2c420281f433f15"><div class="ttname"><a href="classGraph.html#a71caf6893b6e772fc2c420281f433f15">Graph::getReservoirByName</a></div><div class="ttdeci">ServicePoint * getReservoirByName(const std::string &amp;name)</div><div class="ttdoc">Gets the Reservoir by name.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:193</div></div>
+<div class="ttc" id="aclassGraph_html_a764c35bb3253229d404ea93acbac947d"><div class="ttname"><a href="classGraph.html#a764c35bb3253229d404ea93acbac947d">Graph::getPipeSet</a></div><div class="ttdeci">std::vector&lt; Pipe * &gt; getPipeSet() const</div><div class="ttdoc">Gets the Pipe set.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:177</div></div>
+<div class="ttc" id="aclassGraph_html_a7d46cd58e76bb9a7140052da75199025"><div class="ttname"><a href="classGraph.html#a7d46cd58e76bb9a7140052da75199025">Graph::addPipe</a></div><div class="ttdeci">void addPipe(std::string spA, std::string spB, int capacity)</div><div class="ttdoc">Adds a Pipe to the Graph.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:100</div></div>
+<div class="ttc" id="aclassGraph_html_a902c5b3eacb66d60752525ab23297a95"><div class="ttname"><a href="classGraph.html#a902c5b3eacb66d60752525ab23297a95">Graph::~Graph</a></div><div class="ttdeci">~Graph()</div><div class="ttdoc">Graph Destructor.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:9</div></div>
+<div class="ttc" id="aclassGraph_html_a9945baa067f81da755166d4580fadfda"><div class="ttname"><a href="classGraph.html#a9945baa067f81da755166d4580fadfda">Graph::addReservoir</a></div><div class="ttdeci">void addReservoir(Reservoir *pReservoir)</div><div class="ttdoc">Adds a Reservoir to the Graph.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:23</div></div>
+<div class="ttc" id="aclassGraph_html_abd3f91e307004d71be15ef018d2afe23"><div class="ttname"><a href="classGraph.html#abd3f91e307004d71be15ef018d2afe23">Graph::addStation</a></div><div class="ttdeci">void addStation(Station *pStation)</div><div class="ttdoc">Adds a Station to the Graph.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:34</div></div>
+<div class="ttc" id="aclassGraph_html_ad6b7ce4b7683f18e066f4cbd4c11698d"><div class="ttname"><a href="classGraph.html#ad6b7ce4b7683f18e066f4cbd4c11698d">Graph::getCityByName</a></div><div class="ttdeci">ServicePoint * getCityByName(const std::string &amp;name)</div><div class="ttdoc">Gets the City by name.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:185</div></div>
+<div class="ttc" id="aclassGraph_html_afad111991307875fd1eae3f0dbf31edb"><div class="ttname"><a href="classGraph.html#afad111991307875fd1eae3f0dbf31edb">Graph::removePipe</a></div><div class="ttdeci">void removePipe(Pipe *pipe)</div><div class="ttdoc">Removes a Pipe from the Graph.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:134</div></div>
+<div class="ttc" id="aclassGraph_html_afe4608ae37d75fbe1c422584e6e93d23"><div class="ttname"><a href="classGraph.html#afe4608ae37d75fbe1c422584e6e93d23">Graph::addBidirectionalPipe</a></div><div class="ttdeci">void addBidirectionalPipe(std::string spA, std::string spB, int capacity)</div><div class="ttdoc">Adds a Bidirectional Pipe to the Graph.</div><div class="ttdef"><b>Definition:</b> Graph.cpp:114</div></div>
+<div class="ttc" id="aclassPipe_html"><div class="ttname"><a href="classPipe.html">Pipe</a></div><div class="ttdoc">Pipe Class definition.</div><div class="ttdef"><b>Definition:</b> Pipe.h:11</div></div>
+<div class="ttc" id="aclassReservoir_html"><div class="ttname"><a href="classReservoir.html">Reservoir</a></div><div class="ttdoc">Reservoir Class definition.</div><div class="ttdef"><b>Definition:</b> Reservoir.h:11</div></div>
+<div class="ttc" id="aclassServicePoint_html"><div class="ttname"><a href="classServicePoint.html">ServicePoint</a></div><div class="ttdoc">Service Point class definition.</div><div class="ttdef"><b>Definition:</b> ServicePoint.h:13</div></div>
+<div class="ttc" id="aclassStation_html"><div class="ttname"><a href="classStation.html">Station</a></div><div class="ttdoc">Station Class definition.</div><div class="ttdef"><b>Definition:</b> Station.h:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
