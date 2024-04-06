@@ -26,5 +26,4 @@ private:
 
 };
 
-
 #endif //PROJECT1_CITY_H

@@ -25,5 +25,4 @@ private:
     int maxDelivery;
 };
 
-
 #endif //PROJECT1_RESERVOIR_H

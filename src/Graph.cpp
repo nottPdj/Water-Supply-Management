@@ -4,7 +4,7 @@
 
 /**
  * @brief Graph Destructor
- * @details Time Complexity O(V) V= number of ServicePoints
+ * @details Time Complexity O(S) S = number of ServicePoints
  */
 Graph::~Graph() {
     // TODO check if destroys everything
@@ -58,7 +58,7 @@ void Graph::addServicePoint(ServicePoint *servicePoint) {
 /**
  * @brief Removes a Service Point from the Graph
  * @param servicePoint
- * @details Time Complexity O(E²) E = number of Pipes
+ * @details Time Complexity O(P²) P = number of Pipes
  */
 void Graph::removeServicePoint(ServicePoint *servicePoint) {
     removeAssociatedPipes(servicePoint);
@@ -80,7 +80,7 @@ void Graph::removeServicePoint(ServicePoint *servicePoint) {
 /**
  * @brief Removes associated Pipes to a given Service Point
  * @param servicePoint
- * @details Time Complexity O(E²) E = bigger number of adjacent or incoming Pipes
+ * @details Time Complexity O(P²) P = bigger number of adjacent or incoming Pipes
  */
 void Graph::removeAssociatedPipes(ServicePoint * servicePoint) {
     for (Pipe * pipe : servicePoint->getAdj()) {
@@ -129,12 +129,11 @@ void Graph::addBidirectionalPipe(std::string spA, std::string spB, int capacity)
 /**
  * @brief Removes a Pipe from the Graph
  * @param pipe
- * @details Time Complexity O(E) E = number of Pipes
+ * @details Time Complexity O(P) P = number of Pipes
  */
 void Graph::removePipe(Pipe * pipe) {
     pipe->getOrig()->removeOutgoingPipe(pipe);
     pipe->getDest()->removeIncomingPipe(pipe);
-    // TODO modificado verificar se funciona
     if (pipe->getReverse() != nullptr) {
         pipe->getReverse()->getOrig()->removeOutgoingPipe(pipe->getReverse());
         pipe->getReverse()->getDest()->removeIncomingPipe(pipe->getReverse());
@@ -145,14 +144,6 @@ void Graph::removePipe(Pipe * pipe) {
     pipeSet.erase(std::find(pipeSet.begin(), pipeSet.end(), pipe));
     pipeByEnds.erase(std::make_pair(pipe->getOrig()->getCode(),pipe->getDest()->getCode()));
     delete pipe;
-}
-
-/**
- * @brief Gets the number of ServicePoints
- * @return size of servicePointSet
- */
-int Graph::getNumServicePoint() const {
-    return servicePointSet.size();
 }
 
 /**

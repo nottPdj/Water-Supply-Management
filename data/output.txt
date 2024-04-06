@@ -1,5 +1,9 @@
 Maximum amount of water that can reach city each city
 
+PRESSURE:
+Old average = 71.6% / Old variance = 20.2%
+New average = 71.5% / New variance = 20.5%
+
 |----------|----------|
 |   Code   |   Flow   |
 |----------|----------|
@@ -15,5 +19,15 @@ Maximum amount of water that can reach city each city
 |   C_1    |    18    |
 |  TOTAL   |   1643   |
 |----------|----------|
+
+
+Crucial pipelines to city C_3
+
+|----------|----------|----------|----------|--------------------|
+|  Source  |  Target  | Old Flow | New Flow |  Flow Difference   |
+|----------|----------|----------|----------|--------------------|
+|   PS_5   |   C_3    |    46    |    20    |        -26         |
+|   PS_6   |   C_3    |    46    |    40    |         -6         |
+|----------|----------|----------|----------|--------------------|
 
 

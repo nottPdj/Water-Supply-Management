@@ -8,8 +8,8 @@
 
 /**
  * @brief Reads the DataSet
- * @param g
- * @param dataset
+ * @param g The main graph
+ * @param dataset dataset to load
  */
 void Auxiliar::readDataset(Graph *g, int dataset) {
     readReservoir(g, dataset);
@@ -18,10 +18,10 @@ void Auxiliar::readDataset(Graph *g, int dataset) {
     readPipes(g, dataset);
 }
 
-
 /**
  * @brief Reads the Reservoirs
  * @param g The main graph
+ * @param dataset dataset to load
  * @details Time Complexity O(n) n = number of reservoirs
  */
 void Auxiliar::readReservoir(Graph *g, int dataset) {
@@ -49,6 +49,7 @@ void Auxiliar::readReservoir(Graph *g, int dataset) {
 /**
  * @brief Reads the Stations
  * @param g The main graph
+ * @param dataset dataset to load
  * @details Time Complexity O(n) n = number of stations
  */
 void Auxiliar::readStations(Graph *g, int dataset) {
@@ -73,6 +74,7 @@ void Auxiliar::readStations(Graph *g, int dataset) {
 /**
  * @brief Reads the Cities
  * @param g The main graph
+ * @param dataset dataset to load
  * @details Time Complexity O(n) n = number of cities
  */
 void Auxiliar::readCities(Graph *g, int dataset) {
@@ -101,6 +103,7 @@ void Auxiliar::readCities(Graph *g, int dataset) {
 /**
  * @brief Reads the Pipes
  * @param g The main graph
+ * @param dataset dataset to load
  * @param dataset Time Complexity O(n) n = number of pipes
  */
 void Auxiliar::readPipes(Graph *g, int dataset) {
@@ -125,5 +128,4 @@ void Auxiliar::readPipes(Graph *g, int dataset) {
             g->addBidirectionalPipe(servicePointA, servicePointB, std::stoi(capacity));
         }
     }
-
 }

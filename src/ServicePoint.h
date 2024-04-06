@@ -10,7 +10,6 @@ class Pipe;
 /**
  * @brief Service Point class definition
  */
-
 class ServicePoint {
 public:
     ServicePoint();
@@ -28,28 +27,21 @@ public:
     bool isVisited() const;
     bool isOperational() const;
     Pipe* getPath() const;
-    Pipe * getPred() const;
 
     void setVisited(bool visited);
     void setPath(Pipe *path);
-    void setPred(Pipe * pred);
     void setOperational(bool b);
 
-
 protected:
-    std::vector<Pipe *> adj{};  // outgoing Pipes
+    std::string code;
+    std::vector<Pipe *> adj{}; // outgoing Pipes
+    std::vector<Pipe *> incoming{}; // incoming Pipes
 
     // auxiliary fields
-    bool visited = false; // used by DFS, BFS, Prim ...
-    std::string code;
+    bool visited = false;
     bool operational=true;
 
-
-    std::vector<Pipe *> incoming{}; // incoming Pipes
     Pipe* path=nullptr;
-    void deletePipe(Pipe *Pipe);
 };
 
-
 #endif //PROJECT1_SERVICEPOINT_H
-

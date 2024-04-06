@@ -3,7 +3,7 @@
 #include "Graph.h"
 
 /**
- * @brief Auxiliar class to read and write files
+ * @brief Auxiliary class to read files
  */
 class Auxiliar {
 public:
@@ -13,6 +13,5 @@ public:
     static void readCities(Graph *g, int dataset);
     static void readPipes(Graph *g, int dataset);
 };
-
 
 #endif //PROJECT1_AUXILIAR_H

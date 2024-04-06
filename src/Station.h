@@ -19,5 +19,4 @@ private:
     std::string code;
 };
 
-
 #endif //PROJECT1_STATION_H

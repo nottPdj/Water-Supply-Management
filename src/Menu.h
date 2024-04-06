@@ -11,9 +11,11 @@
  */
 struct printingOptions {
     std::string message;
+    std::string metrics;
     bool clear = true;
     bool printMessage = true;
     bool printTotal = true;
+    bool printMetrics = false;
     bool showEndMenu = true;
 };
 
@@ -81,7 +83,6 @@ private:
     // Printing
     void printFlowPerCity(std::unordered_map<std::string,int> flowCities, printingOptions options);
     void printFlowDeficitPerCity(std::unordered_map<std::string,int> deficitCities, printingOptions options);
-
     void printCrucialPipes(std::vector<std::pair<Pipe *, flowDiff>> crucialPipes, printingOptions options);
     void printCitiesAffected(std::vector<std::pair<std::string, flowDiff>> citiesAffected, printingOptions options);
 };

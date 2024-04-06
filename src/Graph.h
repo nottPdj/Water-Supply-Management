@@ -41,13 +41,11 @@ public:
     void addServicePoint(ServicePoint *servicePoint);
     void removeServicePoint(ServicePoint *servicePoint);
 
-
     void addPipe(std::string spA, std::string spB, int capacity);
     void addBidirectionalPipe(std::string spA, std::string spB, int capacity);
     void removeAssociatedPipes(ServicePoint * servicePoint);
     void removePipe(Pipe * pipe);
 
-    int getNumServicePoint() const;
     std::vector<ServicePoint *> getServicePointSet() const;
     std::vector<ServicePoint *> getReservoirSet() const;
     std::vector<ServicePoint *> getCitiesSet() const;
@@ -59,7 +57,7 @@ public:
     ServicePoint * findServicePoint(const std::string &code) ;
 
 protected:
-    std::vector<ServicePoint *> servicePointSet;    // ServicePoint set
+    std::vector<ServicePoint *> servicePointSet;
     std::vector<ServicePoint *> reservoirSet;
     std::vector<ServicePoint *> citySet;
     std::vector<Pipe *> pipeSet;
@@ -70,4 +68,3 @@ protected:
 };
 
 #endif //PROJECT1_GRAPH_H
-

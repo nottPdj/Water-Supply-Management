@@ -1,8 +1,10 @@
+#include <algorithm>
 #include <stdexcept>
 #include "Management.h"
+
 /**
  * @brief Management Constructor
- * @param graph
+ * @param graph graph to be managed
  */
 Management::Management(Graph *graph) {
     this->g=graph;
@@ -29,9 +31,9 @@ void Management::testAndVisit(std::queue<ServicePoint*> &q, Pipe*e, ServicePoint
  * @param s - source ServicePoint
  * @param t - target ServicePoint
  * @return True if path is found
- * @details Time Complexity O(V+E) V = number of ServicePoints, E = number of Pipes
+ * @details Time Complexity O(S+P) and O(P*log(P)) if balanced, S = number of ServicePoints, P = number of Pipes
  */
-bool Management::findAugmentingPath( ServicePoint *s, ServicePoint *t) {
+bool Management::findAugmentingPath( ServicePoint *s, ServicePoint *t, bool balanced) {
     // Mark all vertices as not visited
     for(ServicePoint*v:g->getServicePointSet()){
         v->setVisited(false);
@@ -48,13 +50,35 @@ bool Management::findAugmentingPath( ServicePoint *s, ServicePoint *t) {
         q.pop();
         if(!v->isOperational())
             continue;
-        // Process outgoing Pipes
-        for(Pipe* e : v->getAdj()){
-            testAndVisit(q,e,e->getDest(),e->getCapacity()- e->getFlow());
-        }
-        // Process incoming Pipes
-        for(Pipe* e : v->getIncoming()){
-            testAndVisit(q,e,e->getOrig(),e->getFlow());
+      
+        std::vector<Pipe*> pipes = v->getAdj();
+        std::vector<Pipe*> inpipes = v->getIncoming();
+
+        if(balanced) {
+            std::sort(pipes.begin(), pipes.end(), [](Pipe *a, Pipe *b) {
+              return a->getPressure() < b->getPressure();
+            });
+            std::sort(inpipes.begin(), inpipes.end(), [](Pipe *a, Pipe *b) {
+              return a->getPressure() < b->getPressure();
+            });
+
+            // Process incoming Pipes, they reduce pressure of pipe
+            for (Pipe *e: inpipes) {
+                testAndVisit(q, e, e->getOrig(), e->getFlow());
+            }
+            // Process outgoing Pipes, they increase pressure on pipe
+            for (Pipe *e: pipes) {
+                testAndVisit(q, e, e->getDest(), e->getCapacity() - e->getFlow());
+            }
+        } else {
+            // Process outgoing Pipes
+            for (Pipe *e: pipes) {
+                testAndVisit(q, e, e->getDest(), e->getCapacity() - e->getFlow());
+            }
+            // Process incoming Pipes
+            for (Pipe *e: inpipes) {
+                testAndVisit(q, e, e->getOrig(), e->getFlow());
+            }
         }
     }
     // Return true if a path to the target is found, false otherwise
@@ -66,7 +90,7 @@ bool Management::findAugmentingPath( ServicePoint *s, ServicePoint *t) {
  * @param s - source ServicePoint
  * @param t - target ServicePoint
  * @return f
- * @details Time Complexity O(E) E = number of Pipes between s and t
+ * @details Time Complexity O(P) P = number of Pipes between s and t
  */
 double Management::findMinResidualAlongPath(ServicePoint *s, ServicePoint *t) {
     double f = INF;
@@ -92,7 +116,7 @@ double Management::findMinResidualAlongPath(ServicePoint *s, ServicePoint *t) {
  * @param s - source ServicePoint
  * @param t - target ServicePoint
  * @param f - flow value
- * @details Time Complexity O(E) E = number of Pipes between s and t
+ * @details Time Complexity O(P) P = number of Pipes between s and t
  */
 void Management::augmentFlowAlongPath(ServicePoint *s, ServicePoint *t, double f) {
     ServicePoint *v=t;
@@ -114,9 +138,9 @@ void Management::augmentFlowAlongPath(ServicePoint *s, ServicePoint *t, double f
  * @brief Performs the EdmondsKarp
  * @param s - source ServicePoint
  * @param t - target ServicePoint
- * @details Time Complexity O(V*E²)
+ * @details Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes
  */
-void Management::edmondsKarp( ServicePoint* s, ServicePoint* t) {
+void Management::edmondsKarp( ServicePoint* s, ServicePoint* t, bool balanced) {
 
     // Validate source and target vertices
     if(s==nullptr || t== nullptr || s==t){
@@ -132,7 +156,7 @@ void Management::edmondsKarp( ServicePoint* s, ServicePoint* t) {
     }
 
     // While there is an augmenting path, augment the flow along the path
-    while(findAugmentingPath(s,t)){
+    while(findAugmentingPath(s,t,balanced)){
         double f = findMinResidualAlongPath(s,t);
         augmentFlowAlongPath(s,t,f);
     }
@@ -141,9 +165,9 @@ void Management::edmondsKarp( ServicePoint* s, ServicePoint* t) {
 /**
  * @brief Gets the max flow overall.
  * @return flowPerCity
- * @details Time Complexity O(E) E = 
+ * @details Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes
  */
-std::unordered_map<std::string,int> Management::getMaxFlow() { //each city do for super sink, for each city do for ServicePoint(city)
+std::unordered_map<std::string,int> Management::getMaxFlow(bool balanced) {
     Reservoir *superSource = new Reservoir("supersource", "x","0", "SRC", INF);
     g->addReservoir(superSource);
     for(ServicePoint* v:g->getReservoirSet()){
@@ -159,7 +183,7 @@ std::unordered_map<std::string,int> Management::getMaxFlow() { //each city do fo
         }
     }
 
-    edmondsKarp(superSource,superSink);
+    edmondsKarp(superSource,superSink,balanced);
 
     std::unordered_map<std::string,int> flowPerCity;
     g->removeServicePoint(superSource);
@@ -171,7 +195,7 @@ std::unordered_map<std::string,int> Management::getMaxFlow() { //each city do fo
         }
         flowPerCity.insert(std::make_pair(v->getCode(),maxflow));
     }
-    if(maxFlowCity.empty())
+    if(maxFlowCity.empty() && !balanced)
         maxFlowCity = flowPerCity;
     return flowPerCity;
 }
@@ -179,7 +203,8 @@ std::unordered_map<std::string,int> Management::getMaxFlow() { //each city do fo
 /**
  * @brief Gets the max flow of a specific City
  * @param citySink
- * @return deficitVector
+ * @return city code and respective flow
+ * @details Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes
  */
 std::pair<std::string,int> Management::getMaxFlowCity(ServicePoint * citySink) {
     int maxflow = 0;
@@ -199,6 +224,11 @@ std::pair<std::string,int> Management::getMaxFlowCity(ServicePoint * citySink) {
     return std::make_pair(citySink->getCode(),maxflow);
 }
 
+/**
+ * @brief Get flow deficit of all cities that don't get enough water
+ * @return vector with city code and respective deficit
+ * @details Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes
+ */
 std::unordered_map<std::string,int> Management::getFlowDeficit() {
     std::unordered_map<std::string,int> deficitVector;
     if(maxFlowCity.empty()){
@@ -216,13 +246,14 @@ std::unordered_map<std::string,int> Management::getFlowDeficit() {
 /**
  * @brief Gets the cities affected by a reservoir fail.
  * @param reservoir
- * @return affectedCities
+ * @return codes of affected cities and respective old and new flow
+ * @details Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes
  */
 std::vector<std::pair<std::string, flowDiff>> Management::getCitiesAffectedByReservoirFail(ServicePoint * reservoir) {
     std::vector<std::pair<std::string, flowDiff>> affectedCities;
 
     if (maxFlowCity.empty()) {
-        getMaxFlow();
+        maxFlowCity=getMaxFlow();
     }
 
     reservoir->setOperational(false);
@@ -241,15 +272,15 @@ std::vector<std::pair<std::string, flowDiff>> Management::getCitiesAffectedByRes
     return affectedCities;
 }
 
-
 /**
  * @brief Gets the cities affected by a Pipe rupture.
- * @param e
- * @return citiesAffected
+ * @param e pipe ruptured
+ * @return codes of affected cities and respective old and new flow
+ * @details Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes
  */
 std::vector<std::pair<std::string, flowDiff>> Management::getCitiesAffectedByPipeRupture(Pipe* e){
     if(maxFlowCity.empty())
-        getMaxFlow();
+        maxFlowCity=getMaxFlow();
     std::vector<std::pair<std::string, flowDiff>> citiesAffected;
     e->setOperational(false);
     if(e->getReverse()!=nullptr)
@@ -269,12 +300,13 @@ std::vector<std::pair<std::string, flowDiff>> Management::getCitiesAffectedByPip
 
 /**
  * @brief Gets the Crucial Pipes to a City. Checks if the flow of a City decreases from a Pipe removal.
- * @param sp
- * @return crucialPipes
+ * @param sp city
+ * @return crucial pipes to city sp and respective old and new flow
+ * @details Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes
  */
 std::vector<std::pair<Pipe *,flowDiff>> Management::getCrucialPipesToCity(ServicePoint* sp){
     if(maxFlowCity.empty())
-        getMaxFlow();
+        maxFlowCity=getMaxFlow();
     std::vector<std::pair<Pipe *,flowDiff>> crucialPipes;
     for (auto e: g->getPipeSet()) {
         e->setVisited(false);
@@ -301,13 +333,14 @@ std::vector<std::pair<Pipe *,flowDiff>> Management::getCrucialPipesToCity(Servic
 
 /**
  * @brief Gets the cities affected by a Station failing
- * @param downStation
- * @return affectedCities
+ * @param downStation pumping station failing
+ * @return codes of affected cities and respective old and new flow
+ * @details Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes
  */
 std::vector<std::pair<std::string, flowDiff>> Management::getCitiesAffectedByStationFail(ServicePoint* downStation) {
     std::vector<std::pair<std::string, flowDiff>> affectedCities;
     if (maxFlowCity.empty()){
-        getMaxFlow();
+        maxFlowCity=getMaxFlow();
     }
 
     downStation->setOperational(false);
@@ -324,3 +357,54 @@ std::vector<std::pair<std::string, flowDiff>> Management::getCitiesAffectedBySta
     return affectedCities;
 }
 
+/**
+ * Get average pipe pressure (%) of current graph
+ * @return average pipe pressure (%)
+ */
+float Management::getAveragePipePressure() {
+    float totalPressure = 0;
+    int pipeCount = 0;
+    for (Pipe* p : g->getPipeSet()) {
+        p->setVisited(false);
+    }
+    for (Pipe* p : g->getPipeSet()) {
+        if (p->isVisited())
+            continue;
+        pipeCount++;
+        if (p->getReverse() != nullptr) {
+            p->getReverse()->setVisited(true);
+            totalPressure += std::max(p->getPressure(), p->getReverse()->getPressure());
+        } else {
+            totalPressure += p->getPressure();
+        }
+    }
+    return ( totalPressure / pipeCount );
+}
+
+/**
+ * Get pipe pressure variance (%) of current graph
+ * @return pipe pressure variance (%)
+ */
+float Management::getVariancePipePressure() {
+    float totalSquaredPressure = 0;
+    float totalPressure = 0;
+    int pipeCount = 0;
+    for (Pipe* p : g->getPipeSet()) {
+        p->setVisited(false);
+    }
+    for (Pipe* p : g->getPipeSet()) {
+        if (p->isVisited())
+          continue;
+        pipeCount++;
+        if (p->getReverse() != nullptr) {
+            p->getReverse()->setVisited(true);
+            float pipePressure = std::max(p->getPressure(), p->getReverse()->getPressure());
+            totalPressure += pipePressure;
+            totalSquaredPressure += (pipePressure * pipePressure);
+        } else {
+            totalSquaredPressure += (p->getPressure() * p->getPressure());
+            totalPressure += p->getPressure();
+        }
+    }
+    return ( (totalSquaredPressure - ( (totalPressure * totalPressure) / g->getPipeSet().size() ) ) / (pipeCount) );
+}

@@ -44,7 +44,7 @@ void Menu::printMainMenu() {
               << "\t\t0 - a city" << "\n"
               << "\t\t1 - each city" << "\n"
               << "\t2 - Check if current network configuration meets the water needs of all customers" << "\n"
-              << "\t3 - Balance the load across the network (not implemented)" << "\n\n"
+              << "\t3 - Balance the load across the network" << "\n\n"
               << "Reliability and Sensitivity to Failures" << "\n"
               << "\t4 - Water Reservoir unavailable" << "\n"
               << "\t5 - Cities affected by a pumping station failure" << "\n"
@@ -94,7 +94,19 @@ void Menu::waitMenu(){
         }
         // Balance the load across the network
         case 3: {
-            printMainMenu();
+            std::unordered_map<std::string,int> flow = m.getMaxFlow();
+            float avg = m.getAveragePipePressure() * 100;
+            float var = m.getVariancePipePressure() * 100;
+            std::ostringstream metricsString;
+            metricsString << "PRESSURE:\nOld average = " << std::setprecision(3) << avg << "% / Old variance = " << std::setprecision(3) << var << "%\n";
+            flow = m.getMaxFlow(true);
+            avg = m.getAveragePipePressure() * 100;
+            var = m.getVariancePipePressure() * 100;
+            metricsString << "New average = " << std::setprecision(3) << avg << "% / New variance = " << std::setprecision(3) << var << "%\n\n";
+            options.metrics = metricsString.str();
+            options.printMetrics = true;
+            options.message = "Maximum amount of water that can reach city each city\n\n";
+            printFlowPerCity(flow, options);
             break;
         }
         // Water Reservoir unavailable
@@ -238,6 +250,8 @@ void Menu::printFlowPerCity(std::unordered_map<std::string,int> flowCities, prin
         system("clear");
     if (options.printMessage)
         oss << options.message;
+    if (options.printMetrics)
+        oss << options.metrics;
 
     // HEADERS
     oss << "|" << fill('-', CODE_WIDTH) << "|" << fill('-', FLOW_WIDTH) << "|\n";

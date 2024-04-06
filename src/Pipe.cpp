@@ -57,6 +57,14 @@ double Pipe::getFlow() const {
 }
 
 /**
+ * @brief Returns the pressure of pipe (flow/capacity)
+ * @return pressure
+ */
+float Pipe::getPressure() const {
+    return this->flow/this->capacity;
+}
+
+/**
  * @brief Sets the reverse Pipe
  * @param reverse
  */
@@ -95,7 +103,3 @@ void Pipe::setVisited(bool visited) {
 bool Pipe::isOperational() const {
     return operational;
 }
-
-
-
-

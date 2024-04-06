@@ -17,6 +17,7 @@ public:
     double getCapacity() const;
     Pipe * getReverse() const;
     double getFlow() const;
+    float getPressure() const;
 
     bool isOperational() const;
     bool isVisited() const;
@@ -34,7 +35,6 @@ protected:
     double capacity; // Pipe weight, can also be used for capacity
     double flow;
 
-    bool selected = false;
     bool operational=true;
     bool visited = false;
 
