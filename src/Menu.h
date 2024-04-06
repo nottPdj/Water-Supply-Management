@@ -47,7 +47,7 @@ private:
     std::string outputFile = "../data/output.txt";
 
     // Table column widths
-    const static int MENU_WIDTH = 75;
+    const static int MENU_WIDTH = 86;
     const static int CODE_WIDTH = 10;
     const static int FLOW_WIDTH = 10;
     const static int DEFICIT_WIDTH = 20;
