@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['findaugmentingpath_11',['findAugmentingPath',['../classManagement.html#a58bc81ecb1fef8b8c6f8ed21be3c38c6',1,'Management']]],
-  ['findminresidualalongpath_12',['findMinResidualAlongPath',['../classManagement.html#aecb1017e3eba3fd5437e0dfe47d06b38',1,'Management']]],
-  ['findservicepoint_13',['findServicePoint',['../classGraph.html#a613d45841baa4c39a68ed752d90aae9c',1,'Graph']]],
-  ['flowdiff_14',['flowDiff',['../structflowDiff.html',1,'']]]
+  ['findaugmentingpath_14',['findAugmentingPath',['../classManagement.html#a80e0dafd70b371a267eb6013ac94bc4d',1,'Management']]],
+  ['findaugmentingpathbalance_15',['findAugmentingPathBalance',['../classManagement.html#a63bd7fbeb5cdee05fc50f6bcd5e7b53c',1,'Management']]],
+  ['findminresidualalongpath_16',['findMinResidualAlongPath',['../classManagement.html#aecb1017e3eba3fd5437e0dfe47d06b38',1,'Management']]],
+  ['findminresidualalongpathbalance_17',['findMinResidualAlongPathBalance',['../classManagement.html#a5dbc493fde1750e5d90a5212c5fc7056',1,'Management']]],
+  ['findservicepoint_18',['findServicePoint',['../classGraph.html#a613d45841baa4c39a68ed752d90aae9c',1,'Graph']]],
+  ['flowdiff_19',['flowDiff',['../structflowDiff.html',1,'']]]
 ];

@@ -79,21 +79,39 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:ac60e75088c411c9c283d3a18fe14e3db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#ac60e75088c411c9c283d3a18fe14e3db">testAndVisit</a> (std::queue&lt; <a class="el" href="classServicePoint.html">ServicePoint</a> * &gt; &amp;q, <a class="el" href="classPipe.html">Pipe</a> *e, <a class="el" href="classServicePoint.html">ServicePoint</a> *w, double residual)</td></tr>
 <tr class="memdesc:ac60e75088c411c9c283d3a18fe14e3db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Checks if the Service Point is not visited and there is residual capacity, then marks as visited, sets path, and enqueue it.  <a href="classManagement.html#ac60e75088c411c9c283d3a18fe14e3db">More...</a><br /></td></tr>
 <tr class="separator:ac60e75088c411c9c283d3a18fe14e3db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a58bc81ecb1fef8b8c6f8ed21be3c38c6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a58bc81ecb1fef8b8c6f8ed21be3c38c6">findAugmentingPath</a> (<a class="el" href="classServicePoint.html">ServicePoint</a> *s, <a class="el" href="classServicePoint.html">ServicePoint</a> *t, bool balanced=false)</td></tr>
-<tr class="memdesc:a58bc81ecb1fef8b8c6f8ed21be3c38c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds an augmenting path using Breadth-First Search.  <a href="classManagement.html#a58bc81ecb1fef8b8c6f8ed21be3c38c6">More...</a><br /></td></tr>
-<tr class="separator:a58bc81ecb1fef8b8c6f8ed21be3c38c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80e0dafd70b371a267eb6013ac94bc4d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a80e0dafd70b371a267eb6013ac94bc4d">findAugmentingPath</a> (<a class="el" href="classServicePoint.html">ServicePoint</a> *s, <a class="el" href="classServicePoint.html">ServicePoint</a> *t)</td></tr>
+<tr class="memdesc:a80e0dafd70b371a267eb6013ac94bc4d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds an augmenting path using Breadth-First Search.  <a href="classManagement.html#a80e0dafd70b371a267eb6013ac94bc4d">More...</a><br /></td></tr>
+<tr class="separator:a80e0dafd70b371a267eb6013ac94bc4d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aecb1017e3eba3fd5437e0dfe47d06b38"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#aecb1017e3eba3fd5437e0dfe47d06b38">findMinResidualAlongPath</a> (<a class="el" href="classServicePoint.html">ServicePoint</a> *s, <a class="el" href="classServicePoint.html">ServicePoint</a> *t)</td></tr>
 <tr class="memdesc:aecb1017e3eba3fd5437e0dfe47d06b38"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the minimum residual capacity along the augmenting path.  <a href="classManagement.html#aecb1017e3eba3fd5437e0dfe47d06b38">More...</a><br /></td></tr>
 <tr class="separator:aecb1017e3eba3fd5437e0dfe47d06b38"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2a0c3daee2a73d9a3534e27ec94fc7e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a2a0c3daee2a73d9a3534e27ec94fc7e4">edmondsKarp</a> (<a class="el" href="classServicePoint.html">ServicePoint</a> *s, <a class="el" href="classServicePoint.html">ServicePoint</a> *t, bool balanced=false)</td></tr>
-<tr class="memdesc:a2a0c3daee2a73d9a3534e27ec94fc7e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the EdmondsKarp.  <a href="classManagement.html#a2a0c3daee2a73d9a3534e27ec94fc7e4">More...</a><br /></td></tr>
-<tr class="separator:a2a0c3daee2a73d9a3534e27ec94fc7e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a23d8c2535903ec66b651ba345e866a2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a23d8c2535903ec66b651ba345e866a2c">edmondsKarp</a> (<a class="el" href="classServicePoint.html">ServicePoint</a> *s, <a class="el" href="classServicePoint.html">ServicePoint</a> *t)</td></tr>
+<tr class="memdesc:a23d8c2535903ec66b651ba345e866a2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the EdmondsKarp.  <a href="classManagement.html#a23d8c2535903ec66b651ba345e866a2c">More...</a><br /></td></tr>
+<tr class="separator:a23d8c2535903ec66b651ba345e866a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad7313075e1b66bfaaa64d13adf229807"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#ad7313075e1b66bfaaa64d13adf229807">augmentFlowAlongPath</a> (<a class="el" href="classServicePoint.html">ServicePoint</a> *s, <a class="el" href="classServicePoint.html">ServicePoint</a> *t, double f)</td></tr>
 <tr class="memdesc:ad7313075e1b66bfaaa64d13adf229807"><td class="mdescLeft">&#160;</td><td class="mdescRight">Augments the flow along the augmenting path with the given flow value.  <a href="classManagement.html#ad7313075e1b66bfaaa64d13adf229807">More...</a><br /></td></tr>
 <tr class="separator:ad7313075e1b66bfaaa64d13adf229807"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a84dd5c57a67ec7bbf712147c8dcde66f"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a84dd5c57a67ec7bbf712147c8dcde66f">getMaxFlow</a> (bool balanced=false)</td></tr>
-<tr class="memdesc:a84dd5c57a67ec7bbf712147c8dcde66f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the max flow overall.  <a href="classManagement.html#a84dd5c57a67ec7bbf712147c8dcde66f">More...</a><br /></td></tr>
-<tr class="separator:a84dd5c57a67ec7bbf712147c8dcde66f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a63bd7fbeb5cdee05fc50f6bcd5e7b53c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a63bd7fbeb5cdee05fc50f6bcd5e7b53c">findAugmentingPathBalance</a> (<a class="el" href="classServicePoint.html">ServicePoint</a> *s, <a class="el" href="classServicePoint.html">ServicePoint</a> *t)</td></tr>
+<tr class="memdesc:a63bd7fbeb5cdee05fc50f6bcd5e7b53c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Finds an augmenting path using Breadth-First Search (used for balancing algorithm)  <a href="classManagement.html#a63bd7fbeb5cdee05fc50f6bcd5e7b53c">More...</a><br /></td></tr>
+<tr class="separator:a63bd7fbeb5cdee05fc50f6bcd5e7b53c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5dbc493fde1750e5d90a5212c5fc7056"><td class="memItemLeft" align="right" valign="top">double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a5dbc493fde1750e5d90a5212c5fc7056">findMinResidualAlongPathBalance</a> (<a class="el" href="classServicePoint.html">ServicePoint</a> *s, <a class="el" href="classServicePoint.html">ServicePoint</a> *t)</td></tr>
+<tr class="memdesc:a5dbc493fde1750e5d90a5212c5fc7056"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the minimum residual capacity along the augmenting path (used for balancing algorithm)  <a href="classManagement.html#a5dbc493fde1750e5d90a5212c5fc7056">More...</a><br /></td></tr>
+<tr class="separator:a5dbc493fde1750e5d90a5212c5fc7056"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a61f71bd3dd5056672b0d6b828edf6bf3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a61f71bd3dd5056672b0d6b828edf6bf3">edmondsKarpBalance</a> (<a class="el" href="classServicePoint.html">ServicePoint</a> *s, <a class="el" href="classServicePoint.html">ServicePoint</a> *t, bool reset=true)</td></tr>
+<tr class="memdesc:a61f71bd3dd5056672b0d6b828edf6bf3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Performs the EdmondsKarp (used for balancing algorithm)  <a href="classManagement.html#a61f71bd3dd5056672b0d6b828edf6bf3">More...</a><br /></td></tr>
+<tr class="separator:a61f71bd3dd5056672b0d6b828edf6bf3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74f0a13b8de899aeb69d84228311dc0f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a74f0a13b8de899aeb69d84228311dc0f">augmentFlowAlongPathBalance</a> (<a class="el" href="classServicePoint.html">ServicePoint</a> *s, <a class="el" href="classServicePoint.html">ServicePoint</a> *t, double f)</td></tr>
+<tr class="memdesc:a74f0a13b8de899aeb69d84228311dc0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Augments the flow along the augmenting path with the given flow value (used for balancing algorithm)  <a href="classManagement.html#a74f0a13b8de899aeb69d84228311dc0f">More...</a><br /></td></tr>
+<tr class="separator:a74f0a13b8de899aeb69d84228311dc0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7f271f3863e1823fc04c7548e4d3e195"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a7f271f3863e1823fc04c7548e4d3e195">getMaxFlowBalance</a> ()</td></tr>
+<tr class="memdesc:a7f271f3863e1823fc04c7548e4d3e195"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the balanced max flow.  <a href="classManagement.html#a7f271f3863e1823fc04c7548e4d3e195">More...</a><br /></td></tr>
+<tr class="separator:a7f271f3863e1823fc04c7548e4d3e195"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a75092d251078a9e78ebd7943c438e693"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a75092d251078a9e78ebd7943c438e693">closeToAvg</a> (<a class="el" href="classServicePoint.html">ServicePoint</a> *superSource, <a class="el" href="classServicePoint.html">ServicePoint</a> *superSink)</td></tr>
+<tr class="memdesc:a75092d251078a9e78ebd7943c438e693"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reduces the capacity of overpressured pipes to the average pressure.  <a href="classManagement.html#a75092d251078a9e78ebd7943c438e693">More...</a><br /></td></tr>
+<tr class="separator:a75092d251078a9e78ebd7943c438e693"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57cd2b083fd372bbb89097be973b9824"><td class="memItemLeft" align="right" valign="top">std::unordered_map&lt; std::string, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a57cd2b083fd372bbb89097be973b9824">getMaxFlow</a> ()</td></tr>
+<tr class="memdesc:a57cd2b083fd372bbb89097be973b9824"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the max flow overall.  <a href="classManagement.html#a57cd2b083fd372bbb89097be973b9824">More...</a><br /></td></tr>
+<tr class="separator:a57cd2b083fd372bbb89097be973b9824"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6233a8f77fd7285ba097d4e09d3118d1"><td class="memItemLeft" align="right" valign="top">std::pair&lt; std::string, int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a6233a8f77fd7285ba097d4e09d3118d1">getMaxFlowCity</a> (<a class="el" href="classServicePoint.html">ServicePoint</a> *citySink)</td></tr>
 <tr class="memdesc:a6233a8f77fd7285ba097d4e09d3118d1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the max flow of a specific <a class="el" href="classCity.html" title="Service Point class definition.">City</a>.  <a href="classManagement.html#a6233a8f77fd7285ba097d4e09d3118d1">More...</a><br /></td></tr>
 <tr class="separator:a6233a8f77fd7285ba097d4e09d3118d1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -113,8 +131,10 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aba0689aa49a6a44d64ff322d2e6779fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Gets the Crucial Pipes to a <a class="el" href="classCity.html" title="Service Point class definition.">City</a>. Checks if the flow of a <a class="el" href="classCity.html" title="Service Point class definition.">City</a> decreases from a <a class="el" href="classPipe.html" title="Pipe Class definition.">Pipe</a> removal.  <a href="classManagement.html#aba0689aa49a6a44d64ff322d2e6779fa">More...</a><br /></td></tr>
 <tr class="separator:aba0689aa49a6a44d64ff322d2e6779fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a56fc2e6b81ac36ffb25d57c9eb8a808f"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a56fc2e6b81ac36ffb25d57c9eb8a808f">getAveragePipePressure</a> ()</td></tr>
+<tr class="memdesc:a56fc2e6b81ac36ffb25d57c9eb8a808f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get average pipe pressure (%) of current graph.  <a href="classManagement.html#a56fc2e6b81ac36ffb25d57c9eb8a808f">More...</a><br /></td></tr>
 <tr class="separator:a56fc2e6b81ac36ffb25d57c9eb8a808f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a18af0d2d51f6387838f20b695e7bcace"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classManagement.html#a18af0d2d51f6387838f20b695e7bcace">getVariancePipePressure</a> ()</td></tr>
+<tr class="memdesc:a18af0d2d51f6387838f20b695e7bcace"><td class="mdescLeft">&#160;</td><td class="mdescRight">Get pipe pressure variance (%) of current graph.  <a href="classManagement.html#a18af0d2d51f6387838f20b695e7bcace">More...</a><br /></td></tr>
 <tr class="separator:a18af0d2d51f6387838f20b695e7bcace"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
@@ -190,8 +210,92 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a2a0c3daee2a73d9a3534e27ec94fc7e4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2a0c3daee2a73d9a3534e27ec94fc7e4">&#9670;&nbsp;</a></span>edmondsKarp()</h2>
+<a id="a74f0a13b8de899aeb69d84228311dc0f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74f0a13b8de899aeb69d84228311dc0f">&#9670;&nbsp;</a></span>augmentFlowAlongPathBalance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Management::augmentFlowAlongPathBalance </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>t</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double&#160;</td>
+          <td class="paramname"><em>f</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Augments the flow along the augmenting path with the given flow value (used for balancing algorithm) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>- source <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> </td></tr>
+    <tr><td class="paramname">t</td><td>- target <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> </td></tr>
+    <tr><td class="paramname">f</td><td>- flow value</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Time Complexity O(P) P = number of Pipes between s and t </p>
+
+</div>
+</div>
+<a id="a75092d251078a9e78ebd7943c438e693"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a75092d251078a9e78ebd7943c438e693">&#9670;&nbsp;</a></span>closeToAvg()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Management::closeToAvg </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>superSource</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>superSink</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Reduces the capacity of overpressured pipes to the average pressure. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">superSource</td><td>super source </td></tr>
+    <tr><td class="paramname">superSink</td><td>super sink </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>flowPerCity</dd></dl>
+<p>Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes </p>
+
+</div>
+</div>
+<a id="a23d8c2535903ec66b651ba345e866a2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a23d8c2535903ec66b651ba345e866a2c">&#9670;&nbsp;</a></span>edmondsKarp()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -206,13 +310,7 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
-          <td class="paramname"><em>t</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>balanced</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -234,14 +332,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a58bc81ecb1fef8b8c6f8ed21be3c38c6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a58bc81ecb1fef8b8c6f8ed21be3c38c6">&#9670;&nbsp;</a></span>findAugmentingPath()</h2>
+<a id="a61f71bd3dd5056672b0d6b828edf6bf3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a61f71bd3dd5056672b0d6b828edf6bf3">&#9670;&nbsp;</a></span>edmondsKarpBalance()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool Management::findAugmentingPath </td>
+          <td class="memname">void Management::edmondsKarpBalance </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
           <td class="paramname"><em>s</em>, </td>
@@ -256,7 +354,45 @@ Public Member Functions</h2></td></tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>balanced</em> = <code>false</code>&#160;</td>
+          <td class="paramname"><em>reset</em> = <code>true</code>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Performs the EdmondsKarp (used for balancing algorithm) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>- source <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> </td></tr>
+    <tr><td class="paramname">t</td><td>- target <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a></td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes </p>
+
+</div>
+</div>
+<a id="a80e0dafd70b371a267eb6013ac94bc4d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80e0dafd70b371a267eb6013ac94bc4d">&#9670;&nbsp;</a></span>findAugmentingPath()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Management::findAugmentingPath </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -267,6 +403,45 @@ Public Member Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Finds an augmenting path using Breadth-First Search. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>- source <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> </td></tr>
+    <tr><td class="paramname">t</td><td>- target <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>True if path is found</dd></dl>
+<p>Time Complexity O(S+P) and O(P*log(P)) if balanced, S = number of ServicePoints, P = number of Pipes </p>
+
+</div>
+</div>
+<a id="a63bd7fbeb5cdee05fc50f6bcd5e7b53c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a63bd7fbeb5cdee05fc50f6bcd5e7b53c">&#9670;&nbsp;</a></span>findAugmentingPathBalance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Management::findAugmentingPathBalance </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Finds an augmenting path using Breadth-First Search (used for balancing algorithm) </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">s</td><td>- source <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> </td></tr>
@@ -318,6 +493,45 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a5dbc493fde1750e5d90a5212c5fc7056"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5dbc493fde1750e5d90a5212c5fc7056">&#9670;&nbsp;</a></span>findMinResidualAlongPathBalance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">double Management::findMinResidualAlongPathBalance </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>s</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="classServicePoint.html">ServicePoint</a> *&#160;</td>
+          <td class="paramname"><em>t</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Find the minimum residual capacity along the augmenting path (used for balancing algorithm) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">s</td><td>- source <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> </td></tr>
+    <tr><td class="paramname">t</td><td>- target <a class="el" href="classServicePoint.html" title="Service Point class definition.">ServicePoint</a> </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>f</dd></dl>
+<p>Time Complexity O(P) P = number of Pipes between s and t </p>
+
+</div>
+</div>
 <a id="a56fc2e6b81ac36ffb25d57c9eb8a808f"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a56fc2e6b81ac36ffb25d57c9eb8a808f">&#9670;&nbsp;</a></span>getAveragePipePressure()</h2>
 
@@ -332,7 +546,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get average pipe pressure (%) of current graph </p><dl class="section return"><dt>Returns</dt><dd>average pipe pressure (%) </dd></dl>
+
+<p>Get average pipe pressure (%) of current graph. </p>
+<dl class="section return"><dt>Returns</dt><dd>average pipe pressure (%) </dd></dl>
 
 </div>
 </div>
@@ -469,8 +685,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a84dd5c57a67ec7bbf712147c8dcde66f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a84dd5c57a67ec7bbf712147c8dcde66f">&#9670;&nbsp;</a></span>getMaxFlow()</h2>
+<a id="a57cd2b083fd372bbb89097be973b9824"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a57cd2b083fd372bbb89097be973b9824">&#9670;&nbsp;</a></span>getMaxFlow()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -478,14 +694,34 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">std::unordered_map&lt; std::string, int &gt; Management::getMaxFlow </td>
           <td>(</td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>balanced</em> = <code>false</code></td><td>)</td>
+          <td class="paramname"></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Gets the max flow overall. </p>
+<dl class="section return"><dt>Returns</dt><dd>flowPerCity</dd></dl>
+<p>Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes </p>
+
+</div>
+</div>
+<a id="a7f271f3863e1823fc04c7548e4d3e195"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f271f3863e1823fc04c7548e4d3e195">&#9670;&nbsp;</a></span>getMaxFlowBalance()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::unordered_map&lt; std::string, int &gt; Management::getMaxFlowBalance </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Gets the balanced max flow. </p>
 <dl class="section return"><dt>Returns</dt><dd>flowPerCity</dd></dl>
 <p>Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes </p>
 
@@ -533,7 +769,9 @@ Public Member Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Get pipe pressure variance (%) of current graph </p><dl class="section return"><dt>Returns</dt><dd>pipe pressure variance (%) </dd></dl>
+
+<p>Get pipe pressure variance (%) of current graph. </p>
+<dl class="section return"><dt>Returns</dt><dd>pipe pressure variance (%) </dd></dl>
 
 </div>
 </div>

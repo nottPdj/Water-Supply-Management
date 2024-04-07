@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['pipe_81',['Pipe',['../classPipe.html',1,'']]],
-  ['printingoptions_82',['printingOptions',['../structprintingOptions.html',1,'']]]
+  ['pipe_87',['Pipe',['../classPipe.html',1,'']]],
+  ['printingoptions_88',['printingOptions',['../structprintingOptions.html',1,'']]]
 ];

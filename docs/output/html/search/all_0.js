@@ -8,5 +8,6 @@ var searchData=
   ['addservicepoint_5',['addServicePoint',['../classGraph.html#a469072d3f64ea47b862401c9f46dfaad',1,'Graph']]],
   ['addstation_6',['addStation',['../classGraph.html#abd3f91e307004d71be15ef018d2afe23',1,'Graph']]],
   ['augmentflowalongpath_7',['augmentFlowAlongPath',['../classManagement.html#ad7313075e1b66bfaaa64d13adf229807',1,'Management']]],
-  ['auxiliar_8',['Auxiliar',['../classAuxiliar.html',1,'']]]
+  ['augmentflowalongpathbalance_8',['augmentFlowAlongPathBalance',['../classManagement.html#a74f0a13b8de899aeb69d84228311dc0f',1,'Management']]],
+  ['auxiliar_9',['Auxiliar',['../classAuxiliar.html',1,'']]]
 ];
