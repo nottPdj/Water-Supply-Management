@@ -11,6 +11,9 @@ struct flowDiff{
     int newFlow;
 };
 
+/**
+ * @brief Management manages and answers the requests from the Menu
+ */
 class Management {
 private:
     Graph* g;
