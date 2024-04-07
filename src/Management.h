@@ -20,12 +20,20 @@ public:
 
     // Auxiliary functions to max flow algorithm
     void testAndVisit(std::queue<ServicePoint*> &q, Pipe*e, ServicePoint *w, double residual);
-    bool findAugmentingPath( ServicePoint *s, ServicePoint *t, bool balanced=false);
+    bool findAugmentingPath( ServicePoint *s, ServicePoint *t);
     double findMinResidualAlongPath(ServicePoint *s, ServicePoint *t);
-    void edmondsKarp( ServicePoint* s, ServicePoint* t, bool balanced=false);
+    void edmondsKarp( ServicePoint* s, ServicePoint* t);
     void augmentFlowAlongPath(ServicePoint *s, ServicePoint *t, double f);
 
-    std::unordered_map<std::string,int> getMaxFlow(bool balanced = false);
+    // Balancing the network
+    bool findAugmentingPathBalance( ServicePoint *s, ServicePoint *t);
+    double findMinResidualAlongPathBalance(ServicePoint *s, ServicePoint *t);
+    void edmondsKarpBalance( ServicePoint* s, ServicePoint* t, bool reset=true);
+    void augmentFlowAlongPathBalance(ServicePoint *s, ServicePoint *t, double f);
+    std::unordered_map<std::string,int> getMaxFlowBalance();
+    void closeToAvg(ServicePoint *superSource, ServicePoint *superSink);
+
+    std::unordered_map<std::string,int> getMaxFlow();
     std::pair<std::string,int> getMaxFlowCity(ServicePoint * citySink);
     std::unordered_map<std::string,int> getFlowDeficit ();
     std::vector<std::pair<std::string, flowDiff>> getCitiesAffectedByReservoirFail(ServicePoint * reservoir);
@@ -36,13 +44,6 @@ public:
     // Metrics
     float getAveragePipePressure();
     float getVariancePipePressure();
-
-    bool findAugmentingPathBalance( ServicePoint *s, ServicePoint *t);
-    double findMinResidualAlongPathBalance(ServicePoint *s, ServicePoint *t);
-    void edmondsKarpBalance( ServicePoint* s, ServicePoint* t, bool reset=true);
-    void augmentFlowAlongPathBalance(ServicePoint *s, ServicePoint *t, double f);
-    std::unordered_map<std::string,int> getMaxFlowBalance();
-    void closeToAvg(ServicePoint *superSource, ServicePoint *superSink);
 };
 
 #endif //PROJECT1_MANAGEMENT_H

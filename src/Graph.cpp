@@ -7,7 +7,6 @@
  * @details Time Complexity O(S) S = number of ServicePoints
  */
 Graph::~Graph() {
-    // TODO check if destroys everything
     auto it = servicePointSet.begin();
     while (it != servicePointSet.end()) {
         ServicePoint *sp = *it;
