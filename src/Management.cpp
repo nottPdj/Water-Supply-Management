@@ -33,7 +33,7 @@ void Management::testAndVisit(std::queue<ServicePoint*> &q, Pipe*e, ServicePoint
  * @return True if path is found
  * @details Time Complexity O(S+P) and O(P*log(P)) if balanced, S = number of ServicePoints, P = number of Pipes
  */
-bool Management::findAugmentingPath( ServicePoint *s, ServicePoint *t, bool balanced) {
+bool Management::findAugmentingPath( ServicePoint *s, ServicePoint *t) {
     // Mark all vertices as not visited
     for(ServicePoint*v:g->getServicePointSet()){
         v->setVisited(false);
@@ -54,31 +54,13 @@ bool Management::findAugmentingPath( ServicePoint *s, ServicePoint *t, bool bala
         std::vector<Pipe*> pipes = v->getAdj();
         std::vector<Pipe*> inpipes = v->getIncoming();
 
-        if(balanced) {
-            std::sort(pipes.begin(), pipes.end(), [](Pipe *a, Pipe *b) {
-              return a->getPressure() < b->getPressure();
-            });
-            std::sort(inpipes.begin(), inpipes.end(), [](Pipe *a, Pipe *b) {
-              return a->getPressure() < b->getPressure();
-            });
-
-            // Process incoming Pipes, they reduce pressure of pipe
-            for (Pipe *e: inpipes) {
-                testAndVisit(q, e, e->getOrig(), e->getFlow());
-            }
-            // Process outgoing Pipes, they increase pressure on pipe
-            for (Pipe *e: pipes) {
-                testAndVisit(q, e, e->getDest(), e->getCapacity() - e->getFlow());
-            }
-        } else {
-            // Process outgoing Pipes
-            for (Pipe *e: pipes) {
-                testAndVisit(q, e, e->getDest(), e->getCapacity() - e->getFlow());
-            }
-            // Process incoming Pipes
-            for (Pipe *e: inpipes) {
-                testAndVisit(q, e, e->getOrig(), e->getFlow());
-            }
+        // Process outgoing Pipes
+        for (Pipe *e: pipes) {
+            testAndVisit(q, e, e->getDest(), e->getCapacity() - e->getFlow());
+        }
+        // Process incoming Pipes
+        for (Pipe *e: inpipes) {
+            testAndVisit(q, e, e->getOrig(), e->getFlow());
         }
     }
     // Return true if a path to the target is found, false otherwise
@@ -140,7 +122,7 @@ void Management::augmentFlowAlongPath(ServicePoint *s, ServicePoint *t, double f
  * @param t - target ServicePoint
  * @details Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes
  */
-void Management::edmondsKarp( ServicePoint* s, ServicePoint* t, bool balanced) {
+void Management::edmondsKarp( ServicePoint* s, ServicePoint* t) {
 
     // Validate source and target vertices
     if(s==nullptr || t== nullptr || s==t){
@@ -156,7 +138,7 @@ void Management::edmondsKarp( ServicePoint* s, ServicePoint* t, bool balanced) {
     }
 
     // While there is an augmenting path, augment the flow along the path
-    while(findAugmentingPath(s,t,balanced)){
+    while(findAugmentingPath(s,t)){
         double f = findMinResidualAlongPath(s,t);
         augmentFlowAlongPath(s,t,f);
     }
@@ -167,7 +149,7 @@ void Management::edmondsKarp( ServicePoint* s, ServicePoint* t, bool balanced) {
  * @return flowPerCity
  * @details Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes
  */
-std::unordered_map<std::string,int> Management::getMaxFlow(bool balanced) {
+std::unordered_map<std::string,int> Management::getMaxFlow() {
     Reservoir *superSource = new Reservoir("supersource", "x","0", "SRC", INF);
     g->addReservoir(superSource);
     for(ServicePoint* v:g->getReservoirSet()){
@@ -183,19 +165,19 @@ std::unordered_map<std::string,int> Management::getMaxFlow(bool balanced) {
         }
     }
 
-    edmondsKarp(superSource,superSink,balanced);
+    edmondsKarp(superSource,superSink);
 
     std::unordered_map<std::string,int> flowPerCity;
     g->removeServicePoint(superSource);
     g->removeServicePoint(superSink);
     for(ServicePoint* v: g->getCitiesSet()){
-        int maxflow=0;
+        double maxflow=0;
         for(Pipe* e: v->getIncoming()){
             maxflow+=e->getFlow();
         }
         flowPerCity.insert(std::make_pair(v->getCode(),maxflow));
     }
-    if(maxFlowCity.empty() && !balanced)
+    if(maxFlowCity.empty())
         maxFlowCity = flowPerCity;
     return flowPerCity;
 }
@@ -358,7 +340,7 @@ std::vector<std::pair<std::string, flowDiff>> Management::getCitiesAffectedBySta
 }
 
 /**
- * Get average pipe pressure (%) of current graph
+ * @brief Get average pipe pressure (%) of current graph
  * @return average pipe pressure (%)
  */
 float Management::getAveragePipePressure() {
@@ -382,7 +364,7 @@ float Management::getAveragePipePressure() {
 }
 
 /**
- * Get pipe pressure variance (%) of current graph
+ * @brief Get pipe pressure variance (%) of current graph
  * @return pipe pressure variance (%)
  */
 float Management::getVariancePipePressure() {
@@ -407,4 +389,203 @@ float Management::getVariancePipePressure() {
         }
     }
     return ( (totalSquaredPressure - ( (totalPressure * totalPressure) / g->getPipeSet().size() ) ) / (pipeCount) );
+}
+
+
+/**
+ * @brief Finds an augmenting path using Breadth-First Search (used for balancing algorithm)
+ * @param s - source ServicePoint
+ * @param t - target ServicePoint
+ * @return True if path is found
+ * @details Time Complexity O(S+P) and O(P*log(P)) if balanced, S = number of ServicePoints, P = number of Pipes
+ */
+bool Management::findAugmentingPathBalance( ServicePoint *s, ServicePoint *t) {
+    // Mark all vertices as not visited
+    for(ServicePoint*v:g->getServicePointSet()){
+        v->setVisited(false);
+    }
+
+    // Mark the source ServicePoint as visited and enqueue it
+    s->setVisited(true);
+    std::queue<ServicePoint*> q;
+    q.push(s);
+
+    // BFS to find an augmenting path
+    while(!q.empty() && !t->isVisited()){
+        auto v=q.front();
+        q.pop();
+        if(!v->isOperational())
+            continue;
+
+        std::vector<Pipe*> pipes = v->getAdj();
+        std::vector<Pipe*> inpipes = v->getIncoming();
+
+        std::sort(pipes.begin(), pipes.end(), [](Pipe *a, Pipe *b) {
+            return a->getPressure() < b->getPressure();
+        });
+        std::sort(inpipes.begin(), inpipes.end(), [](Pipe *a, Pipe *b) {
+            return a->getPressure() > b->getPressure();
+        });
+
+        // Process incoming Pipes, they reduce pressure of pipe
+        for (Pipe *e: inpipes) {
+            testAndVisit(q, e, e->getOrig(), e->getFlow());
+        }
+        // Process outgoing Pipes, they increase pressure on pipe
+        for (Pipe *e: pipes) {
+            testAndVisit(q, e, e->getDest(), e->getCapacityCap() - e->getFlow());
+        }
+    }
+    // Return true if a path to the target is found, false otherwise
+    return t->isVisited();
+}
+
+/**
+ * @brief Find the minimum residual capacity along the augmenting path (used for balancing algorithm)
+ * @param s - source ServicePoint
+ * @param t - target ServicePoint
+ * @return f
+ * @details Time Complexity O(P) P = number of Pipes between s and t
+ */
+double Management::findMinResidualAlongPathBalance(ServicePoint *s, ServicePoint *t) {
+    double f = INF;
+    // Traverse the augmenting path to find the minimum residual capacity
+    ServicePoint *v=t;
+    while(v!=s){
+        auto e=v->getPath();
+        if(e->getDest()==v){
+            f=std::min(f,e->getCapacityCap()-e->getFlow());
+            v=e->getOrig();
+        }
+        else{
+            f=std::min(f,e->getFlow());
+            v=e->getDest();
+        }
+    }
+    // Return the minimum residual capacity
+    return f;
+}
+
+/**
+ * @brief Augments the flow along the augmenting path with the given flow value (used for balancing algorithm)
+ * @param s - source ServicePoint
+ * @param t - target ServicePoint
+ * @param f - flow value
+ * @details Time Complexity O(P) P = number of Pipes between s and t
+ */
+void Management::augmentFlowAlongPathBalance(ServicePoint *s, ServicePoint *t, double f) {
+    ServicePoint *v=t;
+    while(v!=s){
+        auto e=v->getPath();
+        double flow=e->getFlow();
+        if(e->getDest()==v){
+            e->setFlow(flow+f);
+            v=e->getOrig();
+        }
+        else{
+            e->setFlow(flow-f);
+            v=e->getDest();
+        }
+    }
+}
+
+/**
+ * @brief Performs the EdmondsKarp (used for balancing algorithm)
+ * @param s - source ServicePoint
+ * @param t - target ServicePoint
+ * @details Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes
+ */
+void Management::edmondsKarpBalance( ServicePoint* s, ServicePoint* t, bool reset) {
+
+    // Validate source and target vertices
+    if(s==nullptr || t== nullptr || s==t){
+        throw std::logic_error("Invalid source and/or target ServicePoint");
+    }
+
+    // Initialize flow on all Pipes to 0
+    if (reset) {
+        for (ServicePoint *v: g->getServicePointSet()) {
+            v->setPath(nullptr);
+            for (Pipe *e: v->getAdj()) {
+                e->setFlow(0);
+            }
+        }
+    }
+
+    // While there is an augmenting path, augment the flow along the path
+    while(findAugmentingPathBalance(s,t)){
+        double f = findMinResidualAlongPathBalance(s,t);
+        augmentFlowAlongPathBalance(s,t,f);
+    }
+}
+
+/**
+ * @brief Gets the balanced max flow
+ * @return flowPerCity
+ * @details Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes
+ */
+std::unordered_map<std::string,int> Management::getMaxFlowBalance() {
+    Reservoir *superSource = new Reservoir("supersource", "x","0", "SRC", INF);
+    g->addReservoir(superSource);
+    for(ServicePoint* v:g->getReservoirSet()){
+        if (v->getCode() != "SRC") {
+            g->addPipe("SRC", v->getCode(), ((Reservoir*)v)->getMaxDelivery());
+        }
+    }
+    City *superSink = new City("supersink","01","SINK",INF,INF);
+    g->addCity(superSink);
+    for(ServicePoint* v:g->getCitiesSet()){
+        if (v->getCode() != "SINK") {
+            g->addPipe(v->getCode(), "SINK", ((City*)v)->getDemand());
+        }
+    }
+
+    // run the first full max flow
+    edmondsKarp(superSource,superSink);
+
+    closeToAvg(superSource, superSink);
+
+    std::unordered_map<std::string,int> flowPerCity;
+    g->removeServicePoint(superSource);
+    g->removeServicePoint(superSink);
+    for(ServicePoint* v: g->getCitiesSet()){
+        if (v->getCode() == "SINK")
+            continue;
+        double maxflow=0;
+        for(Pipe* e: v->getIncoming()){
+            maxflow+= e->getFlow();
+        }
+        flowPerCity.insert(std::make_pair(v->getCode(),maxflow));
+    }
+    return flowPerCity;
+}
+
+/**
+ * @brief Reduces the capacity of overpressured pipes to the average pressure
+ * @param superSource super source
+ * @param superSink super sink
+ * @return flowPerCity
+ * @details Time Complexity O(S*P²), S = number of ServicePoints, P = number of Pipes
+ */
+void Management::closeToAvg(ServicePoint *superSource, ServicePoint *superSink) {
+    // reduce capacity to average
+    double avg = getAveragePipePressure();
+    for(Pipe* e: g->getPipeSet()){
+        if (e->getDest()->getCode() == "SINK" || e->getOrig()->getCode() == "SRC")
+            continue;
+        if (e->getFlow() > avg) {
+            e->setCapacityCap(e->getCapacity() * avg);
+        }
+    }
+
+    // run max flow with cap
+    edmondsKarpBalance(superSource, superSink);
+
+    // reestablish full capacity
+    for (Pipe * p : g->getPipeSet()) {
+        p->setCapacityCap(p->getCapacity());
+    }
+
+    // continue previous max flow
+    edmondsKarpBalance(superSource, superSink, false);
 }
