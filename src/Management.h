@@ -36,6 +36,13 @@ public:
     // Metrics
     float getAveragePipePressure();
     float getVariancePipePressure();
+
+    bool findAugmentingPathBalance( ServicePoint *s, ServicePoint *t);
+    double findMinResidualAlongPathBalance(ServicePoint *s, ServicePoint *t);
+    void edmondsKarpBalance( ServicePoint* s, ServicePoint* t, bool reset=true);
+    void augmentFlowAlongPathBalance(ServicePoint *s, ServicePoint *t, double f);
+    std::unordered_map<std::string,int> getMaxFlowBalance();
+    void closeToAvg(ServicePoint *superSource, ServicePoint *superSink);
 };
 
 #endif //PROJECT1_MANAGEMENT_H

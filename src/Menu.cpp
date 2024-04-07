@@ -99,7 +99,7 @@ void Menu::waitMenu(){
             float var = m.getVariancePipePressure() * 100;
             std::ostringstream metricsString;
             metricsString << "PRESSURE:\nOld average = " << std::setprecision(3) << avg << "% / Old variance = " << std::setprecision(3) << var << "%\n";
-            flow = m.getMaxFlow(true);
+            flow = m.getMaxFlowBalance();
             avg = m.getAveragePipePressure() * 100;
             var = m.getVariancePipePressure() * 100;
             metricsString << "New average = " << std::setprecision(3) << avg << "% / New variance = " << std::setprecision(3) << var << "%\n\n";

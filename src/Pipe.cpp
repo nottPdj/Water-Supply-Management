@@ -6,7 +6,7 @@
  * @param dest
  * @param capacity
  */
-Pipe::Pipe(ServicePoint *orig, ServicePoint *dest, int capacity): orig(orig), dest(dest), capacity(capacity) {}
+Pipe::Pipe(ServicePoint *orig, ServicePoint *dest, int capacity): orig(orig), dest(dest), capacity(capacity), capacityCap(capacity) {}
 
 /**
  * @details Gets ServicePoint destination
@@ -102,4 +102,14 @@ void Pipe::setVisited(bool visited) {
  */
 bool Pipe::isOperational() const {
     return operational;
+}
+
+
+double Pipe::getCapacityCap() const {
+    return capacityCap;
+}
+
+
+void Pipe::setCapacityCap(double cap) {
+    capacityCap = cap;
 }

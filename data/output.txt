@@ -1,0 +1,58 @@
+Maximum amount of water that can reach city each city
+
+PRESSURE:
+Old average = 71.6% / Old variance = 20.2%
+New average = 71.2% / New variance = 18.8%
+
+|----------|----------|
+|   Code   |   Flow   |
+|----------|----------|
+|   C_10   |    76    |
+|   C_9    |    59    |
+|   C_6    |   681    |
+|   C_5    |   277    |
+|   C_8    |    89    |
+|   C_4    |   136    |
+|   C_3    |    45    |
+|   C_7    |   225    |
+|   C_2    |    33    |
+|   C_1    |    18    |
+|  TOTAL   |   1639   |
+|----------|----------|
+
+
+Maximum amount of water that can reach city each city
+
+PRESSURE:
+Old average = 64.8% / Old variance = 20.6%
+New average = 64.5% / New variance = 20.3%
+
+|----------|----------|
+|   Code   |   Flow   |
+|----------|----------|
+|   C_22   |   330    |
+|   C_19   |   780    |
+|   C_18   |   200    |
+|   C_16   |    96    |
+|   C_21   |   135    |
+|   C_15   |  12250   |
+|   C_7    |   896    |
+|   C_3    |   110    |
+|   C_4    |   1207   |
+|   C_8    |   100    |
+|   C_1    |    52    |
+|   C_2    |   515    |
+|   C_5    |   125    |
+|   C_20   |   100    |
+|   C_6    |   230    |
+|   C_9    |    53    |
+|   C_17   |   5649   |
+|   C_10   |   220    |
+|   C_14   |   405    |
+|   C_12   |   177    |
+|   C_11   |   380    |
+|   C_13   |   150    |
+|  TOTAL   |  24160   |
+|----------|----------|
+
+

@@ -28,6 +28,8 @@ public:
     void setOperational(bool b);
     void setVisited(bool visited);
 
+    double getCapacityCap() const;
+    void setCapacityCap(double cap);
 protected:
     ServicePoint *orig;
     ServicePoint * dest; // destination ServicePoint
@@ -39,6 +41,8 @@ protected:
     bool visited = false;
 
     Pipe *reverse = nullptr;
+
+    double capacityCap;
 };
 
 
