@@ -98,21 +98,25 @@ $(function() {
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPipe.html#a56f6adfeb149f86e82e63e2f8e9df98f">setOperational</a>(<span class="keywordtype">bool</span> b);</div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classPipe.html#ad8cac09a850ae81a51ba16eaca9a6041">setVisited</a>(<span class="keywordtype">bool</span> visited);</div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="keyword">protected</span>:</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <a class="code" href="classServicePoint.html">ServicePoint</a> *orig;</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <a class="code" href="classServicePoint.html">ServicePoint</a> * dest; <span class="comment">// destination ServicePoint</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160; </div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <span class="keywordtype">double</span> capacity; <span class="comment">// Pipe weight, can also be used for capacity</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">double</span> flow;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">bool</span> operational=<span class="keyword">true</span>;</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    <span class="keywordtype">bool</span> visited = <span class="keyword">false</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <a class="code" href="classPipe.html">Pipe</a> *reverse = <span class="keyword">nullptr</span>;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <span class="keywordtype">double</span> getCapacityCap() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">void</span> setCapacityCap(<span class="keywordtype">double</span> cap);</div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="keyword">protected</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classServicePoint.html">ServicePoint</a> *orig;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="classServicePoint.html">ServicePoint</a> * dest; <span class="comment">// destination ServicePoint</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">double</span> capacity; <span class="comment">// Pipe weight, can also be used for capacity</span></div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">double</span> flow;</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160; </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> operational=<span class="keyword">true</span>;</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="keywordtype">bool</span> visited = <span class="keyword">false</span>;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160; </div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    <a class="code" href="classPipe.html">Pipe</a> *reverse = <span class="keyword">nullptr</span>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//PROJECT1_PIPE_H</span></div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    <span class="keywordtype">double</span> capacityCap;</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;};</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="preprocessor">#endif </span><span class="comment">//PROJECT1_PIPE_H</span></div>
 <div class="ttc" id="aclassPipe_html"><div class="ttname"><a href="classPipe.html">Pipe</a></div><div class="ttdoc">Pipe Class definition.</div><div class="ttdef"><b>Definition:</b> Pipe.h:11</div></div>
 <div class="ttc" id="aclassPipe_html_a47449c3d184d38beda7fe6573a6884be"><div class="ttname"><a href="classPipe.html#a47449c3d184d38beda7fe6573a6884be">Pipe::getOrig</a></div><div class="ttdeci">ServicePoint * getOrig()</div><div class="ttdoc">Gets origin Pipe.</div><div class="ttdef"><b>Definition:</b> Pipe.cpp:31</div></div>
 <div class="ttc" id="aclassPipe_html_a4ea0840dbc29976f4e2124d96fd0e626"><div class="ttname"><a href="classPipe.html#a4ea0840dbc29976f4e2124d96fd0e626">Pipe::setFlow</a></div><div class="ttdeci">void setFlow(double flow)</div><div class="ttdoc">Sets the flow of Pipe.</div><div class="ttdef"><b>Definition:</b> Pipe.cpp:79</div></div>

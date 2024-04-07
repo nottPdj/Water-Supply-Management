@@ -7,15 +7,27 @@
 \begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classManagement}{Management}} Constructor. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classManagement_ac60e75088c411c9c283d3a18fe14e3db}{test\+And\+Visit}} (std\+::queue$<$ \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$ $>$ \&q, \mbox{\hyperlink{classPipe}{Pipe}} $\ast$e, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$w, double residual)
 \begin{DoxyCompactList}\small\item\em Checks if the Service Point is not visited and there is residual capacity, then marks as visited, sets path, and enqueue it. \end{DoxyCompactList}\item 
-bool \mbox{\hyperlink{classManagement_a58bc81ecb1fef8b8c6f8ed21be3c38c6}{find\+Augmenting\+Path}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t, bool balanced=false)
+bool \mbox{\hyperlink{classManagement_a80e0dafd70b371a267eb6013ac94bc4d}{find\+Augmenting\+Path}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t)
 \begin{DoxyCompactList}\small\item\em Finds an augmenting path using Breadth-\/\+First Search. \end{DoxyCompactList}\item 
 double \mbox{\hyperlink{classManagement_aecb1017e3eba3fd5437e0dfe47d06b38}{find\+Min\+Residual\+Along\+Path}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t)
 \begin{DoxyCompactList}\small\item\em Find the minimum residual capacity along the augmenting path. \end{DoxyCompactList}\item 
-void \mbox{\hyperlink{classManagement_a2a0c3daee2a73d9a3534e27ec94fc7e4}{edmonds\+Karp}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t, bool balanced=false)
+void \mbox{\hyperlink{classManagement_a23d8c2535903ec66b651ba345e866a2c}{edmonds\+Karp}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t)
 \begin{DoxyCompactList}\small\item\em Performs the Edmonds\+Karp. \end{DoxyCompactList}\item 
 void \mbox{\hyperlink{classManagement_ad7313075e1b66bfaaa64d13adf229807}{augment\+Flow\+Along\+Path}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t, double f)
 \begin{DoxyCompactList}\small\item\em Augments the flow along the augmenting path with the given flow value. \end{DoxyCompactList}\item 
-std\+::unordered\+\_\+map$<$ std\+::string, int $>$ \mbox{\hyperlink{classManagement_a84dd5c57a67ec7bbf712147c8dcde66f}{get\+Max\+Flow}} (bool balanced=false)
+bool \mbox{\hyperlink{classManagement_a63bd7fbeb5cdee05fc50f6bcd5e7b53c}{find\+Augmenting\+Path\+Balance}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Finds an augmenting path using Breadth-\/\+First Search (used for balancing algorithm) \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{classManagement_a5dbc493fde1750e5d90a5212c5fc7056}{find\+Min\+Residual\+Along\+Path\+Balance}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t)
+\begin{DoxyCompactList}\small\item\em Find the minimum residual capacity along the augmenting path (used for balancing algorithm) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classManagement_a61f71bd3dd5056672b0d6b828edf6bf3}{edmonds\+Karp\+Balance}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t, bool reset=true)
+\begin{DoxyCompactList}\small\item\em Performs the Edmonds\+Karp (used for balancing algorithm) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classManagement_a74f0a13b8de899aeb69d84228311dc0f}{augment\+Flow\+Along\+Path\+Balance}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$s, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$t, double f)
+\begin{DoxyCompactList}\small\item\em Augments the flow along the augmenting path with the given flow value (used for balancing algorithm) \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ std\+::string, int $>$ \mbox{\hyperlink{classManagement_a7f271f3863e1823fc04c7548e4d3e195}{get\+Max\+Flow\+Balance}} ()
+\begin{DoxyCompactList}\small\item\em Gets the balanced max flow. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classManagement_a75092d251078a9e78ebd7943c438e693}{close\+To\+Avg}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$super\+Source, \mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$super\+Sink)
+\begin{DoxyCompactList}\small\item\em Reduces the capacity of overpressured pipes to the average pressure. \end{DoxyCompactList}\item 
+std\+::unordered\+\_\+map$<$ std\+::string, int $>$ \mbox{\hyperlink{classManagement_a57cd2b083fd372bbb89097be973b9824}{get\+Max\+Flow}} ()
 \begin{DoxyCompactList}\small\item\em Gets the max flow overall. \end{DoxyCompactList}\item 
 std\+::pair$<$ std\+::string, int $>$ \mbox{\hyperlink{classManagement_a6233a8f77fd7285ba097d4e09d3118d1}{get\+Max\+Flow\+City}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$city\+Sink)
 \begin{DoxyCompactList}\small\item\em Gets the max flow of a specific \mbox{\hyperlink{classCity}{City}}. \end{DoxyCompactList}\item 
@@ -30,9 +42,9 @@ std\+::vector$<$ std\+::pair$<$ std\+::string, \mbox{\hyperlink{structflowDiff}{
 std\+::vector$<$ std\+::pair$<$ \mbox{\hyperlink{classPipe}{Pipe}} $\ast$, \mbox{\hyperlink{structflowDiff}{flow\+Diff}} $>$ $>$ \mbox{\hyperlink{classManagement_aba0689aa49a6a44d64ff322d2e6779fa}{get\+Crucial\+Pipes\+To\+City}} (\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$sp)
 \begin{DoxyCompactList}\small\item\em Gets the Crucial Pipes to a \mbox{\hyperlink{classCity}{City}}. Checks if the flow of a \mbox{\hyperlink{classCity}{City}} decreases from a \mbox{\hyperlink{classPipe}{Pipe}} removal. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classManagement_a56fc2e6b81ac36ffb25d57c9eb8a808f}{get\+Average\+Pipe\+Pressure}} ()
-\item 
+\begin{DoxyCompactList}\small\item\em Get average pipe pressure (\%) of current graph. \end{DoxyCompactList}\item 
 float \mbox{\hyperlink{classManagement_a18af0d2d51f6387838f20b695e7bcace}{get\+Variance\+Pipe\+Pressure}} ()
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Get pipe pressure variance (\%) of current graph. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \doxysubsection{Constructor \& Destructor Documentation}
@@ -73,11 +85,50 @@ Augments the flow along the augmenting path with the given flow value.
 {\em f} & -\/ flow value\\
 \hline
 \end{DoxyParams}
-Time Complexity O(\+P) P = number of Pipes between s and t \mbox{\Hypertarget{classManagement_a2a0c3daee2a73d9a3534e27ec94fc7e4}\label{classManagement_a2a0c3daee2a73d9a3534e27ec94fc7e4}} 
+Time Complexity O(\+P) P = number of Pipes between s and t \mbox{\Hypertarget{classManagement_a74f0a13b8de899aeb69d84228311dc0f}\label{classManagement_a74f0a13b8de899aeb69d84228311dc0f}} 
+\index{Management@{Management}!augmentFlowAlongPathBalance@{augmentFlowAlongPathBalance}}
+\index{augmentFlowAlongPathBalance@{augmentFlowAlongPathBalance}!Management@{Management}}
+\doxysubsubsection{\texorpdfstring{augmentFlowAlongPathBalance()}{augmentFlowAlongPathBalance()}}
+{\footnotesize\ttfamily void Management\+::augment\+Flow\+Along\+Path\+Balance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{t,  }\item[{double}]{f }\end{DoxyParamCaption})}
+
+
+
+Augments the flow along the augmenting path with the given flow value (used for balancing algorithm) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/ source \mbox{\hyperlink{classServicePoint}{Service\+Point}} \\
+\hline
+{\em t} & -\/ target \mbox{\hyperlink{classServicePoint}{Service\+Point}} \\
+\hline
+{\em f} & -\/ flow value\\
+\hline
+\end{DoxyParams}
+Time Complexity O(\+P) P = number of Pipes between s and t \mbox{\Hypertarget{classManagement_a75092d251078a9e78ebd7943c438e693}\label{classManagement_a75092d251078a9e78ebd7943c438e693}} 
+\index{Management@{Management}!closeToAvg@{closeToAvg}}
+\index{closeToAvg@{closeToAvg}!Management@{Management}}
+\doxysubsubsection{\texorpdfstring{closeToAvg()}{closeToAvg()}}
+{\footnotesize\ttfamily void Management\+::close\+To\+Avg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{super\+Source,  }\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{super\+Sink }\end{DoxyParamCaption})}
+
+
+
+Reduces the capacity of overpressured pipes to the average pressure. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em super\+Source} & super source \\
+\hline
+{\em super\+Sink} & super sink \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+flow\+Per\+City
+\end{DoxyReturn}
+Time Complexity O(S$\ast$\+P²), S = number of Service\+Points, P = number of Pipes \mbox{\Hypertarget{classManagement_a23d8c2535903ec66b651ba345e866a2c}\label{classManagement_a23d8c2535903ec66b651ba345e866a2c}} 
 \index{Management@{Management}!edmondsKarp@{edmondsKarp}}
 \index{edmondsKarp@{edmondsKarp}!Management@{Management}}
 \doxysubsubsection{\texorpdfstring{edmondsKarp()}{edmondsKarp()}}
-{\footnotesize\ttfamily void Management\+::edmonds\+Karp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{t,  }\item[{bool}]{balanced = {\ttfamily false} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily void Management\+::edmonds\+Karp (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{t }\end{DoxyParamCaption})}
 
 
 
@@ -90,15 +141,52 @@ Performs the Edmonds\+Karp.
 {\em t} & -\/ target \mbox{\hyperlink{classServicePoint}{Service\+Point}}\\
 \hline
 \end{DoxyParams}
-Time Complexity O(S$\ast$\+P²), S = number of Service\+Points, P = number of Pipes \mbox{\Hypertarget{classManagement_a58bc81ecb1fef8b8c6f8ed21be3c38c6}\label{classManagement_a58bc81ecb1fef8b8c6f8ed21be3c38c6}} 
+Time Complexity O(S$\ast$\+P²), S = number of Service\+Points, P = number of Pipes \mbox{\Hypertarget{classManagement_a61f71bd3dd5056672b0d6b828edf6bf3}\label{classManagement_a61f71bd3dd5056672b0d6b828edf6bf3}} 
+\index{Management@{Management}!edmondsKarpBalance@{edmondsKarpBalance}}
+\index{edmondsKarpBalance@{edmondsKarpBalance}!Management@{Management}}
+\doxysubsubsection{\texorpdfstring{edmondsKarpBalance()}{edmondsKarpBalance()}}
+{\footnotesize\ttfamily void Management\+::edmonds\+Karp\+Balance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{t,  }\item[{bool}]{reset = {\ttfamily true} }\end{DoxyParamCaption})}
+
+
+
+Performs the Edmonds\+Karp (used for balancing algorithm) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/ source \mbox{\hyperlink{classServicePoint}{Service\+Point}} \\
+\hline
+{\em t} & -\/ target \mbox{\hyperlink{classServicePoint}{Service\+Point}}\\
+\hline
+\end{DoxyParams}
+Time Complexity O(S$\ast$\+P²), S = number of Service\+Points, P = number of Pipes \mbox{\Hypertarget{classManagement_a80e0dafd70b371a267eb6013ac94bc4d}\label{classManagement_a80e0dafd70b371a267eb6013ac94bc4d}} 
 \index{Management@{Management}!findAugmentingPath@{findAugmentingPath}}
 \index{findAugmentingPath@{findAugmentingPath}!Management@{Management}}
 \doxysubsubsection{\texorpdfstring{findAugmentingPath()}{findAugmentingPath()}}
-{\footnotesize\ttfamily bool Management\+::find\+Augmenting\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{t,  }\item[{bool}]{balanced = {\ttfamily false} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily bool Management\+::find\+Augmenting\+Path (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{t }\end{DoxyParamCaption})}
 
 
 
 Finds an augmenting path using Breadth-\/\+First Search. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/ source \mbox{\hyperlink{classServicePoint}{Service\+Point}} \\
+\hline
+{\em t} & -\/ target \mbox{\hyperlink{classServicePoint}{Service\+Point}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if path is found
+\end{DoxyReturn}
+Time Complexity O(S+P) and O(\+P$\ast$log(\+P)) if balanced, S = number of Service\+Points, P = number of Pipes \mbox{\Hypertarget{classManagement_a63bd7fbeb5cdee05fc50f6bcd5e7b53c}\label{classManagement_a63bd7fbeb5cdee05fc50f6bcd5e7b53c}} 
+\index{Management@{Management}!findAugmentingPathBalance@{findAugmentingPathBalance}}
+\index{findAugmentingPathBalance@{findAugmentingPathBalance}!Management@{Management}}
+\doxysubsubsection{\texorpdfstring{findAugmentingPathBalance()}{findAugmentingPathBalance()}}
+{\footnotesize\ttfamily bool Management\+::find\+Augmenting\+Path\+Balance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{t }\end{DoxyParamCaption})}
+
+
+
+Finds an augmenting path using Breadth-\/\+First Search (used for balancing algorithm) 
 
 
 \begin{DoxyParams}{Parameters}
@@ -130,13 +218,37 @@ Find the minimum residual capacity along the augmenting path.
 \begin{DoxyReturn}{Returns}
 f
 \end{DoxyReturn}
+Time Complexity O(\+P) P = number of Pipes between s and t \mbox{\Hypertarget{classManagement_a5dbc493fde1750e5d90a5212c5fc7056}\label{classManagement_a5dbc493fde1750e5d90a5212c5fc7056}} 
+\index{Management@{Management}!findMinResidualAlongPathBalance@{findMinResidualAlongPathBalance}}
+\index{findMinResidualAlongPathBalance@{findMinResidualAlongPathBalance}!Management@{Management}}
+\doxysubsubsection{\texorpdfstring{findMinResidualAlongPathBalance()}{findMinResidualAlongPathBalance()}}
+{\footnotesize\ttfamily double Management\+::find\+Min\+Residual\+Along\+Path\+Balance (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{s,  }\item[{\mbox{\hyperlink{classServicePoint}{Service\+Point}} $\ast$}]{t }\end{DoxyParamCaption})}
+
+
+
+Find the minimum residual capacity along the augmenting path (used for balancing algorithm) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em s} & -\/ source \mbox{\hyperlink{classServicePoint}{Service\+Point}} \\
+\hline
+{\em t} & -\/ target \mbox{\hyperlink{classServicePoint}{Service\+Point}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+f
+\end{DoxyReturn}
 Time Complexity O(\+P) P = number of Pipes between s and t \mbox{\Hypertarget{classManagement_a56fc2e6b81ac36ffb25d57c9eb8a808f}\label{classManagement_a56fc2e6b81ac36ffb25d57c9eb8a808f}} 
 \index{Management@{Management}!getAveragePipePressure@{getAveragePipePressure}}
 \index{getAveragePipePressure@{getAveragePipePressure}!Management@{Management}}
 \doxysubsubsection{\texorpdfstring{getAveragePipePressure()}{getAveragePipePressure()}}
 {\footnotesize\ttfamily float Management\+::get\+Average\+Pipe\+Pressure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Get average pipe pressure (\%) of current graph \begin{DoxyReturn}{Returns}
+
+
+Get average pipe pressure (\%) of current graph. 
+
+\begin{DoxyReturn}{Returns}
 average pipe pressure (\%) 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classManagement_a39fdbdd20651dfda6677461b2f3343fa}\label{classManagement_a39fdbdd20651dfda6677461b2f3343fa}} 
@@ -224,15 +336,28 @@ Get flow deficit of all cities that don\textquotesingle{}t get enough water.
 \begin{DoxyReturn}{Returns}
 vector with city code and respective deficit
 \end{DoxyReturn}
-Time Complexity O(S$\ast$\+P²), S = number of Service\+Points, P = number of Pipes \mbox{\Hypertarget{classManagement_a84dd5c57a67ec7bbf712147c8dcde66f}\label{classManagement_a84dd5c57a67ec7bbf712147c8dcde66f}} 
+Time Complexity O(S$\ast$\+P²), S = number of Service\+Points, P = number of Pipes \mbox{\Hypertarget{classManagement_a57cd2b083fd372bbb89097be973b9824}\label{classManagement_a57cd2b083fd372bbb89097be973b9824}} 
 \index{Management@{Management}!getMaxFlow@{getMaxFlow}}
 \index{getMaxFlow@{getMaxFlow}!Management@{Management}}
 \doxysubsubsection{\texorpdfstring{getMaxFlow()}{getMaxFlow()}}
-{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ std\+::string, int $>$ Management\+::get\+Max\+Flow (\begin{DoxyParamCaption}\item[{bool}]{balanced = {\ttfamily false} }\end{DoxyParamCaption})}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ std\+::string, int $>$ Management\+::get\+Max\+Flow (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
 
 
 Gets the max flow overall. 
+
+\begin{DoxyReturn}{Returns}
+flow\+Per\+City
+\end{DoxyReturn}
+Time Complexity O(S$\ast$\+P²), S = number of Service\+Points, P = number of Pipes \mbox{\Hypertarget{classManagement_a7f271f3863e1823fc04c7548e4d3e195}\label{classManagement_a7f271f3863e1823fc04c7548e4d3e195}} 
+\index{Management@{Management}!getMaxFlowBalance@{getMaxFlowBalance}}
+\index{getMaxFlowBalance@{getMaxFlowBalance}!Management@{Management}}
+\doxysubsubsection{\texorpdfstring{getMaxFlowBalance()}{getMaxFlowBalance()}}
+{\footnotesize\ttfamily std\+::unordered\+\_\+map$<$ std\+::string, int $>$ Management\+::get\+Max\+Flow\+Balance (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the balanced max flow. 
 
 \begin{DoxyReturn}{Returns}
 flow\+Per\+City
@@ -261,7 +386,11 @@ Time Complexity O(S$\ast$\+P²), S = number of Service\+Points, P = number of Pi
 \doxysubsubsection{\texorpdfstring{getVariancePipePressure()}{getVariancePipePressure()}}
 {\footnotesize\ttfamily float Management\+::get\+Variance\+Pipe\+Pressure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
 
-Get pipe pressure variance (\%) of current graph \begin{DoxyReturn}{Returns}
+
+
+Get pipe pressure variance (\%) of current graph. 
+
+\begin{DoxyReturn}{Returns}
 pipe pressure variance (\%) 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classManagement_ac60e75088c411c9c283d3a18fe14e3db}\label{classManagement_ac60e75088c411c9c283d3a18fe14e3db}} 
